@@ -3,6 +3,7 @@
 // esta pantalla, no en el arranque de la web.
 
 import * as datos from '../datos.js';
+import { imagenSuelta } from '../fotos.js';
 import { esc } from '../util.js';
 
 const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
@@ -124,10 +125,12 @@ export async function pintar(main) {
     });
     const enRutas = l.rutas.map(id => datos.RUTA.get(id)).filter(Boolean);
     marca.bindPopup(`
+      ${imagenSuelta(l.id)}
       <b>${esc(l.nombre)}</b>
       <span class="peq">${esc(t.nombre)}${l.precio ? ' · ' + esc(l.precio) : ''}</span>
       <p style="margin:6px 0 0">${esc(l.nota)}</p>
-      <span class="peq">Ruta ${enRutas.map(r => r.numero).join(', ')}${l.aprox ? ' · coordenadas aproximadas' : ''}</span>`);
+      <span class="peq">Ruta ${enRutas.map(r => r.numero).join(', ')}${l.aprox ? ' · coordenadas aproximadas' : ''}</span>`,
+      { minWidth: 240, maxWidth: 280 });
     return { lugar: l, marca };
   });
 

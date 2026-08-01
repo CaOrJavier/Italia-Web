@@ -10,11 +10,13 @@ export let LUGARES = null;
 export let APARCAR = null;
 export let COMER = null;
 export let DORMIR = null;
+export let IMAGENES = null;
 
 /** id → objeto, para resolver las referencias de los días. */
 export const RUTA = new Map();
 export const PARKING = new Map();
 export const CAMA = new Map();
+export const FOTO = new Map();
 
 async function json(ruta) {
   const r = await fetch(ruta);
@@ -23,13 +25,15 @@ async function json(ruta) {
 }
 
 export async function cargar() {
-  const [viaje, rutas, lugares, aparcar, comer, dormir] = await Promise.all([
+  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes] = await Promise.all([
     json('datos/viaje.json'),
     json('datos/rutas.json'),
     json('datos/lugares.json'),
     json('datos/aparcar.json'),
     json('datos/comer.json'),
-    json('datos/dormir.json')
+    json('datos/dormir.json'),
+    // Las fotos son un extra: si faltan, la web va igual, solo que sin imágenes.
+    json('datos/imagenes.json').catch(() => ({ fotos: [] }))
   ]);
 
   VIAJE = viaje;
@@ -38,10 +42,12 @@ export async function cargar() {
   APARCAR = aparcar;
   COMER = comer;
   DORMIR = dormir;
+  IMAGENES = imagenes;
 
   RUTAS.rutas.forEach(r => RUTA.set(r.id, r));
   APARCAR.ciudades.forEach(c => PARKING.set(c.id, c));
   DORMIR.sitios.forEach(s => CAMA.set(s.id, s));
+  (IMAGENES.fotos || []).forEach(f => FOTO.set(f.id, f));
 
   RUTAS.rutas.forEach(comprobarSumas);
   return true;
@@ -102,6 +108,11 @@ export function nochesEnBaseLarga(ruta) {
 export function combustible(ruta) {
   const litros = (ruta.km * VIAJE.coche.consumo_l100) / 100;
   return { litros: Math.round(litros), euros: Math.round(litros * VIAJE.combustible.precio_litro_estimado) };
+}
+
+/** La foto de un lugar, con su autor y su licencia, o null si no tiene. */
+export function fotoDe(idLugar) {
+  return FOTO.get(idLugar) || null;
 }
 
 /** Lugares del mapa que pertenecen a una ruta (o todos si no se pasa ninguna). */

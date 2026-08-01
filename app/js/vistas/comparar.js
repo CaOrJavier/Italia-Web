@@ -2,6 +2,7 @@
 
 import * as datos from '../datos.js';
 import { esc, minutosAHoras, numero, euros } from '../util.js';
+import { figura, creditos, hayFotos } from '../fotos.js';
 import { ir } from '../app.js';
 
 /** Noches en las bases cuyo nombre contiene un texto. */
@@ -47,6 +48,7 @@ export function pintar(main) {
     <h2 class="seccion">Fila a fila</h2>
     ${tabla(rutas)}
     ${decidir(rutas)}
+    ${galeria(rutas)}
   `;
 
   main.querySelectorAll('[data-ver]').forEach(b => {
@@ -100,6 +102,50 @@ function tabla(rutas) {
         `<td class="num${!empate && nums[i] === objetivo ? ' gana' : ''}">${esc(f.v(r))}</td>`).join('')}</tr>`;
     }).join('')}</tbody>
   </table></div>`;
+}
+
+/** La comparación en fotos. Se parte en dos: lo que sale en las tres (que no ayuda
+ *  a decidir, pero es el suelo que tienes garantizado) y lo que solo tiene cada una,
+ *  que es exactamente lo que estás eligiendo. */
+function galeria(rutas) {
+  if (!hayFotos()) return '';
+
+  const todos = datos.LUGARES.lugares;
+  const comunes = todos.filter(l => l.rutas.length === rutas.length);
+  const propios = new Map(rutas.map(r => [r.id, todos.filter(l =>
+    l.rutas.includes(r.id) && l.rutas.length < rutas.length)]));
+
+  return `
+  <h2 class="seccion">Lo que solo ve cada ruta</h2>
+  <p class="intro">Aquí está la decisión en fotos: estos sitios no salen en las tres.
+  Lo que elijas es esto.</p>
+  <div class="vs">${rutas.map(r => `
+    <div class="tarjeta vs-r" style="--barra:${esc(r.color)}">
+      <div class="cab-tarjeta">
+        <h3>${r.numero}. ${esc(r.nombre)}</h3>
+        <span class="etiq etiq-gris">${propios.get(r.id).length} sitios propios</span>
+      </div>
+      <div class="rejilla">${propios.get(r.id).map(l => tarjetaLugar(l)).join('')}</div>
+    </div>`).join('')}
+  </div>
+
+  <h2 class="seccion">Lo que ves vayas por donde vayas</h2>
+  <p class="intro">${comunes.length} sitios que salen en las tres rutas: Roma, Florencia,
+  Cinque Terre y Saturnia con días enteros. Esto no se negocia.</p>
+  <div class="tarjeta"><div class="rejilla">
+    ${comunes.map(l => tarjetaLugar(l)).join('')}
+  </div></div>
+
+  ${creditos()}`;
+}
+
+function tarjetaLugar(l) {
+  const tipo = datos.LUGARES.tipos[l.tipo];
+  const f = figura(l.id, { alto: 110, pie: l.nombre });
+  return `<div class="lugar-mini" style="--c:${esc(tipo.color)}">
+    ${f || '<div class="foto foto-falta" style="--alto:110px" aria-hidden="true"></div>'}
+    <span class="lugar-tipo">${esc(tipo.icono)} ${esc(tipo.nombre)}${l.precio ? ' · ' + esc(l.precio) : ''}</span>
+  </div>`;
 }
 
 function decidir(rutas) {

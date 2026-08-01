@@ -452,6 +452,50 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .cab-tarjeta h3 { font-size: 15.5px; flex: 1; min-width: 0; }
 .cab-tarjeta .peq { flex-basis: 100%; margin: 0; }
 
+/* ── Fotos ───────────────────────────────────────────────────────────────── */
+
+.foto { margin: 0; }
+.foto img {
+  display: block; width: 100%; height: var(--alto, 150px);
+  object-fit: cover;
+  background: var(--papel-3);
+  border-radius: var(--r-peq);
+}
+.foto-falta { height: var(--alto, 150px); background: var(--papel-3); border-radius: var(--r-peq); }
+.foto figcaption { display: block; font-size: 13px; font-weight: 650; margin-top: 5px; line-height: 1.3; }
+
+/* El crédito es obligación de la licencia, no adorno: pequeño, pero siempre visible
+   y con contraste suficiente para leerse. */
+.credito { display: block; font-size: 11px; color: var(--tinta-2); line-height: 1.35; margin-top: 2px; }
+.credito a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+/* Una sola rejilla para los dos sitios donde se usa. No hace falta una variante
+   ancha: dentro de la columna de una ruta salen dos por fila y en la tarjeta a
+   todo lo ancho salen seis, porque lo decide el contenedor y no una clase. */
+.rejilla {
+  display: grid; gap: 12px; padding: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+}
+
+.lugar-mini { min-width: 0; }
+.lugar-tipo {
+  display: block; margin-top: 3px;
+  font-size: 11px; color: var(--tinta-2);
+  border-left: 3px solid var(--c, var(--linea-2)); padding-left: 6px;
+}
+
+.creditos { list-style: none; padding: 0; margin: 8px 0 0; font-size: 12.5px; }
+.creditos li { margin-bottom: 5px; color: var(--tinta-2); }
+.creditos b { color: var(--tinta); font-weight: 650; }
+
+.foto-globo {
+  display: block; width: calc(100% + 26px); margin: -11px -13px 8px;
+  height: 130px; object-fit: cover;
+  border-radius: var(--r-peq) var(--r-peq) 0 0;
+  background: var(--papel-3);
+}
+.leaflet-popup-content .credito { margin: 6px 0 0; }
+
 /* ── Las tres rutas en paralelo ──────────────────────────────────────────── */
 
 /* Sólo tiene sentido a partir de 900 px: con tres columnas más estrechas que eso
