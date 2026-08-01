@@ -41,6 +41,7 @@
   --r: 12px;
   --r-peq: 8px;
   --nav-h: 60px;
+  --nav-pc: 59px;   /* alto de la navegación cuando se pega arriba en el ordenador */
   --tap: 44px;
   --ancho: 940px;
 }
@@ -451,6 +452,103 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .cab-tarjeta h3 { font-size: 15.5px; flex: 1; min-width: 0; }
 .cab-tarjeta .peq { flex-basis: 100%; margin: 0; }
 
+/* ── Las tres rutas en paralelo ──────────────────────────────────────────── */
+
+/* Sólo tiene sentido a partir de 900 px: con tres columnas más estrechas que eso
+   los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista cae
+   sola al modo de una ruta y este interruptor sobra. */
+.modo { display: none; }
+.par { display: none; }
+
+@media (min-width: 900px) {
+  .modo { display: flex; }
+  .par { display: block; margin-bottom: 16px; }
+
+  .par-fila {
+    display: grid;
+    grid-template-columns: 58px repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 10px;
+    /* Estiradas a la misma altura: es lo que hace que se puedan comparar de un
+       vistazo, aunque un día ocupe el triple que otro. */
+    align-items: stretch;
+  }
+
+  /* Debajo de la navegación, que en el ordenador es la que se queda pegada arriba. */
+  .par-cab {
+    position: sticky; top: var(--nav-pc); z-index: 5;
+    padding: 8px 0 6px; background: var(--papel-2);
+  }
+
+  .par-ruta {
+    border-top: 4px solid var(--barra);
+    border-radius: var(--r-peq);
+    background: var(--papel);
+    border-right: 1px solid var(--linea);
+    border-bottom: 1px solid var(--linea);
+    border-left: 1px solid var(--linea);
+    padding: 9px 11px;
+    font-size: 13px;
+  }
+  .par-ruta b { display: block; font-size: 14.5px; }
+  .par-ruta span { display: block; color: var(--tinta-2); }
+  .par-cifras { font-variant-numeric: tabular-nums; margin-top: 2px; }
+  .par-ruta a { display: inline-block; margin-top: 5px; font-size: 12.5px; }
+
+  .par-dia { position: sticky; top: calc(var(--nav-pc) + 64px); }
+  .par-dia .par-abre {
+    width: 100%; padding: 9px 4px;
+    background: var(--papel-3); border: 1px solid var(--linea); border-radius: var(--r-peq);
+    color: var(--tinta-2); font: inherit; text-align: center; cursor: pointer;
+    line-height: 1.25;
+  }
+  .par-dia .par-abre b { display: block; font-size: 14px; color: var(--tinta); }
+  .par-dia .par-abre span { font-size: 11px; }
+  .par-fila.abierta .par-dia .par-abre { background: var(--papel); border-color: var(--linea-2); }
+
+  .par-celda {
+    background: var(--papel);
+    border: 1px solid var(--linea);
+    border-left: 4px solid var(--barra);
+    border-radius: var(--r-peq);
+    overflow: hidden;
+  }
+
+  .par-t {
+    display: block; width: 100%;
+    padding: 10px 11px;
+    background: none; border: 0; font: inherit; color: inherit;
+    text-align: left; cursor: pointer;
+  }
+  .par-t:hover { background: var(--papel-2); }
+  .par-t b { display: block; font-size: 14.5px; line-height: 1.3; }
+  .par-etapa {
+    display: block; font-size: 12.5px; color: var(--tinta-2);
+    margin: 2px 0 6px; line-height: 1.35;
+  }
+  .par-meta { display: flex; flex-wrap: wrap; gap: 5px; }
+  .par-cama {
+    display: block; margin-top: 6px;
+    font-size: 12px; color: var(--tinta-2);
+  }
+
+  .par-detalle { display: none; }
+  .par-fila.abierta .par-detalle {
+    display: block;
+    padding: 0 11px 12px;
+    border-top: 1px solid var(--linea);
+    margin-top: 2px;
+    font-size: 13.5px;
+  }
+  .par-fila.abierta .par-detalle .horas li { grid-template-columns: 46px 1fr; gap: 8px; }
+  .par-fila.abierta .par-detalle .ficha { grid-template-columns: 1fr; }
+  .par-fila.abierta .par-detalle .ficha > div { grid-template-columns: 66px 1fr; }
+}
+
+@media (min-width: 1024px) {
+  main.vista-ancha { max-width: 1360px; }
+}
+
 /* ── Cara a cara ─────────────────────────────────────────────────────────── */
 
 .vs { display: grid; gap: 12px; margin-bottom: 16px; }
@@ -480,11 +578,20 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 @media (min-width: 768px) {
   body { padding-bottom: 26px; }
+
+  /* En el móvil manda la cabecera pegada arriba; en el ordenador manda la
+     navegación. Las dos a la vez con top:0 se pisaban: la nav tapaba el título. */
+  .cabecera { position: static; }
+
   .nav {
-    position: sticky; top: 0; bottom: auto;
+    position: sticky; top: 0; bottom: auto; z-index: 20;
     max-width: var(--ancho); margin: 0 auto;
-    background: transparent; border-top: 0;
-    padding: 10px 14px 0; gap: 6px;
+    /* Fondo opaco y a todo lo ancho: si no, el contenido se ve por detrás al scrollar. */
+    background: var(--papel-2);
+    box-shadow: 0 0 0 100vmax var(--papel-2);
+    clip-path: inset(0 -100vmax);
+    border-top: 0;
+    padding: 10px 14px 10px; gap: 6px;
   }
   .nav a {
     flex: 0 0 auto;

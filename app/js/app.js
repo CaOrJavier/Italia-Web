@@ -47,6 +47,9 @@ async function pintar() {
   if (vista !== vistaActual) main.scrollTop = 0;
   vistaActual = vista;
 
+  // Las vistas pueden marcar el contenedor (el modo de tres columnas lo ensancha).
+  // Se limpia aquí para que la marca no se le quede pegada a la siguiente.
+  main.className = '';
   main.innerHTML = '<p class="cargando">Un momento…</p>';
   try {
     const mod = await VISTAS[vista]();
