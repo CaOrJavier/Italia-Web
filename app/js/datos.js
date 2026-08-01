@@ -12,25 +12,28 @@ export let COMER = [];        // comer.json: qué comer en cada región
 export let ACCESO = [];       // acceso.json: dónde dejar el coche en cada ciudad
 export let RUTAS = null;      // rutas.json: las tres rutas comparadas
 export let ALTERNATIVAS = null; // alternativas.json: las dos variantes del itinerario
+export let IMAGENES = [];     // imagenes.json: la foto de cada día y su crédito
 export let LUGAR = new Map(); // id -> lugar del JSON
 export let NOCHE = new Map(); // id -> noche
 
 export async function cargar() {
   const opcional = (u) => fetch(u).then(r => r.ok ? r.json() : []).catch(() => []);
-  const [viaje, franjas, fichas, comer, acceso, rutas, alternativas] = await Promise.all([
+  const [viaje, franjas, fichas, comer, acceso, rutas, alternativas, imagenes] = await Promise.all([
     fetch('datos/datos-viaje.json').then(r => { if (!r.ok) throw new Error('datos-viaje.json: ' + r.status); return r.json(); }),
     opcional('datos/franjas.json'),
     opcional('datos/fichas.json'),
     opcional('datos/comer.json'),
     opcional('datos/acceso.json'),
     opcional('datos/rutas.json'),
-    opcional('datos/alternativas.json')
+    opcional('datos/alternativas.json'),
+    opcional('datos/imagenes.json')
   ]);
   VIAJE = viaje;
   FRANJAS = franjas;
   FICHAS = fichas;
   COMER = comer;
   ACCESO = acceso;
+  IMAGENES = Array.isArray(imagenes) ? imagenes : [];
   RUTAS = rutas && rutas.rutas ? rutas : null;
   ALTERNATIVAS = alternativas && alternativas.opciones ? alternativas : null;
   LUGAR = new Map(viaje.lugares.map(l => [l.id, l]));

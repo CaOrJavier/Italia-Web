@@ -4,7 +4,7 @@
 //   · Trayecto  — resumen del anillo completo: km, tiempo de volante, salida
 //                 y llegada, y las 12 etapas navegables.
 
-import { esc, avisar, num, duracion, fechaLarga } from '../util.js';
+import { esc, avisar, num, duracion, fechaLarga, haversine } from '../util.js';
 import * as datos from '../datos.js';
 import * as estado from '../estado.js';
 import { abrirHoja, hojaNavegar, ir } from '../ui.js';
@@ -216,6 +216,15 @@ function modoTrayecto(raiz) {
   let acumulado = 0;
 
   raiz.innerHTML = `
+    ${datos.ALTERNATIVAS ? `<div class="aviso-plan">
+      <div class="crece">
+        <b>Estas 12 etapas son el plan cargado, el que sube a Venecia.</b>
+        <span>Las tres rutas nuevas no se pueden mostrar aquí hasta que elijas una: mientras tanto,
+        están dibujadas en <b>Las 3 rutas</b> y día a día en <b>Alternativas</b>.</span>
+      </div>
+      <a class="btn btn-peq" href="#/mapa?vista=rutas">Las 3 rutas</a>
+    </div>` : ''}
+
     <div class="tarjeta">
       <div class="hito">
         <span class="hito-punto hito-salida"></span>
@@ -408,7 +417,28 @@ function modoPuntos(raiz, params) {
   const lugarPedido = params.get('lugar') !== null ? Number(params.get('lugar')) : null;
   let colorearPor = params.get('color') === 'prioridad' ? 'prioridad' : 'categoria';
 
+  // Los puntos son los del itinerario cargado, que sigue siendo el plan con
+  // Venecia. Hasta que se elija ruta, al menos se puede ver cuáles caen dentro
+  // de cada una: los de fuera se apagan en vez de desaparecer, que es lo que
+  // deja ver de un vistazo qué se pierde con cada ruta.
+  const rutas = datos.ALTERNATIVAS?.opciones.filter(o => o.trazado?.length) ?? [];
+  let rutaSel = rutas.some(o => o.id === params.get('r')) ? params.get('r') : 'plan';
+  const RADIO_RUTA = 18; // km: lo que se considera «en la ruta»
+
+  const enRuta = (l) => {
+    if (rutaSel === 'plan') return true;
+    const r = rutas.find(o => o.id === rutaSel);
+    return r.trazado.some(([la, lo]) => haversine([l.lat, l.lon], [la, lo]) <= RADIO_RUTA);
+  };
+
   raiz.innerHTML = `
+    ${rutas.length ? `<div class="filtros" id="f-rutas-p">
+      <span class="suave" style="align-self:center;font-size:13px;font-weight:700;white-space:nowrap">Ruta:</span>
+      <button class="chip" data-rp="plan" aria-pressed="${rutaSel === 'plan'}">Plan cargado ✕</button>
+      ${rutas.map(o => `<button class="chip" data-rp="${esc(o.id)}" aria-pressed="${rutaSel === o.id}">
+        <span class="bolita" style="background:${COLOR_RUTA[o.id]}"></span>${esc(o.letra)} · ${esc(o.etiqueta_corta || o.nombre)}
+      </button>`).join('')}
+    </div>` : ''}
     <div class="filtros" id="f-color">
       <span class="suave" style="align-self:center;font-size:13px;font-weight:700;white-space:nowrap">Color:</span>
       <button class="chip" data-color="categoria" aria-pressed="${colorearPor === 'categoria'}">Categoría</button>
@@ -466,6 +496,7 @@ function modoPuntos(raiz, params) {
     }).addTo(mapa);
 
     capaPuntos = L.layerGroup().addTo(mapa);
+    pintarRuta();
     pintarPuntos();
 
     if (lugarPedido !== null) {
@@ -490,24 +521,42 @@ function modoPuntos(raiz, params) {
     );
   }
 
+  /** La línea de la ruta: el plan cargado a trazos, o la alternativa elegida. */
+  function pintarRuta() {
+    if (!capaRuta || !mapa) return;
+    const r = rutas.find(o => o.id === rutaSel);
+    if (r) {
+      capaRuta.setLatLngs(r.trazado.map(([la, lo]) => [la, lo]));
+      capaRuta.setStyle({ color: COLOR_RUTA[r.id], weight: 4.5, opacity: .95, dashArray: null });
+    } else {
+      capaRuta.setLatLngs(datos.VIAJE.ruta_polilinea);
+      capaRuta.setStyle({ color: '#8c2f22', weight: 3.5, opacity: .65, dashArray: '1 7' });
+    }
+  }
+
   function pintarPuntos() {
     if (!capaPuntos) return;
     const L = window.L;
     capaPuntos.clearLayers();
     const lista = visibles();
-    raiz.querySelector('#cuenta').textContent = `${lista.length} punto${lista.length === 1 ? '' : 's'}`;
+    const dentro = lista.filter(enRuta).length;
+    raiz.querySelector('#cuenta').textContent = rutaSel === 'plan'
+      ? `${lista.length} punto${lista.length === 1 ? '' : 's'}`
+      : `${dentro} de ${lista.length} en la ruta`;
 
     for (const l of lista) {
-      const color = colorearPor === 'prioridad' ? datos.colorPrioridad(l) : datos.categoria(l.categoria).color;
+      const fuera = !enRuta(l);
+      const color = fuera ? '#9aa0a6'
+        : colorearPor === 'prioridad' ? datos.colorPrioridad(l) : datos.categoria(l.categoria).color;
       // El pin se ve de 26 px, pero la zona pulsable es de 44: con el móvil al
       // sol y una sola mano, acertar en 26 px es imposible.
       const icono = L.divIcon({
         className: '',
-        html: `<div class="pin-caja"><div class="pin ${l.coords_aproximadas ? 'aprox' : ''}" style="background:${color}"><b>${l.dia}</b></div></div>`,
+        html: `<div class="pin-caja"><div class="pin ${l.coords_aproximadas ? 'aprox' : ''} ${fuera ? 'fuera-ruta' : ''}" style="background:${color}"><b>${l.dia}</b></div></div>`,
         iconSize: [44, 44], iconAnchor: [22, 35], popupAnchor: [0, -32]
       });
-      L.marker([l.lat, l.lon], { icon: icono, title: l.nombre })
-        .on('click', () => fichaLugar(l))
+      L.marker([l.lat, l.lon], { icon: icono, title: fuera ? `${l.nombre} — fuera de esta ruta` : l.nombre, zIndexOffset: fuera ? -100 : 0 })
+        .on('click', () => fichaLugar(l, fuera))
         .addTo(capaPuntos);
     }
     pintarLeyenda(lista);
@@ -521,6 +570,16 @@ function modoPuntos(raiz, params) {
       return n ? `<span class="etiq" style="background:${datos.PRIORIDADES[k].color};color:#fff">${esc(datos.PRIORIDADES[k].corto)} · ${n}</span>` : '';
     }).join('');
   }
+
+  raiz.querySelector('#f-rutas-p')?.addEventListener('click', ev => {
+    const b = ev.target.closest('[data-rp]');
+    if (!b) return;
+    rutaSel = b.dataset.rp;
+    raiz.querySelectorAll('#f-rutas-p .chip').forEach(c => c.setAttribute('aria-pressed', String(c === b)));
+    pintarRuta();
+    pintarPuntos();
+    if (mapa && capaRuta) mapa.fitBounds(capaRuta.getBounds(), { padding: [22, 22] });
+  });
 
   raiz.querySelector('#f-color').addEventListener('click', ev => {
     const b = ev.target.closest('[data-color]');
@@ -600,10 +659,11 @@ function modoPuntos(raiz, params) {
       }).join('')}`);
   }
 
-  function fichaLugar(l) {
+  function fichaLugar(l, fuera = false) {
     const c = datos.categoria(l.categoria);
     const s = estado.obtener();
     const hecha = !!s.paradas_hechas[l.id];
+    const r = rutas.find(o => o.id === rutaSel);
     const cuerpo = abrirHoja(l.nombre, `
       <div class="envuelve" style="margin-bottom:10px">
         <span class="etiq" style="background:${c.color};color:#fff">${esc(c.nombre)}</span>
@@ -611,6 +671,9 @@ function modoPuntos(raiz, params) {
         ${l.precio ? `<span class="etiq ${/gratis/i.test(l.precio) ? 'etiq-ok' : 'etiq-acento'}">${esc(l.precio)}</span>` : ''}
         ${hecha ? '<span class="etiq etiq-ok">Hecha</span>' : ''}
       </div>
+      ${fuera && r ? `<p class="etiq etiq-alerta" style="white-space:normal;line-height:1.45;padding:9px 12px;margin-bottom:10px">
+        <b>Fuera de la ruta ${esc(r.letra)}</b> (${esc(r.nombre)}): si te quedas con esa ruta, esta parada no la ves.
+      </p>` : ''}
       ${l.descripcion ? `<p>${esc(l.descripcion)}</p>` : ''}
       ${l.nota ? `<p><i>${esc(l.nota)}</i></p>` : ''}
       ${l.coords_aproximadas ? `<p class="etiq etiq-alerta" style="white-space:normal;line-height:1.45;padding:8px 11px">

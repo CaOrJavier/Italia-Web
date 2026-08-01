@@ -398,6 +398,35 @@ label.campo > span { display: block; font-size: 13px; font-weight: 700; color: v
 .linea-dia-ilus .ilus { width: 38px; height: 38px; }
 .linea-dia-ilus b { font-size: 11px; font-weight: 800; color: var(--tinta-2); }
 
+/* Foto del día (Wikimedia Commons). El aspect-ratio es fijo y el hueco ya
+   tiene fondo: así el texto de debajo no salta cuando la imagen entra. */
+.foto-dia { margin: 0 0 13px; }
+.foto-dia img {
+  display: block; width: 100%; aspect-ratio: 16 / 9; max-height: 34vh;
+  object-fit: cover; border-radius: calc(var(--r) - 3px); background: var(--papel-3);
+}
+.foto-dia figcaption {
+  display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 10px;
+  padding: 7px 2px 0; font-size: 13.5px; color: var(--tinta-2);
+}
+.foto-dia figcaption b { font-weight: 600; color: var(--tinta); }
+.foto-dia .credito { font-size: 11.5px; margin-left: auto; }
+
+/* El tema nocturno existe para no quemar la visión nocturna dentro del
+   coche: una foto a todo color lo tira por tierra, así que se pasa a rojo. */
+:root[data-tema="nocturno"] .foto-dia img,
+:root[data-tema="nocturno"] .credito-foto img {
+  filter: grayscale(1) brightness(.5) sepia(1) saturate(6) hue-rotate(-38deg);
+}
+
+.credito-foto { display: flex; align-items: center; gap: 11px; }
+.credito-foto img {
+  flex: none; width: 62px; height: 44px; object-fit: cover;
+  border-radius: 7px; background: var(--papel-3);
+}
+.credito-foto b { display: block; font-size: 14.5px; line-height: 1.3; }
+.credito-foto .suave { font-size: 12.5px; }
+
 .franja { display: flex; gap: 11px; padding: 12px 0; border-top: 1px solid var(--linea); }
 .franja:first-of-type { border-top: none; }
 .franja-hora {
@@ -775,6 +804,64 @@ label.campo > span { display: block; font-size: 13px; font-weight: 700; color: v
 .alt-cifras { display: flex; flex-wrap: wrap; gap: 6px 10px; margin-top: auto; padding-top: 11px; }
 .alt-cifras span { display: flex; flex-direction: column; font-size: 11.5px; color: var(--tinta-2); font-weight: 600; white-space: nowrap; }
 .alt-cifras b { font-size: 17px; color: var(--tinta); font-variant-numeric: tabular-nums; }
+
+/* Puntos que no caen en la ruta seleccionada: se apagan, no se esconden.
+   Ver lo que te dejas es justo lo que ayuda a decidir. */
+.pin.fuera-ruta { opacity: .45; box-shadow: none; }
+
+.aviso-plan {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  margin-bottom: 12px; padding: 11px 13px; border-radius: var(--r);
+  background: var(--alerta-sua); border: 1px solid var(--alerta);
+}
+.aviso-plan b { display: block; font-size: 15px; color: var(--alerta); }
+.aviso-plan span { display: block; font-size: 13.5px; margin-top: 3px; }
+
+/* Cara a cara: los 12 días de las tres rutas en columnas. La cabecera se queda
+   pegada arriba al bajar, o a mitad de tabla ya no sabes qué columna es cuál. */
+.cac { display: grid; }
+.cac-fila { display: grid; grid-template-columns: 34px repeat(3, 1fr); gap: 4px; align-items: stretch; }
+.cac-fila + .cac-fila { margin-top: 4px; }
+.cac-cab {
+  /* Por debajo de la cabecera de la app, que también es sticky. */
+  position: sticky; top: calc(61px + env(safe-area-inset-top)); z-index: 2;
+  background: var(--papel-2); padding: 4px 0 6px; margin-bottom: 2px;
+  border-bottom: 1px solid var(--linea);
+}
+.cac-cab span {
+  display: flex; flex-direction: column; gap: 1px; align-items: center; justify-content: flex-end;
+  font-size: 11px; font-weight: 700; color: var(--tinta-2); line-height: 1.15; text-align: center;
+}
+.cac-cab b {
+  display: grid; place-items: center; width: 21px; height: 21px;
+  border-radius: 6px; background: var(--c); color: #fff; font-size: 12px;
+}
+.cac-dia {
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: var(--tinta-2); text-align: center; line-height: 1.1;
+}
+.cac-celda {
+  display: flex; flex-direction: column; gap: 2px; justify-content: center;
+  min-height: 46px; padding: 6px 5px; text-align: left;
+  background: var(--papel-3); border: 1.5px solid transparent; border-radius: 9px;
+  color: var(--tinta); font: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.cac-celda b { font-size: 12.5px; font-weight: 700; line-height: 1.2; }
+.cac-celda .cac-km { font-size: 11px; font-style: normal; color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+.cac-celda.suelta { border-color: var(--c); background: var(--papel-2); }
+.cac-celda.suelta b { color: var(--c); }
+.cac-igual .cac-celda { opacity: .62; }
+.cac-menos { font-style: normal; color: var(--ok); font-weight: 800; }
+.cac-mas   { font-style: normal; color: var(--peligro); font-weight: 800; }
+.cac-total { margin-top: 8px; padding-top: 8px; border-top: 1px solid var(--linea); }
+.cac-total > span:first-child { display: flex; align-items: center; font-size: 11px; font-weight: 800; color: var(--tinta-2); }
+.cac-total > span:not(:first-child) {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border-radius: 9px; padding: 5px 2px; background: var(--papel-3);
+}
+.cac-total b { font-size: 16px; font-weight: 800; color: var(--c); font-variant-numeric: tabular-nums; }
+.cac-total i { font-size: 10.5px; font-style: normal; color: var(--tinta-2); font-weight: 700; }
 
 .ruta-fila { display: flex; align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--linea); }
 .ruta-fila:last-of-type { border-bottom: none; }

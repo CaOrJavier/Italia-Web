@@ -5,6 +5,7 @@ import * as datos from '../datos.js';
 import * as estado from '../estado.js';
 import { ir, abrirHoja, cerrarHoja, hojaNavegar, confirmar, plegable, recordarPliegues } from '../ui.js';
 import { ilustracionDia } from '../ilustraciones.js';
+import { fotoDia } from '../fotos.js';
 import { paraDia } from '../mas-que-ver.js';
 
 /**
@@ -285,6 +286,7 @@ function detalle(raiz, n) {
     <button class="btn btn-peq" data-volver style="margin-bottom:12px">← Todos los días</button>
 
     <div class="tarjeta">
+      ${fotoDia(n)}
       <div class="cab-dia">
         <span class="cab-dia-ilus">${ilustracionDia(n)}</span>
         <span class="crece">

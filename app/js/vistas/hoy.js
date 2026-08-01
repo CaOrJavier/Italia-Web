@@ -5,6 +5,7 @@ import * as datos from '../datos.js';
 import * as estado from '../estado.js';
 import { ir, hojaNavegar, abrirHoja } from '../ui.js';
 import { ilustracionDia } from '../ilustraciones.js';
+import { fotoDia } from '../fotos.js';
 
 const SOL = `<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8"/></svg>`;
 const LUNA = `<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.2 8.2 0 0 1 9.5 4 8.5 8.5 0 1 0 20 14.5z"/></svg>`;
@@ -124,7 +125,11 @@ function lineaDia(d, esHoy) {
 function bloqueDia(d, n) {
   const r = datos.resumenDia(n);
   const noche = datos.nocheDe(n);
+  // La foto va en esta tarjeta-resumen del final, no arriba: en el día real
+  // lo primero tiene que ser "qué hago ahora", y un banner lo empuja fuera
+  // de la pantalla.
   return `<div class="tarjeta">
+    ${fotoDia(n)}
     <div class="fila fila-sep" style="align-items:flex-start">
       <div class="crece">
         <div class="suave" style="font-size:13.5px;font-weight:700;text-transform:uppercase;letter-spacing:.08em">

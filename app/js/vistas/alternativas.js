@@ -6,9 +6,12 @@
 
 import { esc, num, duracion } from '../util.js';
 import * as datos from '../datos.js';
-import { plegable, recordarPliegues } from '../ui.js';
+import { plegable, recordarPliegues, abrirHoja } from '../ui.js';
 
 const LIMITE_VOLANTE = 240;
+
+/** Los mismos colores que la tabla comparativa y el mapa de las tres rutas. */
+const COLOR = { termas: 'var(--ok)', 'roma-mar': 'var(--info)', norte: 'var(--alerta)' };
 
 export function vistaAlternativas(raiz) {
   const A = datos.ALTERNATIVAS;
@@ -28,6 +31,8 @@ export function vistaAlternativas(raiz) {
 
     ${tablaComparativa(A.comparativa)}
 
+    ${caraACara(A.opciones)}
+
     ${bloqueSaturnia(A.saturnia)}
 
     ${bloqueDiagnostico(A.diagnostico)}
@@ -39,6 +44,115 @@ export function vistaAlternativas(raiz) {
     ${bloqueVerificar(A.verificar)}`;
 
   recordarPliegues(raiz);
+  engancharCaraACara(raiz, A.opciones);
+}
+
+// ---------- Cara a cara: los doce días, las tres rutas, en paralelo ----------
+
+/**
+ * La comparación que de verdad se usa para decidir: día a día y en columnas,
+ * sin subir y bajar. Cada fila es un día; cada columna, una ruta.
+ *
+ * Se marca lo que diferencia a una ruta de las otras dos (borde de su color)
+ * y, en los kilómetros, quién conduce menos ese día (▼) y quién más (▲).
+ */
+function caraACara(opciones) {
+  const rutas = opciones.filter(o => o.dias?.length);
+  if (rutas.length < 2) return '';
+  const dias = rutas[0].dias;
+
+  return `<div class="seccion-tit">Cara a cara <span class="cnt">· los 12 días en paralelo</span></div>
+  <div class="tarjeta">
+    <div class="envuelve" style="margin-bottom:10px">
+      <button class="btn btn-peq btn-pri" data-cac="dif">Solo las diferencias</button>
+      <button class="btn btn-peq" data-cac="todo" hidden>Ver los 12 días</button>
+    </div>
+
+    <div class="cac" id="cac">
+      <div class="cac-fila cac-cab">
+        <span></span>
+        ${rutas.map(r => `<span style="--c:${COLOR[r.id]}"><b>${esc(r.letra)}</b>${esc(r.etiqueta_corta || r.nombre)}</span>`).join('')}
+      </div>
+
+      ${dias.map((_, i) => filaDia(rutas, i)).join('')}
+
+      <div class="cac-fila cac-total">
+        <span>Total</span>
+        ${rutas.map(r => {
+          const km = r.dias.reduce((t, d) => t + d.km, 0);
+          const min = Math.min(...rutas.map(x => x.dias.reduce((t, d) => t + d.km, 0)));
+          return `<span style="--c:${COLOR[r.id]}"><b>${num(km)}</b><i>km${km === min ? ' ▼' : ''}</i></span>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <p class="alt-leyenda">
+      Cada columna es una ruta y cada fila un día. <b>El borde de color</b> marca a la que hace algo
+      distinto de las otras dos; <span class="cac-menos">▼</span> es quien menos conduce ese día y
+      <span class="cac-mas">▲</span> quien más. Toca cualquier celda para ver el día entero.
+    </p>
+  </div>`;
+}
+
+function filaDia(rutas, i) {
+  const celdas = rutas.map(r => r.dias[i]);
+  const textos = celdas.map(c => c.corto || c.etapa);
+  const iguales = textos.every(t => t === textos[0]);
+  const kms = celdas.map(c => c.km);
+  const menos = Math.min(...kms), mas = Math.max(...kms);
+
+  return `<div class="cac-fila ${iguales ? 'cac-igual' : ''}" data-dif="${iguales ? '0' : '1'}">
+    <span class="cac-dia">${esc(celdas[0].etiqueta)}</span>
+    ${celdas.map((c, j) => {
+      const r = rutas[j];
+      // Una celda «suelta» es la que no repite ninguna otra: es lo que distingue a esa ruta.
+      const suelta = !iguales && textos.filter(t => t === textos[j]).length === 1;
+      const flecha = menos === mas ? '' : c.km === menos ? '<i class="cac-menos">▼</i>' : c.km === mas ? '<i class="cac-mas">▲</i>' : '';
+      return `<button class="cac-celda ${suelta ? 'suelta' : ''}" style="--c:${COLOR[r.id]}"
+                data-ruta="${esc(r.id)}" data-dia="${i}">
+        <b>${esc(c.corto || c.etapa)}</b>
+        <i class="cac-km">${num(c.km)} km ${flecha}</i>
+      </button>`;
+    }).join('')}
+  </div>`;
+}
+
+function engancharCaraACara(raiz, opciones) {
+  const caja = raiz.querySelector('#cac');
+  if (!caja) return;
+  const rutas = opciones.filter(o => o.dias?.length);
+
+  raiz.querySelectorAll('[data-cac]').forEach(b => b.addEventListener('click', () => {
+    const soloDif = b.dataset.cac === 'dif';
+    caja.querySelectorAll('[data-dif="0"]').forEach(f => { f.hidden = soloDif; });
+    raiz.querySelector('[data-cac="dif"]').hidden = soloDif;
+    raiz.querySelector('[data-cac="todo"]').hidden = !soloDif;
+  }));
+
+  caja.addEventListener('click', ev => {
+    const b = ev.target.closest('.cac-celda');
+    if (!b) return;
+    const r = rutas.find(x => x.id === b.dataset.ruta);
+    const d = r.dias[Number(b.dataset.dia)];
+    abrirHoja(`${d.etiqueta} · Ruta ${r.letra}`, `
+      <div class="envuelve" style="margin-bottom:10px">
+        <span class="etiq" style="background:${COLOR[r.id]};color:#fff">${esc(r.nombre)}</span>
+        <span class="etiq">${num(d.km)} km</span>
+        <span class="etiq">${duracion(d.min)} de volante</span>
+      </div>
+      <p style="font-size:16.5px;font-weight:600">${esc(d.etapa)}</p>
+      <p class="suave" style="margin-top:8px">Duerme en <b>${esc(d.dormir)}</b>${d.verificar ? ' — por verificar' : ''}</p>
+      ${rutas.filter(x => x.id !== r.id).map(x => `
+        <div class="item-lista">
+          <span class="ruta-color" style="background:${COLOR[x.id]};margin-top:5px"></span>
+          <div class="crece">
+            <div style="font-weight:700">Ruta ${esc(x.letra)}: ${esc(x.dias[Number(b.dataset.dia)].corto || '')}</div>
+            <div class="suave" style="font-size:14px">${esc(x.dias[Number(b.dataset.dia)].etapa)}</div>
+          </div>
+          <b class="mono">${num(x.dias[Number(b.dataset.dia)].km)} km</b>
+        </div>`).join('')}
+      <a class="btn btn-pri btn-blq" href="#/mapa?vista=rutas&r=${esc(r.id)}" style="margin-top:12px">Ver la ruta ${esc(r.letra)} en el mapa</a>`);
+  });
 }
 
 // ---------- Lo que no se negocia ----------

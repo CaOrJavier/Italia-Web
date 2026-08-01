@@ -5,6 +5,7 @@ import * as datos from '../datos.js';
 import * as estado from '../estado.js';
 import { abrirHoja, cerrarHoja, repintar, confirmar } from '../ui.js';
 import * as tiles from '../tiles.js';
+import { creditosHtml } from '../fotos.js';
 
 const TEMAS = [
   { id: 'auto',     nombre: 'Automático',    pista: 'sigue al sistema' },
@@ -67,6 +68,14 @@ export function hojaAjustes() {
 
     <div class="seccion-tit">Empezar de cero</div>
     <button class="btn btn-blq btn-peligro" data-borrar>Borrar todos mis datos</button>
+
+    ${datos.IMAGENES.length ? `
+      <div class="seccion-tit">Créditos de las fotos</div>
+      <p class="suave" style="font-size:14.5px;margin-bottom:10px">
+        Las ${datos.IMAGENES.length} fotos son de Wikimedia Commons, con licencia Creative
+        Commons: hay que citar autor y licencia, y eso es lo que hace esta lista.
+      </p>
+      ${creditosHtml()}` : ''}
 
     <p class="suave centro" style="font-size:13px;margin:22px 0 6px">
       Datos del viaje: ${datos.VIAJE.dias.length} días · ${datos.VIAJE.lugares.length} lugares ·

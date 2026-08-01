@@ -8,10 +8,28 @@
 //
 // => Si tocas cualquier fichero de la lista SHELL, sube VERSION.
 
-const VERSION = 'v29';
+const VERSION = 'v33';
 const CACHE_APP = `italia2026-app-${VERSION}`;
 const CACHE_TILES = 'italia2026-tiles-v1';   // lo comparte js/tiles.js
 const HOST_TILES = 'tile.openstreetmap.org';
+
+// Una foto por día. Van al precaché igual que el resto: una foto que hay que
+// bajar cuando la miras no sirve de nada en los Apeninos sin cobertura.
+// Los créditos y los pies viven en datos/imagenes.json.
+const FOTOS = [
+  'imagenes/d00-civitavecchia.jpg',
+  'imagenes/d01-coliseo.jpg',
+  'imagenes/d02-siena.jpg',
+  'imagenes/d03-sangimignano.jpg',
+  'imagenes/d04-florencia.jpg',
+  'imagenes/d05-pisa.jpg',
+  'imagenes/d06-cinqueterre.jpg',
+  'imagenes/d07-bolonia.jpg',
+  'imagenes/d08-venecia.jpg',
+  'imagenes/d09-ravena.jpg',
+  'imagenes/d10-asis.jpg',
+  'imagenes/d11-vaticano.jpg'
+];
 
 const SHELL = [
   './',
@@ -27,6 +45,7 @@ const SHELL = [
   'js/estado.js',
   'js/tiles.js',
   'js/ilustraciones.js',
+  'js/fotos.js',
   'js/idioma.js',
   'js/mas-que-ver.js',
   'js/vistas/hoy.js',
@@ -44,12 +63,18 @@ const SHELL = [
   'datos/acceso.json',
   'datos/rutas.json',
   'datos/alternativas.json',
+  'datos/imagenes.json',
   'iconos/icono-192.png',
-  'iconos/icono-512.png'
+  'iconos/icono-512.png',
+  ...FOTOS
 ];
 
-// Los iconos pueden faltar sin romper nada; el resto no.
-const PRESCINDIBLES = new Set(['iconos/icono-192.png', 'iconos/icono-512.png', 'manifest.webmanifest']);
+// Lo que puede faltar sin romper nada. Las fotos son decorativas: si una no
+// se descarga, la app arranca igual y ese día se queda sin banner. Al revés
+// —tirar el precaché entero por una foto— sí sería un problema de verdad.
+const PRESCINDIBLES = new Set([
+  'iconos/icono-192.png', 'iconos/icono-512.png', 'manifest.webmanifest', ...FOTOS
+]);
 
 self.addEventListener('install', (ev) => {
   ev.waitUntil((async () => {

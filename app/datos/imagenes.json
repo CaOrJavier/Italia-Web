@@ -1,0 +1,110 @@
+[
+ {
+  "dia": 0,
+  "archivo": "d00-civitavecchia.jpg",
+  "pie": "El puerto de Civitavecchia",
+  "autor": "Smiley.toerist",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Civitavecchia_harbour_2018_2.jpg"
+ },
+ {
+  "dia": 1,
+  "archivo": "d01-coliseo.jpg",
+  "pie": "El Coliseo a primera hora",
+  "autor": "Radek Kucharski",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Early_morning_Colosseo_-_Flickr_-_radkuch.13.jpg"
+ },
+ {
+  "dia": 2,
+  "archivo": "d02-siena.jpg",
+  "pie": "El Palio en Piazza del Campo",
+  "autor": "Janus Kinase",
+  "licencia": "CC BY-SA 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Palio_di_Siena_-_Assunta_2011_-_Piazza_del_Campo.jpg"
+ },
+ {
+  "dia": 3,
+  "archivo": "d03-sangimignano.jpg",
+  "pie": "Las torres de San Gimignano",
+  "autor": "Eric Kilby",
+  "licencia": "CC BY-SA 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:San_Gimignano_Towers.jpg"
+ },
+ {
+  "dia": 4,
+  "archivo": "d04-florencia.jpg",
+  "pie": "Florencia desde Piazzale Michelangelo",
+  "autor": "hozinja",
+  "licencia": "CC BY 2.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/2.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Sunset_in_Florence_from_the_Piazza_Michelangelo.jpg"
+ },
+ {
+  "dia": 5,
+  "archivo": "d05-pisa.jpg",
+  "pie": "La Piazza dei Miracoli de Pisa",
+  "autor": "PaestumPaestum",
+  "licencia": "CC BY 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Piazza_dei_Miracoli_(Pisa)_2023.jpg"
+ },
+ {
+  "dia": 6,
+  "archivo": "d06-cinqueterre.jpg",
+  "pie": "Manarola, Cinque Terre",
+  "autor": "Timothy A. Gonsalves",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:NW_Manarola_Cinque_Terre_Sep23_A7C_06713.jpg"
+ },
+ {
+  "dia": 7,
+  "archivo": "d07-bolonia.jpg",
+  "pie": "Las Due Torri de Bolonia",
+  "autor": "Clo5919",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Bologna_-_le_due_torri_verso_il_cielo.jpg"
+ },
+ {
+  "dia": 8,
+  "archivo": "d08-venecia.jpg",
+  "pie": "El Puente de Rialto sobre el Gran Canal",
+  "autor": "Saffron Blaze",
+  "licencia": "CC BY-SA 3.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Rialto_Bridge_Grand_Canal.jpg"
+ },
+ {
+  "dia": 9,
+  "archivo": "d09-ravena.jpg",
+  "pie": "Teodora en los mosaicos de San Vitale, Rávena",
+  "autor": "Petar Milošević",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Mosaic_of_Theodora_-_Basilica_San_Vitale_(Ravenna).jpg"
+ },
+ {
+  "dia": 10,
+  "archivo": "d10-asis.jpg",
+  "pie": "La Basílica de San Francisco de Asís",
+  "autor": "Jessyangeli90",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Assisi_-_Basilica_di_San_Francesco_con_statua.jpg"
+ },
+ {
+  "dia": 11,
+  "archivo": "d11-vaticano.jpg",
+  "pie": "La plaza de San Pedro",
+  "autor": "Jackzor",
+  "licencia": "CC BY-SA 4.0",
+  "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+  "origen": "https://commons.wikimedia.org/wiki/File:Panorama_of_Saint_Peter%27s_Square.jpg"
+ }
+]
