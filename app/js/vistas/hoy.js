@@ -78,7 +78,7 @@ function bloqueCuentaAtras(hoy, primero) {
       <div class="t">${faltan === 1 ? 'día para salir' : 'días para salir'}</div>
     </div>
     <p class="centro suave" style="margin-top:10px">
-      Ferri a <b>Civitavecchia</b> el ${fechaLarga(primero.fecha)} a las <b>22:00</b>.
+      Ferri a <b>${esc(datos.VIAJE.meta.llegada.puerto)}</b> el ${fechaLarga(primero.fecha)} a las <b>${esc(datos.VIAJE.meta.llegada.hora)}</b>.
     </p>
   </div>`;
 }

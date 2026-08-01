@@ -6,12 +6,12 @@
   "cabecera_km": "22 km · 0:25",
   "franjas": [
    {
-    "hora": "22:00",
+    "hora": "20:30",
     "etiqueta": "Puerto",
-    "html": "<p>Desembarcas de noche la víspera de Ferragosto: la peor combinación posible para improvisar. <b>No busques sitio por la costa</b>, que estará llena de gente hasta las 4 de la mañana. Sal del puerto, coge la SS1 Aurelia y a los 10 km desvíate tierra adentro hacia <b>Tolfa</b>.</p><p><b>Repostar:</b> si llegas con poco, hazlo <b>ya</b> en Civitavecchia en modalidad <i>self</i> (nunca <i>servito</i>: son 13 céntimos/litro más). Y compra agua y comida para mañana: el 15 la mayoría de supermercados cierran o abren solo por la mañana.</p>"
+    "html": "<p>Desembarcas al anochecer la víspera de Ferragosto: mala combinación para improvisar. <b>No busques sitio por la costa</b>, que estará llena de gente hasta las 4 de la mañana. Sal del puerto, coge la SS1 Aurelia y a los 10 km desvíate tierra adentro hacia <b>Tolfa</b>.</p><p><b>Aprovecha la hora:</b> llegando a las 20:30 sales del puerto sobre las 21:00 y <b>todavía te da tiempo a un supermercado</b> (los de Civitavecchia cierran entre 21:00 y 21:30). Es la única compra fácil del viaje: el 15 la mayoría cierran o abren solo por la mañana. Compra agua, fruta, pan y algo de embutido.</p><p><b>Repostar:</b> si llegas con poco, hazlo <b>ya</b> aquí en modalidad <i>self</i> (nunca <i>servito</i>: son 13 céntimos/litro más).</p>"
    },
    {
-    "hora": "23:00",
+    "hora": "22:00",
     "etiqueta": "Tolfa",
     "html": "<p>Pueblo de montaña a 450 m, 22 km. Se duerme <b>4-6 °C más fresco</b> que en la costa y sin humedad. El aparcamiento es asfaltado, iluminado y <b>videovigilado</b>, a 850 m del centro. Es la mejor primera noche posible.</p>"
    }

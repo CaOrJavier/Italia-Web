@@ -12,7 +12,7 @@
   },
   "llegada": {
    "fecha": "2026-08-14",
-   "hora": "22:00",
+   "hora": "20:30",
    "puerto": "Civitavecchia",
    "medio": "ferri con coche"
   },
@@ -68,7 +68,7 @@
    "dormir_ref": "tolfa",
    "amanecer": "06:17",
    "ocaso": "20:12",
-   "aviso": "Llegada del ferri a las 22:00. Bollino rosso 07:00-13:00 (no afecta, llegas de noche).",
+   "aviso": "Llegada del ferri a las 20:30. Bollino rosso 07:00-13:00 (no afecta, llegas de noche). Con esta hora aún pillas un supermercado abierto en Civitavecchia: el 15 casi todo cierra.",
    "lugares": [
     0,
     1,
@@ -326,7 +326,7 @@
    "nombre": "Puerto de Civitavecchia",
    "lat": 42.094,
    "lon": 11.79,
-   "descripcion": "Llegada del ferri, viernes 14 a las 22:00. Repostar aquí en modo «self» y comprar comida: el 15 casi todo cierra.",
+   "descripcion": "Llegada del ferri, viernes 14 a las 20:30. Repostar aquí en modo «self» y comprar comida: el 15 casi todo cierra.",
    "precio": null,
    "coords_aproximadas": false
   },
