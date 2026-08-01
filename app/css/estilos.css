@@ -949,3 +949,17 @@ label.campo > span { display: block; font-size: 13px; font-weight: 700; color: v
 @media (min-width: 560px) {
   .alt-balance { grid-template-columns: 1fr 1fr; }
 }
+
+/* Día apretado: cabe, pero sin margen. Una parada larga de más y te quedas
+   sin tiempo en la ciudad que ibas a ver. */
+.cac-celda.apretada { border-color: var(--alerta); }
+.cac-ojo {
+  display: inline-grid; place-items: center; width: 14px; height: 14px;
+  border-radius: 4px; background: var(--alerta); color: #fff;
+  font-style: normal; font-size: 10px; font-weight: 800; vertical-align: 1px;
+}
+.alt-dia.apretado { background: var(--alerta-sua); border-left-color: var(--alerta); }
+.alt-dia-apretado {
+  display: block; margin-top: 4px; font-size: 12.5px; line-height: 1.4;
+  color: var(--alerta); font-weight: 600;
+}

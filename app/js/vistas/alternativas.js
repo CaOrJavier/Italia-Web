@@ -89,7 +89,8 @@ function caraACara(opciones) {
     <p class="alt-leyenda">
       Cada columna es una ruta y cada fila un día. <b>El borde de color</b> marca a la que hace algo
       distinto de las otras dos; <span class="cac-menos">▼</span> es quien menos conduce ese día y
-      <span class="cac-mas">▲</span> quien más. Toca cualquier celda para ver el día entero.
+      <span class="cac-mas">▲</span> quien más. <span class="cac-ojo">!</span> marca un día apretado: una parada
+      larga de más y no te da tiempo en la ciudad. Toca cualquier celda para ver el día entero.
     </p>
   </div>`;
 }
@@ -108,9 +109,9 @@ function filaDia(rutas, i) {
       // Una celda «suelta» es la que no repite ninguna otra: es lo que distingue a esa ruta.
       const suelta = !iguales && textos.filter(t => t === textos[j]).length === 1;
       const flecha = menos === mas ? '' : c.km === menos ? '<i class="cac-menos">▼</i>' : c.km === mas ? '<i class="cac-mas">▲</i>' : '';
-      return `<button class="cac-celda ${suelta ? 'suelta' : ''}" style="--c:${COLOR[r.id]}"
-                data-ruta="${esc(r.id)}" data-dia="${i}">
-        <b>${esc(c.corto || c.etapa)}</b>
+      return `<button class="cac-celda ${suelta ? 'suelta' : ''} ${c.apretado ? 'apretada' : ''}" style="--c:${COLOR[r.id]}"
+                data-ruta="${esc(r.id)}" data-dia="${i}" ${c.apretado ? `title="${esc(c.apretado)}"` : ''}>
+        <b>${esc(c.corto || c.etapa)}${c.apretado ? ' <i class="cac-ojo">!</i>' : ''}</b>
         <i class="cac-km">${num(c.km)} km ${flecha}</i>
       </button>`;
     }).join('')}
@@ -141,6 +142,9 @@ function engancharCaraACara(raiz, opciones) {
         <span class="etiq">${duracion(d.min)} de volante</span>
       </div>
       <p style="font-size:16.5px;font-weight:600">${esc(d.etapa)}</p>
+      ${d.apretado ? `<p class="etiq etiq-alerta" style="white-space:normal;line-height:1.45;padding:9px 12px;margin:10px 0">
+        <b>Día apretado.</b> ${esc(d.apretado)}
+      </p>` : ''}
       <p class="suave" style="margin-top:8px">Duerme en <b>${esc(d.dormir)}</b>${d.verificar ? ' — por verificar' : ''}</p>
       ${rutas.filter(x => x.id !== r.id).map(x => `
         <div class="item-lista">
@@ -284,7 +288,7 @@ function bloqueOpcion(o) {
 
     <div class="alt-dias">
       ${dias.map(d => `
-        <div class="alt-dia ${d.cambia ? 'cambia' : ''} ${d.hito ? 'hito' : ''}">
+        <div class="alt-dia ${d.cambia ? 'cambia' : ''} ${d.hito ? 'hito' : ''} ${d.apretado ? 'apretado' : ''}">
           <span class="alt-dia-et">${esc(d.etiqueta)}</span>
           <span class="crece">
             <span class="alt-dia-etapa">${esc(d.etapa)}</span>
@@ -292,6 +296,7 @@ function bloqueOpcion(o) {
               <b class="${d.min > LIMITE_VOLANTE ? 'ojo' : ''}">${num(d.km)} km · ${duracion(d.min)}</b>
               · ${esc(d.dormir)}${d.verificar ? ' <i class="alt-ver" title="Noche por verificar">⚠</i>' : ''}
             </span>
+            ${d.apretado ? `<span class="alt-dia-apretado">${esc(d.apretado)}</span>` : ''}
           </span>
         </div>`).join('')}
     </div>

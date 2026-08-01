@@ -83,14 +83,14 @@
     "plan": "1.795",
     "a": "1.412",
     "b": "1.367",
-    "c": "1.662"
+    "c": "1.637"
    },
    {
     "que": "Horas al volante",
     "plan": "24 h",
     "a": "19,5 h",
     "b": "17,5 h",
-    "c": "23 h"
+    "c": "22 h"
    },
    {
     "que": "Día más largo (km)",
@@ -104,7 +104,7 @@
     "plan": "4",
     "a": "1",
     "b": "2",
-    "c": "5"
+    "c": "3"
    },
    {
     "que": "Peajes",
@@ -328,7 +328,8 @@
      "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia",
      "km": 165,
      "min": 180,
-     "dormir": "Villa Costanza · 7 €"
+     "dormir": "Villa Costanza · 7 €",
+     "apretado": "Tres pueblos y 165 km. Si vas justo, Volterra es la que sobra: son 45 min de desvío."
     },
     {
      "n": 4,
@@ -388,7 +389,8 @@
      "min": 210,
      "dormir": "Saturnia · gratis",
      "cambia": true,
-     "verificar": true
+     "verificar": true,
+     "apretado": "300 km. La parada de la costa es playa y comida, no una ciudad: si te entretienes, llegas a Saturnia de noche (que es cuando mejor está)."
     },
     {
      "n": 10,
@@ -398,7 +400,8 @@
      "km": 200,
      "min": 165,
      "dormir": "Bracciano · gratis",
-     "cambia": true
+     "cambia": true,
+     "apretado": "Pitigliano por la mañana y Roma por la tarde. Roma ese día solo da para miradores: la ciudad ya la hiciste el día 1."
     },
     {
      "n": 11,
@@ -570,7 +573,8 @@
      "km": 280,
      "min": 240,
      "dormir": "Villa Costanza · 7 €",
-     "cambia": true
+     "cambia": true,
+     "apretado": "280 km con 3 h de Siena en medio. A Florencia llegas a media tarde: es día de traslado, la ciudad empieza mañana."
     },
     {
      "n": 4,
@@ -628,7 +632,8 @@
      "min": 210,
      "dormir": "Saturnia · gratis",
      "cambia": true,
-     "verificar": true
+     "verificar": true,
+     "apretado": "300 km. La parada de la costa es playa y comida, no una ciudad."
     },
     {
      "n": 10,
@@ -774,12 +779,12 @@
    ],
    "nombre": "Emilia y Umbría",
    "apodo": "La de más ciudades",
-   "km": 1662,
-   "volante": "~23 h",
+   "km": 1637,
+   "volante": "~22 h",
    "coste": "~740 €",
    "idea_html": "Casi el plan cargado, pero <b>corta en Bolonia</b>: en vez de seguir a Rávena y San Marino, baja por la <b>E45, que es gratuita</b>, hacia Asís y Roma. Gana una noche entera en Bolonia y mete Saturnia camino de Siena.",
    "cambios_html": [
-    "<b>Saturnia el domingo por la mañana</b>, camino de Siena: sales de Bracciano a las 06:00, a las 07:30 estás en las pozas casi solo, y a las 11:30 en Siena para el Palio. Son 55 km más que ir directo.",
+    "<b>Saturnia el domingo por la mañana</b>, camino de Siena — pero eso <b>cuesta la provaccia de las 09:00</b>: con el baño llegas a Siena a las 11:30. Es el precio de meter las termas en esta ruta; en la 1 y en la 2 caen en la bajada por la costa, sin competir con nada.",
     "<b>El día 7 se parte en dos.</b> La Spezia → Parma → Módena → Bolonia son 250 km y se duerme en Bolonia; al día siguiente, Bolonia entera a pie sin mover el coche: las dos torres, San Petronio, Santo Stefano, los pórticos y el Quadrilatero.",
     "<b>Bolonia → Asís por la E45</b>, 240 km sin un solo peaje, con los Apeninos de por medio. Se duerme en Asís y a la mañana siguiente la basílica de San Francisco está vacía.",
     "<b>La Cascata delle Marmore</b> de vuelta a Roma: 165 metros de salto, aunque se paga la entrada y solo hay agua a horas concretas.",
@@ -794,7 +799,8 @@
    "pierdes": [
     "Rávena y sus mosaicos, San Leo y San Marino",
     "Solo dos noches en Florencia y dos en La Spezia",
-    "Pitigliano y la Maremma: Saturnia se ve de paso, por la mañana"
+    "Pitigliano y la Maremma: Saturnia se ve de paso, por la mañana",
+    "La provaccia del Palio: Saturnia se come la mañana del domingo"
    ],
    "coste_detalle": "≈ 231 € de gasolina, 45 € de peajes (A12 y A15 de la Cisa; la E45 es gratis), 14 € de dormir, 32,50 € de la Card, entradas ~135 € y 19 €/día de comida. Total <b>≈ 740 €</b>.",
    "dias": [
@@ -825,7 +831,8 @@
      "km": 250,
      "min": 195,
      "dormir": "Area Camper Siena · gratis",
-     "cambia": true
+     "cambia": true,
+     "apretado": "Saturnia y la provaccia de las 09:00 NO caben las dos. Con el baño llegas a Siena a las 11:30 y te pierdes la prueba."
     },
     {
      "n": 3,
@@ -834,7 +841,8 @@
      "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia",
      "km": 165,
      "min": 180,
-     "dormir": "Villa Costanza · 7 €"
+     "dormir": "Villa Costanza · 7 €",
+     "apretado": "Tres pueblos y 165 km. Si vas justo, Volterra es la que sobra."
     },
     {
      "n": 4,
@@ -850,18 +858,18 @@
      "n": 5,
      "etiqueta": "Mié 19",
      "corto": "Lucca y Pisa",
-     "etapa": "Lucca → Pisa → Portovenere → La Spezia",
-     "km": 240,
-     "min": 210,
+     "etapa": "Florencia → Lucca → Pisa → La Spezia",
+     "km": 220,
+     "min": 180,
      "dormir": "Palaspezia · gratis 12 h"
     },
     {
      "n": 6,
      "etiqueta": "Jue 20",
      "corto": "Cinque Terre",
-     "etapa": "Cinque Terre",
-     "km": 10,
-     "min": 15,
+     "etapa": "Cinque Terre + Portovenere por la tarde",
+     "km": 40,
+     "min": 45,
      "dormir": "Palaspezia · gratis 12 h",
      "hito": true
     },
@@ -901,12 +909,13 @@
     {
      "n": 10,
      "etiqueta": "Lun 24",
-     "corto": "Asís y Marmore",
-     "etapa": "Asís → Eremo delle Carceri → Cascata delle Marmore → Bracciano",
-     "km": 250,
-     "min": 210,
+     "corto": "Asís y Eremo",
+     "etapa": "Asís → Eremo delle Carceri → Bracciano",
+     "km": 215,
+     "min": 180,
      "dormir": "Bracciano · gratis",
-     "cambia": true
+     "cambia": true,
+     "apretado": "Asís por la mañana y 215 km de vuelta. La Cascata delle Marmore se ha quitado: eran 2 h más, 12 € y 80 km de desvío."
     },
     {
      "n": 11,

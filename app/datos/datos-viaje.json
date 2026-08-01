@@ -1,7 +1,7 @@
 {
  "meta": {
   "titulo": "Italia en coche · 14-25 agosto 2026",
-  "subtitulo": "Gran Tour circular de 1.950 km desde Civitavecchia",
+  "subtitulo": "Gran Tour circular de 1.765 km desde Civitavecchia",
   "viajero": {
    "solo": true,
    "vehiculo": "Renault Modus",
@@ -117,7 +117,7 @@
    "dormir_ref": "siena",
    "amanecer": "06:19",
    "ocaso": "20:10",
-   "aviso": "PALIO. Salir de Bracciano a las 06:00: a las 07:30 estás en Saturnia con las pozas casi vacías. Bollino rosso 19:00-21:00: no salir de Siena en coche antes de las 22:00.",
+   "aviso": "PALIO. Saturnia y la provaccia de las 09:00 NO caben las dos: con el baño llegas a Siena a las 11:30. Si quieres la provaccia, sáltate Saturnia y sal directo. Bollino rosso 19:00-21:00: no salir de Siena en coche antes de las 22:00.",
    "lugares": [
     77,
     17,
@@ -513,7 +513,7 @@
    "nombre": "Cascate del Mulino (Saturnia)",
    "lat": 42.6467,
    "lon": 11.5108,
-   "descripcion": "Termas naturales al aire libre: agua sulfurosa a 37,5 °C cayendo en pozas de travertino. GRATIS y abiertas las 24 h, sin taquilla ni horario. A las 07:00 estás casi solo; a las 11:00 en agosto no cabe un alfiler. Deja el bañador de repuesto: el azufre huele durante días y ennegrece la plata (quítate anillos y pendientes). Chanclas: el travertino resbala.",
+   "descripcion": "Termas naturales al aire libre: agua sulfurosa a 37,5 °C en pozas de travertino. GRATIS y abiertas 24 h. OJO el día del Palio: son 1 h 30 de parada más 40 min de desvío, y eso te quita la provaccia de las 09:00 en Siena. A las 07:00 estás casi solo; a las 11:00 de un día de agosto no cabe un alfiler. Chanclas y bañador de repuesto: el azufre huele días y ennegrece la plata.",
    "precio": "GRATIS",
    "coords_aproximadas": true
   },
