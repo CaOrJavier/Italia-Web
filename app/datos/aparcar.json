@@ -16,7 +16,7 @@
       "minutos_centro": 45,
       "desglose": "5 min del coche al andén + 30 min de metro + 10 min andando",
       "billete": "BIT 1,50 € · 100 minutos, cualquier combinación de metro, bus y tranvía",
-      "nota": "Anagnina es el intercambiador del sur y el más fácil viniendo por la A1 o la Casilina. Si llegas desde Bracciano por el norte te sale mejor Ponte Mammolo (Metro B) o Cornelia (Metro A). Con el móvil, el tap & go de ATAC te capa el gasto en 8,50 € cada 24 h: si vas a hacer seis o más viajes, sale mejor que picar billetes sueltos."
+      "nota": "Anagnina es el intercambiador del sur y el más fácil viniendo por la A1 o la Casilina. Si llegas desde Bracciano por el norte te sale mejor Ponte Mammolo (Metro B) o Cornelia (Metro A). Con el móvil, el tap & go de ATAC te capa el gasto en 8,50 € cada 24 h: como los tres últimos días haces muchos viajes, sale mejor que picar billetes sueltos."
     },
     {
       "id": "roma-vaticano",
@@ -32,7 +32,41 @@
       "minutos_centro": 25,
       "desglose": "5 min al andén + 8 min de metro + 10 min andando hasta la entrada de los Museos",
       "billete": "BIT 1,50 €",
-      "nota": "Para el último día es mucho mejor que Anagnina: Cornelia está en el lado oeste, se llega por la circunvalación sin pisar el centro, y desde Ottaviano son diez minutos a pie hasta la cola de los Museos. Al salir vuelves al coche y enfilas directo la A12 hacia el puerto.",
+      "nota": "Para el día del Vaticano es mucho mejor que Anagnina: Cornelia está en el lado oeste, se llega desde Bracciano por la circunvalación sin pisar el centro, y desde Ottaviano son diez minutos a pie hasta la cola de los Museos.",
+      "verificar": true
+    },
+    {
+      "id": "orvieto",
+      "ciudad": "Orvieto",
+      "ztl": "Media",
+      "ztl_detalle": "El casco viejo, encaramado en la peña de toba, es ZTL. Pero no hace falta subir en coche: hay funicular.",
+      "parking": "Campo della Fiera, al pie de la peña",
+      "lat": 42.7135,
+      "lon": 12.1075,
+      "aprox": true,
+      "precio": "≈ 1,20 €/h · abonos de día",
+      "transporte": "Ascensores y escaleras mecánicas, o el funicular desde la estación",
+      "minutos_centro": 15,
+      "desglose": "5 min al ascensor + 5 min de subida + 5 min andando hasta el Duomo",
+      "billete": "Incluido en el parking o ≈ 1,30 € el funicular",
+      "nota": "Orvieto tiene el mejor invento de este viaje para un coche: aparcas abajo y subes 50 metros en vertical por unos ascensores excavados en la roca. No intentes subir conduciendo.",
+      "verificar": true
+    },
+    {
+      "id": "viterbo",
+      "ciudad": "Viterbo",
+      "ztl": "Media",
+      "ztl_detalle": "El barrio medieval de San Pellegrino es peatonal y de calles muy estrechas.",
+      "parking": "Aparcamientos de fuera de la muralla",
+      "lat": 42.4175,
+      "lon": 12.1065,
+      "aprox": true,
+      "precio": "Gratis o zona azul barata",
+      "transporte": "A pie",
+      "minutos_centro": 12,
+      "desglose": "12 min andando desde fuera de la muralla hasta San Pellegrino",
+      "billete": "—",
+      "nota": "Ciudad pequeña y sin apuros de aparcamiento fuera de las murallas. Las pozas termales libres del Bulicame están a 3 km, con su propio aparcamiento.",
       "verificar": true
     },
     {

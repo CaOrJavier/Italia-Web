@@ -4,6 +4,7 @@
 
 import * as datos from '../datos.js';
 import { imagenSuelta } from '../fotos.js';
+import { marca, leyenda } from '../marcas.js';
 import { esc } from '../util.js';
 
 const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
@@ -13,8 +14,8 @@ const SRI_CSS = 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=';
 const TESELAS = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 
 // Cada ruta con su patrón de trazo además de su color: en un mapa impreso en gris,
-// o para quien no distingue el verde del rojo, siguen siendo tres líneas distintas.
-const TRAZO = { toscana: null, mar: '9 7', comer: '2 7' };
+// o para quien no distingue el verde del rojo, siguen siendo cuatro líneas distintas.
+const TRAZO = { toscana: null, agua: '9 7', comer: '2 7', etruria: '16 5 3 5' };
 
 let cargando = null;
 
@@ -47,8 +48,10 @@ export async function pintar(main) {
   const tipos = datos.LUGARES.tipos;
 
   main.innerHTML = `
-    <p class="intro">Las tres rutas a la vez. Apaga y enciende cada una para ver en qué se
-    separan: comparten todo el tramo de Roma a Cinque Terre y se distinguen en los extremos.</p>
+    <p class="intro">Las cuatro rutas a la vez. Apaga y enciende cada una para ver en qué se
+    separan: todas suben a Florencia y Cinque Terre y todas acaban en Roma, y lo que cambia
+    es por dónde suben y por dónde bajan.</p>
+    ${leyenda()}
 
     <div class="filtros" id="f-rutas" role="group" aria-label="Rutas">
       ${rutas.map(r => `<button type="button" data-r="${esc(r.id)}" aria-pressed="true"
@@ -113,7 +116,7 @@ export async function pintar(main) {
   const capaPuntos = L.layerGroup().addTo(mapa);
   const puntos = datos.LUGARES.lugares.map(l => {
     const t = datos.LUGARES.tipos[l.tipo];
-    const marca = L.marker([l.lat, l.lon], {
+    const pin = L.marker([l.lat, l.lon], {
       title: l.nombre,
       icon: L.divIcon({
         className: '',
@@ -124,14 +127,15 @@ export async function pintar(main) {
       })
     });
     const enRutas = l.rutas.map(id => datos.RUTA.get(id)).filter(Boolean);
-    marca.bindPopup(`
+    pin.bindPopup(`
       ${imagenSuelta(l.id)}
       <b>${esc(l.nombre)}</b>
       <span class="peq">${esc(t.nombre)}${l.precio ? ' · ' + esc(l.precio) : ''}</span>
       <p style="margin:6px 0 0">${esc(l.nota)}</p>
+      ${marca(l, { largo: true })}
       <span class="peq">Ruta ${enRutas.map(r => r.numero).join(', ')}${l.aprox ? ' · coordenadas aproximadas' : ''}</span>`,
       { minWidth: 240, maxWidth: 280 });
-    return { lugar: l, marca };
+    return { lugar: l, pin };
   });
 
   const activas = new Set(rutas.map(r => r.id));
@@ -144,9 +148,9 @@ export async function pintar(main) {
       else linea.remove();
     });
     capaPuntos.clearLayers();
-    puntos.forEach(({ lugar, marca }) => {
+    puntos.forEach(({ lugar, pin }) => {
       const visible = activos.has(lugar.tipo) && lugar.rutas.some(id => activas.has(id));
-      if (visible) capaPuntos.addLayer(marca);
+      if (visible) capaPuntos.addLayer(pin);
     });
   }
 

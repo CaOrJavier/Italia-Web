@@ -78,7 +78,18 @@ const CANDIDATOS = {
 
   asis: [['es', 'Basílica de San Francisco de Asís'], ['it', "Basilica di San Francesco d'Assisi"], ['es', 'Asís']],
   carceri: [['it', 'Monte Subasio']],
-  orvieto: [['es', 'Orvieto'], ['it', 'Orvieto']]
+  orvieto: [['es', 'Orvieto'], ['it', 'Orvieto']],
+
+  'san-pedro': [['es', 'Basílica de San Pedro'], ['it', 'Basilica di San Pietro in Vaticano']],
+  'bagni-san-filippo': [['it', 'Bagni San Filippo']],
+  'bagno-vignoni': [['it', 'Bagno Vignoni'], ['es', 'Bagno Vignoni']],
+  petriolo: [['it', 'Terme di Petriolo']],
+  'val-dorcia': [['es', "Val d'Orcia"], ['it', "Val d'Orcia"]],
+  cerveteri: [['es', 'Cerveteri'], ['it', 'Cerveteri']],
+  'civita-bagnoregio': [['es', 'Civita di Bagnoregio'], ['it', 'Civita di Bagnoregio']],
+  bomarzo: [['es', 'Parque de los Monstruos'], ['it', 'Parco dei Mostri']],
+  viterbo: [['es', 'Viterbo'], ['it', 'Viterbo']],
+  sorano: [['it', 'Sorano (Italia)'], ['es', 'Sorano']]
 };
 
 // Cuando la portada del artículo no vale (no existe, o ya la usa otro lugar), se
@@ -104,7 +115,14 @@ const BUSQUEDA = {
   bolgheri: 'Viale dei cipressi Bolgheri',
   castiglione: 'Castiglione della Pescaia spiaggia',
   cornelia: 'Cornelia stazione metropolitana Roma',
-  carceri: 'Eremo delle Carceri Assisi'
+  carceri: 'Eremo delle Carceri Assisi',
+  'bagni-san-filippo': 'Fosso Bianco Bagni San Filippo',
+  petriolo: 'Terme di Petriolo Farma',
+  'val-dorcia': 'Val Orcia cipressi',
+  cerveteri: 'Necropoli Banditaccia Cerveteri',
+  bomarzo: 'Sacro Bosco Bomarzo orco',
+  sorano: 'Sorano Grosseto veduta',
+  viterbo: 'San Pellegrino Viterbo quartiere'
 };
 
 /** Con --forzar se vuelven a bajar todas; si no, las que ya están se dejan como
@@ -121,7 +139,12 @@ const FIJAS = {
   carceri: 'Eremo-delle-Carceri-Assisi.JPG',
   // La que devuelve la búsqueda por «Quadrilatero» es en realidad la Biblioteca
   // Salaborsa, que está al lado pero no es el mercado. Esta sí es la calle.
-  quadrilatero: 'Bologna Via Pescherie Vecchie.jpg'
+  quadrilatero: 'Bologna Via Pescherie Vecchie.jpg',
+  // La búsqueda daba un muro con vapor detrás: no se veían las pozas, que es a
+  // lo que vas.
+  petriolo: 'Terme di Petriolo-9389-90.jpg',
+  // Y para Cerveteri, un panorama tan alargado que en la rejilla salía una tira.
+  cerveteri: 'Banditaccia Tomba Dei Capitelli.jpg'
 };
 
 /** La portada de los artículos de pueblos italianos suele ser la bandera o el escudo

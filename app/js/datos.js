@@ -115,6 +115,40 @@ export function fotoDe(idLugar) {
   return FOTO.get(idLugar) || null;
 }
 
+/** id → lugar. */
+export function lugar(id) {
+  return LUGARES.lugares.find(l => l.id === id) || null;
+}
+
+/** Los lugares que toca un día, ya resueltos y sin repetir. */
+export function lugaresDeDia(dia) {
+  return comoArray(dia.lugares).map(lugar).filter(Boolean);
+}
+
+/** En cuántas rutas sale un lugar, traducido a la marca que se pinta en los menús:
+ *  lo que ves siempre, lo que depende de la ruta y lo que solo tiene una.
+ *  Es la respuesta a «¿qué gano y qué pierdo eligiendo esta?». */
+export function exclusividadDe(l) {
+  const total = RUTAS.rutas.length;
+  const n = l.rutas.length;
+  const clave = n >= total ? 'todas' : n === 1 ? 'solo' : 'algunas';
+  const base = LUGARES.exclusividad[clave];
+  // Si es de una sola ruta, la marca se pinta del color de esa ruta: así se ve
+  // de un vistazo a cuál pertenece sin leer nada.
+  const suya = clave === 'solo' ? RUTA.get(l.rutas[0]) : null;
+  return { clave, ...base, color: suya ? suya.color : base.color, ruta: suya, cuantas: n, total };
+}
+
+/** Cuenta de lugares propios de una ruta: los que no salen en todas. */
+export function propiosDe(idRuta) {
+  return LUGARES.lugares.filter(l => l.rutas.includes(idRuta) && l.rutas.length < RUTAS.rutas.length);
+}
+
+/** Lugares exclusivos de una ruta: si no la coges, no los ves. */
+export function exclusivosDe(idRuta) {
+  return LUGARES.lugares.filter(l => l.rutas.length === 1 && l.rutas[0] === idRuta);
+}
+
 /** Lugares del mapa que pertenecen a una ruta (o todos si no se pasa ninguna). */
 export function lugaresDe(idRuta) {
   if (!idRuta) return LUGARES.lugares;

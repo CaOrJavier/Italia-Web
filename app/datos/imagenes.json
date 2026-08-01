@@ -52,6 +52,16 @@
    "articulo": "https://es.wikipedia.org/wiki/Capilla%20Sixtina"
   },
   {
+   "id": "san-pedro",
+   "archivo": "san-pedro.jpg",
+   "pie": "Basílica de San Pedro",
+   "autor": "Jebulon",
+   "licencia": "CC0",
+   "licencia_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "origen": "https://commons.wikimedia.org/wiki/File:Saint_Peter%27s_Basilica_facade,_Rome,_Italy.jpg",
+   "articulo": "https://es.wikipedia.org/wiki/Bas%C3%ADlica%20de%20San%20Pedro"
+  },
+  {
    "id": "panteon",
    "archivo": "panteon.jpg",
    "pie": "Panteón, Navona y Trevi",
@@ -104,7 +114,7 @@
   {
    "id": "cornelia",
    "archivo": "cornelia.jpg",
-   "pie": "Cornelia · aparcamiento del último día",
+   "pie": "Cornelia · aparcamiento del Vaticano",
    "autor": "Notafly",
    "licencia": "CC BY-SA 3.0",
    "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
@@ -362,6 +372,106 @@
    "articulo": "https://it.wikipedia.org/wiki/Sovana"
   },
   {
+   "id": "sorano",
+   "archivo": "sorano.jpg",
+   "pie": "Sorano",
+   "autor": "Zyance",
+   "licencia": "CC BY-SA 3.0",
+   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "origen": "https://commons.wikimedia.org/wiki/File:Sorano_z01.jpg",
+   "articulo": "https://es.wikipedia.org/wiki/Sorano"
+  },
+  {
+   "id": "bagni-san-filippo",
+   "archivo": "bagni-san-filippo.jpg",
+   "pie": "Bagni San Filippo · la Balena Bianca",
+   "autor": "Mongolo1984",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg"
+  },
+  {
+   "id": "bagno-vignoni",
+   "archivo": "bagno-vignoni.jpg",
+   "pie": "Bagno Vignoni",
+   "autor": "Photo2023",
+   "licencia": "CC BY 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_2020.jpg",
+   "articulo": "https://it.wikipedia.org/wiki/Bagno%20Vignoni"
+  },
+  {
+   "id": "petriolo",
+   "archivo": "petriolo.jpg",
+   "pie": "Terme di Petriolo",
+   "autor": "Raimond Spekking",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg"
+  },
+  {
+   "id": "val-dorcia",
+   "archivo": "val-dorcia.jpg",
+   "pie": "Val d'Orcia",
+   "autor": "lo",
+   "licencia": "CC BY-SA 2.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg"
+  },
+  {
+   "id": "cerveteri",
+   "archivo": "cerveteri.jpg",
+   "pie": "Cerveteri · necrópolis de la Banditaccia",
+   "autor": "it:User:Lucius",
+   "licencia": "Public domain",
+   "licencia_url": "",
+   "origen": "https://commons.wikimedia.org/wiki/File:Banditaccia_Tomba_Dei_Capitelli.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Banditaccia_Tomba_Dei_Capitelli.jpg"
+  },
+  {
+   "id": "civita-bagnoregio",
+   "archivo": "civita-bagnoregio.jpg",
+   "pie": "Civita di Bagnoregio",
+   "autor": "Giladtop",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Bagnoregio_at_sunset.JPG",
+   "articulo": "https://es.wikipedia.org/wiki/Civita%20di%20Bagnoregio"
+  },
+  {
+   "id": "bomarzo",
+   "archivo": "bomarzo.jpg",
+   "pie": "Bomarzo · Parco dei Mostri",
+   "autor": "Livioandronico2013",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Monster_in_Parco_dei_Mostri_(Bomarzo).jpg",
+   "articulo": "https://it.wikipedia.org/wiki/Parco%20dei%20Mostri"
+  },
+  {
+   "id": "viterbo",
+   "archivo": "viterbo.jpg",
+   "pie": "Viterbo · barrio medieval y el Bulicame",
+   "autor": "Lalupa",
+   "licencia": "CC BY-SA 3.0",
+   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "origen": "https://commons.wikimedia.org/wiki/File:Viterbo_-_quartiere_san_Pellegrino_0848.JPG",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Viterbo_-_quartiere_san_Pellegrino_0848.JPG"
+  },
+  {
+   "id": "orvieto",
+   "archivo": "orvieto.jpg",
+   "pie": "Orvieto",
+   "autor": "NikonZ7II",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Panorama_di_Orvieto.jpg",
+   "articulo": "https://es.wikipedia.org/wiki/Orvieto"
+  },
+  {
    "id": "parma",
    "archivo": "parma.jpg",
    "pie": "Parma",
@@ -430,16 +540,6 @@
    "licencia_url": "",
    "origen": "https://commons.wikimedia.org/wiki/File:Eremo-delle-Carceri-Assisi.JPG",
    "articulo": "https://commons.wikimedia.org/wiki/File:Eremo-delle-Carceri-Assisi.JPG"
-  },
-  {
-   "id": "orvieto",
-   "archivo": "orvieto.jpg",
-   "pie": "Orvieto",
-   "autor": "NikonZ7II",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Panorama_di_Orvieto.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Orvieto"
   }
  ]
 }

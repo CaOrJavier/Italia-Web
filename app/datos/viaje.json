@@ -49,9 +49,9 @@
       "url": "https://tickets.museivaticani.va/"
     },
     {
-      "que": "Palio dell'Assunta de Siena, 16 de agosto",
-      "detalle": "La plaza es gratis, pero se llena. Confirma en la web del ayuntamiento el horario de la carrera y a qué hora cierran los accesos a Piazza del Campo.",
-      "url": "https://www.comune.siena.it/"
+      "que": "Horarios de verano de Bomarzo, Civita di Bagnoregio y Cerveteri",
+      "detalle": "Solo si coges la ruta 4. Los tres cobran entrada y los tres cierran a media tarde: Cerveteri sobre las 19:30 y es el último día, con el ferri esperando.",
+      "url": "https://www.sacrobosco.it/"
     },
     {
       "que": "Cinque Terre Treno MS Card",
@@ -71,12 +71,12 @@
   ],
   "avisos": [
     {
-      "titulo": "Ferragosto cae el sábado 15",
-      "texto": "Es la fiesta grande del verano italiano. Los romanos se van todos a la playa: la ciudad se queda vacía de locales y es, contra toda intuición, de los mejores días del año para patearla. A cambio, muchas tiendas y trattorias de barrio cierran, y las carreteras hacia la costa están colapsadas justo en dirección contraria a la tuya."
+      "titulo": "Roma va al final, no al principio",
+      "texto": "Los Museos Vaticanos cierran el 15 de agosto y todos los domingos salvo el último de mes. Si Roma fuese el primer día habría que volver a bajar el último solo para ver la Capilla Sixtina, y jugárselo todo a esa mañana. Poniendo Roma los días 23, 24 y 25, la Sixtina cae el lunes 24 con el martes de reserva, y el viaje deja de repetir el mismo trayecto dos veces."
     },
     {
-      "titulo": "La Capilla Sixtina solo cabe el último día",
-      "texto": "Los Museos Vaticanos cierran el 15 de agosto y todos los domingos salvo el último de mes. Con tus fechas, la única ventana es el martes 25 por la mañana, antes del ferri. Por eso las tres rutas acaban igual."
+      "titulo": "Ferragosto cae el sábado 15",
+      "texto": "Es la fiesta grande del verano italiano: medio comercio cierra y las carreteras hacia la costa se colapsan. Como ese día no toca ciudad en ninguna ruta, apenas te afecta: o estás en las termas de Saturnia o vas por la A1 hacia el norte, que es justo la dirección contraria al atasco. Lleva comida en el coche, eso sí."
     },
     {
       "titulo": "Dormir en el coche: dónde está la raya",

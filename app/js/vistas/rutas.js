@@ -6,9 +6,12 @@
 
 import * as datos from '../datos.js';
 import { esc, fechaLarga, fechaCorta, minutosAHoras, numero, euros } from '../util.js';
+import { marcaDia, tiraLugares, leyenda } from '../marcas.js';
+import { figura } from '../fotos.js';
 import { ir } from '../app.js';
 
-const ANCHA = '(min-width: 900px)';
+// Cuatro columnas piden más sitio que tres: por debajo de 1000 px no se leen.
+const ANCHA = '(min-width: 1000px)';
 const esAncha = () => matchMedia(ANCHA).matches;
 
 export function pintar(main, params) {
@@ -88,9 +91,10 @@ function paralelo(main, params, modoExplicito) {
   const dias = rutas[0].dias.length;
 
   main.innerHTML = `
-    <p class="intro">Las tres a la vez, alineadas por día. Pincha en cualquier casilla y se
-    abre la fila entera: así ves qué hacen las otras dos rutas ese mismo día.</p>
+    <p class="intro">Las cuatro a la vez, alineadas por día. Pincha en cualquier casilla y se
+    abre la fila entera: así ves qué hacen las otras tres rutas ese mismo día.</p>
     ${cambiaModo('tres')}
+    ${leyenda()}
     ${comun()}
     <div class="par">
       <div class="par-fila par-cab">
@@ -140,7 +144,7 @@ function fila(n, rutas, abierta) {
   return `<div class="par-fila${abierta ? ' abierta' : ''}" data-n="${n}">
     <div class="par-dia">
       <button type="button" class="par-abre" aria-expanded="${abierta}"
-              aria-label="Abrir el día ${n} en las tres rutas">
+              aria-label="Abrir el día ${n} en las cuatro rutas">
         <b>D${n}</b><span>${esc(fechaCorta(dia0.fecha))}</span>
       </button>
     </div>
@@ -156,6 +160,7 @@ function celda(d, r, abierta) {
       <span class="par-etapa">${esc(d.etapa)}</span>
       <span class="par-meta">
         <span class="etiq etiq-gris">${d.km} km · ${minutosAHoras(d.minutos)}</span>
+        ${marcaDia(d)}
         ${d.apretado ? '<span class="etiq etiq-rojo">! apretado</span>' : ''}
       </span>
       <span class="par-cama">${cama
@@ -171,7 +176,7 @@ function celda(d, r, abierta) {
 function cambiaModo(activo) {
   return `<div class="filtros modo" role="group" aria-label="Cómo ver las rutas">
     <button type="button" data-modo="una" aria-pressed="${activo === 'una'}">Una ruta a lo largo</button>
-    <button type="button" data-modo="tres" aria-pressed="${activo === 'tres'}">Las tres en paralelo</button>
+    <button type="button" data-modo="tres" aria-pressed="${activo === 'tres'}">Las cuatro en paralelo</button>
   </div>`;
 }
 
@@ -185,13 +190,19 @@ function enlazarModo(main) {
 }
 
 export function selector(activa) {
-  return `<div class="selector">${datos.RUTAS.rutas.map(r => `
+  return `<div class="selector">${datos.RUTAS.rutas.map(r => {
+    const solos = datos.exclusivosDe(r.id).length;
+    return `
     <button type="button" data-r="${esc(r.id)}" aria-pressed="${r.id === activa}"
             style="--barra:${esc(r.color)}">
       <span class="num">${r.numero}</span>
       <span class="txt"><b>${esc(r.nombre)}</b><span>${esc(r.lema)}</span></span>
-      <span class="cifra">${numero(r.km)} km<br>${minutosAHoras(r.minutos_volante)}</span>
-    </button>`).join('')}</div>`;
+      <span class="cifra">${numero(r.km)} km<br>${minutosAHoras(r.minutos_volante)}
+        ${solos ? `<br><span class="marca marca-solo" style="--m:${esc(r.color)}"
+          title="${solos} sitios que no salen en ninguna otra ruta"><span class="marca-s"
+          aria-hidden="true">★</span><span>${solos} propios</span></span>` : ''}</span>
+    </button>`;
+  }).join('')}</div>`;
 }
 
 function resumen(r) {
@@ -247,6 +258,14 @@ function dia(d, abierto) {
   </details>`;
 }
 
+/** Las fotos de los sitios del día. Como mucho cuatro: es una muestra, no un álbum. */
+function fotosDia(d) {
+  const con = datos.lugaresDeDia(d).filter(l => datos.fotoDe(l.id)).slice(0, 4);
+  if (!con.length) return '';
+  return `<div class="rejilla rejilla-dia">${con.map(l =>
+    figura(l.id, { alto: 96, pie: l.nombre })).join('')}</div>`;
+}
+
 /** El cuerpo de un día. Lo comparten los dos modos, para que no se dupliquen los datos. */
 function detalle(d) {
   const parkings = datos.parkingsDe(d);
@@ -263,6 +282,9 @@ function detalle(d) {
       `<li><time>${esc(p.hora)}</time><span>${esc(p.que)}</span></li>`).join('')}</ul>
 
     ${d.aviso ? `<div class="caja caja-ojo"><b class="caja-t">Ojo</b>${esc(d.aviso)}</div>` : ''}
+
+    ${fotosDia(d)}
+    ${tiraLugares(d)}
 
     <div class="ficha">
       ${parkings.map(p => `<div>

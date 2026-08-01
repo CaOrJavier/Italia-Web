@@ -38,7 +38,7 @@
     {
       "id": "lazio",
       "region": "Lacio · Roma",
-      "cuando": "Los días de Roma, al principio y al final del viaje",
+      "cuando": "Los tres últimos días, que son los de Roma",
       "resumen": "La cocina romana es de casquería, cerdo curado y oveja: sabores fuertes, cuatro ingredientes y ninguna concesión. Nada de esto lleva nata, y si te lo sirven con nata no estás en Roma.",
       "platos": [
         {
@@ -142,7 +142,7 @@
     {
       "id": "liguria",
       "region": "Liguria · Cinque Terre y La Spezia",
-      "cuando": "Los días de Cinque Terre en las tres rutas",
+      "cuando": "Los días de Cinque Terre, en las cuatro rutas",
       "resumen": "Verde y salado: albahaca, aceite de oliva ligur, piñones y anchoa. Es la cocina de mar más vegetal de Italia, y la más barata de comer de pie.",
       "platos": [
         {
@@ -277,7 +277,7 @@
     {
       "id": "maremma",
       "region": "Maremma · Saturnia y Pitigliano",
-      "cuando": "Los días de las termas en las tres rutas",
+      "cuando": "Los días de Saturnia, casi siempre al principio del viaje",
       "resumen": "La Toscana que no sale en las fotos: vaquera, de jabalí y de toba volcánica. Y, en Pitigliano, con quinientos años de cocina judía encima.",
       "platos": [
         {

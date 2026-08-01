@@ -452,6 +452,61 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .cab-tarjeta h3 { font-size: 15.5px; flex: 1; min-width: 0; }
 .cab-tarjeta .peq { flex-basis: 100%; margin: 0; }
 
+/* ── Marcas de diferencia ────────────────────────────────────────────────── */
+
+/* Un símbolo y un color por sitio según en cuántas rutas sale. El símbolo no es
+   decorativo: es lo que hace que la marca se entienda sin depender del color,
+   que a pleno sol y para quien no distingue rojo de verde no basta. */
+.marca {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 11.5px; font-weight: 650; line-height: 1;
+  color: var(--m, var(--tinta-2));
+  white-space: nowrap;
+}
+.marca-s {
+  display: inline-grid; place-items: center;
+  width: 15px; height: 15px; border-radius: 50%; flex: none;
+  background: color-mix(in srgb, var(--m) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--m) 45%, transparent);
+  font-size: 9px;
+}
+.oculto {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.tira { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 5px; }
+.tira-i {
+  display: grid; grid-template-columns: 15px 1fr auto; gap: 8px; align-items: center;
+  padding: 7px 10px; font-size: 13.5px;
+  background: var(--papel-2);
+  border: 1px solid var(--linea);
+  border-left: 3px solid var(--m, var(--linea-2));
+  border-radius: var(--r-peq);
+}
+.tira-i .marca-s { color: var(--m); }
+.tira-n { min-width: 0; font-weight: 600; }
+.tira-t { font-size: 11px; color: var(--tinta-2); white-space: nowrap; }
+.tira-i.marca-solo .tira-n { color: var(--m); }
+
+.leyenda {
+  background: var(--papel);
+  border: 1px solid var(--linea);
+  border-radius: var(--r);
+  padding: 11px 13px;
+  margin-bottom: 14px;
+  font-size: 13.5px;
+}
+.leyenda > b { display: block; font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--tinta-2); margin-bottom: 8px; }
+.leyenda ul { list-style: none; padding: 0; margin: 0 0 6px; display: grid; gap: 6px; }
+.leyenda li { display: grid; grid-template-columns: 15px 1fr; gap: 9px; align-items: start; margin: 0; }
+.leyenda li .marca-s { color: var(--m); margin-top: 2px; }
+.leyenda p { margin: 0; }
+
+.lugar-mini .marca { margin-top: 4px; white-space: normal; }
+
+.rejilla-dia { padding: 0; margin: 12px 0 0; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+
 /* ── Fotos ───────────────────────────────────────────────────────────────── */
 
 .foto { margin: 0; }
@@ -498,19 +553,19 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 /* ── Las tres rutas en paralelo ──────────────────────────────────────────── */
 
-/* Sólo tiene sentido a partir de 900 px: con tres columnas más estrechas que eso
-   los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista cae
-   sola al modo de una ruta y este interruptor sobra. */
+/* Sólo tiene sentido a partir de 1000 px: con cuatro columnas más estrechas que
+   eso los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista
+   cae sola al modo de una ruta y este interruptor sobra. */
 .modo { display: none; }
 .par { display: none; }
 
-@media (min-width: 900px) {
+@media (min-width: 1000px) {
   .modo { display: flex; }
   .par { display: block; margin-bottom: 16px; }
 
   .par-fila {
     display: grid;
-    grid-template-columns: 58px repeat(3, minmax(0, 1fr));
+    grid-template-columns: 52px repeat(4, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 10px;
     /* Estiradas a la misma altura: es lo que hace que se puedan comparar de un
@@ -613,11 +668,18 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 @media (min-width: 620px) {
   .cifras { grid-template-columns: repeat(4, 1fr); }
   .listas { grid-template-columns: 1fr 1fr; }
-  .selector { grid-template-columns: repeat(3, 1fr); }
+  .selector { grid-template-columns: repeat(2, 1fr); }
   .selector button { flex-direction: column; align-items: flex-start; gap: 7px; }
   .selector .cifra { text-align: left; }
-  .vs { grid-template-columns: repeat(3, 1fr); }
+  .vs { grid-template-columns: repeat(2, 1fr); }
   .ficha { grid-template-columns: 1fr 1fr; }
+  .tira { grid-template-columns: 1fr 1fr; }
+  .leyenda ul { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1000px) {
+  .selector { grid-template-columns: repeat(4, 1fr); }
+  .vs { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media (min-width: 768px) {
