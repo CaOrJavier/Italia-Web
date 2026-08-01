@@ -1,0 +1,90 @@
+{
+  "titulo": "Italia en coche · 14-25 agosto 2026",
+  "subtitulo": "Tres rutas desde Civitavecchia, durmiendo en el coche",
+  "ferri": {
+    "llegada": {
+      "fecha": "2026-08-14",
+      "dia_semana": "viernes",
+      "hora": "20:30",
+      "puerto": "Civitavecchia",
+      "nota": "Desembarcas de noche la víspera de Ferragosto. Contando la maniobra de bajada del ferri, sales del puerto sobre las 21:00."
+    },
+    "salida": {
+      "fecha": "2026-08-25",
+      "dia_semana": "martes",
+      "hora": "22:30",
+      "puerto": "Civitavecchia",
+      "en_puerto": "20:30",
+      "nota": "Dos horas antes en el puerto con coche. Cuenta otra media hora de cola en agosto."
+    },
+    "noches": 11,
+    "dias": 12
+  },
+  "coche": {
+    "modelo": "Renault Modus",
+    "tipo": "turismo",
+    "duerme_dentro": true,
+    "consumo_l100": 6.5,
+    "nota_ztl": "Es un turismo normal, sin permiso de ZTL. En Italia las multas de ZTL las cursan por matrícula extranjera meses después, así que no hay margen: el coche se queda siempre fuera del centro."
+  },
+  "viajero": {
+    "edad": 29,
+    "solo": true,
+    "presupuesto": "bajo",
+    "nota_edad": "A los 29 ya no entras en las tarifas jóvenes europeas: el descuento de 2 € del Coliseo y los gratuitos de museos estatales italianos cortan en 25. Cuenta tarifa completa en todo."
+  },
+  "combustible": {
+    "precio_litro_estimado": 1.8,
+    "nota": "Gasolina 95 en agosto de 2026, estimado. En autopista se paga 20-30 céntimos más por litro: reposta siempre en gasolineras de pueblo, y en las de autoservicio (fai da te), que son las más baratas."
+  },
+  "verificar": [
+    {
+      "que": "Entradas del Coliseo, Foro y Palatino",
+      "detalle": "La venta se abre EXACTAMENTE 30 días antes y la franja horaria es obligatoria. Para el 15 de agosto, eso es el 16 de julio. Es nominativa: lleva el DNI.",
+      "url": "https://colosseo.it/orari-e-biglietti/"
+    },
+    {
+      "que": "Entradas de los Museos Vaticanos",
+      "detalle": "Confirma que el martes 25 abre con horario normal y reserva la primera franja de la mañana. Cierran el 15 de agosto y los domingos que no son el último del mes.",
+      "url": "https://tickets.museivaticani.va/"
+    },
+    {
+      "que": "Palio dell'Assunta de Siena, 16 de agosto",
+      "detalle": "La plaza es gratis, pero se llena. Confirma en la web del ayuntamiento el horario de la carrera y a qué hora cierran los accesos a Piazza del Campo.",
+      "url": "https://www.comune.siena.it/"
+    },
+    {
+      "que": "Cinque Terre Treno MS Card",
+      "detalle": "17,30 € el día en 2026. Confirma el precio de agosto: hay tarifa alta y baja y en verano suele aplicarse la alta.",
+      "url": "https://www.trenitalia.com/en/services/cinque-terre-ms-card.html"
+    },
+    {
+      "que": "Los parkings donde duermes",
+      "detalle": "Precios y normas cambian de una temporada a otra. Contrástalos en park4night o Google Maps la semana antes de salir, y mira si hay señal de prohibida la sosta notturna.",
+      "url": "https://park4night.com/"
+    },
+    {
+      "que": "Uffizi y Accademia de Florencia",
+      "detalle": "Solo si los quieres: son unos 25 € y 16 € en temporada alta y en agosto se agotan. Están fuera del presupuesto mínimo de estas rutas.",
+      "url": "https://www.uffizi.it/"
+    }
+  ],
+  "avisos": [
+    {
+      "titulo": "Ferragosto cae el sábado 15",
+      "texto": "Es la fiesta grande del verano italiano. Los romanos se van todos a la playa: la ciudad se queda vacía de locales y es, contra toda intuición, de los mejores días del año para patearla. A cambio, muchas tiendas y trattorias de barrio cierran, y las carreteras hacia la costa están colapsadas justo en dirección contraria a la tuya."
+    },
+    {
+      "titulo": "La Capilla Sixtina solo cabe el último día",
+      "texto": "Los Museos Vaticanos cierran el 15 de agosto y todos los domingos salvo el último de mes. Con tus fechas, la única ventana es el martes 25 por la mañana, antes del ferri. Por eso las tres rutas acaban igual."
+    },
+    {
+      "titulo": "Dormir en el coche: dónde está la raya",
+      "texto": "En Italia no hay ninguna ley que prohíba dormir dentro del coche. Lo que está prohibido es acampar: en cuanto sacas una silla, una mesa, un hornillo o un toldo, pasas de sosta a campeggio y ahí sí hay multa. Aparcado en regla, con todo dentro y sin ocupar más suelo que el de las ruedas, es legal. Ojo con los carteles de divieto di sosta notturna en costa y en parques naturales, que sí pueden prohibirlo."
+    },
+    {
+      "titulo": "Agosto: duerme alto",
+      "texto": "En la costa tirrena no baja de 26 °C por la noche y dentro del coche no se aguanta. A 400-500 m de altitud se duerme 4-6 °C más fresco. Por eso la primera noche es en Tolfa y no en Civitavecchia, aunque queden 22 km cuesta arriba."
+    }
+  ]
+}

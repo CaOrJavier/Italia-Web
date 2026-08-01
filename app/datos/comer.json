@@ -1,0 +1,316 @@
+{
+  "intro": "Comer bien en Italia con poco dinero no va de encontrar sitios baratos: va de comer donde comen ellos y a las horas de ellos. Un plato de pasta hecho como Dios manda cuesta 9 € en una trattoria de barrio y 22 € a cincuenta metros de la catedral. Todo lo que hay aquí abajo se come por menos de 12 €, y casi nada tiene equivalente en España.",
+  "trucos": [
+    {
+      "titulo": "El precio lo marca la distancia al monumento",
+      "texto": "La regla es tonta y no falla: aléjate tres calles de la plaza principal y el mismo plato cuesta la mitad. Si tiene la carta traducida a cuatro idiomas con fotos, o hay alguien en la puerta invitándote a entrar, sigue andando."
+    },
+    {
+      "titulo": "De pie en la barra se paga menos",
+      "texto": "En Italia hay dos precios legales: al banco (de pie en la barra) y al tavolo (sentado). Un café de pie son 1,20 €; sentado en una terraza con vistas, 4,50 €. Y en restaurante te cobran el coperto, 2-3 € por sentarte y por el pan, aunque no lo pidas."
+    },
+    {
+      "titulo": "La tavola calda es tu comedor",
+      "texto": "Rosticcerías y tavole calde: platos ya hechos que te pesan y te cobran al peso o por ración. 5-8 € y comes lo mismo que en la trattoria de al lado. En Roma y en Bolonia hay una en cada esquina."
+    },
+    {
+      "titulo": "El mercado cubierto resuelve la cena",
+      "texto": "Entras al mercado, pides 100 g de embutido, un trozo de queso y pan del horno, y te has cenado por 6 € algo que en España no venden. En Bolonia (Quadrilatero), Florencia (Mercato Centrale) y Roma (Testaccio) es casi obligatorio."
+    },
+    {
+      "titulo": "El agua es gratis",
+      "texto": "Roma tiene 2.500 fuentes públicas (los nasoni) manando agua potable y fría todo el día. En cualquier pueblo hay fuente en la plaza. Llévate dos botellas de litro y no compres agua embotellada ni una vez: en agosto son 4-5 € al día de diferencia."
+    },
+    {
+      "titulo": "El súper es Eurospin o Lidl",
+      "texto": "Para el desayuno y la despensa del coche: Eurospin y Lidl son los más baratos, luego Conad y Coop. Compra el parmesano, el jamón y el vino aquí y no en la tienda de recuerdos: el mismo Parmigiano Reggiano DOP cuesta la tercera parte."
+    },
+    {
+      "titulo": "El aperitivo del norte es la cena",
+      "texto": "De Florencia hacia arriba, y sobre todo en Bolonia, pides una bebida entre las 18:30 y las 21:00 y te ponen una barra libre de embutido, focaccia, pasta fría y fritos. Son 8-12 € y sales cenado. Búscalo como apericena."
+    },
+    {
+      "titulo": "Nunca a la hora del turista",
+      "texto": "Los italianos comen de 13:00 a 14:30 y cenan de 20:00 a 22:00. Fuera de esas horas, en muchos sitios solo queda la cocina de recalentar. Y en agosto media Italia cierra por vacaciones: si ves una trattoria llena de gente hablando italiano a las 13:30, entra sin mirar la carta."
+    }
+  ],
+  "regiones": [
+    {
+      "id": "lazio",
+      "region": "Lacio · Roma",
+      "cuando": "Los días de Roma, al principio y al final del viaje",
+      "resumen": "La cocina romana es de casquería, cerdo curado y oveja: sabores fuertes, cuatro ingredientes y ninguna concesión. Nada de esto lleva nata, y si te lo sirven con nata no estás en Roma.",
+      "platos": [
+        {
+          "nombre": "Cacio e pepe",
+          "que_es": "Pasta con pecorino romano y pimienta negra. Tres ingredientes contando la pasta. La gracia está en emulsionar el queso con el agua de cocción hasta que hace crema sin cuajarse: es una de las cosas más difíciles de hacer bien de la cocina italiana.",
+          "precio": "9-12 €",
+          "donde": "Trattorias de Testaccio y del Trastevere de detrás",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Carbonara de verdad",
+          "que_es": "Huevo, pecorino, pimienta y guanciale (papada de cerdo curada, no panceta ni bacon). Ni nata, ni cebolla, ni jamón. El guanciale es el que cambia el plato: se deshace y suelta una grasa dulce que no se parece a nada.",
+          "precio": "10-13 €",
+          "donde": "Testaccio, el barrio del antiguo matadero",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Pizza al taglio",
+          "que_es": "Pizza romana en bandeja rectangular, masa fina y crujiente, que se corta con tijera y se paga al peso. Nada que ver con la napolitana. Señalas, te cortan un trozo, te lo pesan.",
+          "precio": "3-5 € un trozo que llena",
+          "donde": "Cualquier forno de barrio, a mediodía",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Supplì",
+          "que_es": "Croqueta de arroz con ragú y una tira de mozzarella dentro que hace hilo al partirlo. El primo romano del arancino siciliano. Es lo que se come de pie mientras andas.",
+          "precio": "2-3 €",
+          "donde": "Fornos y pizzerías al taglio",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Porchetta",
+          "que_es": "Cerdo entero deshuesado, especiado con hinojo y romero y asado hasta que la corteza cruje. Se come en bocadillo, cortado grueso. La de Ariccia, en los Castelli Romani, es la buena.",
+          "precio": "5-6 € el bocadillo",
+          "donde": "Puestos de mercado y furgonetas de carretera",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Maritozzo",
+          "que_es": "Bollo dulce abierto y relleno de nata montada hasta reventar. Es el desayuno romano de toda la vida, no un postre moderno.",
+          "precio": "2-3 €",
+          "donde": "Cualquier bar a primera hora",
+          "imprescindible": false
+        }
+      ],
+      "donde_comer": "Testaccio es el barrio: fue el matadero de Roma y ahí nació esta cocina. El Mercato di Testaccio a mediodía tiene puestos de comida preparada a 5-8 €. En el Trastevere, cruza la Viale di Trastevere y aléjate de la plaza de Santa Maria.",
+      "presupuesto_dia": "12-18 €"
+    },
+    {
+      "id": "toscana",
+      "region": "Toscana · Florencia, Siena y los pueblos",
+      "cuando": "El grueso del viaje en las tres rutas",
+      "resumen": "Cocina de pobres hecha con productos buenísimos: pan sin sal, aceite verde, legumbre, casquería y caza. En agosto se come frío y en ensalada, que es justo lo que quieres.",
+      "platos": [
+        {
+          "nombre": "Lampredotto",
+          "que_es": "El cuarto estómago de la vaca, cocido en caldo con tomate y hierbas, servido en un panecillo mojado en el propio caldo, con salsa verde y picante. Es el bocadillo callejero de Florencia desde el siglo XV, y lo comen desde el albañil hasta el abogado, de pie, a las once de la mañana.",
+          "precio": "4-6 €",
+          "donde": "Los carritos (lampredottai) del Mercato Nuovo, Sant'Ambrogio y Piazza dei Cimatori",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Panzanella",
+          "que_es": "Ensalada de pan duro remojado con tomate, cebolla roja, pepino y albahaca. Suena a poca cosa y en agosto, a 38 °C, es exactamente lo que el cuerpo pide. Se come fría.",
+          "precio": "6-8 €",
+          "donde": "Cualquier trattoria en verano",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Pici all'aglione",
+          "que_es": "Pasta gorda hecha a mano rodando la masa con las palmas, con salsa de tomate y aglione, un ajo gigante de la Val di Chiana que no repite. Es el plato de Siena.",
+          "precio": "8-10 €",
+          "donde": "Siena y los pueblos del sur",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Crostini di fegatini",
+          "que_es": "Pan tostado con paté de hígado de pollo, alcaparras y anchoa. El aperitivo toscano de siempre. Amarga un poco y engancha.",
+          "precio": "5-7 €",
+          "donde": "Trattorias y enotecas",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Schiacciata con salumi",
+          "que_es": "Focaccia toscana fina y salada, abierta y rellena de embutido y pecorino. En San Gimignano y en Florencia es lo que comes andando por 5 €.",
+          "precio": "4-6 €",
+          "donde": "Fornos y salumerías",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Pecorino di Pienza",
+          "que_es": "Queso de oveja curado en heno o en ceniza. En la Toscana no se come manchego: se come esto, y es otra cosa. Cómpralo en el mercado y llévatelo al coche.",
+          "precio": "3-4 € una cuña para dos días",
+          "donde": "Mercados y caseifici de la Val d'Orcia",
+          "imprescindible": true
+        }
+      ],
+      "donde_comer": "En Florencia, el Mercato Centrale de San Lorenzo (abajo el mercado, arriba los puestos de comida) y el Mercato di Sant'Ambrogio, que es el de verdad, donde no hay turistas. Cruza el Arno al Oltrarno: Santo Spirito y San Frediano tienen los precios de barrio.",
+      "presupuesto_dia": "12-18 €"
+    },
+    {
+      "id": "liguria",
+      "region": "Liguria · Cinque Terre y La Spezia",
+      "cuando": "Los días de Cinque Terre en las tres rutas",
+      "resumen": "Verde y salado: albahaca, aceite de oliva ligur, piñones y anchoa. Es la cocina de mar más vegetal de Italia, y la más barata de comer de pie.",
+      "platos": [
+        {
+          "nombre": "Trofie al pesto",
+          "que_es": "Pasta corta y retorcida con pesto genovés: albahaca DOP de Prá, piñones, ajo, parmesano, pecorino y aceite ligur, majado en mortero. El pesto de tarro español y esto no son el mismo plato ni de lejos. Se sirve con patata y judía verde dentro, que es como se hace en casa.",
+          "precio": "9-12 €",
+          "donde": "Cualquier trattoria de los cinco pueblos o de La Spezia",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Focaccia genovese",
+          "que_es": "Focaccia empapada en aceite y salmuera, con hoyuelos donde se queda el aceite, tierna por dentro. Los ligures la mojan en el capuchino a las ocho de la mañana. Se vende al peso.",
+          "precio": "2-3 € un trozo grande",
+          "donde": "Cualquier focaccería, recién salida del horno",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Farinata",
+          "que_es": "Torta finísima de harina de garbanzo, agua y aceite, cocida en horno de leña en bandeja de cobre. Crujiente por fuera, cremosa por dentro. Un euro y medio y es casi una comida.",
+          "precio": "1,50-3 €",
+          "donde": "Focaccerías, sale a horas fijas: pregunta cuándo",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Acciughe di Monterosso",
+          "que_es": "Anchoas del propio golfo, saladas en salmuera o marinadas en limón. Las de Monterosso tienen denominación propia. Se comen con pan y aceite, y no saben a las de lata.",
+          "precio": "6-9 €",
+          "donde": "Monterosso y Vernazza",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Cono de fritto misto",
+          "que_es": "Cucurucho de papel con boquerón, calamar y gamba fritos al momento, para llevar. Es lo que comes sentado en las rocas de Riomaggiore al atardecer.",
+          "precio": "8-12 €",
+          "donde": "Puestos de los cinco pueblos",
+          "imprescindible": false
+        }
+      ],
+      "donde_comer": "Los cinco pueblos son caros por definición. Compra la focaccia y la farinata en La Spezia por la mañana, súbelas en el tren, y déjate el dinero en una sola comida sentada en Vernazza o Manarola con vistas. En La Spezia, la zona de Via del Prione tiene precios normales.",
+      "presupuesto_dia": "15-22 €"
+    },
+    {
+      "id": "emilia",
+      "region": "Emilia-Romaña · Parma, Módena y Bolonia",
+      "cuando": "Solo en la ruta 3",
+      "resumen": "La despensa de Europa y la razón entera de que exista la ruta 3. Aquí están el Parmigiano Reggiano, el jamón de Parma, la mortadella, el balsámico tradicional y la pasta rellena. De todo esto hay imitaciones en España; el original es otro producto.",
+      "platos": [
+        {
+          "nombre": "Tortellini in brodo",
+          "que_es": "Tortellini diminutos rellenos de lomo, jamón, mortadella y parmesano, servidos en caldo de capón. Se hacen a mano uno a uno. En agosto suena raro comer sopa, pero es el plato madre de Bolonia y no hay nada parecido en ningún sitio.",
+          "precio": "10-13 €",
+          "donde": "Bolonia y Módena, en trattorias de las de mantel de papel",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Tagliatelle al ragù",
+          "que_es": "Lo que en el mundo llaman boloñesa y en Bolonia no existe con ese nombre ni se sirve con espaguetis. Ragù de verdad: carne picada gorda, sofrito, vino y leche, tres horas a fuego lento, sobre tagliatelle al huevo hechas a mano.",
+          "precio": "10-12 €",
+          "donde": "Bolonia",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Parmigiano Reggiano de 36 meses",
+          "que_es": "El de 36 meses cruje, tiene cristales de tirosina y sabe a fruto seco. Nada que ver con el rallado de bolsa. En las queserías de Parma y Reggio venden las puntas y los trozos irregulares a mitad de precio.",
+          "precio": "3-5 € un trozo",
+          "donde": "Caseifici de Parma y mercados",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Mortadella di Bologna",
+          "que_es": "Nada que ver con la mortadela del súper: cerdo de verdad, cubitos de tocino de cuello y pistacho, cortada finísima al momento. Con un pan de agua caliente es una cena.",
+          "precio": "3-4 € 100 g",
+          "donde": "Las salumerías del Quadrilatero, en Bolonia",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Gnocco fritto y tigelle",
+          "que_es": "Masa frita hinchada, y pancitos redondos de la brasa, para rellenar de embutido y de crema de manteca con ajo y romero. Es la merienda-cena de Emilia y se pide para compartir, pero nadie te va a mirar mal por pedirlo solo.",
+          "precio": "6-9 €",
+          "donde": "Módena y los Apeninos",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Aceto balsamico tradizionale",
+          "que_es": "El de 12 o 25 años, en la botellita de 100 ml precintada. No es vinagre: es un almíbar denso que se toma a gotas sobre parmesano o incluso sobre helado. Cuesta 40-70 € y no entra en el presupuesto, pero probarlo en una acetaia de Módena sí.",
+          "precio": "Probarlo, gratis o 5 € en visita",
+          "donde": "Acetaie de Módena",
+          "imprescindible": false
+        }
+      ],
+      "donde_comer": "En Bolonia, el Quadrilatero (las callejas detrás de Piazza Maggiore) es un mercado medieval de salumerías y pescaderías: compras cortado al momento y te lo comes ahí. Y la apericena bolonesa entre las 18:30 y las 21:00 te da de cenar por 10 €.",
+      "presupuesto_dia": "18-25 €"
+    },
+    {
+      "id": "umbria",
+      "region": "Umbría · Asís",
+      "cuando": "Solo en la ruta 3",
+      "resumen": "Cocina de montaña y de monasterio: cerdo, legumbre, trufa negra y aceite. Umbría es la región más barata de las que pisas.",
+      "platos": [
+        {
+          "nombre": "Strangozzi al tartufo nero",
+          "que_es": "Pasta gruesa a mano con trufa negra de verano rallada encima. La trufa de Umbría es tan corriente que la ponen sin que sea plato de lujo: en Asís lo comes por 12 €.",
+          "precio": "10-14 €",
+          "donde": "Asís y Spello",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Salumi di Norcia",
+          "que_es": "Los embutidos de Norcia son tan buenos que en italiano al charcutero se le llama norcino. Capocollo, lomo, salchichón de jabalí.",
+          "precio": "3-4 € 100 g",
+          "donde": "Norcinerías de Asís",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Torta al testo",
+          "que_es": "Pan plano cocido en una piedra caliente, abierto y relleno de embutido, queso o verdura. El bocadillo umbro, y cuesta 4 €.",
+          "precio": "4-6 €",
+          "donde": "Puestos y hornos",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Lenticchie di Castelluccio",
+          "que_es": "Lenteja diminuta de altiplano que no necesita remojo y no se deshace. Guisada con salchicha.",
+          "precio": "8-10 €",
+          "donde": "Trattorias de Asís",
+          "imprescindible": false
+        }
+      ],
+      "donde_comer": "Asís vive del peregrino, así que hay carta en cinco idiomas por todas partes. Sube por Via San Francesco hasta pasar la basílica y busca detrás, o baja a Santa Maria degli Angeli, en el llano, donde comen los de allí.",
+      "presupuesto_dia": "12-16 €"
+    },
+    {
+      "id": "maremma",
+      "region": "Maremma · Saturnia y Pitigliano",
+      "cuando": "Los días de las termas en las tres rutas",
+      "resumen": "La Toscana que no sale en las fotos: vaquera, de jabalí y de toba volcánica. Y, en Pitigliano, con quinientos años de cocina judía encima.",
+      "platos": [
+        {
+          "nombre": "Acquacotta",
+          "que_es": "Literalmente agua cocida: la sopa de los pastores de la Maremma, con cebolla, apio, tomate, pan duro y un huevo escalfado encima. Comida de pobre convertida en plato de carta.",
+          "precio": "7-9 €",
+          "donde": "Trattorias de Saturnia, Manciano y Pitigliano",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Tortelli maremmani",
+          "que_es": "Pasta rellena de ricotta y espinaca, grande, con mantequilla y salvia o con ragú de jabalí.",
+          "precio": "9-11 €",
+          "donde": "Toda la Maremma",
+          "imprescindible": true
+        },
+        {
+          "nombre": "Cinghiale in umido",
+          "que_es": "Jabalí guisado largo con vino tinto, bayas de enebro y romero. En la Maremma hay más jabalíes que personas.",
+          "precio": "12-15 €",
+          "donde": "Pitigliano y Sorano",
+          "imprescindible": false
+        },
+        {
+          "nombre": "Sfratto dei goym",
+          "que_es": "Dulce de Pitigliano, la Pequeña Jerusalén: un cilindro de masa relleno de nuez y miel, con forma de la estaca con la que se echaba a los judíos de sus casas. La receta es del siglo XVII y solo se hace ahí.",
+          "precio": "2-3 €",
+          "donde": "Hornos de Pitigliano",
+          "imprescindible": true
+        }
+      ],
+      "donde_comer": "Es la zona más barata del viaje. En Saturnia hay un par de sitios junto a las cascadas que aprovechan el sitio; sube al pueblo de Saturnia, 3 km más arriba, y comes lo mismo por dos tercios del precio.",
+      "presupuesto_dia": "10-15 €"
+    }
+  ]
+}

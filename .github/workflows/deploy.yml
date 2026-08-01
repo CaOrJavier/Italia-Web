@@ -25,14 +25,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # El service worker sirve desde caché sin revalidar: si la VERSION no
-      # cambia, el móvil se queda con la copia vieja para siempre. Se le pega
-      # el hash del commit para que cada despliegue sea una generación nueva.
-      - name: Sellar la versión del service worker
-        run: |
-          sed -i "s/^const VERSION = '\(.*\)';/const VERSION = '\1-${GITHUB_SHA::7}';/" app/sw.js
-          grep -m1 'const VERSION' app/sw.js
-
       - uses: actions/configure-pages@v5
 
       - uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,136 @@
+{
+  "intro": "Sitios donde duermes dentro del coche. Buscados por tres criterios en este orden: que sea legal y esté tolerado, que se duerma fresco (en agosto la altitud vale más que la vista) y que no haya que mover el coche a las 8 de la mañana. El precio es lo último, porque casi todos son gratis.",
+  "reglas": [
+    "Llega con la cena hecha o comprada. Bajarse a buscar comida a las 23:00 en un pueblo italiano en agosto es perder el sitio y no encontrar nada abierto.",
+    "Aparca de culo contra un seto, un muro o un talud. Duermes con la luna trasera tapada y ganas intimidad sin cortinillas.",
+    "Ventilación cruzada: baja dos dedos las dos ventanillas de delante y pon una malla mosquitera de las de imán. Con el Modus cerrado a cal y canto en agosto no se duerme.",
+    "Nada fuera del coche. Ni silla, ni tender, ni hornillo. Eso es lo único que convierte una sosta legal en una acampada multable.",
+    "Si un sitio te da mala espina a las 23:00, te da mala espina. Mueve el coche, siempre hay otro parking a 10 minutos."
+  ],
+  "sitios": [
+    {
+      "id": "tolfa",
+      "nombre": "Tolfa · aparcamiento del pueblo",
+      "lat": 42.1516,
+      "lon": 11.9366,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 450,
+      "servicios": ["iluminado", "asfaltado", "fuente pública", "bar y horno a 800 m"],
+      "ruido": "bajo",
+      "nota": "22 km cuesta arriba desde el puerto, pero se duerme 4-6 °C más fresco que en la costa. Pueblo de montaña de verdad, sin turismo. Es la primera noche y la que decide si el viaje empieza descansado."
+    },
+    {
+      "id": "bracciano",
+      "nombre": "Lago de Bracciano · aparcamiento junto al lago",
+      "lat": 42.0940,
+      "lon": 12.1830,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 165,
+      "servicios": ["baño en el lago", "aseos de temporada", "bares en el paseo"],
+      "ruido": "medio los fines de semana",
+      "nota": "La base para los días de Roma: 45 min a la estación de metro y 70 km al puerto. El lago es volcánico y el agua está limpia: es la ducha de la mañana. Bracciano y Anguillara tienen varios aparcamientos gratuitos junto a la orilla; en agosto llénalos por la noche, de día se ocupan."
+    },
+    {
+      "id": "siena",
+      "nombre": "Siena · Due Ponti, Viale Toselli",
+      "lat": 43.3260,
+      "lon": 11.3350,
+      "aprox": true,
+      "precio": 2,
+      "altitud": 300,
+      "servicios": ["24 h", "escaleras mecánicas al centro", "vigilado de día"],
+      "ruido": "medio",
+      "nota": "2 € el día completo y abierto 24 h. Tiene escaleras mecánicas soterradas que te dejan en Porta Camollia: 15 minutos hasta Piazza del Campo sin cuestas. Es la opción sensata desde que el Fagiolone se puso en 20 € las 24 h.",
+      "verificar": true
+    },
+    {
+      "id": "villa-costanza",
+      "nombre": "Florencia · Villa Costanza (Scandicci)",
+      "lat": 43.7490,
+      "lon": 11.1830,
+      "aprox": true,
+      "precio": 7,
+      "altitud": 50,
+      "servicios": ["24 h", "vigilado", "tranvía T1 dentro del parking", "aseos", "bar"],
+      "ruido": "bajo",
+      "nota": "El único parking de Italia al que entras directamente desde la autopista A1 y sales en tranvía. 7 € el día entero, y puedes dejar el coche hasta 30 días. Vigilado y con luz: es el sitio más tranquilo de todo el viaje para dormir, y con diferencia el mejor 7 € que te vas a gastar."
+    },
+    {
+      "id": "la-spezia",
+      "nombre": "La Spezia · aparcamiento de superficie junto a la estación",
+      "lat": 44.1150,
+      "lon": 9.8250,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 15,
+      "servicios": ["gratis de 20:00 a 8:00", "tren a Cinque Terre a 10 min andando"],
+      "ruido": "alto",
+      "nota": "En La Spezia varios aparcamientos son gratis por la noche (a partir de las 20:00) y hay bolsas de 12 h gratuitas tipo PalaPark o DARMI Park. Es la noche más ruidosa del viaje: ciudad portuaria, bares hasta tarde y tráfico. Compensa porque a las 7:00 estás en el tren a Riomaggiore.",
+      "verificar": true
+    },
+    {
+      "id": "saturnia",
+      "nombre": "Saturnia · Cascate del Mulino",
+      "lat": 42.6467,
+      "lon": 11.5108,
+      "precio": 0,
+      "altitud": 200,
+      "servicios": ["parking gratuito", "termas gratis 24 h", "bar y aseos de día"],
+      "ruido": "bajo de madrugada",
+      "nota": "Duermes a 100 m de unas termas naturales a 37,5 °C, gratis y abiertas las 24 horas. El agua huele a azufre y te deja el bañador amarillo, avisado. No hay ni una farola: linterna obligatoria. Lo bueno de dormir aquí es que te bañas a las 7:00 y a las 23:00, que es cuando no hay nadie."
+    },
+    {
+      "id": "castiglione",
+      "nombre": "Castiglione della Pescaia · aparcamiento de la pineta",
+      "lat": 42.7660,
+      "lon": 10.8760,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 5,
+      "servicios": ["playa libre", "duchas de playa", "pinar con sombra"],
+      "ruido": "medio",
+      "nota": "Playa de la Maremma con pinar detrás: sombra para el coche, que en agosto no es un lujo. Aparcamientos libres a las afueras y de pago junto a la playa. Mira bien la señalización: en costa es donde más se prohíbe la sosta notturna.",
+      "verificar": true
+    },
+    {
+      "id": "modena",
+      "nombre": "Módena · Parcheggio Novi Sad",
+      "lat": 44.6520,
+      "lon": 10.9200,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 35,
+      "servicios": ["gratis por la noche", "10 min andando al Duomo", "mercado los fines de semana"],
+      "ruido": "medio",
+      "nota": "Explanada enorme al lado del centro, de pago de día y libre por la noche. A pie estás en el Duomo y en la Ghirlandina en diez minutos, así que puedes cenar tortellini y volver andando.",
+      "verificar": true
+    },
+    {
+      "id": "bolonia",
+      "nombre": "Bolonia · Certosa o Parco Nord",
+      "lat": 44.4890,
+      "lon": 11.3060,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 60,
+      "servicios": ["gratis siempre", "bus urbano al centro"],
+      "ruido": "bajo",
+      "nota": "Los dos aparcamientos de intercambio de Bolonia (Certosa, en Viale Gandhi, y Parco Nord, en Via Stalingrado) son gratis sin condiciones. El de Tanari también sale gratis si compras el billete de bus de 1,30 € en la máquina del propio parking."
+    },
+    {
+      "id": "asis",
+      "nombre": "Asís · aparcamiento de Porta San Giacomo",
+      "lat": 43.0730,
+      "lon": 12.6080,
+      "aprox": true,
+      "precio": 0,
+      "altitud": 420,
+      "servicios": ["a 10 min de la basílica", "vistas al valle"],
+      "ruido": "muy bajo",
+      "nota": "Asís está en la ladera del monte Subasio, a 420 m: se duerme fresco y en silencio. Los aparcamientos de arriba son de pago de día; los de las puertas laterales, más baratos o gratis fuera de horario. Amanecer con el valle de Umbría en niebla desde aquí es de las cosas que se recuerdan.",
+      "verificar": true
+    }
+  ]
+}

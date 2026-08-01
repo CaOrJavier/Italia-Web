@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<!-- El <html> va sin data-tema a propósito: así el claro u oscuro lo decide el móvil.
+     El atributo se queda preparado por si algún día se añade un selector de tema. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Italia en coche · 14-25 agosto 2026</title>
+<meta name="description" content="Tres rutas por Italia en coche propio desde Civitavecchia, durmiendo en el coche: mapa, comparativa, dónde aparcar fuera de las ZTL y qué comer en cada región.">
+<meta name="theme-color" content="#008C45">
+<meta name="color-scheme" content="light dark">
+<link rel="stylesheet" href="css/estilos.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='8' height='24' fill='%23008C45'/%3E%3Crect x='8' width='8' height='24' fill='%23fff'/%3E%3Crect x='16' width='8' height='24' fill='%23CD212A'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="saltar" href="#vista">Saltar al contenido</a>
+
+<header class="cabecera">
+  <div class="cabecera-fila">
+    <div class="cabecera-txt">
+      <h1>Italia en coche</h1>
+      <p id="cabecera-sub">14-25 de agosto de 2026</p>
+    </div>
+    <div class="cuenta" id="cuenta" hidden></div>
+  </div>
+  <div class="tricolor" role="presentation"></div>
+</header>
+
+<nav class="nav" id="nav" aria-label="Secciones">
+  <a href="#/rutas"    data-vista="rutas"><span class="nav-i" aria-hidden="true">◆</span><span class="nav-t">Rutas</span></a>
+  <a href="#/mapa"     data-vista="mapa"><span class="nav-i" aria-hidden="true">◎</span><span class="nav-t">Mapa</span></a>
+  <a href="#/comparar" data-vista="comparar"><span class="nav-i" aria-hidden="true">▤</span><span class="nav-t">Comparar</span></a>
+  <a href="#/comer"    data-vista="comer"><span class="nav-i" aria-hidden="true">▲</span><span class="nav-t">Comer</span></a>
+  <a href="#/aparcar"  data-vista="aparcar"><span class="nav-i" aria-hidden="true">P</span><span class="nav-t">Aparcar</span></a>
+</nav>
+
+<main id="vista" tabindex="-1">
+  <p class="cargando">Cargando el viaje…</p>
+</main>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
