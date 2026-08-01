@@ -1,0 +1,43 @@
+{
+ "rutas": [
+  {
+   "letra": "A",
+   "nombre": "Gran Tour circular",
+   "trazado": "Roma → Siena → Toscana → Cinque Terre → Emilia → Venecia → Rávena → San Marino → Umbría → Roma",
+   "km": 1950,
+   "coste": "≈ 305 €",
+   "ve_html": "Roma, Palio de Siena, Florencia, Pisa, Cinque Terre, Bolonia, <b>Venecia</b>, mosaicos de Rávena, San Marino, Asís",
+   "veredicto_html": "<b>✅ ELEGIDA.</b> Máxima densidad de imprescindibles por kilómetro, y es un anillo real: cero backtracking.",
+   "elegida": true,
+   "descartada": false
+  },
+  {
+   "letra": "B",
+   "nombre": "Centro compacto",
+   "trazado": "Tuscia → Siena → Toscana → Cinque Terre → Val d'Orcia → Umbría → Roma",
+   "km": 1400,
+   "coste": "≈ 215 €",
+   "ve_html": "Lo mismo <b>menos</b> Venecia, Bolonia, Rávena y San Marino; a cambio: Val d'Orcia, termas gratis, Orvieto, Civita, más días de playa",
+   "veredicto_html": "Más barata (−115 €), mucho más descansada, más profunda. <b>Pero te dejas Venecia en tu primer viaje a Italia.</b>",
+   "elegida": false,
+   "descartada": false
+  },
+  {
+   "letra": "C",
+   "nombre": "Norte + Sur",
+   "trazado": "añade Nápoles, Pompeya y Amalfi",
+   "km": 2700,
+   "coste": "≈ 430 €",
+   "ve_html": "Añade Pompeya y la costa amalfitana, pero obliga a quitar Venecia <b>o</b> Cinque Terre",
+   "veredicto_html": "❌ Descartada. En agosto la Costiera Amalfitana es un atasco de 4 h con 38 °C, y Nápoles merece 3 días propios, no medio.",
+   "elegida": false,
+   "descartada": true
+  }
+ ],
+ "razonamiento": [
+  "<b>Por qué la A.</b> Dijiste dos cosas que mandan sobre todo lo demás: <i>nunca he estado</i> y <i>lo más completo</i>. Para un primer viaje a Italia hay cinco imágenes que no se pueden negociar — el Coliseo, el David y la cúpula de Florencia, la torre de Pisa, los pueblos colgados de Cinque Terre y los canales de Venecia — y la ruta A las mete todas en un círculo que no repite un solo kilómetro. Los 550 km extra frente a la ruta B cuestan unos <b>95 € más</b> entre gasolina y peajes; a cambio te llevas Venecia, Bolonia, los mosaicos bizantinos de Rávena y San Marino. Es la mejor relación calidad-precio del viaje.",
+  "<b>Cuándo elegiría la B.</b> Si en algún momento del viaje ves que estás fundido y que conducir 400 km el día 7 te va a arruinar el resto, corta en Bolonia: baja por la E45 (gratis) hacia Umbría y te ahorras 700 km, 2 días y unos 120 €. La ruta está diseñada para que ese corte sea posible sin deshacer nada. Te lo señalo en el día 7."
+ ],
+ "decision_html": "<b class=\"caja-t\">La decisión estructural que hace que todo encaje</b><p><b>Roma va el día 1, no el último.</b> Suena raro, pero: el sábado 15 es <b>Ferragosto</b> — los romanos se van todos a la playa, la ciudad se queda vacía de locales, los museos estatales abren con tarifa normal, y las carreteras hacia la costa están colapsadas justo en la dirección contraria a la tuya. Es, contra toda intuición, uno de los mejores días del año para caminar Roma. Y como <b>los Museos Vaticanos cierran precisamente el 14 y el 15</b>, no pierdes nada: los haces el último día, el martes 25 a las 8:00, antes de ir al puerto.</p>",
+ "intro": "Antes de escribir el itinerario comparé tres trazados distintos. Tu punto de entrada y salida (Civitavecchia) está en el centro exacto de la Italia peninsular, así que el error clásico es tratarlo como una ida y vuelta. No lo es: permite un anillo completo sin repetir carretera, y eso es lo que cambia todo el cálculo."
+}

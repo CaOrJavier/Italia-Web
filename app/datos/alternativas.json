@@ -1,0 +1,159 @@
+{
+  "intro": "El plan montado en la app es el <b>Gran Tour de 1.950 km</b>. Aquí están las dos alternativas que salen de mirarlo con lupa: cuánto cuesta cada una en kilómetros, en horas de volante y en euros, y a qué renuncias. Nada de esto cambia la app: es para decidir antes de salir.",
+
+  "diagnostico": {
+    "titulo": "Qué falla en el plan actual",
+    "puntos": [
+      {
+        "que": "El día 7 es imposible",
+        "donde": "La Spezia → Parma → Módena → Bolonia → Mestre",
+        "cifra": "380 km",
+        "detalle": "4 h 30 de volante <b>y tres ciudades</b>. Parma y Módena se ven en 40 minutos cada una y Bolonia queda de paso. Además son 36,60 € de peaje en un solo día."
+      },
+      {
+        "que": "El desvío a Venecia sale caro",
+        "donde": "Bolonia → Mestre → Rávena en vez de Bolonia → Rávena",
+        "cifra": "+330 km",
+        "detalle": "Unos <b>46 €</b> entre gasolina y peajes, y dos noches en Mestre, que es el peor sitio del viaje para dormir en el coche: sin vigilancia y fuera de la ZTL."
+      },
+      {
+        "que": "Tres días seguidos de paliza",
+        "donde": "Días 7, 9 y 10",
+        "cifra": "980 km",
+        "detalle": "En tres días, durmiendo en el coche y yendo solo. Es el punto donde el viaje se rompe si algo se tuerce: una avería, una ola de calor o dos noches seguidas durmiendo mal."
+      }
+    ],
+    "fijo": "No se toca en ninguna alternativa: <b>Ferragosto el 15</b> (Vaticano cerrado, por eso la Sixtina va el último día), el <b>Palio el 16</b> en Siena, y el ferri: llegada el 14 a las 22:00 y salida el 25 a las 17:00, en el puerto a las 13:30."
+  },
+
+  "comparativa": {
+    "filas": [
+      { "que": "Kilómetros",            "plan": "1.950",   "a": "~1.660",  "b": "~1.440" },
+      { "que": "Horas de volante",      "plan": "~26 h",   "a": "~22 h 30", "b": "~19 h" },
+      { "que": "Día más largo",         "plan": "380 km",  "a": "340 km",  "b": "300 km" },
+      { "que": "Días de más de 250 km", "plan": "3",       "a": "2",       "b": "2" },
+      { "que": "Peajes",                "plan": "85 €",    "a": "~65 €",   "b": "~45 €" },
+      { "que": "Coste total previsto",  "plan": "845 €",   "a": "~780 €",  "b": "~715 €", "destaca": true },
+      { "que": "Sitios con 2+ noches",  "plan": "3",       "a": "4",       "b": "3, más largas" }
+    ]
+  },
+
+  "opciones": [
+    {
+      "letra": "0",
+      "id": "plan",
+      "nombre": "Gran Tour circular",
+      "apodo": "El plan que está en la app",
+      "km": 1950,
+      "volante": "~26 h",
+      "coste": "845 €",
+      "actual": true,
+      "idea_html": "El anillo de 1.950 km sin repetir tramo. Máxima densidad de imprescindibles por kilómetro: mete las cinco imágenes de un primer viaje a Italia (Coliseo, cúpula de Florencia, torre de Pisa, Cinque Terre y los canales de Venecia) en un círculo cerrado.",
+      "ganas": ["Venecia", "Bolonia y Emilia", "Rávena y San Marino", "Asís", "Cero backtracking"],
+      "pierdes": ["Tres días seguidos de 260-380 km", "El día 7 con tres ciudades", "Dos noches en Mestre"],
+      "dias": []
+    },
+    {
+      "letra": "A",
+      "id": "sin-venecia",
+      "nombre": "Sin Venecia, Emilia con calma",
+      "apodo": "La recomendada",
+      "km": 1662,
+      "volante": "~22 h 30",
+      "coste": "~780 €",
+      "recomendada": true,
+      "idea_html": "Quitar el desvío al Véneto y repartir ese día y esos 290 km entre <b>Bolonia y Rávena</b>, que en el plan original se ven de refilón. Se mantiene el 90 % del viaje: la única renuncia es Venecia.",
+      "cambios_html": [
+        "<b>El día 7 pasa de 380 a 250 km.</b> Parma (baptisterio y una hora de mercado) y Módena (el Duomo y el balsámico) dejan de ser paradas de peaje y se convierten en visitas de verdad. Se llega a Bolonia a media tarde, con luz, y se duerme allí.",
+        "<b>El día 8 es Bolonia entera.</b> Las dos torres, San Petronio, Santo Stefano con sus siete iglesias, el Quadrilatero y los pórticos. Es ciudad universitaria: comer bien y barato es fácil (la Osteria dell'Orsa ya está en la guía). Por la tarde, 80 km hasta Rávena.",
+        "<b>El día 9 pasa de 260 a 120 km.</b> Mosaicos por la mañana sin madrugón — San Vitale, Galla Placidia, Sant'Apollinare — y baño en el Adriático si apetece. San Leo y la subida a San Marino a última hora.",
+        "<b>San Marino de noche es el truco.</b> Los autobuses de excursión se van sobre las 18:00 y las tres torres al atardecer se quedan vacías. Duermes arriba y a las 08:00 vuelves a estar solo.",
+        "<b>El día 10 sigue siendo el duro</b> (340 km). Si ese día pinta mal, quitas la Cascata delle Marmore y baja a 260 km."
+      ],
+      "ganas": [
+        "Emilia-Romaña de verdad: la mejor zona de Italia para comer con poco dinero",
+        "Ninguna noche en Mestre",
+        "4 h menos de volante y ningún día por encima de 340 km",
+        "Rávena sin prisa y San Marino sin excursionistas"
+      ],
+      "pierdes": ["Venecia. En un primer viaje a Italia, pesa: es la única razón para no elegir esta opción"],
+      "coste_detalle": "−40 € de gasolina, −20 € de peajes y −5 € de aparcamiento ≈ <b>65 € menos</b>. Las entradas de Rávena (14,50 €) y San Leo (11 €) ya estaban previstas.",
+      "dias": [
+        { "n": 0,  "etiqueta": "Vie 14", "etapa": "Civitavecchia → Tolfa", "km": 22,  "min": 25,  "dormir": "Tolfa · gratis" },
+        { "n": 1,  "etiqueta": "Sáb 15", "etapa": "Roma entera (Ferragosto)", "km": 130, "min": 120, "dormir": "Bracciano · gratis" },
+        { "n": 2,  "etiqueta": "Dom 16", "etapa": "Bracciano → Siena · Palio", "km": 195, "min": 150, "dormir": "Area Camper Siena · gratis", "hito": true },
+        { "n": 3,  "etiqueta": "Lun 17", "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia", "km": 165, "min": 180, "dormir": "Villa Costanza · 7 €" },
+        { "n": 4,  "etiqueta": "Mar 18", "etapa": "Florencia a pie", "km": 15,  "min": 30,  "dormir": "Villa Costanza · 7 €" },
+        { "n": 5,  "etiqueta": "Mié 19", "etapa": "Lucca → Pisa → Portovenere → La Spezia", "km": 240, "min": 210, "dormir": "Palaspezia · gratis 12 h" },
+        { "n": 6,  "etiqueta": "Jue 20", "etapa": "Cinque Terre", "km": 10,  "min": 15,  "dormir": "Palaspezia · gratis 12 h" },
+        { "n": 7,  "etiqueta": "Vie 21", "etapa": "La Spezia → Parma → Módena → Bolonia", "km": 250, "min": 180, "dormir": "Bolonia · Certosa / Parco Nord", "cambia": true },
+        { "n": 8,  "etiqueta": "Sáb 22", "etapa": "Bolonia a pie por la mañana, Rávena por la tarde", "km": 85,  "min": 75,  "dormir": "Rávena / Marina di Ravenna", "cambia": true, "verificar": true },
+        { "n": 9,  "etiqueta": "Dom 23", "etapa": "Rávena (mosaicos) → San Leo → San Marino", "km": 120, "min": 105, "dormir": "San Marino P9 · 8 €", "cambia": true },
+        { "n": 10, "etiqueta": "Lun 24", "etapa": "San Marino → Asís → Marmore → Roma", "km": 340, "min": 240, "dormir": "Bracciano · gratis" },
+        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 17:00", "hito": true }
+      ]
+    },
+    {
+      "letra": "B",
+      "id": "tirreno",
+      "nombre": "Anillo tirreno, profundidad",
+      "apodo": "La descansada y barata",
+      "km": 1442,
+      "volante": "~19 h",
+      "coste": "~715 €",
+      "idea_html": "Renunciar entero al noreste — Emilia, Véneto, Romaña y San Marino — y quedarse en el eje <b>Roma – Toscana – Liguria – Val d'Orcia</b>. Casi un tercio menos de kilómetros, tres noches en Florencia y tres en La Spezia, y entra la Val d'Orcia, que no estaba en ningún plan y es la Toscana de las fotos.",
+      "cambios_html": [
+        "<b>Florencia en tres días</b> en vez de dos: uno de calle, uno de museos (Uffizi y Accademia con el descuento joven de 2 €) y Fiesole al atardecer, que está a 8 km y es gratis.",
+        "<b>Cinque Terre en dos días</b>, aprovechando de verdad la Cinque Terre Treno MS Card de 32,50 €: el primer día los tres pueblos del sur y el sendero, el segundo Vernazza, Monterosso, la vía verde Levanto-Framura y Portovenere sin prisa. En el plan original Portovenere se ve cansado al final de un día de 240 km.",
+        "<b>Val d'Orcia</b>: Pienza, Montalcino, la abadía de Sant'Antimo, los cipreses de San Quirico y las <b>termas libres y gratuitas de Bagno Vignoni</b> (Parco dei Mulini). Es gratis casi todo.",
+        "<b>Orvieto</b> de camino a Roma: la mejor fachada gótica de Italia, sobre un peñón de toba."
+      ],
+      "ganas": [
+        "8 h menos de volante y unos 130 € menos de gasto",
+        "Deshaces la maleta de verdad: 3 noches en Florencia, 3 en La Spezia",
+        "Margen para que llueva un día o salga algo mal sin que se caiga el viaje",
+        "Val d'Orcia, Orvieto, Fiesole y un tercer día de Liguria"
+      ],
+      "pierdes": [
+        "Venecia, Bolonia, Rávena, San Marino y Asís: media lista de «primera vez en Italia»",
+        "Variedad: todo es Toscana, Umbría y Liguria"
+      ],
+      "coste_detalle": "−78 € de gasolina y −40 € de peajes, y fuera las entradas de Rávena (14,50 €) y San Leo (11 €). Total ≈ <b>715 €</b>, o unos <b>600 €</b> apretando, que es prácticamente el escenario mínimo sin pasarlo mal.",
+      "variante_html": "Si Asís pesa más que la Val d'Orcia, cambia los días 9 y 10 por <b>La Spezia → Perugia</b> (350 km, dormir en Asís) y <b>Asís + Eremo + Marmore → Roma</b> (250 km). Son unos 70 km más y un día 9 más duro, pero recuperas la basílica de San Francisco.",
+      "dias": [
+        { "n": 0,  "etiqueta": "Vie 14", "etapa": "Civitavecchia → Tolfa", "km": 22,  "min": 25,  "dormir": "Tolfa · gratis" },
+        { "n": 1,  "etiqueta": "Sáb 15", "etapa": "Roma entera (Ferragosto)", "km": 130, "min": 120, "dormir": "Bracciano · gratis" },
+        { "n": 2,  "etiqueta": "Dom 16", "etapa": "Bracciano → Siena · Palio", "km": 195, "min": 150, "dormir": "Area Camper Siena · gratis", "hito": true },
+        { "n": 3,  "etiqueta": "Lun 17", "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia", "km": 165, "min": 180, "dormir": "Villa Costanza · 7 €" },
+        { "n": 4,  "etiqueta": "Mar 18", "etapa": "Florencia I: Duomo, Signoria, Oltrarno, mercados", "km": 15,  "min": 30,  "dormir": "Villa Costanza · 7 €" },
+        { "n": 5,  "etiqueta": "Mié 19", "etapa": "Florencia II: Uffizi, Accademia y Fiesole al atardecer", "km": 25,  "min": 45,  "dormir": "Villa Costanza · 7 €", "cambia": true },
+        { "n": 6,  "etiqueta": "Jue 20", "etapa": "Florencia → Lucca → Pisa → La Spezia", "km": 220, "min": 180, "dormir": "Palaspezia · gratis 12 h" },
+        { "n": 7,  "etiqueta": "Vie 21", "etapa": "Cinque Terre I: Riomaggiore, Manarola, Corniglia y el sendero", "km": 10,  "min": 15,  "dormir": "Palaspezia · gratis 12 h", "cambia": true },
+        { "n": 8,  "etiqueta": "Sáb 22", "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere", "km": 40,  "min": 45,  "dormir": "Palaspezia · gratis 12 h", "cambia": true },
+        { "n": 9,  "etiqueta": "Dom 23", "etapa": "La Spezia → costa (Bolgheri) → Val d'Orcia", "km": 300, "min": 210, "dormir": "San Quirico / Bagno Vignoni", "cambia": true, "verificar": true },
+        { "n": 10, "etiqueta": "Lun 24", "etapa": "Pienza, Montalcino, Bagno Vignoni → Orvieto → Roma", "km": 230, "min": 180, "dormir": "Bracciano · gratis", "cambia": true },
+        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 17:00", "hito": true }
+      ]
+    }
+  ],
+
+  "decidir": {
+    "preguntas": [
+      { "p": "¿Venecia es innegociable?", "r_html": "Entonces <b>plan actual</b>. Pero al menos parte el día 7: duerme en Bolonia el viernes 21 y llega a Mestre el sábado por la mañana. Arregla lo peor sin renunciar a nada." },
+      { "p": "¿Venecia puede esperar a otro viaje?", "r_html": "Entonces <b>alternativa A</b>. Es la mejor relación sitios/kilómetros: pierdes una ciudad y ganas tres visitas que en el original eran de paso." },
+      { "p": "¿Lo que más te preocupa es el dinero, el cansancio o dormir mal once noches?", "r_html": "Entonces <b>alternativa B</b>. Es el plan que sobrevive a que algo salga mal." }
+    ],
+    "recomendacion_html": "Con los datos de este viaje — solo, presupuesto mínimo, durmiendo en el coche, en agosto — la <b>alternativa A</b>. El día de 380 km con tres ciudades es el punto donde este viaje se rompe, y Venecia en agosto, sin dormir dentro y llegando desde Mestre, es la peor versión posible de Venecia."
+  },
+
+  "verificar": {
+    "intro": "Las noches nuevas no están comprobadas. Si eliges A o B, confírmalas antes de salir, igual que los diez puntos de «pendientes de verificar».",
+    "puntos": [
+      { "alt": "A", "que": "Bolonia · Certosa / Parco Nord", "detalle": "En los datos figura como aparcamiento diurno gratuito. Hay que confirmar que se puede pernoctar y si hay ordenanza municipal. Alternativa de pago: Parcheggio Tanari." },
+      { "alt": "A", "que": "Rávena, noche del 22", "detalle": "Buscar aparcamiento en Marina di Ravenna o Punta Marina. En agosto la costa adriática restringe la pernocta: verificar. Alternativa: Antico Lazzaretto (gratis, diurno) o un área de sosta de pago." },
+      { "alt": "B", "que": "Val d'Orcia, noche del 23", "detalle": "San Quirico d'Orcia y Bagno Vignoni tienen aparcamiento, pero son municipios pequeños y muy turísticos. Verificar la pernocta o buscar área de sosta en Torrenieri o Montalcino." },
+      { "alt": "A y B", "que": "Peajes recalculados", "detalle": "Las cifras son estimaciones sobre los tramos de la guía. Recalcúlalas en el simulador de Autostrade antes de salir." }
+    ],
+    "nota_html": "El Modus está matriculado como <b>autovettura</b>, no como autocaravana: dormir dentro de un turismo aparcado legalmente no es <i>campeggio libero</i> mientras no despliegues nada al exterior — mesa, toldo, patas. Esa distinción es la que salva de las multas municipales."
+  }
+}

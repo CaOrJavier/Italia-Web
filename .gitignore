@@ -1,0 +1,12 @@
+# Paquetes y entregables generados
+italia2026-web.zip
+
+# Documentos personales (billetes, reservas): fuera del repo público
+*.pdf
+
+# Repo git suelto y vacío que quedó dentro de la carpeta
+italia guia/
+
+# Basura de Windows
+Thumbs.db
+desktop.ini

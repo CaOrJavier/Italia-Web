@@ -1,0 +1,196 @@
+[
+ {
+  "region": "Lazio",
+  "zonas": [
+   "Roma"
+  ],
+  "platos": [
+   {
+    "nombre": "Pizza al taglio (se vende al peso)",
+    "destacado": true
+   },
+   {
+    "nombre": "supplì",
+    "destacado": true
+   },
+   {
+    "nombre": "trapizzino",
+    "destacado": true
+   },
+   {
+    "nombre": "maritozzo",
+    "destacado": true
+   },
+   {
+    "nombre": "cacio e pepe, carbonara, amatriciana",
+    "destacado": false
+   },
+   {
+    "nombre": "filetto di baccalà",
+    "destacado": false
+   },
+   {
+    "nombre": "porchetta",
+    "destacado": false
+   }
+  ],
+  "precios": "2-4 € · 2-3 € · 5 € · 1-3 € · 6-15 €",
+  "donde_html": "<b>Mercato di Testaccio</b>: «Roma in Cucina» box 30 — <b>pasta a 6 €</b>; «Mordi &amp; Vai» box 15 — panino de trippa 5-7 € · <b>Supplizio</b>, Via dei Banchi Vecchi 143 · <b>Dar Filettaro</b>, Largo dei Librari 88 · <b>Pastificio Guerra</b>, Via della Croce 8 — <b>plato de pasta 4 €</b>, de pie · <b>Forno Campo de' Fiori</b> — pizza bianca con mortadella 3 €"
+ },
+ {
+  "region": "Toscana",
+  "zonas": [
+   "Siena",
+   "Florencia",
+   "Pisa",
+   "Lucca"
+  ],
+  "platos": [
+   {
+    "nombre": "Lampredotto (bocadillo de callos, el plato de Florencia)",
+    "destacado": true
+   },
+   {
+    "nombre": "schiacciata rellena",
+    "destacado": true
+   },
+   {
+    "nombre": "cecina / «cinque e cinque» en Pisa",
+    "destacado": true
+   },
+   {
+    "nombre": "pici, ribollita, pappa al pomodoro",
+    "destacado": false
+   },
+   {
+    "nombre": "cinta senese",
+    "destacado": false
+   }
+  ],
+  "precios": "5-6 € · 3-6 € · 3-4 € · 6-9 €",
+  "donde_html": "<b>Da Nerbone</b>, Mercato Centrale planta baja — lampredotto 5,50 €, trippa 8 € · <b>Tripperia Pollini</b>, Via dei Macci 126 — 5 € y vino a 1 € · <b>Semel</b>, Piazza Ghiberti 44r — <b>todos los panini a 5 €</b> · <b>Il Bufalo Trippone</b>, Via dell'Anguillara 48r — schiacciata desde 3 € y sin cola · <b>Trattoria Papei</b>, Piazza del Mercato (Siena)"
+ },
+ {
+  "region": "Liguria",
+  "zonas": [
+   "Cinque Terre"
+  ],
+  "platos": [
+   {
+    "nombre": "Focaccia genovesa",
+    "destacado": true
+   },
+   {
+    "nombre": "farinata",
+    "destacado": true
+   },
+   {
+    "nombre": "trofie al pesto",
+    "destacado": false
+   },
+   {
+    "nombre": "cono de fritura de pescado",
+    "destacado": true
+   },
+   {
+    "nombre": "gattafin (Levanto)",
+    "destacado": false
+   }
+  ],
+  "precios": "2-3 € · 2-3 € · 9-13 € · 7-12 €",
+  "donde_html": "<b>Il Massimo della Focaccia</b> (Monterosso) · <b>Batti Battì</b> focaccería y friggitoria (Vernazza) · <b>Il Pescato Cucinato</b> (Riomaggiore) · <b>Dai Luca</b> (Corniglia). <b>Come de pie, en focaccería. Nunca en restaurante con vista al mar.</b>"
+ },
+ {
+  "region": "Emilia-Romaña",
+  "zonas": [
+   "Parma",
+   "Módena",
+   "Bolonia",
+   "Rávena"
+  ],
+  "platos": [
+   {
+    "nombre": "Piadina",
+    "destacado": true
+   },
+   {
+    "nombre": "tigelle / crescentine",
+    "destacado": true
+   },
+   {
+    "nombre": "gnocco fritto",
+    "destacado": true
+   },
+   {
+    "nombre": "tortellini in brodo",
+    "destacado": false
+   },
+   {
+    "nombre": "tagliatelle al ragù",
+    "destacado": false
+   },
+   {
+    "nombre": "panino con mortadella",
+    "destacado": false
+   },
+   {
+    "nombre": "Prosciutto di Parma",
+    "destacado": false
+   }
+  ],
+  "precios": "5-8 € · 10-20 € tabla · 10-14 € · 5-8 €",
+  "donde_html": "<b>Osteria dell'Orsa</b>, Via Mentana 1 (Bolonia) — 15-20 € completo · <b>Trattoria del Rosso</b>, Via Righi 30 — menú fijo desde 10 € · <b>Mercato delle Erbe</b>, Via Ugo Bassi 23 · <b>Mercato Albinelli</b> (Módena), puesto «Vino e Tortellino» n.º 103 · <b>Sosta Emiliana</b>, Piazza XX Settembre · rosticcerías en Rávena, 6-9 € comida completa"
+ },
+ {
+  "region": "Véneto",
+  "zonas": [
+   "Venecia"
+  ],
+  "platos": [
+   {
+    "nombre": "Cicchetti (pinchos de mostrador) + «ombra» (chato de vino)",
+    "destacado": true
+   },
+   {
+    "nombre": "sarde in saor",
+    "destacado": false
+   },
+   {
+    "nombre": "baccalà mantecato",
+    "destacado": false
+   },
+   {
+    "nombre": "tramezzini",
+    "destacado": false
+   }
+  ],
+  "precios": "1,50-3 € c/u · 1-2 € la ombra · 10-15 € la cena",
+  "donde_html": "<b>Bacareto da Lele</b>, Campo dei Tolentini 183 — <b>paninetti desde 1 €</b>, el más barato de Venecia · <b>Cantine del Vino già Schiavi</b>, Dorsoduro 992 · <b>All'Arco</b>, San Polo 436 · <b>Cantina Do Mori</b>, San Polo 429 (desde 1462) · <b>Alla Vedova</b>, Cannaregio 3912"
+ },
+ {
+  "region": "Umbría",
+  "zonas": [
+   "Asís"
+  ],
+  "platos": [
+   {
+    "nombre": "Torta al testo (pan plano relleno)",
+    "destacado": true
+   },
+   {
+    "nombre": "strangozzi",
+    "destacado": false
+   },
+   {
+    "nombre": "porchetta",
+    "destacado": false
+   },
+   {
+    "nombre": "lenteja de Castelluccio",
+    "destacado": false
+   }
+  ],
+  "precios": "4-7 € · 9-12 €",
+  "donde_html": "Cualquier <i>forno</i> del casco · <b>Trattoria Pallotta</b>, Piazza del Comune (25-35 €, honesta) · <b>y sobre todo, las SAGRE</b>: la <b>Sagra della Porchetta de Costano</b> (22-31 ago, a 8 km de Asís) es cena completa por 8-12 €"
+ }
+]

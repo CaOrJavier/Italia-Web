@@ -1,0 +1,43 @@
+name: Desplegar en GitHub Pages
+
+# Cada push a main publica la carpeta app/ en la web.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # y también a mano desde la pestaña Actions
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Si se acumulan varios pushes, solo interesa publicar el último.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  desplegar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # El service worker sirve desde caché sin revalidar: si la VERSION no
+      # cambia, el móvil se queda con la copia vieja para siempre. Se le pega
+      # el hash del commit para que cada despliegue sea una generación nueva.
+      - name: Sellar la versión del service worker
+        run: |
+          sed -i "s/^const VERSION = '\(.*\)';/const VERSION = '\1-${GITHUB_SHA::7}';/" app/sw.js
+          grep -m1 'const VERSION' app/sw.js
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: app
+
+      - id: despliegue
+        uses: actions/deploy-pages@v4
