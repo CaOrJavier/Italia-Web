@@ -1,3 +1,8 @@
+> **⚠ Desactualizado (1 ago 2026).** Venecia queda descartada por distancia y los esenciales pasan a ser
+> Roma, Florencia y Cinque Terre. Las tres rutas nuevas — todas con Saturnia — están en la app,
+> en la pestaña **Alternativas**, y en `app/datos/alternativas.json`. Este documento se conserva
+> como registro de cómo se llegó ahí.
+
 # Alternativas al itinerario · Italia 14–25 agosto 2026
 
 > Documento de **decisión**, no de datos. `datos-viaje.json` sigue intacto con el PLAN 0 (el original).

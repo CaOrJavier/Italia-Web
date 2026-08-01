@@ -19,13 +19,16 @@ export function vistaAlternativas(raiz) {
 
   raiz.innerHTML = `
     <div class="tarjeta">
-      <div class="seccion-tit" style="margin:0 0 8px">Tres formas de hacer este viaje</div>
+      <div class="seccion-tit" style="margin:0 0 8px">Tres rutas sin Venecia</div>
       <p class="prosa" style="font-size:15.5px">${A.intro}</p>
+      ${bloqueEsenciales(A.esenciales)}
     </div>
 
     ${tarjetasOpciones(A.opciones)}
 
     ${tablaComparativa(A.comparativa)}
+
+    ${bloqueSaturnia(A.saturnia)}
 
     ${bloqueDiagnostico(A.diagnostico)}
 
@@ -38,11 +41,55 @@ export function vistaAlternativas(raiz) {
   recordarPliegues(raiz);
 }
 
+// ---------- Lo que no se negocia ----------
+
+function bloqueEsenciales(e) {
+  if (!e) return '';
+  return `<div class="alt-esenciales">
+    <div class="alt-esenciales-tit">${esc(e.titulo)}</div>
+    ${e.items.map(x => `
+      <div class="alt-esencial">
+        <b>${esc(x.que)}</b>
+        <span>${esc(x.detalle)}</span>
+      </div>`).join('')}
+  </div>`;
+}
+
+// ---------- Saturnia ----------
+
+function bloqueSaturnia(s) {
+  if (!s) return '';
+  return plegable('alt-saturnia', s.titulo, 'Termas gratis, 24 h, en las tres rutas', `
+    <div class="prosa" style="font-size:15.5px">${s.porque_html}</div>
+    <div class="alt-datos">
+      ${s.datos.map(d => `
+        <div class="alt-dato">
+          <b>${esc(d.que)}</b>
+          <span>${esc(d.detalle)}</span>
+        </div>`).join('')}
+    </div>
+    <div class="caja-decision"><div class="prosa">${s.encaje_html}</div></div>`, { abierto: true });
+}
+
 // ---------- Las tres opciones de un vistazo ----------
 
 function tarjetasOpciones(opciones) {
-  return `<div class="alt-tarjetas">
-    ${opciones.map(o => `
+  // El plan descartado no compite con las tres rutas: va como tira, no como tarjeta.
+  const fuera = opciones.filter(o => o.descartada);
+  const vivas = opciones.filter(o => !o.descartada);
+
+  return `${fuera.map(o => `
+    <div class="alt-fuera">
+      <span class="alt-fuera-x" aria-hidden="true">✕</span>
+      <span class="crece">
+        <b>${esc(o.nombre)}</b>
+        <span>${esc(o.apodo)} · ${num(o.km)} km · ${esc(o.volante)} · ${esc(o.coste)}</span>
+      </span>
+      <span class="etiq etiq-peligro">descartada</span>
+    </div>`).join('')}
+
+  <div class="alt-tarjetas">
+    ${vivas.map(o => `
       <div class="alt-card ${o.actual ? 'es-actual' : ''} ${o.recomendada ? 'es-reco' : ''}">
         <div class="alt-card-top">
           <span class="alt-letra">${esc(o.letra)}</span>
@@ -68,16 +115,18 @@ function tablaComparativa(c) {
     <div class="alt-tabla" role="table">
       <div class="alt-tr alt-th" role="row">
         <span role="columnheader"></span>
-        <span role="columnheader">Actual</span>
-        <span role="columnheader">A</span>
-        <span role="columnheader">B</span>
+        <span role="columnheader" class="col-fuera">Venecia</span>
+        <span role="columnheader">1</span>
+        <span role="columnheader">2</span>
+        <span role="columnheader">3</span>
       </div>
       ${c.filas.map(f => `
         <div class="alt-tr ${f.destaca ? 'destaca' : ''}" role="row">
           <span role="rowheader">${esc(f.que)}</span>
-          <span role="cell">${esc(f.plan)}</span>
+          <span role="cell" class="col-fuera">${esc(f.plan)}</span>
           <span role="cell" class="col-a">${esc(f.a)}</span>
           <span role="cell" class="col-b">${esc(f.b)}</span>
+          <span role="cell" class="col-c">${esc(f.c)}</span>
         </div>`).join('')}
     </div>
   </div>`;
@@ -108,7 +157,7 @@ function bloqueOpcion(o) {
   const kmTotal = dias.reduce((t, d) => t + d.km, 0);
 
   return `<div class="seccion-tit">
-    Alternativa ${esc(o.letra)} <span class="cnt">· ${esc(o.nombre)}</span>
+    Ruta ${esc(o.letra)} <span class="cnt">· ${esc(o.nombre)}</span>
   </div>
   <div class="tarjeta ${o.recomendada ? 'alt-reco' : ''}">
     <div class="prosa" style="font-size:15.5px">${o.idea_html}</div>
@@ -116,6 +165,7 @@ function bloqueOpcion(o) {
       <span class="etiq">${num(kmTotal)} km</span>
       <span class="etiq">${esc(o.volante)} de volante</span>
       <span class="etiq etiq-acento">${esc(o.coste)}</span>
+      <a class="btn btn-peq" href="#/mapa?vista=rutas&r=${esc(o.id)}">Ver en el mapa</a>
     </div>
 
     <div class="alt-dias">
@@ -131,13 +181,14 @@ function bloqueOpcion(o) {
           </span>
         </div>`).join('')}
     </div>
-    <p class="suave" style="font-size:13px;margin-top:8px">
-      Las filas marcadas en color son las que cambian respecto al plan actual.
-      El ⚠ marca una noche que hay que verificar.
+    <p class="alt-leyenda">
+      <span class="alt-leyenda-hito">Azul</span>: los tres esenciales · Roma, Florencia y Cinque Terre.
+      <span class="alt-leyenda-cambia">Rojo</span>: lo que esta ruta hace distinto de las otras dos.
+      <span class="alt-ver">⚠</span> noche por verificar.
     </p>
   </div>
 
-  ${plegable(`alt-cambios-${o.id}`, 'Qué cambia y por qué', `${o.cambios_html.length} cambios`,
+  ${plegable(`alt-cambios-${o.id}`, 'Qué tiene de particular', `${o.cambios_html.length} claves`,
     o.cambios_html.map(p => `<div class="prosa" style="font-size:15.5px;margin-bottom:10px">${p}</div>`).join('') +
     (o.variante_html ? `<div class="caja-decision"><div class="prosa">${o.variante_html}</div></div>` : ''))}
 

@@ -185,10 +185,9 @@ function listado(raiz) {
 function tarjetaRutas() {
   if (!datos.RUTAS) return '';
   const { rutas, razonamiento, decision_html, intro } = datos.RUTAS;
-  const elegida = rutas.find(r => r.elegida);
 
   const resumen = rutas.map(r => `${r.letra} ${num(r.km)} km`).join(' · ');
-  return plegable('rutas', 'Las tres rutas comparadas', resumen, `
+  return plegable('rutas', 'Las tres rutas sin Venecia', resumen, `
     <p class="suave" style="font-size:15px">${esc(intro)}</p>
     ${rutas.map(r => `
       <div class="ruta-opcion ${r.elegida ? 'elegida' : ''} ${r.descartada ? 'descartada' : ''}">
@@ -204,15 +203,16 @@ function tarjetaRutas() {
         </div>
         <div class="prosa" style="font-size:15px;margin-top:9px"><b>Ves:</b> ${r.ve_html}</div>
         <div class="prosa" style="font-size:15px;margin-top:6px">${r.veredicto_html}</div>
-        ${r.elegida ? '<p class="suave" style="font-size:13.5px;margin-top:8px">Es la única con el día a día desarrollado: los 12 días de abajo son ésta.</p>' : ''}
       </div>`).join('')}
     ${razonamiento.map(p => `<div class="prosa" style="font-size:15.5px;margin-top:12px">${p}</div>`).join('')}
     ${decision_html ? `<div class="caja-decision"><div class="prosa">${decision_html}</div></div>` : ''}
-    <p class="suave" style="font-size:13.5px;margin-top:12px">
-      La <b>${esc(elegida?.letra ?? 'A')}</b> es la que está montada en la app. Si acabas prefiriendo la B,
-      la guía deja abierto el <b>corte de emergencia</b> del día 7: desde Bolonia bajas por la E45 gratuita
-      hacia Umbría y te ahorras 700 km, dos días y unos 120 €, sin deshacer nada.
-    </p>`);
+    <p class="etiq etiq-alerta" style="white-space:normal;line-height:1.45;padding:10px 12px;margin-top:12px">
+      Los 12 días de abajo <b>siguen siendo el plan viejo, el que pasaba por Venecia</b> (con Saturnia ya
+      añadida el día 2). Elige una de las tres rutas y se reconstruye el itinerario entero.
+    </p>
+    <a class="btn btn-pri btn-blq" href="#/alternativas" style="margin-top:10px">
+      Ver las tres rutas día a día
+    </a>`);
 }
 
 const varianteActiva = () => estado.obtener().variante === VARIANTE_ROMA.id;

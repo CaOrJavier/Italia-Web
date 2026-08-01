@@ -30,23 +30,178 @@ function cargarLeaflet() {
 /** Del rosso pompeiano al verde acqua: la misma familia que el resto de la app. */
 export const colorDia = (n) => `hsl(${10 + n * 15}, 55%, 40%)`;
 
+/** Un color por ruta alternativa, los mismos de la tabla comparativa. */
+const COLOR_RUTA = { termas: '#3d6b2f', 'roma-mar': '#2a6ba3', norte: '#96601a' };
+const COLOR_PLAN = '#8c8f96';
+
 export function vistaMapa(raiz, params) {
-  const modo = params.get('vista') === 'trayecto' ? 'trayecto' : 'puntos';
+  const pedido = params.get('vista');
+  const modo = pedido === 'trayecto' ? 'trayecto' : pedido === 'rutas' ? 'rutas' : 'puntos';
 
   raiz.innerHTML = `
     <div class="sub-nav">
       <button class="chip" data-modo="puntos"   aria-pressed="${modo === 'puntos'}">Puntos</button>
       <button class="chip" data-modo="trayecto" aria-pressed="${modo === 'trayecto'}">Trayecto</button>
+      ${datos.ALTERNATIVAS ? `<button class="chip" data-modo="rutas" aria-pressed="${modo === 'rutas'}">Las 3 rutas</button>` : ''}
     </div>
     <div id="cuerpo-mapa"></div>`;
 
   raiz.querySelector('.sub-nav').addEventListener('click', ev => {
     const b = ev.target.closest('[data-modo]');
-    if (b) ir(b.dataset.modo === 'trayecto' ? '#/mapa?vista=trayecto' : '#/mapa');
+    if (!b) return;
+    ir(b.dataset.modo === 'puntos' ? '#/mapa' : `#/mapa?vista=${b.dataset.modo}`);
   });
 
   const caja = raiz.querySelector('#cuerpo-mapa');
-  return modo === 'trayecto' ? modoTrayecto(caja) : modoPuntos(caja, params);
+  if (modo === 'trayecto') return modoTrayecto(caja);
+  if (modo === 'rutas') return modoRutas(caja, params);
+  return modoPuntos(caja, params);
+}
+
+// ============================================================
+//  Modo Rutas — las tres alternativas dibujadas y comparables
+// ============================================================
+
+function modoRutas(raiz, params) {
+  const opciones = datos.ALTERNATIVAS.opciones.filter(o => o.trazado?.length);
+  const plan = datos.ALTERNATIVAS.opciones.find(o => o.descartada);
+  const pedido = params.get('r');
+  let sel = opciones.some(o => o.id === pedido) || pedido === 'plan' ? pedido : 'todas';
+
+  raiz.innerHTML = `
+    <div class="filtros" id="f-rutas">
+      <button class="chip" data-ruta="todas" aria-pressed="${sel === 'todas'}">Las tres</button>
+      ${opciones.map(o => `
+        <button class="chip" data-ruta="${esc(o.id)}" aria-pressed="${sel === o.id}">
+          <span class="bolita" style="background:${COLOR_RUTA[o.id]}"></span>${esc(o.letra)} · ${esc(o.nombre)}
+        </button>`).join('')}
+      <button class="chip" data-ruta="plan" aria-pressed="${sel === 'plan'}">
+        <span class="bolita" style="background:${COLOR_PLAN}"></span>Con Venecia ✕
+      </button>
+    </div>
+
+    <div class="mapa-caja" style="margin-top:10px">
+      <div id="mapa"></div>
+      <div class="sin-tiles" id="sin-tiles" hidden>
+        Sin mapa de fondo (no hay cobertura ni teselas guardadas). Los trazados siguen aquí.
+      </div>
+    </div>
+    <p class="suave" style="font-size:13px;margin-top:8px">
+      Trazados esquemáticos: unen las paradas en orden, no son la carretera exacta. Toca un punto para ver cuál es.
+    </p>
+    <div id="ficha-ruta"></div>`;
+
+  const aviso = raiz.querySelector('#sin-tiles');
+  const fichas = raiz.querySelector('#ficha-ruta');
+  let mapa = null, capas = new Map();
+
+  cargarLeaflet().then(L => {
+    if (!raiz.isConnected) return;
+    mapa = L.map('mapa', { zoomControl: true, tap: false }).setView([43.4, 11.6], 7);
+
+    const teselas = L.tileLayer(URL_TILE, { maxZoom: 17, minZoom: 5, crossOrigin: true, attribution: '&copy; OpenStreetMap' }).addTo(mapa);
+    let ok = 0, fallos = 0;
+    teselas.on('tileload', () => { ok++; aviso.hidden = true; });
+    teselas.on('tileerror', () => { if (++fallos > 4 && ok === 0) aviso.hidden = false; });
+
+    // El plan descartado, de fondo y a trazos: se ve de un vistazo cuánto se sube al Véneto.
+    capas.set('plan', capaRuta(L, datos.VIAJE.ruta_polilinea.map(([la, lo]) => [la, lo, '']), COLOR_PLAN, true));
+    for (const o of opciones) capas.set(o.id, capaRuta(L, o.trazado, COLOR_RUTA[o.id], false));
+
+    pintar();
+    setTimeout(() => mapa.invalidateSize(), 60);
+  }).catch(e => {
+    raiz.querySelector('#mapa').innerHTML = `<div class="vacio">No se pudo cargar el mapa.<br><small>${esc(e.message)}</small></div>`;
+  });
+
+  /** Una capa por ruta: funda blanca, trazo de color y un punto por parada. */
+  function capaRuta(L, puntos, color, discontinua) {
+    const grupo = L.layerGroup();
+    const coords = puntos.map(p => [p[0], p[1]]);
+    if (!discontinua) L.polyline(coords, { color: '#fff', weight: 8, opacity: .7, interactive: false }).addTo(grupo);
+    L.polyline(coords, {
+      color, weight: discontinua ? 3 : 4.5, opacity: .95, lineCap: 'round', lineJoin: 'round',
+      dashArray: discontinua ? '2 8' : null, interactive: false
+    }).addTo(grupo);
+    for (const [la, lo, nombre] of puntos) {
+      if (!nombre) continue;
+      const clave = /SATURNIA/.test(nombre);
+      L.circleMarker([la, lo], {
+        radius: clave ? 8 : 5.5, color: '#fff', weight: 2,
+        fillColor: clave ? '#a63a28' : color, fillOpacity: 1
+      }).bindTooltip(nombre, { direction: 'top' }).addTo(grupo);
+    }
+    return grupo;
+  }
+
+  function pintar() {
+    if (!mapa) return;
+    const L = window.L;
+    for (const [id, capa] of capas) {
+      const visible = sel === 'todas' ? id !== 'plan' : sel === id;
+      if (visible) capa.addTo(mapa); else capa.remove();
+    }
+    raiz.querySelectorAll('#f-rutas .chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.ruta === sel)));
+
+    const activas = [...capas.entries()].filter(([id]) => sel === 'todas' ? id !== 'plan' : sel === id);
+    const puntos = activas.flatMap(([, capa]) => capa.getLayers().flatMap(l => l.getLatLngs?.() ?? [l.getLatLng()]));
+    if (puntos.length) mapa.fitBounds(L.latLngBounds(puntos), { padding: [24, 24] });
+
+    fichas.innerHTML = ficha();
+  }
+
+  function ficha() {
+    if (sel === 'todas') {
+      return `<div class="tarjeta">
+        <div class="seccion-tit" style="margin:0 0 8px">Las tres, encima del mapa</div>
+        ${opciones.map(o => `
+          <div class="ruta-fila">
+            <span class="ruta-color" style="background:${COLOR_RUTA[o.id]}"></span>
+            <span class="crece">
+              <b>${esc(o.letra)} · ${esc(o.nombre)}</b>
+              <span class="suave">${esc(o.apodo)}</span>
+            </span>
+            <span class="mono">${num(o.km)} km</span>
+          </div>`).join('')}
+        <div class="ruta-fila">
+          <span class="ruta-color" style="background:${COLOR_PLAN}"></span>
+          <span class="crece"><b style="text-decoration:line-through">Con Venecia</b><span class="suave">descartada · sube 300 km al noreste</span></span>
+          <span class="mono">${num(plan.km)} km</span>
+        </div>
+        <p class="suave" style="font-size:13.5px;margin-top:10px">
+          Toca una ruta arriba para verla sola, con sus paradas.
+        </p>
+      </div>`;
+    }
+    const o = sel === 'plan' ? plan : opciones.find(x => x.id === sel);
+    return `<div class="tarjeta" style="border-color:${sel === 'plan' ? COLOR_PLAN : COLOR_RUTA[o.id]}">
+      <div class="fila fila-sep" style="align-items:flex-start">
+        <div class="crece">
+          <div style="font-weight:800;font-size:18px">${esc(o.letra)} · ${esc(o.nombre)}</div>
+          <div class="suave" style="font-size:14.5px">${esc(o.apodo)}</div>
+        </div>
+        <div class="ruta-cifras"><b>${num(o.km)}</b><span>km</span><em>${esc(o.coste)}</em></div>
+      </div>
+      <div class="envuelve" style="margin-top:10px">
+        <span class="etiq">${esc(o.volante)} de volante</span>
+        ${o.recomendada ? '<span class="etiq etiq-ok">recomendada</span>' : ''}
+        ${o.descartada ? '<span class="etiq etiq-peligro">descartada</span>' : ''}
+      </div>
+      ${o.trazado ? `<p class="suave" style="font-size:14.5px;margin-top:10px">
+        ${o.trazado.filter(p => p[2]).map(p => esc(p[2])).join(' → ')}
+      </p>` : ''}
+      <a class="btn btn-pri btn-blq" href="#/alternativas" style="margin-top:11px">Ver esta ruta día a día</a>
+    </div>`;
+  }
+
+  raiz.querySelector('#f-rutas').addEventListener('click', ev => {
+    const b = ev.target.closest('[data-ruta]');
+    if (!b) return;
+    sel = b.dataset.ruta;
+    pintar();
+  });
+
+  return () => { mapa?.remove(); mapa = null; };
 }
 
 // ============================================================
