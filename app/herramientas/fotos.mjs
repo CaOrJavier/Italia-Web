@@ -277,9 +277,12 @@ async function baja(url, destino) {
   return (await stat(destino)).size;
 }
 
+/** Sin shell a propósito. Con shell:true en Windows, el '>' de "-resize 760x>"
+ *  lo interpreta cmd como una redirección: se comía el argumento siguiente y
+ *  escribía un fichero llamado "-strip" en la raíz del repositorio. */
 function ejecuta(cmd, args) {
   return new Promise((ok, mal) => {
-    const p = spawn(cmd, args, { stdio: 'ignore', shell: process.platform === 'win32' });
+    const p = spawn(cmd, args, { stdio: 'ignore', shell: false });
     p.on('error', mal);
     p.on('close', c => (c === 0 ? ok() : mal(new Error(`${cmd} salió con ${c}`))));
   });
