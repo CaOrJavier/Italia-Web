@@ -81,15 +81,14 @@ const DIBUJOS = {
     <path d="M9 42h32"/>
     <path d="M9 36h32"/>`,
 
-  // D8 · Venecia: la góndola
-  gondola: `
-    <path d="M7 33q17 7 34 0"/>
-    <path d="M9 33q3-4 7-4h16q4 0 7 4"/>
-    <path d="M7 33l-2-9"/>
-    <path d="M41 33l2-6"/>
-    <path d="M30 29V17"/>
-    <path d="M25 20l10-6"/>
-    <path d="M5 41q5-3 9 0t9 0 9 0 9 0"/>`,
+  // D8 · Bolonia a pie: los pórticos
+  porticos: `
+    <path d="M6 42h36"/>
+    <path d="M6 22h36"/>
+    <path d="M9 42V29q0-4 4-4t4 4v13"/>
+    <path d="M21 42V29q0-4 4-4t4 4v13"/>
+    <path d="M33 42V29q0-4 4-4t4 4v13"/>
+    <path d="M8 22l16-8 16 8"/>`,
 
   // D9 · San Leo y San Marino: la torre sobre el peñasco
   penasco: `
@@ -122,7 +121,7 @@ const DIBUJOS = {
 /** Qué dibujo le toca a cada día del viaje. */
 const POR_DIA = [
   'ferri', 'coliseo', 'torre', 'cipreses', 'cupula', 'pisa',
-  'cinqueterre', 'torres', 'gondola', 'penasco', 'basilica', 'sanpedro'
+  'cinqueterre', 'torres', 'porticos', 'penasco', 'basilica', 'sanpedro'
 ];
 
 export function ilustracionDia(n) {

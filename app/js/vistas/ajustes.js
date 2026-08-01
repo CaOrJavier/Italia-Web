@@ -35,8 +35,7 @@ export function hojaAjustes() {
 
     <div class="seccion-tit">Tu edad</div>
     <p class="suave" style="font-size:14.5px">
-      Decide qué descuentos te aplican: el de museos estatales italianos corta en 25 años
-      y la Rolling Venice de Venecia en 29.
+      Decide qué descuentos te aplican: el de museos estatales italianos corta en 25 años.
     </p>
     <label class="campo" style="margin-top:8px">
       <span>Años que tendrás en el viaje</span>
@@ -92,10 +91,8 @@ export function hojaAjustes() {
     veredicto.innerHTML = e < 18
       ? 'Menor de 18: <b>entrada gratis</b> en museos estatales italianos.'
       : e <= 25
-        ? 'Te aplica el <b>precio de 2 €</b> en museos estatales italianos (con DNI de la UE) y la <b>Rolling Venice</b>.'
-        : e <= 29
-          ? 'Pagas <b>tarifa completa</b> en museos estatales. Todavía te entra la <b>Rolling Venice</b> (hasta 29).'
-          : 'Pagas <b>tarifa completa</b>: ningún descuento por edad te aplica.';
+        ? 'Te aplica el <b>precio de 2 €</b> en museos estatales italianos (con DNI de la UE).'
+        : 'Pagas <b>tarifa completa</b>: ningún descuento por edad te aplica.';
   };
   campoEdad.addEventListener('input', () => {
     estado.fijarAjuste('edad', Number(campoEdad.value) || 0);

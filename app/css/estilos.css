@@ -874,9 +874,9 @@ label.campo > span { display: block; font-size: 13px; font-weight: 700; color: v
   padding: 10px 13px; border-radius: var(--r);
   background: var(--papel-3); border: 1px dashed var(--linea-2);
 }
-.alt-fuera b { display: block; font-size: 15.5px; text-decoration: line-through; text-decoration-thickness: 1px; }
+.alt-fuera b { display: block; font-size: 15.5px; }
 .alt-fuera > .crece > span { display: block; font-size: 13px; color: var(--tinta-2); }
-.alt-fuera-x { flex: none; font-size: 17px; font-weight: 800; color: var(--peligro); }
+.alt-fuera-x { flex: none; font-size: 17px; font-weight: 800; color: var(--info); }
 
 .alt-esenciales { margin-top: 12px; padding-top: 11px; border-top: 1px solid var(--linea); }
 .alt-esenciales-tit { font-size: 12px; text-transform: uppercase; letter-spacing: .09em; font-weight: 800; color: var(--ok); margin-bottom: 7px; }
@@ -907,8 +907,7 @@ label.campo > span { display: block; font-size: 13px; font-weight: 700; color: v
 .alt-tr .col-a { color: var(--ok); font-weight: 700; }
 .alt-tr .col-b { color: var(--info); font-weight: 700; }
 .alt-tr .col-c { color: var(--alerta); font-weight: 700; }
-.alt-tr .col-fuera { color: var(--tinta-2); text-decoration: line-through; text-decoration-thickness: 1px; }
-.alt-th .col-fuera { text-decoration: none; }
+.alt-tr .col-fuera { color: var(--tinta-2); }
 .alt-tr.destaca { background: var(--papel-3); font-weight: 700; border-radius: 8px; padding-left: 8px; padding-right: 8px; }
 
 .alt-problema { padding: 12px 0; border-bottom: 1px solid var(--linea); }

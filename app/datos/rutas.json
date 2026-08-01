@@ -24,21 +24,21 @@
   },
   {
    "letra": "3",
-   "nombre": "El norte sin Venecia",
+   "nombre": "Emilia y Umbría",
    "trazado": "Roma → Saturnia → Siena (Palio) → Florencia → Cinque Terre → Parma, Módena y Bolonia ×2 → E45 → Asís → Roma",
    "km": 1662,
    "coste": "≈ 740 €",
-   "ve_html": "Añade <b>Parma, Módena, Bolonia y Asís</b>: corta en Bolonia y baja por la E45, que es gratuita",
-   "veredicto_html": "La de más ciudades, y aun así 340 km más corta que el plan con Venecia. El precio: Florencia y Cinque Terre bajan a dos noches y Saturnia se ve de paso, por la mañana.",
+   "ve_html": "Mantiene <b>Parma, Módena, Bolonia y Asís</b>: corta en Bolonia y baja por la E45, que es gratuita",
+   "veredicto_html": "La de más ciudades y 130 km más corta que el plan cargado. El precio: fuera Rávena y San Marino, y Florencia y Cinque Terre bajan a dos noches.",
    "elegida": false,
    "descartada": false
   }
  ],
  "razonamiento": [
-  "<b>Por qué se cae Venecia.</b> No es que no merezca la pena: es que está a 550 km de Roma y el viaje solo tiene doce días. Subir al Véneto y volver se llevaba <b>tres jornadas</b>, unos 90 € entre gasolina y peajes y dos noches en Mestre, sin vigilancia y fuera de la ZTL. Con Venecia fuera se cae también el sentido de estirar hasta Rávena y San Marino, y el viaje se reordena solo alrededor del eje tirreno: Lazio, Toscana y Liguria.",
-  "<b>Por qué entra Saturnia.</b> Las Cascate del Mulino son termas naturales a 37,5 °C, al aire libre, <b>gratis y abiertas las 24 h</b>. No estaban porque el plan original era un anillo por el norte y Saturnia queda en la Maremma, al suroeste, a 40 km de la línea Roma-Siena. En cuanto el viaje baja por la costa tirrena dejan de ser un desvío: llegas de Liguria al atardecer, te metes en el agua caliente, duermes allí y sales con el cuerpo nuevo.",
+  "<b>Qué se quitó y por qué.</b> El anillo original estiraba hasta el Véneto: 550 km desde Roma, tres jornadas del viaje y unos 90 € entre gasolina y peajes, más dos noches en un aparcamiento sin vigilancia. Al recortarlo, el viaje quedó en 1.795 km y se reordenó solo alrededor del eje tirreno: Lazio, Toscana, Liguria y Emilia.",
+  "<b>Por qué entra Saturnia.</b> Las Cascate del Mulino son termas naturales a 37,5 °C, al aire libre, <b>gratis y abiertas las 24 h</b>. No estaban porque el anillo iba por el norte y Saturnia queda en la Maremma, al suroeste. En cuanto el viaje baja por la costa tirrena dejan de ser un desvío: llegas de Liguria al atardecer, te metes en el agua caliente, duermes allí y sales con el cuerpo nuevo.",
   "<b>Lo que mandan las tres.</b> Roma, Florencia y Cinque Terre están en las tres rutas con días enteros, no de paso. Todo lo demás — el Palio, los pueblos toscanos, Emilia, Umbría — es lo que se negocia entre una y otra."
  ],
  "decision_html": "<b class=\"caja-t\">Lo que no cambia en ninguna de las tres</b><p><b>Roma va el día 1 y la Capilla Sixtina el último.</b> El sábado 15 es <b>Ferragosto</b> — los romanos se van todos a la playa, la ciudad se queda vacía de locales, los museos estatales abren con tarifa normal y las carreteras están colapsadas justo en la dirección contraria a la tuya. Es, contra toda intuición, uno de los mejores días del año para caminar Roma. Y como <b>los Museos Vaticanos cierran precisamente el 14, el 15 y los domingos</b>, la única ventana para la Sixtina es la mañana del martes 25, antes del ferri de las 17:00.</p>",
- "intro": "Tu punto de entrada y salida (Civitavecchia) está en el centro exacto de la Italia peninsular, así que el error clásico es tratarlo como una ida y vuelta. No lo es: permite un anillo completo sin repetir carretera. Con Venecia descartada por distancia, estas son las tres formas de cerrar ese anillo."
+ "intro": "Tu punto de entrada y salida (Civitavecchia) está en el centro exacto de la Italia peninsular, así que el error clásico es tratarlo como una ida y vuelta. No lo es: permite un anillo completo sin repetir carretera. Estas son tres formas de cerrar ese anillo más cortas que el plan cargado (1.795 km)."
 }

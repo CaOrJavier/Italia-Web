@@ -1,235 +1,971 @@
 {
-  "intro": "Venecia queda fuera: son 550 km desde Roma, tres días del viaje y unos 90 € solo en llegar y volver. Con eso decidido, el viaje se recorta al eje tirreno y las tres rutas de abajo se construyen sobre lo que no se negocia — <b>Roma, Florencia y Cinque Terre</b> — más <b>Saturnia</b>, que ahora está en las tres.",
-
-  "esenciales": {
-    "titulo": "Lo que está en las tres rutas",
-    "items": [
-      { "que": "Roma", "detalle": "Coliseo, Foro, Panteón, Trastevere y la Capilla Sixtina el último día" },
-      { "que": "Florencia", "detalle": "Tres noches en Villa Costanza: Duomo, Uffizi, Accademia y Oltrarno sin correr" },
-      { "que": "Cinque Terre", "detalle": "Tres noches en La Spezia y dos días enteros con la Card, senderos incluidos" },
-      { "que": "Saturnia", "detalle": "Las Cascate del Mulino, gratis y abiertas las 24 h" }
-    ]
-  },
-
-  "saturnia": {
-    "titulo": "Saturnia: por qué no estaba y dónde encaja",
-    "porque_html": "El plan original era un <b>anillo por el norte</b> — Roma, Siena, Florencia, Liguria, Emilia, Venecia y vuelta por los Apeninos — y Saturnia está en la <b>Maremma</b>, al suroeste, a 40 km al oeste de la línea que sube de Roma a Siena. Nunca entró en el anillo porque el anillo pasaba por el otro lado. En cuanto Venecia se cae y el viaje baja por la costa tirrena, Saturnia deja de ser un desvío y se convierte en una parada natural.",
-    "datos": [
-      { "que": "Qué es", "detalle": "Las Cascate del Mulino: agua sulfurosa a 37,5 °C que cae en cascada sobre pozas de travertino, al aire libre, en pleno campo" },
-      { "que": "Precio", "detalle": "GRATIS. Sin taquilla, sin horario, abiertas las 24 h. El balneario de al lado cobra 25-30 €: no hace falta" },
-      { "que": "Cuándo ir", "detalle": "Al amanecer o de noche. A las 07:00 hay cuatro personas; a las 11:00 de un día de agosto, doscientas" },
-      { "que": "Llevar", "detalle": "Chanclas (el travertino resbala), bañador de repuesto y agua para aclararse: no hay duchas de agua dulce" },
-      { "que": "Ojo", "detalle": "El azufre huele a huevo podrido durante días en la ropa y ennegrece la plata. Quítate anillos, pendientes y reloj antes de entrar" },
-      { "que": "Dormir", "detalle": "Hay explanada junto a las cascadas y aparcamiento en el pueblo. El aparcamiento de las cascadas ha pasado a ser de pago en temporada: hay que confirmarlo" }
-    ],
-    "encaje_html": "Encaja en dos sitios y las tres rutas usan uno u otro: <b>de camino a Siena</b> (Bracciano → Saturnia → Siena, +55 km, baño a las 07:30 con las pozas vacías) o <b>en la bajada final</b> desde Liguria por la costa (La Spezia → Saturnia, baño al atardecer y de noche, y duermes allí). La segunda es mejor: llegas cansado de 300 km y te metes en agua caliente."
-  },
-
-  "diagnostico": {
-    "titulo": "Por qué se rehacen las tres rutas",
-    "puntos": [
-      {
-        "que": "Venecia estaba demasiado lejos",
-        "donde": "Bolonia → Mestre → Rávena",
-        "cifra": "550 km",
-        "detalle": "Ir y volver del Véneto se llevaba <b>tres días</b> del viaje, unos 90 € entre gasolina y peajes, y dos noches en Mestre sin vigilancia. Fuera Venecia, se cae también el sentido de subir hasta Rávena y San Marino."
-      },
-      {
-        "que": "El día 7 era imposible",
-        "donde": "La Spezia → Parma → Módena → Bolonia → Mestre",
-        "cifra": "380 km",
-        "detalle": "4 h 30 de volante <b>y tres ciudades</b> en la misma jornada, con 36,60 € de peaje. Ninguna de las tres rutas nuevas tiene un día así."
-      },
-      {
-        "que": "Faltaba la Maremma entera",
-        "donde": "Saturnia, Pitigliano, Sovana",
-        "cifra": "0 paradas",
-        "detalle": "La esquina suroeste de la Toscana — termas gratis, pueblos etruscos excavados en la toba — quedaba fuera del anillo, y está <b>a hora y media del puerto</b>."
-      }
-    ],
-    "fijo": "No se toca en ninguna ruta: el ferri (llegada el 14 a las 22:00, salida el 25 a las 22:30, en el puerto a las 20:30), <b>Ferragosto el 15</b> con los Museos Vaticanos cerrados — por eso la Sixtina va el último día — y la primera noche en Tolfa, a 20 minutos del puerto."
-  },
-
-  "comparativa": {
-    "filas": [
-      { "que": "Kilómetros",           "plan": "2.005", "a": "1.412", "b": "1.367", "c": "1.662" },
-      { "que": "Horas al volante",     "plan": "27 h",  "a": "19,5 h", "b": "17,5 h", "c": "23 h" },
-      { "que": "Día más largo (km)",   "plan": "380",   "a": "300",   "b": "300",   "c": "250" },
-      { "que": "Días de 240 km o más", "plan": "5",     "a": "1",     "b": "2",     "c": "4" },
-      { "que": "Peajes",               "plan": "85 €",  "a": "25 €",  "b": "25 €",  "c": "45 €" },
-      { "que": "Coste total",          "plan": "855 €", "a": "690 €", "b": "665 €", "c": "740 €", "destaca": true },
-      { "que": "Noches de pago",       "plan": "5",     "a": "3",     "b": "3",     "c": "2" },
-      { "que": "Días de Roma",         "plan": "2",     "a": "2",     "b": "3",     "c": "2" }
-    ]
-  },
-
-  "opciones": [
-    {
-      "letra": "×",
-      "id": "plan",
-      "nombre": "Gran Tour con Venecia",
-      "apodo": "Lo que hay montado en la app",
-      "km": 2005,
-      "volante": "~27 h",
-      "coste": "~855 €",
-      "descartada": true,
-      "idea_html": "El anillo original: Roma, Siena, Toscana, Cinque Terre, Emilia, <b>Venecia</b>, Rávena, San Marino, Asís y vuelta. Descartado por distancia. Sigue siendo el itinerario que carga la app hasta que elijas una de las tres rutas de abajo.",
-      "ganas": ["Venecia", "Rávena y San Marino", "Bolonia y Emilia"],
-      "pierdes": ["Tres días de viaje solo en llegar al Véneto y volver", "Un día de 380 km con tres ciudades", "Dos noches en Mestre"],
-      "dias": []
-    },
-    {
-      "letra": "1",
-      "id": "termas",
-      "etiqueta_corta": "Termas",
-      "trazado": [[42.094, 11.79, "Civitavecchia"], [42.152, 11.937, "Tolfa"], [41.8902, 12.4922, "Roma"], [42.156, 12.24, "Lago di Bracciano"], [43.3186, 11.3319, "Siena · Palio"], [43.3906, 11.226, "Monteriggioni"], [43.4677, 11.043, "San Gimignano"], [43.4014, 10.8607, "Volterra"], [43.7605, 11.1806, "Florencia"], [43.8447, 10.506, "Lucca"], [43.723, 10.3966, "Pisa"], [44.109, 9.842, "La Spezia"], [44.146, 9.654, "Cinque Terre"], [44.05, 9.837, "Portovenere"], [43.2308, 10.6053, "Costa · Bolgheri"], [42.6467, 11.5108, "SATURNIA"], [42.6355, 11.6689, "Pitigliano"], [42.156, 12.24, "Lago di Bracciano"], [41.9022, 12.4539, "Roma · Vaticano"], [42.094, 11.79, "Civitavecchia"]],
-      "nombre": "Toscana clásica y termas",
-      "apodo": "La equilibrada",
-      "km": 1412,
-      "volante": "~19 h 30",
-      "coste": "~690 €",
-      "recomendada": true,
-      "idea_html": "Sube por el interior — <b>Palio de Siena, los tres pueblos toscanos, Florencia</b> — llega a Cinque Terre y <b>baja por la costa tirrena</b> hasta Saturnia. Es un anillo real, sin repetir tramo, con los tres esenciales holgados y las termas como premio del penúltimo día.",
-      "cambios_html": [
-        "<b>Tres noches en Florencia</b> (17, 18 y 19): un día de calle, un día de museos con el descuento joven de 2 € y Fiesole al atardecer, que está a 8 km y es gratis.",
-        "<b>Tres noches en La Spezia</b> y dos días enteros de Cinque Terre con la Treno MS Card de 32,50 €: los tres pueblos del sur y el sendero un día; Vernazza, Monterosso, la vía verde de Levanto y Portovenere el otro.",
-        "<b>La bajada por la costa es el día largo</b> (300 km): Aurelia, parada en la Versilia o en Bolgheri y llegada a Saturnia sobre las 19:00. Te metes en el agua caliente al atardecer, cenas y vuelves a meterte de noche, con las pozas vacías.",
-        "<b>Pitigliano el último día completo</b>: un pueblo entero excavado en la toba volcánica, con su barrio judío y las <i>vie cave</i> etruscas. Está a 40 minutos de Saturnia y es gratis pasearlo. Luego, Roma para el atardecer.",
-        "<b>El Palio se mantiene</b>: la provaccia del domingo a las 09:00 en Piazza del Campo, gratis, que es la parte que se puede ver sin cuatro horas de pie."
-      ],
-      "ganas": [
-        "Los tres esenciales holgados: 2 días de Roma, 3 noches de Florencia, 3 de Cinque Terre",
-        "El Palio y los pueblos toscanos, sin renunciar a las termas",
-        "Ningún día por encima de 300 km y solo uno por encima de 240",
-        "Anillo cerrado: no se repite un solo kilómetro"
-      ],
-      "pierdes": ["Bolonia y toda Emilia", "Asís y Umbría", "El segundo día completo de Roma que sí tiene la ruta 2"],
-      "coste_detalle": "≈ 196 € de gasolina, 25 € de peajes (casi todo Aurelia, Cassia y FI-PI-LI, gratuitas), 21 € de dormir (solo Villa Costanza), 32,50 € de la Card, entradas ~135 € y 19 €/día de comida. Total <b>≈ 690 €</b>, unos 165 € menos que el plan con Venecia.",
-      "dias": [
-        { "n": 0,  "etiqueta": "Vie 14", "corto": "Tolfa", "etapa": "Civitavecchia → Tolfa", "km": 22,  "min": 25,  "dormir": "Tolfa · gratis" },
-        { "n": 1,  "etiqueta": "Sáb 15", "corto": "Roma", "etapa": "Roma entera (Ferragosto)", "km": 130, "min": 120, "dormir": "Bracciano · gratis", "hito": true },
-        { "n": 2,  "etiqueta": "Dom 16", "corto": "Siena · Palio", "etapa": "Bracciano → Siena · Palio", "km": 195, "min": 150, "dormir": "Area Camper Siena · gratis" },
-        { "n": 3,  "etiqueta": "Lun 17", "corto": "Pueblos toscanos", "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia", "km": 165, "min": 180, "dormir": "Villa Costanza · 7 €" },
-        { "n": 4,  "etiqueta": "Mar 18", "corto": "Florencia I", "etapa": "Florencia I: Duomo, Signoria, Oltrarno, mercados", "km": 15,  "min": 30,  "dormir": "Villa Costanza · 7 €", "hito": true },
-        { "n": 5,  "etiqueta": "Mié 19", "corto": "Florencia II", "etapa": "Florencia II: Uffizi, Accademia y Fiesole al atardecer", "km": 25,  "min": 45,  "dormir": "Villa Costanza · 7 €", "cambia": true },
-        { "n": 6,  "etiqueta": "Jue 20", "corto": "Lucca y Pisa", "etapa": "Florencia → Lucca → Pisa → La Spezia", "km": 220, "min": 180, "dormir": "Palaspezia · gratis 12 h" },
-        { "n": 7,  "etiqueta": "Vie 21", "corto": "Cinque Terre I", "etapa": "Cinque Terre I: Riomaggiore, Manarola, Corniglia y el sendero", "km": 10,  "min": 15,  "dormir": "Palaspezia · gratis 12 h", "hito": true },
-        { "n": 8,  "etiqueta": "Sáb 22", "corto": "Cinque Terre II", "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere", "km": 40,  "min": 45,  "dormir": "Palaspezia · gratis 12 h", "cambia": true },
-        { "n": 9,  "etiqueta": "Dom 23", "corto": "→ SATURNIA", "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)", "km": 300, "min": 210, "dormir": "Saturnia · gratis", "cambia": true, "verificar": true },
-        { "n": 10, "etiqueta": "Lun 24", "corto": "Pitigliano", "etapa": "Saturnia → Pitigliano → Roma (miradores) → Bracciano", "km": 200, "min": 165, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "corto": "Sixtina y puerto", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
-      ]
-    },
-    {
-      "letra": "2",
-      "id": "roma-mar",
-      "etiqueta_corta": "Roma ×2",
-      "trazado": [[42.094, 11.79, "Civitavecchia"], [42.152, 11.937, "Tolfa"], [41.8902, 12.4922, "Roma ×2 días"], [42.156, 12.24, "Lago di Bracciano"], [43.3186, 11.3319, "Siena (de paso)"], [43.7605, 11.1806, "Florencia"], [43.8447, 10.506, "Lucca"], [43.723, 10.3966, "Pisa"], [44.109, 9.842, "La Spezia"], [44.146, 9.654, "Cinque Terre"], [44.05, 9.837, "Portovenere"], [43.2308, 10.6053, "Costa · Bolgheri"], [42.6467, 11.5108, "SATURNIA"], [42.6355, 11.6689, "Pitigliano"], [42.6558, 11.6136, "Sovana"], [42.156, 12.24, "Lago di Bracciano"], [41.9022, 12.4539, "Roma · Vaticano"], [42.094, 11.79, "Civitavecchia"]],
-      "nombre": "Roma doble y el mar",
-      "apodo": "La más descansada",
-      "km": 1367,
-      "volante": "~17 h 30",
-      "coste": "~665 €",
-      "idea_html": "Cuatro sitios donde duermes y ya está: <b>Bracciano tres noches, Florencia tres, La Spezia tres</b> y Saturnia. Roma se ve en dos días enteros en vez de uno a la carrera, y las tres bases se aprovechan a fondo. Es la ruta que sobrevive a que llueva, a que algo se rompa o a dormir mal.",
-      "cambios_html": [
-        "<b>Roma en dos días.</b> El sábado 15 (Ferragosto, con la ciudad vacía de romanos) el centro clásico: Coliseo, Foro, Panteón, Trevi, Navona. El domingo 16, la otra Roma: Trastevere, el Gianicolo, el mercado de Testaccio, el Aventino y Villa Borghese.",
-        "<b>El lunes se sube a Florencia con parada en Siena</b> de tres horas: Piazza del Campo, el Duomo y a seguir. 280 km, el día de más volante del viaje después de la bajada a Saturnia.",
-        "<b>Tres noches en Florencia y tres en La Spezia</b>, igual que la ruta 1: los dos bloques importantes se quedan intactos.",
-        "<b>Saturnia en la bajada</b>, con noche allí, y el lunes Pitigliano y Sovana antes de volver a Bracciano.",
-        "<b>Lo que se paga por esto: el Palio.</b> El 16 de agosto estarás en Roma, no en Siena. Siena la ves igual, pero un día después y sin carrera."
-      ],
-      "ganas": [
-        "Tres noches seguidas en cada base: deshaces la maleta de verdad",
-        "El día de Roma que en todos los planes se quedaba corto",
-        "17 h 30 de volante en doce días: unas 10 h menos que el plan con Venecia",
-        "La más barata: ~665 €, a un paso del escenario mínimo"
-      ],
-      "pierdes": [
-        "El Palio de Siena, que solo pasa el 16 de agosto",
-        "Los pueblos toscanos: Monteriggioni, San Gimignano y Volterra",
-        "Bolonia, Emilia y Umbría"
-      ],
-      "coste_detalle": "≈ 190 € de gasolina, 25 € de peajes, 21 € de dormir, 32,50 € de la Card, entradas ~120 € (una menos, la del Duomo de Siena, y una más si entras en la Galleria Borghese) y 19 €/día de comida. Total <b>≈ 665 €</b>.",
-      "dias": [
-        { "n": 0,  "etiqueta": "Vie 14", "corto": "Tolfa", "etapa": "Civitavecchia → Tolfa", "km": 22,  "min": 25,  "dormir": "Tolfa · gratis" },
-        { "n": 1,  "etiqueta": "Sáb 15", "corto": "Roma I", "etapa": "Roma I: Coliseo, Foro, Panteón, Trevi (Ferragosto)", "km": 130, "min": 120, "dormir": "Bracciano · gratis", "hito": true },
-        { "n": 2,  "etiqueta": "Dom 16", "corto": "Roma II", "etapa": "Roma II: Trastevere, Gianicolo, Testaccio, Aventino, Borghese", "km": 55,  "min": 90,  "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 3,  "etiqueta": "Lun 17", "corto": "Siena y Florencia", "etapa": "Bracciano → Siena (3 h) → Florencia", "km": 280, "min": 240, "dormir": "Villa Costanza · 7 €", "cambia": true },
-        { "n": 4,  "etiqueta": "Mar 18", "corto": "Florencia I", "etapa": "Florencia I: Duomo, Signoria, Oltrarno, mercados", "km": 15,  "min": 30,  "dormir": "Villa Costanza · 7 €", "hito": true },
-        { "n": 5,  "etiqueta": "Mié 19", "corto": "Florencia II", "etapa": "Florencia II: Uffizi, Accademia y Fiesole al atardecer", "km": 20,  "min": 40,  "dormir": "Villa Costanza · 7 €" },
-        { "n": 6,  "etiqueta": "Jue 20", "corto": "Lucca y Pisa", "etapa": "Florencia → Lucca → Pisa → La Spezia", "km": 220, "min": 180, "dormir": "Palaspezia · gratis 12 h" },
-        { "n": 7,  "etiqueta": "Vie 21", "corto": "Cinque Terre I", "etapa": "Cinque Terre I: Riomaggiore, Manarola, Corniglia y el sendero", "km": 10,  "min": 15,  "dormir": "Palaspezia · gratis 12 h", "hito": true },
-        { "n": 8,  "etiqueta": "Sáb 22", "corto": "Cinque Terre II", "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere", "km": 35,  "min": 45,  "dormir": "Palaspezia · gratis 12 h" },
-        { "n": 9,  "etiqueta": "Dom 23", "corto": "→ SATURNIA", "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)", "km": 300, "min": 210, "dormir": "Saturnia · gratis", "cambia": true, "verificar": true },
-        { "n": 10, "etiqueta": "Lun 24", "corto": "Pitigliano y Sovana", "etapa": "Saturnia → Pitigliano → Sovana → Bracciano", "km": 190, "min": 150, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "corto": "Sixtina y puerto", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
-      ]
-    },
-    {
-      "letra": "3",
-      "id": "norte",
-      "etiqueta_corta": "Norte",
-      "trazado": [[42.094, 11.79, "Civitavecchia"], [42.152, 11.937, "Tolfa"], [41.8902, 12.4922, "Roma"], [42.156, 12.24, "Lago di Bracciano"], [42.6467, 11.5108, "SATURNIA"], [43.3186, 11.3319, "Siena · Palio"], [43.3906, 11.226, "Monteriggioni"], [43.4677, 11.043, "San Gimignano"], [43.4014, 10.8607, "Volterra"], [43.7605, 11.1806, "Florencia"], [43.8447, 10.506, "Lucca"], [43.723, 10.3966, "Pisa"], [44.05, 9.837, "Portovenere"], [44.109, 9.842, "La Spezia"], [44.146, 9.654, "Cinque Terre"], [44.8027, 10.3306, "Parma"], [44.6465, 10.9255, "Módena"], [44.4938, 11.3426, "Bolonia ×2"], [43.0748, 12.6053, "Asís"], [42.551, 12.715, "Marmore"], [42.156, 12.24, "Lago di Bracciano"], [41.9022, 12.4539, "Roma · Vaticano"], [42.094, 11.79, "Civitavecchia"]],
-      "nombre": "El norte sin Venecia",
-      "apodo": "La de más ciudades",
-      "km": 1662,
-      "volante": "~23 h",
-      "coste": "~740 €",
-      "idea_html": "Mantiene casi todo el plan original pero <b>corta en Bolonia</b>: en vez de seguir hasta el Véneto, baja por la <b>E45, que es gratuita</b>, hacia Asís y Roma. Añade Emilia-Romaña — Parma, Módena y Bolonia — y mete Saturnia de camino a Siena, el segundo día.",
-      "cambios_html": [
-        "<b>Saturnia el domingo por la mañana</b>, camino de Siena: sales de Bracciano a las 06:00, a las 07:30 estás en las pozas casi solo, y a las 11:30 en Siena para el Palio. Son 55 km más que ir directo.",
-        "<b>El día 7 se parte en dos.</b> La Spezia → Parma → Módena → Bolonia son 250 km y se duerme en Bolonia; al día siguiente, Bolonia entera a pie sin mover el coche: las dos torres, San Petronio, Santo Stefano, los pórticos y el Quadrilatero.",
-        "<b>Bolonia → Asís por la E45</b>, 240 km sin un solo peaje, con los Apeninos de por medio. Se duerme en Asís y a la mañana siguiente la basílica de San Francisco está vacía.",
-        "<b>La Cascata delle Marmore</b> de vuelta a Roma: 165 metros de salto, aunque se paga la entrada y solo hay agua a horas concretas.",
-        "<b>Es la más cara y la más cansada de las tres</b>, pero la única que mete tres ciudades grandes más y sigue siendo 340 km más corta que el plan con Venecia."
-      ],
-      "ganas": [
-        "Bolonia entera y de noche, más Parma y Módena con tiempo",
-        "Asís y la Umbría, que las otras dos rutas no tocan",
-        "Sigue siendo un anillo cerrado sin repetir tramo",
-        "Ningún día pasa de 250 km"
-      ],
-      "pierdes": [
-        "Solo dos noches en Florencia y dos en La Spezia, en vez de tres",
-        "Un solo día de Cinque Terre",
-        "Pitigliano y la Maremma: Saturnia se ve de paso y por la mañana"
-      ],
-      "coste_detalle": "≈ 231 € de gasolina, 45 € de peajes (A12 y A15 de la Cisa; la E45 es gratis), 14 € de dormir, 32,50 € de la Card, entradas ~135 € y 19 €/día de comida. Total <b>≈ 740 €</b>.",
-      "dias": [
-        { "n": 0,  "etiqueta": "Vie 14", "corto": "Tolfa", "etapa": "Civitavecchia → Tolfa", "km": 22,  "min": 25,  "dormir": "Tolfa · gratis" },
-        { "n": 1,  "etiqueta": "Sáb 15", "corto": "Roma", "etapa": "Roma entera (Ferragosto)", "km": 130, "min": 120, "dormir": "Bracciano · gratis", "hito": true },
-        { "n": 2,  "etiqueta": "Dom 16", "corto": "SATURNIA y Palio", "etapa": "Bracciano → SATURNIA (baño al amanecer) → Siena · Palio", "km": 250, "min": 195, "dormir": "Area Camper Siena · gratis", "cambia": true },
-        { "n": 3,  "etiqueta": "Lun 17", "corto": "Pueblos toscanos", "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia", "km": 165, "min": 180, "dormir": "Villa Costanza · 7 €" },
-        { "n": 4,  "etiqueta": "Mar 18", "corto": "Florencia", "etapa": "Florencia entera a pie", "km": 15,  "min": 30,  "dormir": "Villa Costanza · 7 €", "hito": true },
-        { "n": 5,  "etiqueta": "Mié 19", "corto": "Lucca y Pisa", "etapa": "Lucca → Pisa → Portovenere → La Spezia", "km": 240, "min": 210, "dormir": "Palaspezia · gratis 12 h" },
-        { "n": 6,  "etiqueta": "Jue 20", "corto": "Cinque Terre", "etapa": "Cinque Terre", "km": 10,  "min": 15,  "dormir": "Palaspezia · gratis 12 h", "hito": true },
-        { "n": 7,  "etiqueta": "Vie 21", "corto": "→ Bolonia", "etapa": "La Spezia → Parma → Módena → Bolonia", "km": 250, "min": 180, "dormir": "Bolonia · Certosa / Parco Nord", "cambia": true, "verificar": true },
-        { "n": 8,  "etiqueta": "Sáb 22", "corto": "Bolonia a pie", "etapa": "Bolonia entera a pie, sin mover el coche", "km": 0,   "min": 0,   "dormir": "Bolonia · Certosa / Parco Nord", "cambia": true, "verificar": true },
-        { "n": 9,  "etiqueta": "Dom 23", "corto": "→ Asís", "etapa": "Bolonia → E45 (gratuita) → Asís", "km": 240, "min": 195, "dormir": "Asís · Porta San Giacomo", "cambia": true, "verificar": true },
-        { "n": 10, "etiqueta": "Lun 24", "corto": "Asís y Marmore", "etapa": "Asís → Eremo delle Carceri → Cascata delle Marmore → Bracciano", "km": 250, "min": 210, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "corto": "Sixtina y puerto", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
-      ]
-    }
+ "intro": "El itinerario cargado en la app son <b>1.795 km</b>: Roma, Siena, Toscana, Cinque Terre, Emilia, Rávena, San Marino y Asís. Estas tres rutas son alternativas más cortas a ese plan, todas construidas sobre lo que no se negocia — <b>Roma, Florencia y Cinque Terre</b> — y todas con <b>Saturnia</b>.",
+ "esenciales": {
+  "titulo": "Lo que está en las tres rutas",
+  "items": [
+   {
+    "que": "Roma",
+    "detalle": "Coliseo, Foro, Panteón, Trastevere y la Capilla Sixtina el último día"
+   },
+   {
+    "que": "Florencia",
+    "detalle": "Tres noches en Villa Costanza: Duomo, Uffizi, Accademia y Oltrarno sin correr"
+   },
+   {
+    "que": "Cinque Terre",
+    "detalle": "Tres noches en La Spezia y dos días enteros con la Card, senderos incluidos"
+   },
+   {
+    "que": "Saturnia",
+    "detalle": "Las Cascate del Mulino, gratis y abiertas las 24 h"
+   }
+  ]
+ },
+ "saturnia": {
+  "titulo": "Saturnia: por qué no estaba y dónde encaja",
+  "porque_html": "El plan original era un <b>anillo por el noreste</b> — Roma, Siena, Florencia, Liguria, Emilia y vuelta por los Apeninos — y Saturnia está en la <b>Maremma</b>, al suroeste, a 40 km al oeste de la línea que sube de Roma a Siena. Nunca entró en el anillo porque el anillo pasaba por el otro lado. En cuanto el viaje se acorta y baja por la costa tirrena, Saturnia deja de ser un desvío y se convierte en una parada natural.",
+  "datos": [
+   {
+    "que": "Qué es",
+    "detalle": "Las Cascate del Mulino: agua sulfurosa a 37,5 °C que cae en cascada sobre pozas de travertino, al aire libre, en pleno campo"
+   },
+   {
+    "que": "Precio",
+    "detalle": "GRATIS. Sin taquilla, sin horario, abiertas las 24 h. El balneario de al lado cobra 25-30 €: no hace falta"
+   },
+   {
+    "que": "Cuándo ir",
+    "detalle": "Al amanecer o de noche. A las 07:00 hay cuatro personas; a las 11:00 de un día de agosto, doscientas"
+   },
+   {
+    "que": "Llevar",
+    "detalle": "Chanclas (el travertino resbala), bañador de repuesto y agua para aclararse: no hay duchas de agua dulce"
+   },
+   {
+    "que": "Ojo",
+    "detalle": "El azufre huele a huevo podrido durante días en la ropa y ennegrece la plata. Quítate anillos, pendientes y reloj antes de entrar"
+   },
+   {
+    "que": "Dormir",
+    "detalle": "Hay explanada junto a las cascadas y aparcamiento en el pueblo. El aparcamiento de las cascadas ha pasado a ser de pago en temporada: hay que confirmarlo"
+   }
   ],
-
-  "decidir": {
-    "preguntas": [
-      { "p": "¿Quieres ver el Palio y los pueblos toscanos?", "r_html": "Entonces <b>ruta 1</b>. Es la equilibrada: mantiene el Palio, mete los tres pueblos, deja tres noches en Florencia y tres en Cinque Terre, y baja por la costa a Saturnia." },
-      { "p": "¿Prefieres conducir lo mínimo y ver Roma bien?", "r_html": "Entonces <b>ruta 2</b>. Dos días enteros de Roma, tres bases de tres noches y 17 h 30 de volante en todo el viaje. El precio es el Palio y los pueblos toscanos." },
-      { "p": "¿Te sabe mal dejarte Bolonia y Asís?", "r_html": "Entonces <b>ruta 3</b>. Recupera Emilia y Umbría por 250 km y 75 € más, y sigue siendo mucho más corta que el plan con Venecia. A cambio, Florencia y Cinque Terre bajan a dos noches." }
-    ],
-    "recomendacion_html": "La <b>ruta 1</b>. Con Roma, Florencia y Cinque Terre como innegociables, es la única que les da a los tres el sitio que piden <i>y</i> conserva el Palio, que solo pasa el día que tú estás allí. Saturnia cae en el penúltimo día, después del tramo más largo, que es exactamente cuando apetece un baño caliente. Y con 1.412 km deja unos 165 € de margen sobre el presupuesto previsto."
+  "encaje_html": "Encaja en dos sitios y las tres rutas usan uno u otro: <b>de camino a Siena</b> (Bracciano → Saturnia → Siena, +55 km, baño a las 07:30 con las pozas vacías) o <b>en la bajada final</b> desde Liguria por la costa (La Spezia → Saturnia, baño al atardecer y de noche, y duermes allí). La segunda es mejor: llegas cansado de 300 km y te metes en agua caliente."
+ },
+ "diagnostico": {
+  "titulo": "Por qué hay tres rutas alternativas",
+  "puntos": [
+   {
+    "que": "El plan cargado sigue estirándose al noreste",
+    "donde": "Bolonia, Rávena y San Marino",
+    "cifra": "1.795 km",
+    "detalle": "El viaje sigue cruzando media Italia para llegar a la Romaña. Las tres rutas de abajo recortan entre <b>130 y 430 km</b> más."
+   },
+   {
+    "que": "Los esenciales van justos",
+    "donde": "Florencia y Cinque Terre",
+    "cifra": "2 noches",
+    "detalle": "En el plan cargado, Florencia son dos noches y Cinque Terre un solo día. Las rutas <b>1 y 2 les dan tres noches a cada una</b>."
+   },
+   {
+    "que": "Falta la Maremma entera",
+    "donde": "Saturnia, Pitigliano, Sovana",
+    "cifra": "1 parada",
+    "detalle": "La esquina suroeste de la Toscana — termas gratis, pueblos etruscos excavados en la toba — está <b>a hora y media del puerto</b> y solo se roza de pasada camino de Siena."
+   }
+  ],
+  "fijo": "No se toca en ninguna ruta: el ferri (llegada el 14 a las 22:00, salida el 25 a las 17:00, en el puerto a las 13:30), <b>Ferragosto el 15</b> con los Museos Vaticanos cerrados — por eso la Sixtina va el último día — y la primera noche en Tolfa, a 20 minutos del puerto."
+ },
+ "comparativa": {
+  "filas": [
+   {
+    "que": "Kilómetros",
+    "plan": "1.795",
+    "a": "1.412",
+    "b": "1.367",
+    "c": "1.662"
+   },
+   {
+    "que": "Horas al volante",
+    "plan": "24 h",
+    "a": "19,5 h",
+    "b": "17,5 h",
+    "c": "23 h"
+   },
+   {
+    "que": "Día más largo (km)",
+    "plan": "340",
+    "a": "300",
+    "b": "300",
+    "c": "250"
+   },
+   {
+    "que": "Días de 240 km o más",
+    "plan": "4",
+    "a": "1",
+    "b": "2",
+    "c": "5"
+   },
+   {
+    "que": "Peajes",
+    "plan": "65 €",
+    "a": "25 €",
+    "b": "25 €",
+    "c": "45 €"
+   },
+   {
+    "que": "Coste total",
+    "plan": "806 €",
+    "a": "690 €",
+    "b": "665 €",
+    "c": "740 €",
+    "destaca": true
+   },
+   {
+    "que": "Noches de pago",
+    "plan": "3",
+    "a": "3",
+    "b": "3",
+    "c": "2"
+   },
+   {
+    "que": "Noches en Florencia",
+    "plan": "2",
+    "a": "3",
+    "b": "3",
+    "c": "2"
+   }
+  ]
+ },
+ "opciones": [
+  {
+   "letra": "·",
+   "id": "plan",
+   "nombre": "Plan cargado",
+   "apodo": "El itinerario que abre la app",
+   "km": 1795,
+   "volante": "~24 h",
+   "coste": "~806 €",
+   "idea_html": "El anillo completo: Roma, Siena, Toscana, Cinque Terre, <b>Parma, Módena y Bolonia</b>, Rávena, San Marino, Asís y vuelta. Es lo que ves ahora mismo en Itinerario y en el mapa.",
+   "ganas": [
+    "Bolonia con noche propia y Emilia con tiempo",
+    "Rávena y sus mosaicos, más San Marino",
+    "Asís y la Umbría de vuelta"
+   ],
+   "pierdes": [
+    "Solo 2 noches en Florencia y un día de Cinque Terre",
+    "Un día de 340 km",
+    "La Maremma: Saturnia se ve de paso"
+   ],
+   "dias": [],
+   "actual": true
   },
-
-  "verificar": {
-    "intro": "Las noches y paradas nuevas no están comprobadas. Confírmalas antes de salir, igual que los diez puntos de «pendientes de verificar».",
-    "puntos": [
-      { "alt": "Todas", "que": "Aparcamiento de las Cascate del Mulino", "detalle": "El acceso a las pozas es libre y gratuito, pero el aparcamiento de al lado ha pasado a cobrarse en temporada alta. Confirmar precio y si se puede pernoctar; si no, el pueblo de Saturnia está a 1,5 km." },
-      { "alt": "1 y 2", "que": "Dormir en Saturnia, noche del 23", "detalle": "Verificar la ordenanza de Manciano sobre pernocta en el coche. Alternativas: área de sosta en Manciano (8 km) o en Montemerano." },
-      { "alt": "3", "que": "Bolonia · Certosa / Parco Nord", "detalle": "En los datos figura como aparcamiento diurno gratuito. Confirmar que se puede pernoctar. Alternativa de pago: Parcheggio Tanari." },
-      { "alt": "3", "que": "Asís · Porta San Giacomo", "detalle": "Aparcamiento gratuito junto a la muralla, pero en agosto se llena. Confirmar y tener a mano el Parcheggio Giovanni Paolo II, de pago." },
-      { "alt": "Todas", "que": "Peajes y kilómetros", "detalle": "Las cifras son estimaciones sobre los tramos de la guía. Recalcúlalas en el simulador de Autostrade antes de salir." }
+  {
+   "letra": "1",
+   "id": "termas",
+   "etiqueta_corta": "Termas",
+   "trazado": [
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
     ],
-    "nota_html": "El Modus está matriculado como <b>autovettura</b>, no como autocaravana: dormir dentro de un turismo aparcado legalmente no es <i>campeggio libero</i> mientras no despliegues nada al exterior — mesa, toldo, patas. Esa distinción es la que salva de las multas municipales."
+    [
+     42.152,
+     11.937,
+     "Tolfa"
+    ],
+    [
+     41.8902,
+     12.4922,
+     "Roma"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     43.3186,
+     11.3319,
+     "Siena · Palio"
+    ],
+    [
+     43.3906,
+     11.226,
+     "Monteriggioni"
+    ],
+    [
+     43.4677,
+     11.043,
+     "San Gimignano"
+    ],
+    [
+     43.4014,
+     10.8607,
+     "Volterra"
+    ],
+    [
+     43.7605,
+     11.1806,
+     "Florencia"
+    ],
+    [
+     43.8447,
+     10.506,
+     "Lucca"
+    ],
+    [
+     43.723,
+     10.3966,
+     "Pisa"
+    ],
+    [
+     44.109,
+     9.842,
+     "La Spezia"
+    ],
+    [
+     44.146,
+     9.654,
+     "Cinque Terre"
+    ],
+    [
+     44.05,
+     9.837,
+     "Portovenere"
+    ],
+    [
+     43.2308,
+     10.6053,
+     "Costa · Bolgheri"
+    ],
+    [
+     42.6467,
+     11.5108,
+     "SATURNIA"
+    ],
+    [
+     42.6355,
+     11.6689,
+     "Pitigliano"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     41.9022,
+     12.4539,
+     "Roma · Vaticano"
+    ],
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
+    ]
+   ],
+   "nombre": "Toscana clásica y termas",
+   "apodo": "La equilibrada",
+   "km": 1412,
+   "volante": "~19 h 30",
+   "coste": "~690 €",
+   "recomendada": true,
+   "idea_html": "Sube por el interior — <b>Palio de Siena, los tres pueblos toscanos, Florencia</b> — llega a Cinque Terre y <b>baja por la costa tirrena</b> hasta Saturnia. Es un anillo real, sin repetir tramo, con los tres esenciales holgados y las termas como premio del penúltimo día.",
+   "cambios_html": [
+    "<b>Tres noches en Florencia</b> (17, 18 y 19): un día de calle, un día de museos con el descuento joven de 2 € y Fiesole al atardecer, que está a 8 km y es gratis.",
+    "<b>Tres noches en La Spezia</b> y dos días enteros de Cinque Terre con la Treno MS Card de 32,50 €: los tres pueblos del sur y el sendero un día; Vernazza, Monterosso, la vía verde de Levanto y Portovenere el otro.",
+    "<b>La bajada por la costa es el día largo</b> (300 km): Aurelia, parada en la Versilia o en Bolgheri y llegada a Saturnia sobre las 19:00. Te metes en el agua caliente al atardecer, cenas y vuelves a meterte de noche, con las pozas vacías.",
+    "<b>Pitigliano el último día completo</b>: un pueblo entero excavado en la toba volcánica, con su barrio judío y las <i>vie cave</i> etruscas. Está a 40 minutos de Saturnia y es gratis pasearlo. Luego, Roma para el atardecer.",
+    "<b>El Palio se mantiene</b>: la provaccia del domingo a las 09:00 en Piazza del Campo, gratis, que es la parte que se puede ver sin cuatro horas de pie."
+   ],
+   "ganas": [
+    "Los tres esenciales holgados: 2 días de Roma, 3 noches de Florencia, 3 de Cinque Terre",
+    "El Palio y los pueblos toscanos, sin renunciar a las termas",
+    "Ningún día por encima de 300 km y solo uno por encima de 240",
+    "Anillo cerrado: no se repite un solo kilómetro"
+   ],
+   "pierdes": [
+    "Bolonia y toda Emilia",
+    "Asís y Umbría",
+    "El segundo día completo de Roma que sí tiene la ruta 2"
+   ],
+   "coste_detalle": "≈ 196 € de gasolina, 25 € de peajes (casi todo Aurelia, Cassia y FI-PI-LI, gratuitas), 21 € de dormir (solo Villa Costanza), 32,50 € de la Card, entradas ~135 € y 19 €/día de comida. Total <b>≈ 690 €</b>, unos 115 € menos que el plan cargado.",
+   "dias": [
+    {
+     "n": 0,
+     "etiqueta": "Vie 14",
+     "corto": "Tolfa",
+     "etapa": "Civitavecchia → Tolfa",
+     "km": 22,
+     "min": 25,
+     "dormir": "Tolfa · gratis"
+    },
+    {
+     "n": 1,
+     "etiqueta": "Sáb 15",
+     "corto": "Roma",
+     "etapa": "Roma entera (Ferragosto)",
+     "km": 130,
+     "min": 120,
+     "dormir": "Bracciano · gratis",
+     "hito": true
+    },
+    {
+     "n": 2,
+     "etiqueta": "Dom 16",
+     "corto": "Siena · Palio",
+     "etapa": "Bracciano → Siena · Palio",
+     "km": 195,
+     "min": 150,
+     "dormir": "Area Camper Siena · gratis"
+    },
+    {
+     "n": 3,
+     "etiqueta": "Lun 17",
+     "corto": "Pueblos toscanos",
+     "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia",
+     "km": 165,
+     "min": 180,
+     "dormir": "Villa Costanza · 7 €"
+    },
+    {
+     "n": 4,
+     "etiqueta": "Mar 18",
+     "corto": "Florencia I",
+     "etapa": "Florencia I: Duomo, Signoria, Oltrarno, mercados",
+     "km": 15,
+     "min": 30,
+     "dormir": "Villa Costanza · 7 €",
+     "hito": true
+    },
+    {
+     "n": 5,
+     "etiqueta": "Mié 19",
+     "corto": "Florencia II",
+     "etapa": "Florencia II: Uffizi, Accademia y Fiesole al atardecer",
+     "km": 25,
+     "min": 45,
+     "dormir": "Villa Costanza · 7 €",
+     "cambia": true
+    },
+    {
+     "n": 6,
+     "etiqueta": "Jue 20",
+     "corto": "Lucca y Pisa",
+     "etapa": "Florencia → Lucca → Pisa → La Spezia",
+     "km": 220,
+     "min": 180,
+     "dormir": "Palaspezia · gratis 12 h"
+    },
+    {
+     "n": 7,
+     "etiqueta": "Vie 21",
+     "corto": "Cinque Terre I",
+     "etapa": "Cinque Terre I: Riomaggiore, Manarola, Corniglia y el sendero",
+     "km": 10,
+     "min": 15,
+     "dormir": "Palaspezia · gratis 12 h",
+     "hito": true
+    },
+    {
+     "n": 8,
+     "etiqueta": "Sáb 22",
+     "corto": "Cinque Terre II",
+     "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere",
+     "km": 40,
+     "min": 45,
+     "dormir": "Palaspezia · gratis 12 h",
+     "cambia": true
+    },
+    {
+     "n": 9,
+     "etiqueta": "Dom 23",
+     "corto": "→ SATURNIA",
+     "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)",
+     "km": 300,
+     "min": 210,
+     "dormir": "Saturnia · gratis",
+     "cambia": true,
+     "verificar": true
+    },
+    {
+     "n": 10,
+     "etiqueta": "Lun 24",
+     "corto": "Pitigliano",
+     "etapa": "Saturnia → Pitigliano → Roma (miradores) → Bracciano",
+     "km": 200,
+     "min": 165,
+     "dormir": "Bracciano · gratis",
+     "cambia": true
+    },
+    {
+     "n": 11,
+     "etiqueta": "Mar 25",
+     "corto": "Sixtina y puerto",
+     "etapa": "Capilla Sixtina → Civitavecchia",
+     "km": 90,
+     "min": 90,
+     "dormir": "Ferri, 22:30"
+    }
+   ]
+  },
+  {
+   "letra": "2",
+   "id": "roma-mar",
+   "etiqueta_corta": "Roma ×2",
+   "trazado": [
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
+    ],
+    [
+     42.152,
+     11.937,
+     "Tolfa"
+    ],
+    [
+     41.8902,
+     12.4922,
+     "Roma ×2 días"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     43.3186,
+     11.3319,
+     "Siena (de paso)"
+    ],
+    [
+     43.7605,
+     11.1806,
+     "Florencia"
+    ],
+    [
+     43.8447,
+     10.506,
+     "Lucca"
+    ],
+    [
+     43.723,
+     10.3966,
+     "Pisa"
+    ],
+    [
+     44.109,
+     9.842,
+     "La Spezia"
+    ],
+    [
+     44.146,
+     9.654,
+     "Cinque Terre"
+    ],
+    [
+     44.05,
+     9.837,
+     "Portovenere"
+    ],
+    [
+     43.2308,
+     10.6053,
+     "Costa · Bolgheri"
+    ],
+    [
+     42.6467,
+     11.5108,
+     "SATURNIA"
+    ],
+    [
+     42.6355,
+     11.6689,
+     "Pitigliano"
+    ],
+    [
+     42.6558,
+     11.6136,
+     "Sovana"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     41.9022,
+     12.4539,
+     "Roma · Vaticano"
+    ],
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
+    ]
+   ],
+   "nombre": "Roma doble y el mar",
+   "apodo": "La más descansada",
+   "km": 1367,
+   "volante": "~17 h 30",
+   "coste": "~665 €",
+   "idea_html": "Cuatro sitios donde duermes y ya está: <b>Bracciano tres noches, Florencia tres, La Spezia tres</b> y Saturnia. Roma se ve en dos días enteros en vez de uno a la carrera, y las tres bases se aprovechan a fondo. Es la ruta que sobrevive a que llueva, a que algo se rompa o a dormir mal.",
+   "cambios_html": [
+    "<b>Roma en dos días.</b> El sábado 15 (Ferragosto, con la ciudad vacía de romanos) el centro clásico: Coliseo, Foro, Panteón, Trevi, Navona. El domingo 16, la otra Roma: Trastevere, el Gianicolo, el mercado de Testaccio, el Aventino y Villa Borghese.",
+    "<b>El lunes se sube a Florencia con parada en Siena</b> de tres horas: Piazza del Campo, el Duomo y a seguir. 280 km, el día de más volante del viaje después de la bajada a Saturnia.",
+    "<b>Tres noches en Florencia y tres en La Spezia</b>, igual que la ruta 1: los dos bloques importantes se quedan intactos.",
+    "<b>Saturnia en la bajada</b>, con noche allí, y el lunes Pitigliano y Sovana antes de volver a Bracciano.",
+    "<b>Lo que se paga por esto: el Palio.</b> El 16 de agosto estarás en Roma, no en Siena. Siena la ves igual, pero un día después y sin carrera."
+   ],
+   "ganas": [
+    "Tres noches seguidas en cada base: deshaces la maleta de verdad",
+    "El día de Roma que en todos los planes se quedaba corto",
+    "17 h 30 de volante en doce días: 6 h 30 menos que el plan cargado",
+    "La más barata: ~665 €, a un paso del escenario mínimo"
+   ],
+   "pierdes": [
+    "El Palio de Siena, que solo pasa el 16 de agosto",
+    "Los pueblos toscanos: Monteriggioni, San Gimignano y Volterra",
+    "Bolonia, Emilia y Umbría"
+   ],
+   "coste_detalle": "≈ 190 € de gasolina, 25 € de peajes, 21 € de dormir, 32,50 € de la Card, entradas ~120 € (una menos, la del Duomo de Siena, y una más si entras en la Galleria Borghese) y 19 €/día de comida. Total <b>≈ 665 €</b>.",
+   "dias": [
+    {
+     "n": 0,
+     "etiqueta": "Vie 14",
+     "corto": "Tolfa",
+     "etapa": "Civitavecchia → Tolfa",
+     "km": 22,
+     "min": 25,
+     "dormir": "Tolfa · gratis"
+    },
+    {
+     "n": 1,
+     "etiqueta": "Sáb 15",
+     "corto": "Roma I",
+     "etapa": "Roma I: Coliseo, Foro, Panteón, Trevi (Ferragosto)",
+     "km": 130,
+     "min": 120,
+     "dormir": "Bracciano · gratis",
+     "hito": true
+    },
+    {
+     "n": 2,
+     "etiqueta": "Dom 16",
+     "corto": "Roma II",
+     "etapa": "Roma II: Trastevere, Gianicolo, Testaccio, Aventino, Borghese",
+     "km": 55,
+     "min": 90,
+     "dormir": "Bracciano · gratis",
+     "cambia": true
+    },
+    {
+     "n": 3,
+     "etiqueta": "Lun 17",
+     "corto": "Siena y Florencia",
+     "etapa": "Bracciano → Siena (3 h) → Florencia",
+     "km": 280,
+     "min": 240,
+     "dormir": "Villa Costanza · 7 €",
+     "cambia": true
+    },
+    {
+     "n": 4,
+     "etiqueta": "Mar 18",
+     "corto": "Florencia I",
+     "etapa": "Florencia I: Duomo, Signoria, Oltrarno, mercados",
+     "km": 15,
+     "min": 30,
+     "dormir": "Villa Costanza · 7 €",
+     "hito": true
+    },
+    {
+     "n": 5,
+     "etiqueta": "Mié 19",
+     "corto": "Florencia II",
+     "etapa": "Florencia II: Uffizi, Accademia y Fiesole al atardecer",
+     "km": 20,
+     "min": 40,
+     "dormir": "Villa Costanza · 7 €"
+    },
+    {
+     "n": 6,
+     "etiqueta": "Jue 20",
+     "corto": "Lucca y Pisa",
+     "etapa": "Florencia → Lucca → Pisa → La Spezia",
+     "km": 220,
+     "min": 180,
+     "dormir": "Palaspezia · gratis 12 h"
+    },
+    {
+     "n": 7,
+     "etiqueta": "Vie 21",
+     "corto": "Cinque Terre I",
+     "etapa": "Cinque Terre I: Riomaggiore, Manarola, Corniglia y el sendero",
+     "km": 10,
+     "min": 15,
+     "dormir": "Palaspezia · gratis 12 h",
+     "hito": true
+    },
+    {
+     "n": 8,
+     "etiqueta": "Sáb 22",
+     "corto": "Cinque Terre II",
+     "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere",
+     "km": 35,
+     "min": 45,
+     "dormir": "Palaspezia · gratis 12 h"
+    },
+    {
+     "n": 9,
+     "etiqueta": "Dom 23",
+     "corto": "→ SATURNIA",
+     "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)",
+     "km": 300,
+     "min": 210,
+     "dormir": "Saturnia · gratis",
+     "cambia": true,
+     "verificar": true
+    },
+    {
+     "n": 10,
+     "etiqueta": "Lun 24",
+     "corto": "Pitigliano y Sovana",
+     "etapa": "Saturnia → Pitigliano → Sovana → Bracciano",
+     "km": 190,
+     "min": 150,
+     "dormir": "Bracciano · gratis",
+     "cambia": true
+    },
+    {
+     "n": 11,
+     "etiqueta": "Mar 25",
+     "corto": "Sixtina y puerto",
+     "etapa": "Capilla Sixtina → Civitavecchia",
+     "km": 90,
+     "min": 90,
+     "dormir": "Ferri, 22:30"
+    }
+   ]
+  },
+  {
+   "letra": "3",
+   "id": "norte",
+   "etiqueta_corta": "Emilia",
+   "trazado": [
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
+    ],
+    [
+     42.152,
+     11.937,
+     "Tolfa"
+    ],
+    [
+     41.8902,
+     12.4922,
+     "Roma"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     42.6467,
+     11.5108,
+     "SATURNIA"
+    ],
+    [
+     43.3186,
+     11.3319,
+     "Siena · Palio"
+    ],
+    [
+     43.3906,
+     11.226,
+     "Monteriggioni"
+    ],
+    [
+     43.4677,
+     11.043,
+     "San Gimignano"
+    ],
+    [
+     43.4014,
+     10.8607,
+     "Volterra"
+    ],
+    [
+     43.7605,
+     11.1806,
+     "Florencia"
+    ],
+    [
+     43.8447,
+     10.506,
+     "Lucca"
+    ],
+    [
+     43.723,
+     10.3966,
+     "Pisa"
+    ],
+    [
+     44.05,
+     9.837,
+     "Portovenere"
+    ],
+    [
+     44.109,
+     9.842,
+     "La Spezia"
+    ],
+    [
+     44.146,
+     9.654,
+     "Cinque Terre"
+    ],
+    [
+     44.8027,
+     10.3306,
+     "Parma"
+    ],
+    [
+     44.6465,
+     10.9255,
+     "Módena"
+    ],
+    [
+     44.4938,
+     11.3426,
+     "Bolonia ×2"
+    ],
+    [
+     43.0748,
+     12.6053,
+     "Asís"
+    ],
+    [
+     42.551,
+     12.715,
+     "Marmore"
+    ],
+    [
+     42.156,
+     12.24,
+     "Lago di Bracciano"
+    ],
+    [
+     41.9022,
+     12.4539,
+     "Roma · Vaticano"
+    ],
+    [
+     42.094,
+     11.79,
+     "Civitavecchia"
+    ]
+   ],
+   "nombre": "Emilia y Umbría",
+   "apodo": "La de más ciudades",
+   "km": 1662,
+   "volante": "~23 h",
+   "coste": "~740 €",
+   "idea_html": "Casi el plan cargado, pero <b>corta en Bolonia</b>: en vez de seguir a Rávena y San Marino, baja por la <b>E45, que es gratuita</b>, hacia Asís y Roma. Gana una noche entera en Bolonia y mete Saturnia camino de Siena.",
+   "cambios_html": [
+    "<b>Saturnia el domingo por la mañana</b>, camino de Siena: sales de Bracciano a las 06:00, a las 07:30 estás en las pozas casi solo, y a las 11:30 en Siena para el Palio. Son 55 km más que ir directo.",
+    "<b>El día 7 se parte en dos.</b> La Spezia → Parma → Módena → Bolonia son 250 km y se duerme en Bolonia; al día siguiente, Bolonia entera a pie sin mover el coche: las dos torres, San Petronio, Santo Stefano, los pórticos y el Quadrilatero.",
+    "<b>Bolonia → Asís por la E45</b>, 240 km sin un solo peaje, con los Apeninos de por medio. Se duerme en Asís y a la mañana siguiente la basílica de San Francisco está vacía.",
+    "<b>La Cascata delle Marmore</b> de vuelta a Roma: 165 metros de salto, aunque se paga la entrada y solo hay agua a horas concretas.",
+    "<b>Es la más larga de las tres</b>, pero la única que conserva Emilia y Umbría enteras, y aun así se ahorra 130 km sobre el plan cargado."
+   ],
+   "ganas": [
+    "Bolonia entera y de noche, más Parma y Módena con tiempo",
+    "Asís y la Umbría, que las otras dos rutas no tocan",
+    "Sigue siendo un anillo cerrado sin repetir tramo",
+    "Ningún día pasa de 250 km"
+   ],
+   "pierdes": [
+    "Rávena y sus mosaicos, San Leo y San Marino",
+    "Solo dos noches en Florencia y dos en La Spezia",
+    "Pitigliano y la Maremma: Saturnia se ve de paso, por la mañana"
+   ],
+   "coste_detalle": "≈ 231 € de gasolina, 45 € de peajes (A12 y A15 de la Cisa; la E45 es gratis), 14 € de dormir, 32,50 € de la Card, entradas ~135 € y 19 €/día de comida. Total <b>≈ 740 €</b>.",
+   "dias": [
+    {
+     "n": 0,
+     "etiqueta": "Vie 14",
+     "corto": "Tolfa",
+     "etapa": "Civitavecchia → Tolfa",
+     "km": 22,
+     "min": 25,
+     "dormir": "Tolfa · gratis"
+    },
+    {
+     "n": 1,
+     "etiqueta": "Sáb 15",
+     "corto": "Roma",
+     "etapa": "Roma entera (Ferragosto)",
+     "km": 130,
+     "min": 120,
+     "dormir": "Bracciano · gratis",
+     "hito": true
+    },
+    {
+     "n": 2,
+     "etiqueta": "Dom 16",
+     "corto": "SATURNIA y Palio",
+     "etapa": "Bracciano → SATURNIA (baño al amanecer) → Siena · Palio",
+     "km": 250,
+     "min": 195,
+     "dormir": "Area Camper Siena · gratis",
+     "cambia": true
+    },
+    {
+     "n": 3,
+     "etiqueta": "Lun 17",
+     "corto": "Pueblos toscanos",
+     "etapa": "Monteriggioni → San Gimignano → Volterra → Florencia",
+     "km": 165,
+     "min": 180,
+     "dormir": "Villa Costanza · 7 €"
+    },
+    {
+     "n": 4,
+     "etiqueta": "Mar 18",
+     "corto": "Florencia",
+     "etapa": "Florencia entera a pie",
+     "km": 15,
+     "min": 30,
+     "dormir": "Villa Costanza · 7 €",
+     "hito": true
+    },
+    {
+     "n": 5,
+     "etiqueta": "Mié 19",
+     "corto": "Lucca y Pisa",
+     "etapa": "Lucca → Pisa → Portovenere → La Spezia",
+     "km": 240,
+     "min": 210,
+     "dormir": "Palaspezia · gratis 12 h"
+    },
+    {
+     "n": 6,
+     "etiqueta": "Jue 20",
+     "corto": "Cinque Terre",
+     "etapa": "Cinque Terre",
+     "km": 10,
+     "min": 15,
+     "dormir": "Palaspezia · gratis 12 h",
+     "hito": true
+    },
+    {
+     "n": 7,
+     "etiqueta": "Vie 21",
+     "corto": "→ Bolonia",
+     "etapa": "La Spezia → Parma → Módena → Bolonia",
+     "km": 250,
+     "min": 180,
+     "dormir": "Bolonia · Certosa / Parco Nord",
+     "cambia": true,
+     "verificar": true
+    },
+    {
+     "n": 8,
+     "etiqueta": "Sáb 22",
+     "corto": "Bolonia a pie",
+     "etapa": "Bolonia entera a pie, sin mover el coche",
+     "km": 0,
+     "min": 0,
+     "dormir": "Bolonia · Certosa / Parco Nord",
+     "cambia": true,
+     "verificar": true
+    },
+    {
+     "n": 9,
+     "etiqueta": "Dom 23",
+     "corto": "→ Asís",
+     "etapa": "Bolonia → E45 (gratuita) → Asís",
+     "km": 240,
+     "min": 195,
+     "dormir": "Asís · Porta San Giacomo",
+     "cambia": true,
+     "verificar": true
+    },
+    {
+     "n": 10,
+     "etiqueta": "Lun 24",
+     "corto": "Asís y Marmore",
+     "etapa": "Asís → Eremo delle Carceri → Cascata delle Marmore → Bracciano",
+     "km": 250,
+     "min": 210,
+     "dormir": "Bracciano · gratis",
+     "cambia": true
+    },
+    {
+     "n": 11,
+     "etiqueta": "Mar 25",
+     "corto": "Sixtina y puerto",
+     "etapa": "Capilla Sixtina → Civitavecchia",
+     "km": 90,
+     "min": 90,
+     "dormir": "Ferri, 22:30"
+    }
+   ]
   }
+ ],
+ "decidir": {
+  "preguntas": [
+   {
+    "p": "¿Quieres ver el Palio y los pueblos toscanos?",
+    "r_html": "Entonces <b>ruta 1</b>. Es la equilibrada: mantiene el Palio, mete los tres pueblos, deja tres noches en Florencia y tres en Cinque Terre, y baja por la costa a Saturnia."
+   },
+   {
+    "p": "¿Prefieres conducir lo mínimo y ver Roma bien?",
+    "r_html": "Entonces <b>ruta 2</b>. Dos días enteros de Roma, tres bases de tres noches y 17 h 30 de volante en todo el viaje. El precio es el Palio y los pueblos toscanos."
+   },
+   {
+    "p": "¿Te sabe mal dejarte Bolonia y Asís?",
+    "r_html": "Entonces <b>ruta 3</b>, que los mantiene los dos y aun así se ahorra 130 km sobre el plan cargado. O quédate como estás: el plan cargado ya los tiene, más Rávena y San Marino."
+   }
+  ],
+  "recomendacion_html": "La <b>ruta 1</b>. Con Roma, Florencia y Cinque Terre como innegociables, es la única que les da a los tres el sitio que piden <i>y</i> conserva el Palio, que solo pasa el día que tú estás allí. Saturnia cae en el penúltimo día, después del tramo más largo, que es exactamente cuando apetece un baño caliente. Y con 1.412 km deja unos 115 € de margen sobre el plan cargado."
+ },
+ "verificar": {
+  "intro": "Las noches y paradas nuevas no están comprobadas. Confírmalas antes de salir, igual que los diez puntos de «pendientes de verificar».",
+  "puntos": [
+   {
+    "alt": "Todas",
+    "que": "Aparcamiento de las Cascate del Mulino",
+    "detalle": "El acceso a las pozas es libre y gratuito, pero el aparcamiento de al lado ha pasado a cobrarse en temporada alta. Confirmar precio y si se puede pernoctar; si no, el pueblo de Saturnia está a 1,5 km."
+   },
+   {
+    "alt": "1 y 2",
+    "que": "Dormir en Saturnia, noche del 23",
+    "detalle": "Verificar la ordenanza de Manciano sobre pernocta en el coche. Alternativas: área de sosta en Manciano (8 km) o en Montemerano."
+   },
+   {
+    "alt": "3",
+    "que": "Bolonia · Certosa / Parco Nord",
+    "detalle": "En los datos figura como aparcamiento diurno gratuito. Confirmar que se puede pernoctar. Alternativa de pago: Parcheggio Tanari."
+   },
+   {
+    "alt": "3",
+    "que": "Asís · Porta San Giacomo",
+    "detalle": "Aparcamiento gratuito junto a la muralla, pero en agosto se llena. Confirmar y tener a mano el Parcheggio Giovanni Paolo II, de pago."
+   },
+   {
+    "alt": "Todas",
+    "que": "Peajes y kilómetros",
+    "detalle": "Las cifras son estimaciones sobre los tramos de la guía. Recalcúlalas en el simulador de Autostrade antes de salir."
+   }
+  ],
+  "nota_html": "El Modus está matriculado como <b>autovettura</b>, no como autocaravana: dormir dentro de un turismo aparcado legalmente no es <i>campeggio libero</i> mientras no despliegues nada al exterior — mesa, toldo, patas. Esa distinción es la que salva de las multas municipales."
+ }
 }

@@ -168,22 +168,22 @@
    {
     "hora": "07:15",
     "etiqueta": "Mañana",
-    "html": "<p><b>LUCCA</b> (80 km, 1h15 por la A11, peaje ≈ 7 €; o gratis por la SS435, +25 min). Aparca <b>fuera de las murallas</b>: <b>Borgo Giannotti</b> (norte) o <b>Campo di Marte</b> (este) son <b>gratuitos</b> y quedan a 12-15 min andando — pero se llenan antes de las 09:00 en verano. <em class=\"p-tip\">CUIDADO</em> La ZTL de Lucca es <b>24 horas, 365 días</b> en todo el recinto amurallado, sin excepciones. Multa de 83 a 335 €.</p><p>Lucca es la ciudad más agradable de la Toscana y casi todo es gratis: el paseo arbolado <b>sobre las murallas renacentistas</b> (4,2 km, se hace en 1 h andando y da sombra), la <b>Piazza dell'Anfiteatro</b> — casas construidas sobre el óvalo exacto del anfiteatro romano —, la fachada de San Michele in Foro y la Catedral. La <b>Torre Guinigi</b>, con siete encinas creciendo en la azotea, cuesta unos 5 € y merece la pena.</p>"
+    "html": "<p><b>LUCCA</b> (80 km, 1h15 por la A11, peaje ≈ 7 €; o gratis por la SS435, +25 min). Llegas sobre las <b>08:30</b> y <b>tienes hasta las 12:00</b>: es la parada grande del día.</p><p>Aparca <b>fuera de las murallas</b>: <b>Borgo Giannotti</b> (norte) o <b>Campo di Marte</b> (este) son <b>gratuitos</b> y quedan a 12-15 min andando — pero se llenan antes de las 09:00 en verano, así que llegar pronto no es opcional. <em class=\"p-tip\">CUIDADO</em> La ZTL de Lucca es <b>24 horas, 365 días</b> en todo el recinto amurallado, sin excepciones. Multa de 83 a 335 €.</p><p>Lucca es la ciudad más agradable de la Toscana y casi todo es gratis: el paseo arbolado <b>sobre las murallas renacentistas</b> (4,2 km, <b>1 h andando</b> y da sombra todo el rato), la <b>Piazza dell'Anfiteatro</b> — casas construidas sobre el óvalo exacto del anfiteatro romano —, la fachada de San Michele in Foro y la Catedral. La <b>Torre Guinigi</b>, con siete encinas creciendo en la azotea, cuesta unos 5 € y merece la pena.</p><p><em class=\"p-tip\">POR QUÉ 3 H Y MEDIA</em> Antes este bloque duraba hora y tres cuartos, y de esas, media hora se iba andando desde el aparcamiento. Quedaba justo el tiempo de dar la vuelta a la muralla y volverte: el anfiteatro, San Michele y la torre no cabían. Ahora sí.</p>"
    },
    {
-    "hora": "10:45",
-    "etiqueta": "Mediodía",
-    "html": "<p><b>PISA</b> (25 km, 30 min). Aparca en el <b>Park &amp; Ride de Via Pietrasantina</b>: <b>aparcamiento gratuito</b> y lanzadera <b>LAM Rossa</b> a la Piazza dei Miracoli cada 8-10 min. Las fuentes discrepan sobre si es gratuita o hay que sacar billete: <b>lleva 2 € encima</b>. <em class=\"p-tip\">OJO</em> El otro gratuito, Via Paparelli, está <b>prohibido los miércoles</b> por el mercado — y hoy es miércoles.</p><p><b>La Piazza dei Miracoli se pasea gratis</b> y ahí está el 90 % de la experiencia: la torre inclinada, el Duomo y el Baptisterio sobre el césped. La <b>Catedral es gratis</b> con cualquier entrada del complejo o con el pase gratuito de taquilla. Subir a la torre cuesta <b>25 €</b> y son 251 escalones inclinados: <b>yo no lo pagaría</b> en un viaje de presupuesto mínimo.</p><p><b>Comer en Pisa:</b> pide un <b>«cinque e cinque»</b> — cecina (torta de garbanzo) dentro de pan, unos 3-4 €. Es el bocado local. En <b>Al Montino</b> o <b>Da Nando</b>.</p>"
+    "hora": "12:00",
+    "etiqueta": "Pisa, parada corta",
+    "html": "<p><b>PISA</b> (25 km, 30 min). <b>Dos horas bastan y sobran</b>, y no es un recorte: el Park &amp; Ride y la Piazza dei Miracoli están los dos en el borde de la ciudad, así que <b>no llegas a entrar en Pisa</b>. Es una parada de monumento, no una visita urbana.</p><p>Aparca en el <b>Park &amp; Ride de Via Pietrasantina</b>: <b>gratuito</b>, con lanzadera <b>LAM Rossa</b> cada 8-10 min. Las fuentes discrepan sobre si la lanzadera es gratis o hay que sacar billete: <b>lleva 2 € encima</b>. <em class=\"p-tip\">OJO</em> El otro gratuito, Via Paparelli, está <b>prohibido los miércoles</b> por el mercado — y hoy es miércoles.</p><p><b>La Piazza dei Miracoli se pasea gratis</b> y ahí está el 90 % de la experiencia: la torre inclinada, el Duomo y el Baptisterio sobre el césped. La <b>Catedral es gratis</b> con cualquier entrada del complejo o con el pase gratuito de taquilla. Subir a la torre cuesta <b>25 €</b> y son 251 escalones inclinados: <b>yo no lo pagaría</b> en un viaje de presupuesto mínimo — y ese cuarto de hora es justo el que le has quitado a Lucca.</p><p><b>Comer aquí:</b> un <b>«cinque e cinque»</b> — cecina (torta de garbanzo) dentro de pan, 3-4 €. Es el bocado local. En <b>Al Montino</b> o <b>Da Nando</b>.</p>"
    },
    {
-    "hora": "15:00",
-    "etiqueta": "Tarde",
-    "html": "<p>Pisa → La Spezia, 85 km, 1h15 (A12, peaje ≈ 8 €). <em class=\"p-tip\">PARADA DE BAÑO</em> Si quieres mar por el camino, <b>Marina di Vecchiano</b> (Parco di San Rossore): playa libre con dunas y pinar, 1,80 €/h o 10 €/día de aparcamiento. Evita la Versilia (Viareggio, Forte dei Marmi): es un muro continuo de balnearios de pago sin encanto.</p>"
+    "hora": "14:30",
+    "etiqueta": "Costa",
+    "html": "<p>Pisa → La Spezia, 85 km, 1h15 (A12, peaje ≈ 8 €). Llegas sobre las <b>15:45</b>.</p><p><em class=\"p-tip\">PARADA DE BAÑO</em> Ahora sí da tiempo de verdad: <b>Marina di Vecchiano</b> (Parco di San Rossore), playa libre con dunas y pinar, 1,80 €/h o 10 €/día de aparcamiento. Evita la Versilia (Viareggio, Forte dei Marmi): es un muro continuo de balnearios de pago sin encanto.</p>"
    },
    {
-    "hora": "18:30",
+    "hora": "17:00",
     "etiqueta": "Atardecer",
-    "html": "<p><b>PORTOVENERE</b> (15 km de La Spezia) <em class=\"p-free\">gratis</em>. Esta es la joya del día y casi nadie la mete en su ruta: casas-torre de colores, el castillo Doria y la <b>iglesia gótica de San Pietro sobre el acantilado</b>, con la Grotta di Byron debajo. Es de la misma familia que las Cinque Terre, es UNESCO igual, <b>se llega en coche</b> y tiene la mitad de gente. Puesta de sol sobre el mar a las 20:19.</p>"
+    "html": "<p><b>PORTOVENERE</b> (15 km de La Spezia) <em class=\"p-free\">gratis</em>. Esta es la joya del día y casi nadie la mete en su ruta: casas-torre de colores, el castillo Doria y la <b>iglesia gótica de San Pietro sobre el acantilado</b>, con la Grotta di Byron debajo. Es de la misma familia que las Cinque Terre, es UNESCO igual, <b>se llega en coche</b> y tiene la mitad de gente.</p><p>Antes tenía hora y media y la puesta de sol encima; ahora entras a las 17:00 y tienes <b>más de tres horas</b> hasta que el sol se mete en el mar a las <b>20:19</b>. Da para subir a San Pietro, bajar a la Grotta di Byron y cenar sin mirar el reloj.</p>"
    }
   ],
   "dormir_html": "<b>Dormir ·</b><b>Parcheggio Palaspezia</b> (La Spezia, zona este junto al enlace de autopista) <em class=\"p-free\">gratis</em>, con <b>lanzadera gratuita</b> al centro. Alternativa igual de buena: <b>Piazzale d'Armi</b>, 150 plazas, gratis.<br><small><b>Si necesitas ducha:</b> Area Camper ATCPM La Spezia — videovigilada, con aseos y <b>duchas calientes</b>. Cierra de noche (acceso 8:00-20:00), así que entra antes de las 20:00.</small>",
@@ -222,83 +222,73 @@
  {
   "dia": 7,
   "cabecera_dia": "Día 7 · viernes 21",
-  "cabecera_titulo": "Cruzar Emilia: jamón, motores y pórticos",
-  "cabecera_km": "380 km · 4:30",
+  "cabecera_titulo": "Cruzar Emilia: el románico de Módena",
+  "cabecera_km": "220 km · 2:35",
   "franjas": [
    {
     "hora": "06:45",
     "etiqueta": "Mañana",
-    "html": "<p>El día más largo del viaje, y por eso cae en la ventana tranquila de tráfico. La Spezia → Parma por la <b>A15 della Cisa</b>, 120 km, 1h30. <b>Es el peaje más caro del viaje</b> (0,126 €/km, unos <b>14-16 €</b>) porque atraviesa los Apeninos. La alternativa gratis, la SS62 por el paso de la Cisa, es preciosa pero te cuesta 50 minutos más de curvas.</p><p><b>08:30 · PARMA</b> (1 h). Piazza Duomo: la catedral románica y sobre todo el <b>Baptisterio de Antelami</b>, un octógono de mármol rosa de Verona que es una de las cosas más raras y bonitas de Italia — <b>por fuera es gratis</b>. Compra el desayuno-almuerzo en una <i>salumeria</i>: panino con <b>Prosciutto di Parma</b> y una cuña de Parmigiano, 5-7 €, y lo comes andando.</p>"
+    "html": "<p>Cae en la ventana tranquila de tráfico. La Spezia → Módena por la <b>A15 della Cisa</b> y luego la <b>A1</b>: 180 km, 2h15. La Cisa <b>es el peaje más caro del viaje</b> (0,126 €/km, unos <b>14-16 €</b>) porque atraviesa los Apeninos; con el tramo de A1 hasta Módena, cuenta <b>19-20 €</b> en total. La alternativa gratis, la SS62 por el paso de la Cisa, es preciosa pero te cuesta 50 minutos más de curvas.</p><p><em class=\"p-tip\">POR QUÉ NO SE PARA EN PARMA</em> Parma queda en el camino y es tentadora, pero <b>no tiene aparcamiento en el centro</b>: hay que dejar el coche en un <i>scambiatore</i> del anillo y entrar en lanzadera. Entre aparcar, esperar, entrar y volver se va casi una hora, y el hueco que tenía en el plan era de hora y media. Media hora de visita real no es una parada: es un peaje con catedral. Si algún día vuelves con tiempo, el <b>Baptisterio de Antelami</b> lo merece de sobra.</p>"
    },
    {
-    "hora": "10:45",
-    "etiqueta": "Mediodía",
-    "html": "<p><b>MÓDENA</b> (60 km, 45 min). Aquí está uno de los conjuntos románicos más importantes de Europa y <b>casi todo es gratis</b>: el <b>Duomo</b> con los relieves de Wiligelmo, la <b>Torre Ghirlandina</b> y la <b>Piazza Grande</b>, las tres UNESCO juntas.</p><p><b>Comer:</b><b>Mercato Albinelli</b>, el mercado cubierto histórico. En el puesto <b>Vino e Tortellino</b> (103): tigella con cotechino, gnocco fritto, tortellini in brodo. O <b>Sosta Emiliana</b> (Piazza XX Settembre): tabla de tigelle con embutidos y lambrusco, 10-20 €.</p><p><em class=\"p-tip\">SI TE GUSTAN LOS COCHES</em> El Museo Enzo Ferrari está en Módena y el de Maranello a 20 km. No son baratos (~20-30 €) pero si es tu cosa, este es el día.</p>"
+    "hora": "09:15",
+    "etiqueta": "Módena",
+    "html": "<p><b>MÓDENA</b>, la parada del día, y tiene <b>toda la mañana</b>. Aquí está uno de los conjuntos románicos más importantes de Europa y <b>casi todo es gratis</b>: el <b>Duomo</b> con los relieves de Wiligelmo, la <b>Torre Ghirlandina</b> y la <b>Piazza Grande</b> — tres UNESCO pegadas, se ven andando de una a otra.</p><p><em class=\"p-tip\">APARCAR</em> <b>Viale Sigonio</b> o <b>Via Peretti</b>, gratis y sin barrera, fuera de la ZTL: al Duomo son 1,5 km llanos, unos <b>18 min andando</b>. La zona del estadio también es gratis. <b>Aquí no dependes de ninguna lanzadera</b>, y por eso Módena se queda en el plan y Parma no. Si prefieres pagar y acortar, <b>Novi Park</b> cuesta 1,20 €/h y tiene lanzadera gratuita que rodea la ZTL.</p><p><b>Comer:</b> <b>Mercato Albinelli</b>, el mercado cubierto histórico. En el puesto <b>Vino e Tortellino</b> (103): tigella con cotechino, gnocco fritto, tortellini in brodo. O <b>Sosta Emiliana</b> (Piazza XX Settembre): tabla de tigelle con embutidos y lambrusco, 10-20 €.</p><p><em class=\"p-tip\">SI TE GUSTAN LOS COCHES</em> Ahora sí cabe: el <b>Museo Enzo Ferrari</b> está en la propia Módena y el de <b>Maranello</b> a 20 km. No son baratos (~20-30 €) pero si es tu cosa, este es el único día del viaje que te lo permite.</p>"
    },
    {
-    "hora": "14:15",
+    "hora": "14:30",
     "etiqueta": "Tarde",
-    "html": "<p><b>BOLONIA</b> (40 km, 35 min). Aparca fuera, y aquí lo tienes fácil y gratis: <b>Certosa</b> (viale Gandhi, 325 plazas) o <b>Parco Nord</b> (via Stalingrado, 750 plazas), ambos <b>gratuitos y abiertos 24/7</b>, más un billete de bus TPER de <b>2,30 €</b>. Medio día en Bolonia por 2,30 € de transporte. La <b>ZTL Sirio funciona todos los días de 07:00 a 20:00</b> y la multa ronda los 90 €.</p><p>Bolonia es <b>la ciudad donde mejor se come y más barato se come</b> de toda Italia, y además casi todo lo bueno es gratis: los <b>62 km de pórticos</b> (Patrimonio de la Humanidad desde 2021 y una bendición con 36 °C, porque caminas siempre a la sombra), <b>Piazza Maggiore</b>, la <b>Basílica de San Petronio</b> con su fachada a medio terminar, el barrio del <b>Quadrilatero</b> con los puestos de comida, y las <b>Dos Torres</b>.</p><p><em class=\"p-tip\">OJO</em> La <b>Torre degli Asinelli está CERRADA</b> por las obras de consolidación de la Garisenda, y no se prevé reapertura hasta 2028. La alternativa oficial es la <b>Torre dell'Orologio</b> (10 €, mar-dom hasta las 20:20, entradas cada 20 min): si reservas el último pase tienes Piazza Maggiore con luz de atardecer.</p><p><b>Comer:</b> tagliatelle al ragù en la <b>Osteria dell'Orsa</b> (Via Mentana 1), la referencia estudiantil de la ciudad, 15-20 € comida completa; o <b>Trattoria del Rosso</b> con menú fijo desde 10 €; o simplemente un <b>panino con mortadella</b> por 5-8 € en el Quadrilatero. Zonas baratas: Via del Pratello y Via Zamboni.</p>"
+    "html": "<p><b>BOLONIA</b> (40 km, 35 min). Aparca fuera, y aquí lo tienes fácil y gratis. Hoy es llegar, dejar el coche y pasear sin plan: <b>Bolonia entera es mañana</b>, el día 8, con la mañana completa y sin mover el coche.</p><p>Los aparcamientos: <b>Certosa</b> (viale Gandhi, 325 plazas) o <b>Parco Nord</b> (via Stalingrado, 750 plazas), ambos <b>gratuitos y abiertos 24/7</b>, más un billete de bus TPER de <b>2,30 €</b>. Medio día en Bolonia por 2,30 € de transporte. La <b>ZTL Sirio funciona todos los días de 07:00 a 20:00</b> y la multa ronda los 90 €.</p><p>Bolonia es <b>la ciudad donde mejor se come y más barato se come</b> de toda Italia, y además casi todo lo bueno es gratis: los <b>62 km de pórticos</b> (Patrimonio de la Humanidad desde 2021 y una bendición con 36 °C, porque caminas siempre a la sombra), <b>Piazza Maggiore</b>, la <b>Basílica de San Petronio</b> con su fachada a medio terminar, el barrio del <b>Quadrilatero</b> con los puestos de comida, y las <b>Dos Torres</b>.</p><p><em class=\"p-tip\">OJO</em> La <b>Torre degli Asinelli está CERRADA</b> por las obras de consolidación de la Garisenda, y no se prevé reapertura hasta 2028. La alternativa oficial es la <b>Torre dell'Orologio</b> (10 €, mar-dom hasta las 20:20, entradas cada 20 min): si reservas el último pase tienes Piazza Maggiore con luz de atardecer.</p><p><b>Comer:</b> tagliatelle al ragù en la <b>Osteria dell'Orsa</b> (Via Mentana 1), la referencia estudiantil de la ciudad, 15-20 € comida completa; o <b>Trattoria del Rosso</b> con menú fijo desde 10 €; o simplemente un <b>panino con mortadella</b> por 5-8 € en el Quadrilatero. Zonas baratas: Via del Pratello y Via Zamboni.</p>"
    },
    {
     "hora": "19:45",
     "etiqueta": "Noche",
-    "html": "<p>Bolonia → Mestre, 155 km, 1h45 (A13 + A4, peaje ≈ 13,60 €). Llegada 21:30.</p>"
+    "html": "<p>No se sigue conduciendo: <b>se duerme en Bolonia</b>. Deja el coche en <b>Certosa</b> o <b>Parco Nord</b>, gratuitos y abiertos 24/7, y sube al centro en bus (1,50 €) o andando.</p><p>Cena en la <b>Osteria dell'Orsa</b> (Via Mentana 1): tagliatelle al ragú por 7-9 € y se comparte mesa. Si hay cola, el <b>Quadrilatero</b> a esa hora está lleno de bares con <i>apericena</i> por 7-10 €.</p><p><em class=\"p-tip\">POR QUÉ AQUÍ</em> Parar en Bolonia en vez de seguir 155 km más ahorra 13,60 € de peaje y 1h45 de volante de noche. Y con una sola parada urbana en vez de dos, Módena ha sido una visita de verdad en vez de una carrera.</p>"
    }
   ],
-  "dormir_html": "<b>Dormir ·</b><b>Mestre</b>. Gratis: Via Santa Maria dei Battuti, Via Borgo Pezzana o Via Miranese (sin vigilancia, con bus/tranvía a la estación en 10-20 min). Barato y algo más seguro: <b>Park 2000 Pili</b> en Marghera, <b>5 €/día</b>, o <b>Autorimessa Delfino</b>, cubierto, <b>10 €/día</b>.<br><small><em class=\"p-tip\">NO</em> El Terminal Fusina <b>prohíbe expresamente pernoctar</b>. Y ojo: en Venecia-Mestre no dejes absolutamente nada visible dentro del coche.</small>",
-  "coste_html": "<b>Gasto del día:</b> peajes 30 € + gasolina 50 € + aparcamiento 5 € + comida 20 € = <b>≈ 105 €</b>. Es el día más caro; los dos siguientes lo compensan."
+  "dormir_html": "<b>Dormir ·</b> <b>Bolonia — Certosa (viale Gandhi) o Parco Nord (via Stalingrado)</b> <em class=\"p-free\">gratis</em>. Ambos abiertos 24/7 y con bus al centro. <b>Confirma que se puede pernoctar</b>; si no, Parcheggio Tanari, de pago.",
+  "coste_html": "<b>Gasto del día:</b> peajes 23 € + gasolina 35 € + comida 20 € = <b>≈ 78 €</b>."
  },
  {
   "dia": 8,
   "cabecera_dia": "Día 8 · sábado 22",
-  "cabecera_titulo": "Venecia sin gastar (casi) nada",
-  "cabecera_km": "25 km · 0:30",
+  "cabecera_titulo": "Bolonia entera y bajada a Rávena",
+  "cabecera_km": "85 km · 1:15",
   "franjas": [
    {
-    "hora": "06:15",
+    "hora": "08:00",
     "etiqueta": "Mañana",
-    "html": "<p><b>Tren de Mestre a Venezia Santa Lucia: 1,50 €, 11 minutos</b>, y hay muchísimos. Es incomparablemente más barato y rápido que cualquier otra opción. (El bus ACTV a Piazzale Roma cuesta lo mismo.)</p><p><b>07:00 · PIAZZA SAN MARCO VACÍA.</b> Este es el momento por el que has madrugado. Entre las 06:30 y las 07:30 estás tú y los barrenderos. A las 10:00 no cabe un alfiler. Camina desde la estación por el Canal Grande, cruza el <b>Ponte di Rialto</b> sin gente, llega a San Marco, sigue hasta la <b>Punta della Dogana</b>.</p>"
-   },
-   {
-    "hora": "09:30",
-    "etiqueta": "Qué pagar y qué no",
-    "html": "<table><thead><tr><th>Sitio</th><th>Precio</th><th>¿Merece la pena?</th></tr></thead><tbody><tr><td><b>Terraza del T Fondaco dei Tedeschi</b><br><small>junto al Puente de Rialto</small></td><td><b>GRATIS</b></td><td><b>✅ SÍ, la mejor vista gratuita de Venecia.</b> Azotea sobre el Gran Canal y el Puente de Rialto. Hay que <b>reservar franja de 15 min</b> (gratis) en la web del edificio o en el mostrador de la planta baja. Ve a primera hora o al atardecer.</td></tr><tr><td><b>Campanile de San Giorgio Maggiore</b></td><td>—</td><td>⚠️ <b>CERRADO por obras de mantenimiento extraordinario</b> (confirmado en la web de la abadía en julio de 2026, sin fecha de reapertura). Era la mejor vista de pago de Venecia; <b>compruébalo antes por si ha reabierto</b>. La iglesia de Palladio sigue abierta y es gratis (vaporetto línea 2, 9,50 €).</td></tr><tr><td><b>Basílica de San Marcos</b></td><td>10 €</td><td>Ya no es gratis. Los mosaicos dorados son excepcionales, pero si vas a ver los de Rávena mañana, puedes saltártela y quedarte con el atrio.</td></tr><tr><td><b>Campanile de San Marco</b></td><td>15 €</td><td>❌ No, por lo dicho arriba.</td></tr><tr><td><b>Palacio Ducal</b></td><td>35 €</td><td>❌ No hay entrada suelta: obligan a comprar el combinado con Correr y Arqueológico. Demasiado para este presupuesto.</td></tr><tr><td><b>Traghetto</b> — la góndola de los venecianos<br><small>Santa Sofia 9:00-18:00 · San Tomà 9:00-18:30</small></td><td><b>2,00 €</b></td><td><b>✅ SÍ, sin dudarlo. Es la mejor relación experiencia/precio de todo el viaje.</b> Es una góndola de verdad cruzando el Gran Canal, de pie como los locales. Una góndola turística cuesta <b>90 € por 30 min</b> (tarifa oficial, por barca; 110 € de noche). Cruza dos o tres veces, sigue siendo calderilla.</td></tr><tr><td><b>Vaporetto ACTV</b></td><td>9,50 € / 75 min<br>25 € el abono 24 h</td><td>⚠️ Carísimo. <b>Venecia se camina, y se camina entera en un día.</b> Con el campanile de San Giorgio cerrado, este año puedes ahorrártelo del todo: solo lo necesitas si quieres ir al Lido a la playa.</td></tr></tbody></table>"
-   },
-   {
-    "hora": "10:30",
-    "etiqueta": "La Venecia gratis",
-    "html": "<p><b>Cannaregio</b> — Fondamenta della Misericordia y Ormesini, el <b>Ghetto</b> (el primero del mundo, 1516), y la Venecia donde vive gente. <b>Castello</b> y Via Garibaldi. <b>Dorsoduro</b>: Campo Santa Margherita, las Zattere, el Squero di San Trovaso (donde aún se construyen góndolas, se ve desde la calle). El <b>Ponte dell'Accademia</b> para la curva del Canal Grande hacia la Salute. Todo esto no cuesta nada y es la mejor parte.</p>"
+    "html": "<p><b>BOLONIA a pie, sin mover el coche.</b> <b>Piazza Maggiore</b> y la <b>Basílica de San Petronio</b> (gratis, y es la sexta iglesia más grande del mundo; dentro está la línea meridiana de Cassini, de 67 m).</p><p><b>Las dos torres</b>, Asinelli y Garisenda, desde abajo son gratis. <b>Santo Stefano</b> — «las siete iglesias» — es el sitio más bonito de la ciudad y no se paga.</p><p><b>Archiginnasio</b>: el antiguo teatro anatómico y las paredes cubiertas de escudos, entrada simbólica.</p>"
    },
    {
     "hora": "12:30",
-    "etiqueta": "Comer: cicchetti",
-    "html": "<p>La comida barata de Venecia son los <b>cicchetti</b>: pinchos de mostrador que se comen de pie con una <i>ombra</i> (chato de vino). Una cena de 5-6 cicchetti y 2 ombre sale por <b>10-15 €</b>.</p><ul><li><b>Bacareto da Lele</b>, Campo dei Tolentini 183 — <b>paninetti desde 1 €</b> y vino a ~1 €. Es el sitio más barato de Venecia, sin discusión. Se come de pie en la plaza.</li><li><b>Cantine del Vino già Schiavi</b>, Dorsoduro 992, junto al puente San Trovaso — legendario, crostini desde ~1,50 €.</li><li><b>All'Arco</b> (San Polo 436) y <b>Cantina Do Mori</b> (San Polo 429, abierta desde 1462), ambos junto al mercado de Rialto.</li></ul><p><b>Regla de oro:</b> aléjate de San Marco y del eje Rialto-San Marco. En Cannaregio, Dorsoduro y Castello los precios son de otro planeta. Y no te sientes en terraza en San Marco ni para un café: son 6-12 €.</p>"
+    "etiqueta": "Comer",
+    "html": "<p>El <b>Quadrilatero</b>, el mercado medieval detrás de Piazza Maggiore: mortadela, tortellini y parmesano al peso. Comer de pie sale por <b>6-10 €</b>.</p><p>Bolonia es <b>la ciudad universitaria más antigua de Europa</b> (1088) y eso mantiene los precios abajo: es la ciudad donde mejor se come barato de todo el viaje.</p>"
    },
    {
-    "hora": "14:00",
-    "etiqueta": "Calor",
-    "html": "<p>Las <i>calli</i> estrechas dan sombra todo el día, pero si necesitas mar: vaporetto al <b>Lido</b> y camina hasta las <b>spiagge libere de Alberoni</b> (dunas protegidas dentro de un oasis del WWF, la playa más natural y menos concurrida de la laguna). O métete en la <b>Biennale Arte</b> si te interesa (de pago) o en las iglesias, que son frescas.</p>"
+    "hora": "15:00",
+    "etiqueta": "Tarde",
+    "html": "<p>Si queda cuerpo: el <b>pórtico de San Luca</b>, 3,8 km y <b>666 arcos</b> cuesta arriba hasta el santuario, el pórtico más largo del mundo. Gratis, con vistas, pero son 45 min de subida con calor.</p><p>Plan de sombra: los <b>pórticos del centro</b> (Patrimonio de la Humanidad) dan 40 km de calle cubierta.</p>"
    },
    {
-    "hora": "17:30",
-    "etiqueta": "Atardecer",
-    "html": "<p><b>Terraza del T Fondaco dei Tedeschi</b> con la franja reservada, <em class=\"p-free\">gratis</em>. Luego <b>Zattere y Punta della Dogana</b> para la puesta de sol (<b>20:08</b>) y la hora azul mirando a la Giudecca, y el <b>Ponte dell'Accademia</b>. Vuelta en tren sobre las 22:00.</p>"
+    "hora": "17:00",
+    "etiqueta": "Noche",
+    "html": "<p><b>Bolonia → Rávena</b>, 85 km, 1h15. Por la <b>SS253 Vía San Vitale es gratis</b> (+25 min); por la A14, 7 €.</p><p>Se duerme en la costa, en <b>Marina di Ravenna o Punta Marina</b>: te bañas en el Adriático al llegar y mañana estás en los mosaicos en 15 minutos.</p>"
    }
   ],
-  "dormir_html": "<b>Dormir ·</b> Mestre otra vez <em class=\"p-pay\">0-5 €</em>.",
-  "coste_html": "<b>Gasto del día:</b> trenes 3 € + comida 15 € + aparcamiento 5 € = <b>≈ 23 €</b>. Con la Basílica de San Marcos: <b>≈ 33 €</b>. <b>Venecia entera en un día sale por menos que una comida en San Marco.</b>"
+  "dormir_html": "<b>Dormir ·</b> <b>Marina di Ravenna / Punta Marina</b> <em class=\"p-free\">gratis</em>, a 10 km del centro. <b>En agosto la costa adriática restringe la pernocta: confírmalo antes de salir.</b> Alternativa: área de sosta de pago en Rávena.",
+  "coste_html": "<b>Gasto del día:</b> gasolina 12 € + peaje 7 € (o 0 por la SS253) + comida 16 € + aparcamiento 5 € = <b>≈ 40 €</b>."
  },
  {
   "dia": 9,
   "cabecera_dia": "Día 9 · domingo 23",
   "cabecera_titulo": "Mosaicos bizantinos, un peñasco y una república",
-  "cabecera_km": "260 km · 3:30",
+  "cabecera_km": "120 km · 1:45",
   "franjas": [
    {
-    "hora": "06:30",
+    "hora": "07:30",
     "etiqueta": "Mañana",
-    "html": "<p>Sal temprano: hoy hay bollino rosso. Mestre → Rávena, 150 km, 1h50.</p><p><em class=\"p-tip\">DESVÍO QUE MERECE</em><b>Comacchio</b> (a 25 min de la ruta): la \"pequeña Venecia\" del delta del Po, con el <b>Trepponti</b>, un puente monumental de cinco escaleras. Casi ningún extranjero la conoce, es gratis y se ve en 45 minutos.</p>"
+    "html": "<p>Sin madrugón: duermes a 10 km de los mosaicos. <b>Marina di Ravenna → Rávena</b>, 15 minutos.</p><p><em class=\"p-tip\">ANTES DE SUBIR</em>Un baño en la <b>spiaggia libera</b> a primera hora, antes de que abran las sombrillas de pago. Es gratis y el agua está a 26 °C.</p>"
    },
    {
     "hora": "09:45",
@@ -317,7 +307,7 @@
    }
   ],
   "dormir_html": "<b>Dormir ·</b><b>Aparcamiento P9, Via Piana</b> (multipiso) <em class=\"p-pay\">8 €/día</em>. Tiene <b>dos ascensores panorámicos gratuitos</b> que suben directos a Porta San Francesco — a pie serían más de 300 escalones. Y <b>de 24:00 a 08:00 no se paga</b> (la tarifa corre de 08:00 a 24:00 de abril a septiembre).<br><small><em class=\"p-tip\">AHORRO</em> Como tu Modus es turismo y no autocaravana, te vale el P9 a 8 € y no el área de camper P10 a 13-15 €: <b>−5 €</b>. Si prefieres el P10 de todos modos (Via Napoleone Bonaparte 43), está videovigilado y sombreado, pero <b>el terreno está en pendiente: lleva calzos</b>.</small>",
-  "coste_html": "<b>Gasto del día:</b> peajes 19 € + gasolina 31 € + Rávena 14 € + San Leo 11 € + comida 16 € + aparcamiento 8 € = <b>≈ 99 €</b>. Con la visita guiada de los mosaicos en vez del bono suelto: <b>≈ 113 €</b>. Sin San Leo y con el bono de 2 monumentos: <b>≈ 76 €</b>."
+  "coste_html": "<b>Gasto del día:</b> gasolina 17 € + Rávena 14 € + San Leo 11 € + comida 16 € + aparcamiento 8 € = <b>≈ 66 €</b>."
  },
  {
   "dia": 10,

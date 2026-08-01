@@ -15,7 +15,6 @@ export const CIUDADES = [
   { nombre: 'Pisa',         lat: 43.7230, lon: 10.3966, radio: 1.8 },
   { nombre: 'Cinque Terre', lat: 44.1230, lon:  9.7050, radio: 5.0 },
   { nombre: 'Bolonia',      lat: 44.4938, lon: 11.3426, radio: 2.2 },
-  { nombre: 'Venecia',      lat: 45.4341, lon: 12.3388, radio: 3.0 },
   { nombre: 'Rávena',       lat: 44.4208, lon: 12.1969, radio: 1.8 },
   { nombre: 'Asís',         lat: 43.0748, lon: 12.6053, radio: 1.6 }
 ];

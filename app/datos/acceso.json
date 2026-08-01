@@ -1,14 +1,5 @@
 [
  {
-  "ciudad": "Venecia",
-  "nivel": "obligatorio",
-  "motivo": "no hay carretera, literalmente",
-  "como_html": "Mestre (calles residenciales fuera de la ZTL) o <b>Parco San Giuliano</b> + tren o tranvía T1",
-  "como_texto": "Mestre (calles residenciales fuera de la ZTL) o Parco San Giuliano + tren o tranvía T1",
-  "coste": "0 € + 3 €",
-  "minutos": null
- },
- {
   "ciudad": "Lucca",
   "nivel": "obligatorio",
   "motivo": "ZTL 24 h/365 días",
@@ -132,15 +123,6 @@
   "como_html": "<b>P9, Via Piana</b> (multipiso) — <b>dos ascensores panorámicos gratuitos</b> hasta Porta San Francesco. A pie serían 300 escalones. <b>De 24:00 a 08:00 no se paga.</b>",
   "como_texto": "P9, Via Piana (multipiso) — dos ascensores panorámicos gratuitos hasta Porta San Francesco. A pie serían 300 escalones. De 24:00 a 08:00 no se paga.",
   "coste": "8 €/día",
-  "minutos": null
- },
- {
-  "ciudad": "Mestre",
-  "nivel": "cerca",
-  "motivo": "",
-  "como_html": "<b>Parco San Giuliano</b> o calles residenciales fuera de la ZTL de Piazza Ferretto (multa 107 €)",
-  "como_texto": "Parco San Giuliano o calles residenciales fuera de la ZTL de Piazza Ferretto (multa 107 €)",
-  "coste": "GRATIS",
   "minutos": null
  }
 ]

@@ -41,13 +41,14 @@ Es lo que hay que hacer antes de salir de viaje:
 |---|---|
 | **Hoy** | «Son las 14:30 del día 19, ¿qué hago ahora?». Bloque AHORA con la franja horaria en curso y DESPUÉS con la siguiente, aviso del día, amanecer/ocaso, gasto de hoy y botón Navegar a la siguiente parada. Antes de salir, cuenta atrás y reservas críticas |
 | **Ruta** | Los 12 días con km, tiempo de volante y coste. Al abrir uno, el plan hora a hora con sus paradas. Se marcan como hechas, se reordenan, se ocultan, se mueven de día o se añaden nuevas, y el día se recalcula |
-| **Mapa · Puntos** | Los 77 puntos con filtros por día y categoría, la polilínea de la ruta, ficha de cada punto y navegación externa. «Qué tengo cerca» con una única lectura de GPS |
+| **Mapa · Puntos** | Los puntos del viaje con filtros por día y categoría, la polilínea de la ruta, ficha de cada punto y navegación externa. «Qué tengo cerca» con una única lectura de GPS |
 | **Mapa · Trayecto** | Resumen del anillo completo: salida y llegada con fecha y hora, totales (km, horas de volante, días, noches) y las 12 etapas con sus km, tiempo y acumulado. La ruta va coloreada por día; al tocar una etapa el mapa se acerca a ella y atenúa el resto |
-| **Mapa · Las 3 rutas** | Las tres rutas alternativas dibujadas sobre el mismo mapa, cada una de su color, más el plan descartado a trazos grises para ver de un vistazo cuánto subía al Véneto. Se ven las tres a la vez o una sola con todas sus paradas, y desde la pestaña Alternativas se enlaza directo a cada una |
+| **Mapa · Puntos** (filtro de ruta) | Sobre los puntos del itinerario cargado, un selector de ruta: al elegir una, la línea pasa a ser la suya y **los puntos que quedan fuera se apagan en gris** en vez de desaparecer — así se ve lo que se pierde. El contador dice cuántos entran («47 de 70 en la ruta») y la ficha de un punto apagado avisa de que con esa ruta no se visita |
+| **Mapa · Las 3 rutas** | Las tres rutas alternativas dibujadas sobre el mismo mapa, cada una de su color, más el itinerario cargado a trazos grises para compararlas contra él. Se ven las tres a la vez o una sola con todas sus paradas, y desde la pestaña Alternativas se enlaza directo a cada una |
 | **Gasto** | Registro en tres toques, previsto contra real, gráfico de acumulado, «te quedan X € → Y €/día», comparador de escenarios y calculadora de combustible |
 | **Guía** | Buscador sobre todo el viaje, reservas con estado, equipaje, checklist de «antes de salir» y las fichas de consulta: ZTL, peajes, abonos, dormir, tours, eventos, riesgos, apps y teléfonos |
 | **Guía · Comer** | Qué comer en cada una de las 6 regiones, marcando lo que no hay que saltarse, con precios y sitios con nombre y calle. Cada región muestra en qué días cae, y arriba está el coste de comer lo típico a diario frente al plan previsto |
-| **Alternativas** | Pestaña propia arriba a la izquierda, fuera de la navegación de abajo. Las **tres rutas sin Venecia** — descartada por distancia — construidas sobre lo innegociable (Roma, Florencia y Cinque Terre) y con Saturnia en las tres: día a día, con coste, balance de qué ganas y qué pierdes y qué falta por verificar. Es de lectura: no toca el itinerario ni el estado hasta que se elija una |
+| **Alternativas** | Pestaña propia arriba a la izquierda, fuera de la navegación de abajo. Las **tres rutas alternativas** al itinerario cargado, construidas sobre lo innegociable (Roma, Florencia y Cinque Terre) y con Saturnia en las tres: día a día, con coste, balance de qué ganas y qué pierdes y qué falta por verificar. Es de lectura: no toca el itinerario ni el estado hasta que se elija una |
 | **Alternativas · Cara a cara** | Los 12 días de las tres rutas en columnas, sin subir y bajar: cabecera fija, borde del color de la ruta en lo que cada una hace distinto, ▼/▲ en quién conduce menos y más ese día, botón para ver solo las filas que difieren, y cada celda abre el día entero con lo que hacen las otras dos |
 | **Idioma** | La otra pestaña de la cabecera. Ocho reglas de pronunciación, el catalán como atajo, falsos amigos, frases por situación y números. Estaba dentro de Guía, pero es lo que se abre de pie delante de un mostrador: llegar costaba tres toques y un scroll horizontal |
 
@@ -192,10 +193,9 @@ mover una parada puede convertir dos tramos cortos en uno largo.
 
 ### Descuentos por edad
 
-`ajustes.edad` (Ajustes → Tu edad) decide qué se muestra. Hay dos cortes en los datos:
+`ajustes.edad` (Ajustes → Tu edad) decide qué se muestra. Sólo queda un corte en los datos:
 
 - **Museos estatales italianos**: 2 € de 18 a 25 inclusive. Por encima, tarifa completa.
-- **Rolling Venice** (Venecia): hasta 29 años.
 
 La ficha de *Guía → Fichas → Abonos* se adapta: si la edad queda fuera del tramo 18-25 no
 anuncia el descuento en verde, sino que dice **cuánto se paga de más** (los 55 € que el
@@ -234,7 +234,7 @@ donde se anda a pie (zoom 13-15). Nunca se descarga sola. Va con concurrencia 3 
 pausa entre peticiones: las teselas de OpenStreetMap son un servicio donado y su política
 pide no hacer descargas masivas agresivas.
 
-**Si no hay teselas, el mapa no se queda en blanco**: sigue mostrando los 77 puntos y la
+**Si no hay teselas, el mapa no se queda en blanco**: sigue mostrando todos los puntos y la
 ruta sobre fondo liso, con un aviso.
 
 ---
@@ -270,13 +270,13 @@ Probados uno a uno en el navegador, no de memoria.
 
 | # | Criterio | Resultado |
 |---|---|---|
-| 1 | Modo avión, arranque en frío: cargan todas las pantallas, itinerario, 77 puntos y fichas | **Cumple.** Probado parando el servidor y recargando: las 7 pantallas, los 77 puntos, la ruta y el buscador funcionan |
+| 1 | Modo avión, arranque en frío: cargan todas las pantallas, itinerario, puntos del mapa y fichas | **Cumple.** Probado parando el servidor y recargando: las pantallas, los puntos, la ruta y el buscador funcionan |
 | 2 | Hoy muestra la franja correcta el 19 de agosto a las 14:30 | **Cumple.** Con el reloj puesto a esa hora resuelve D5, AHORA = 10:45 Mediodía, DESPUÉS = 15:00 Tarde |
 | 3 | Anotar 12 € en comida son tres toques y aparece al instante | **Cumple.** Botón Gasto → «1», «2» → «Comida». La categoría guarda y cierra: no hay botón de confirmar |
 | 4 | Reordenar dos paradas del día 3 recalcula km y coste, y sobrevive a recargar | **Cumple.** 165 km → 218 km, 3 h → 3 h 58, marcado como estimación. Persiste tras recargar |
 | 5 | Exportar, borrar los datos, importar: todo vuelve | **Cumple.** Gastos, reservas e itinerario editado vuelven idénticos |
 | 6 | A 360 px no hay scroll horizontal en ninguna pantalla | **Cumple.** Comprobado en las 10 rutas: `scrollWidth == clientWidth` |
-| 7 | Sin teselas, el mapa muestra puntos y ruta con aviso, no una pantalla en blanco | **Cumple.** Probado apuntando las teselas a un host inalcanzable: 77 puntos + ruta + aviso |
+| 7 | Sin teselas, el mapa muestra puntos y ruta con aviso, no una pantalla en blanco | **Cumple.** Probado apuntando las teselas a un host inalcanzable: todos los puntos + ruta + aviso |
 | 8 | Navegar abre la app de mapas con esas coordenadas | **Cumple.** Ofrece Google Maps, Waze, Apple Maps, el esquema `geo:` y copiar coordenadas |
 | 9 | Las reservas críticas se ven en Hoy hasta marcarlas | **Cumple.** Coliseo y Vaticano salen en rojo arriba del todo y desaparecen al marcarlas |
 | 10 | Lighthouse: PWA instalable y accesibilidad ≥ 90 | **Parcial.** No he podido ejecutar Lighthouse aquí. Instalable sí (manifest + iconos + service worker + `beforeinstallprompt`). En accesibilidad se han auditado a mano y corregido: todo control tiene nombre accesible, ningún objetivo táctil por debajo de 24 px (44 px los principales, incluidos los pines del mapa), contraste AA en los tres temas (texto ≥ 5,3:1, bordes de control ≥ 3,1:1), `lang`, landmarks y un solo `h1`. **Pásale Lighthouse tú para tener el número.** |

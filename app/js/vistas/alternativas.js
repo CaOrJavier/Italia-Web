@@ -1,8 +1,8 @@
-// Alternativas: las dos versiones del itinerario que se compararon contra el
-// plan montado en la app, con sus km, sus horas de volante y su coste.
+// Alternativas: las tres rutas que se comparan contra el itinerario cargado,
+// con sus km, sus horas de volante, su coste y su día a día en paralelo.
 //
 // Es una pantalla de decisión, de lectura: no toca el estado ni el itinerario.
-// Si acaba eligiéndose la A o la B, se convierte a datos-viaje.json aparte.
+// Cuando se elija una, se convierte a datos-viaje.json aparte.
 
 import { esc, num, duracion } from '../util.js';
 import * as datos from '../datos.js';
@@ -22,7 +22,7 @@ export function vistaAlternativas(raiz) {
 
   raiz.innerHTML = `
     <div class="tarjeta">
-      <div class="seccion-tit" style="margin:0 0 8px">Tres rutas sin Venecia</div>
+      <div class="seccion-tit" style="margin:0 0 8px">Tres rutas alternativas</div>
       <p class="prosa" style="font-size:15.5px">${A.intro}</p>
       ${bloqueEsenciales(A.esenciales)}
     </div>
@@ -188,18 +188,18 @@ function bloqueSaturnia(s) {
 // ---------- Las tres opciones de un vistazo ----------
 
 function tarjetasOpciones(opciones) {
-  // El plan descartado no compite con las tres rutas: va como tira, no como tarjeta.
-  const fuera = opciones.filter(o => o.descartada);
-  const vivas = opciones.filter(o => !o.descartada);
+  // El plan cargado no compite con las tres rutas: es contra lo que se comparan.
+  const fuera = opciones.filter(o => !o.dias?.length);
+  const vivas = opciones.filter(o => o.dias?.length);
 
   return `${fuera.map(o => `
     <div class="alt-fuera">
-      <span class="alt-fuera-x" aria-hidden="true">✕</span>
+      <span class="alt-fuera-x" aria-hidden="true">▸</span>
       <span class="crece">
         <b>${esc(o.nombre)}</b>
         <span>${esc(o.apodo)} · ${num(o.km)} km · ${esc(o.volante)} · ${esc(o.coste)}</span>
       </span>
-      <span class="etiq etiq-peligro">descartada</span>
+      <span class="etiq etiq-info">cargado</span>
     </div>`).join('')}
 
   <div class="alt-tarjetas">
@@ -229,7 +229,7 @@ function tablaComparativa(c) {
     <div class="alt-tabla" role="table">
       <div class="alt-tr alt-th" role="row">
         <span role="columnheader"></span>
-        <span role="columnheader" class="col-fuera">Venecia</span>
+        <span role="columnheader" class="col-fuera">Cargado</span>
         <span role="columnheader">1</span>
         <span role="columnheader">2</span>
         <span role="columnheader">3</span>

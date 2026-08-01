@@ -59,7 +59,7 @@ function pintarBuscar(caja) {
     const q = entrada.value.trim();
     if (q.length < 2) {
       res.innerHTML = `<div class="vacio">Escribe al menos dos letras.<br>
-        <small>Busca en los 77 lugares, los 12 días, las ZTL, los abonos, los tours y las reservas.</small></div>`;
+        <small>Busca en los ${datos.VIAJE.lugares.length} lugares, los 12 días, las ZTL, los abonos, los tours y las reservas.</small></div>`;
       return;
     }
     const filas = datos.buscar(q);
@@ -339,7 +339,6 @@ function fichaDescuentoJoven(dj) {
       Sale en ${esc(dj.aplica_a)}. <b>No existe ninguna tarjeta joven general</b> que lo sustituya:
       el corte está en los 25.
     </p>
-    <p style="margin:6px 0 0">Lo único con tope de 29 es la <b>Rolling Venice</b>, en la lista de arriba.</p>
   </div>`;
 }
 
@@ -428,23 +427,16 @@ function pintarFichas(caja, abrir) {
     `, abrir === 'peajes')}
 
     ${acordeon('abonos', 'Abonos, billetes y descuento joven', `
-      ${t.abonos.map(a => {
-        // Rolling Venice es el único abono con tope de edad: 6-29 años.
-        const tope = /rolling venice/i.test(a.nombre) ? 29 : null;
-        const cabe = tope === null ? null : edad() <= tope;
-        return `<div class="item-lista">
+      ${t.abonos.map(a => `<div class="item-lista">
         <div class="crece">
           <div style="font-weight:700">${esc(a.nombre)}</div>
           <div class="suave" style="font-size:14.5px;margin-top:2px">${esc(a.razon)}</div>
-          ${cabe === true ? `<span class="etiq etiq-ok" style="margin-top:5px">Con ${edad()} años sí entras (hasta 29)</span>` : ''}
-          ${cabe === false ? `<span class="etiq etiq-peligro" style="margin-top:5px">Con ${edad()} años ya no entras</span>` : ''}
         </div>
         <div style="text-align:right">
           <div class="etiq ${a.veredicto === 'comprar' ? 'etiq-ok' : a.veredicto === 'no' ? 'etiq-peligro' : 'etiq-alerta'}">${esc(a.veredicto)}</div>
           <div class="mono suave" style="font-size:13.5px;margin-top:3px">${a.precio_eur != null ? eur(a.precio_eur, 2) : '—'}</div>
         </div>
-      </div>`;
-      }).join('')}
+      </div>`).join('')}
       <div class="seccion-tit">Billetes sueltos</div>
       <div class="tabla-envoltorio"><table class="tabla">
         <thead><tr><th>Ciudad</th><th>Título</th><th>€</th></tr></thead>

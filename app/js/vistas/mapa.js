@@ -1,5 +1,5 @@
 // Mapa Leaflet, en dos modos:
-//   · Puntos    — los 77 lugares con filtros por día y categoría (parte del
+//   · Puntos    — los lugares del viaje con filtros por día y categoría (parte del
 //                 mapa de referencia que ya funcionaba: mismos divIcon).
 //   · Trayecto  — resumen del anillo completo: km, tiempo de volante, salida
 //                 y llegada, y las 12 etapas navegables.
@@ -32,7 +32,7 @@ export const colorDia = (n) => `hsl(${10 + n * 15}, 55%, 40%)`;
 
 /** Un color por ruta alternativa, los mismos de la tabla comparativa. */
 const COLOR_RUTA = { termas: '#3d6b2f', 'roma-mar': '#2a6ba3', norte: '#96601a' };
-const COLOR_PLAN = '#8c8f96';
+const COLOR_PLAN = '#8c8f96';   // el itinerario cargado, de fondo
 
 export function vistaMapa(raiz, params) {
   const pedido = params.get('vista');
@@ -64,7 +64,7 @@ export function vistaMapa(raiz, params) {
 
 function modoRutas(raiz, params) {
   const opciones = datos.ALTERNATIVAS.opciones.filter(o => o.trazado?.length);
-  const plan = datos.ALTERNATIVAS.opciones.find(o => o.descartada);
+  const plan = datos.ALTERNATIVAS.opciones.find(o => o.id === 'plan');
   const pedido = params.get('r');
   let sel = opciones.some(o => o.id === pedido) || pedido === 'plan' ? pedido : 'todas';
 
@@ -76,7 +76,7 @@ function modoRutas(raiz, params) {
           <span class="bolita" style="background:${COLOR_RUTA[o.id]}"></span>${esc(o.letra)} · ${esc(o.nombre)}
         </button>`).join('')}
       <button class="chip" data-ruta="plan" aria-pressed="${sel === 'plan'}">
-        <span class="bolita" style="background:${COLOR_PLAN}"></span>Con Venecia ✕
+        <span class="bolita" style="background:${COLOR_PLAN}"></span>Plan cargado
       </button>
     </div>
 
@@ -104,7 +104,7 @@ function modoRutas(raiz, params) {
     teselas.on('tileload', () => { ok++; aviso.hidden = true; });
     teselas.on('tileerror', () => { if (++fallos > 4 && ok === 0) aviso.hidden = false; });
 
-    // El plan descartado, de fondo y a trazos: se ve de un vistazo cuánto se sube al Véneto.
+    // El itinerario cargado, de fondo y a trazos, para comparar contra él.
     capas.set('plan', capaRuta(L, datos.VIAJE.ruta_polilinea.map(([la, lo]) => [la, lo, '']), COLOR_PLAN, true));
     for (const o of opciones) capas.set(o.id, capaRuta(L, o.trazado, COLOR_RUTA[o.id], false));
 
@@ -165,7 +165,7 @@ function modoRutas(raiz, params) {
           </div>`).join('')}
         <div class="ruta-fila">
           <span class="ruta-color" style="background:${COLOR_PLAN}"></span>
-          <span class="crece"><b style="text-decoration:line-through">Con Venecia</b><span class="suave">descartada · sube 300 km al noreste</span></span>
+          <span class="crece"><b>Plan cargado</b><span class="suave">lo que abre la app ahora mismo</span></span>
           <span class="mono">${num(plan.km)} km</span>
         </div>
         <p class="suave" style="font-size:13.5px;margin-top:10px">
@@ -185,7 +185,7 @@ function modoRutas(raiz, params) {
       <div class="envuelve" style="margin-top:10px">
         <span class="etiq">${esc(o.volante)} de volante</span>
         ${o.recomendada ? '<span class="etiq etiq-ok">recomendada</span>' : ''}
-        ${o.descartada ? '<span class="etiq etiq-peligro">descartada</span>' : ''}
+        ${o.actual ? '<span class="etiq etiq-info">cargado en la app</span>' : ''}
       </div>
       ${o.trazado ? `<p class="suave" style="font-size:14.5px;margin-top:10px">
         ${o.trazado.filter(p => p[2]).map(p => esc(p[2])).join(' → ')}
@@ -218,8 +218,8 @@ function modoTrayecto(raiz) {
   raiz.innerHTML = `
     ${datos.ALTERNATIVAS ? `<div class="aviso-plan">
       <div class="crece">
-        <b>Estas 12 etapas son el plan cargado, el que sube a Venecia.</b>
-        <span>Las tres rutas nuevas no se pueden mostrar aquí hasta que elijas una: mientras tanto,
+        <b>Estas 12 etapas son el itinerario cargado.</b>
+        <span>Las tres rutas alternativas no se pueden mostrar aquí hasta que elijas una: mientras tanto,
         están dibujadas en <b>Las 3 rutas</b> y día a día en <b>Alternativas</b>.</span>
       </div>
       <a class="btn btn-peq" href="#/mapa?vista=rutas">Las 3 rutas</a>
@@ -409,7 +409,7 @@ function modoTrayecto(raiz) {
 }
 
 // ============================================================
-//  Modo Puntos — los 77 lugares
+//  Modo Puntos — los lugares del viaje
 // ============================================================
 
 function modoPuntos(raiz, params) {
@@ -417,10 +417,10 @@ function modoPuntos(raiz, params) {
   const lugarPedido = params.get('lugar') !== null ? Number(params.get('lugar')) : null;
   let colorearPor = params.get('color') === 'prioridad' ? 'prioridad' : 'categoria';
 
-  // Los puntos son los del itinerario cargado, que sigue siendo el plan con
-  // Venecia. Hasta que se elija ruta, al menos se puede ver cuáles caen dentro
-  // de cada una: los de fuera se apagan en vez de desaparecer, que es lo que
-  // deja ver de un vistazo qué se pierde con cada ruta.
+  // Los puntos son los del itinerario cargado. Hasta que se elija una de las
+  // tres rutas, al menos se puede ver cuáles caen dentro de cada una: los de
+  // fuera se apagan en vez de desaparecer, que es lo que deja ver de un
+  // vistazo qué se pierde con cada ruta.
   const rutas = datos.ALTERNATIVAS?.opciones.filter(o => o.trazado?.length) ?? [];
   let rutaSel = rutas.some(o => o.id === params.get('r')) ? params.get('r') : 'plan';
   const RADIO_RUTA = 18; // km: lo que se considera «en la ruta»
@@ -434,7 +434,7 @@ function modoPuntos(raiz, params) {
   raiz.innerHTML = `
     ${rutas.length ? `<div class="filtros" id="f-rutas-p">
       <span class="suave" style="align-self:center;font-size:13px;font-weight:700;white-space:nowrap">Ruta:</span>
-      <button class="chip" data-rp="plan" aria-pressed="${rutaSel === 'plan'}">Plan cargado ✕</button>
+      <button class="chip" data-rp="plan" aria-pressed="${rutaSel === 'plan'}">Plan cargado</button>
       ${rutas.map(o => `<button class="chip" data-rp="${esc(o.id)}" aria-pressed="${rutaSel === o.id}">
         <span class="bolita" style="background:${COLOR_RUTA[o.id]}"></span>${esc(o.letra)} · ${esc(o.etiqueta_corta || o.nombre)}
       </button>`).join('')}

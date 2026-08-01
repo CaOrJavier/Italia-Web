@@ -22,9 +22,9 @@
    "puerto": "Civitavecchia",
    "estar_en_puerto": "20:30"
   },
-  "km_totales": 2005,
-  "km_etapas": 1927,
-  "horas_conduccion": 26,
+  "km_totales": 1765,
+  "km_etapas": 1687,
+  "horas_conduccion": 24,
   "noches": 11,
   "generado": "2026-08-01",
   "idioma": "es"
@@ -223,21 +223,18 @@
    "etiqueta": "D7",
    "fecha": "2026-08-21",
    "dia_semana": "viernes",
-   "titulo": "Cruzar Emilia: jamón, motores y pórticos",
-   "etapa": "La Spezia → Parma → Módena → Bolonia → Mestre",
-   "km": 380,
-   "minutos_conduccion": 270,
-   "dormir_ref": "mestre",
+   "titulo": "Cruzar Emilia: el románico de Módena",
+   "etapa": "La Spezia → Módena → Bolonia",
+   "km": 220,
+   "minutos_conduccion": 155,
+   "dormir_ref": "bolonia",
    "amanecer": "06:24",
    "ocaso": "20:03",
-   "aviso": "Día más largo del viaje. Cae en la ventana tranquila de tráfico a propósito.",
+   "aviso": "Una sola parada urbana, y con la mañana entera. Parma se cae: su aparcamiento es un scambiatore del anillo con lanzadera, y entre ir y volver quedaban 30 minutos reales de visita.",
    "lugares": [
-    49,
     50,
-    51,
-    52,
-    53,
-    54
+    79,
+    52
    ]
   },
   {
@@ -245,22 +242,18 @@
    "etiqueta": "D8",
    "fecha": "2026-08-22",
    "dia_semana": "sábado",
-   "titulo": "Venecia sin gastar (casi) nada",
-   "etapa": "Venecia a pie",
-   "km": 25,
-   "minutos_conduccion": 30,
-   "dormir_ref": "mestre",
+   "titulo": "Bolonia entera y bajada a Rávena",
+   "etapa": "Bolonia → Rávena",
+   "km": 85,
+   "minutos_conduccion": 75,
+   "dormir_ref": "ravena",
    "amanecer": "06:25",
    "ocaso": "20:01",
-   "aviso": "Bollino rosso 07:00-13:00 (no afecta, día a pie). Sin contributo di accesso en agosto.",
+   "aviso": "Bolonia a pie toda la mañana sin mover el coche. Salir hacia Rávena sobre las 17:00 por la SS253, que es gratis.",
    "lugares": [
-    55,
-    56,
-    57,
-    58,
-    59,
-    60,
-    61
+    51,
+    53,
+    78
    ]
   },
   {
@@ -269,15 +262,14 @@
    "fecha": "2026-08-23",
    "dia_semana": "domingo",
    "titulo": "Mosaicos bizantinos, un peñasco y una república",
-   "etapa": "Mestre → Rávena → San Leo → San Marino",
-   "km": 260,
-   "minutos_conduccion": 210,
+   "etapa": "Rávena → San Leo → San Marino",
+   "km": 120,
+   "minutos_conduccion": 105,
    "dormir_ref": "sanmarino",
    "amanecer": "06:26",
    "ocaso": "20:00",
-   "aviso": "Bollino rosso. Salir a las 06:30. En Rávena, tour guiado en español solo los viernes.",
+   "aviso": "Mosaicos a primera hora, sin madrugón. En Rávena el tour guiado en español solo es los viernes. San Marino de noche se queda vacío: los autobuses de excursión se van sobre las 18:00.",
    "lugares": [
-    62,
     63,
     64,
     65,
@@ -297,12 +289,11 @@
    "dormir_ref": "bracciano",
    "amanecer": "06:27",
    "ocaso": "19:58",
-   "aviso": "Bollino rosso. E45 y ruta interior sin peaje.",
+   "aviso": "El día más largo del viaje: 4 h de volante. Una sola parada, Asís, con la mañana entera. Bollino rosso; E45 y ruta interior sin peaje.",
    "lugares": [
     68,
     69,
     70,
-    71,
     72,
     73
    ]
@@ -879,26 +870,26 @@
    "coords_aproximadas": false
   },
   {
-   "id": 49,
-   "dia": 7,
-   "categoria": "ver",
-   "nombre": "Baptisterio de Parma",
-   "lat": 44.8027,
-   "lon": 10.3306,
-   "descripcion": "Un octógono de mármol rosa de Verona, de Antelami: de las cosas más raras y bonitas de Italia. Por fuera es gratis. Panino de Prosciutto di Parma en una salumeria, 5-7 €.",
-   "precio": "GRATIS por fuera",
-   "coords_aproximadas": false
-  },
-  {
    "id": 50,
    "dia": 7,
    "categoria": "ver",
-   "nombre": "Duomo de Módena",
+   "nombre": "Duomo y Ghirlandina (Módena)",
    "lat": 44.6465,
    "lon": 10.9255,
-   "descripcion": "Duomo, Torre Ghirlandina y Piazza Grande: tres UNESCO juntas y casi todo gratis. Come en el Mercato Albinelli, puesto «Vino e Tortellino» (103).",
+   "descripcion": "Duomo, Torre Ghirlandina y Piazza Grande: tres UNESCO pegadas y casi todo gratis, con los relieves de Wiligelmo en la fachada. Es la parada del día y tiene la mañana entera. Come en el Mercato Albinelli, puesto «Vino e Tortellino» (103).",
    "precio": "GRATIS",
    "coords_aproximadas": false
+  },
+  {
+   "id": 79,
+   "dia": 7,
+   "categoria": "parking",
+   "nombre": "Viale Sigonio (Módena)",
+   "lat": 44.633,
+   "lon": 10.927,
+   "descripcion": "Gratis y sin barrera, fuera de la ZTL. Al Duomo son 1,5 km andando, unos 18 min, todo llano. Por eso Módena se queda y Parma no: aquí no dependes de ninguna lanzadera. Alternativas gratis: Via Peretti y la zona del estadio. Si prefieres pagar, Novi Park cuesta 1,20 €/h y tiene lanzadera gratuita que rodea la ZTL.",
+   "precio": "GRATIS",
+   "coords_aproximadas": true
   },
   {
    "id": 51,
@@ -934,103 +925,15 @@
    "coords_aproximadas": true
   },
   {
-   "id": 54,
-   "dia": 7,
+   "id": 78,
+   "dia": 8,
    "categoria": "dormir",
-   "nombre": "Mestre",
-   "lat": 45.488,
-   "lon": 12.238,
-   "descripcion": "Parco San Giuliano o calles residenciales fuera de la ZTL de Piazza Ferretto (multa 107 €). Alternativa por 5 €: Park 2000 Pili. El Terminal Fusina PROHÍBE pernoctar.",
-   "precio": "0-5 €",
+   "nombre": "Marina di Ravenna / Punta Marina",
+   "lat": 44.4869,
+   "lon": 12.2789,
+   "descripcion": "A 10 km del centro de Rávena, junto a la playa: te bañas en el Adriático al llegar y a las 08:00 estás en los mosaicos. Verificar la ordenanza de pernocta: en agosto la costa la restringe.",
+   "precio": "GRATIS",
    "coords_aproximadas": true
-  },
-  {
-   "id": 55,
-   "dia": 8,
-   "categoria": "ver",
-   "nombre": "Piazza San Marco",
-   "lat": 45.4341,
-   "lon": 12.3388,
-   "descripcion": "A las 07:00 estás tú y los barrenderos. A las 10:00 no cabe un alfiler. El «contributo di accesso» NO se aplica en agosto de 2026.",
-   "precio": "GRATIS",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 56,
-   "dia": 8,
-   "categoria": "mirador",
-   "nombre": "Terraza T Fondaco dei Tedeschi",
-   "lat": 45.438,
-   "lon": 12.3363,
-   "descripcion": "La mejor vista gratuita de Venecia: azotea sobre el Gran Canal y el Puente de Rialto. Reserva franja de 15 min, gratis. El campanile de San Giorgio Maggiore, que era la mejor vista de pago, está CERRADO por obras.",
-   "precio": "GRATIS",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 57,
-   "dia": 8,
-   "categoria": "ver",
-   "nombre": "Traghetto Santa Sofia",
-   "lat": 45.4407,
-   "lon": 12.334,
-   "descripcion": "Una góndola de verdad cruzando el Gran Canal, de pie como los venecianos, por 2 €. La turística cuesta 90 € por 30 min. Horario 9:00-18:00 (San Tomà, hasta 18:30). La mejor relación experiencia/precio del viaje.",
-   "precio": "2,00 €",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 58,
-   "dia": 8,
-   "categoria": "comer",
-   "nombre": "Bacareto da Lele",
-   "lat": 45.4353,
-   "lon": 12.3186,
-   "descripcion": "Campo dei Tolentini 183. Paninetti desde 1 € y vino a ~1 €. El sitio más barato de Venecia, sin discusión. Se come de pie en la plaza.",
-   "precio": "desde 1 €",
-   "coords_aproximadas": true
-  },
-  {
-   "id": 59,
-   "dia": 8,
-   "categoria": "comer",
-   "nombre": "Cantine già Schiavi",
-   "lat": 45.4318,
-   "lon": 12.326,
-   "descripcion": "Dorsoduro 992, junto al puente San Trovaso. Cicchetti legendarios. Aléjate siempre del eje Rialto–San Marco: en Cannaregio, Dorsoduro y Castello los precios son de otro planeta.",
-   "precio": "10-15 € la cena",
-   "coords_aproximadas": true
-  },
-  {
-   "id": 60,
-   "dia": 8,
-   "categoria": "mirador",
-   "nombre": "Zattere y Punta della Dogana",
-   "lat": 45.4302,
-   "lon": 12.332,
-   "descripcion": "Puesta de sol a las 20:08 y hora azul mirando a la Giudecca. Gratis.",
-   "precio": "GRATIS",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 61,
-   "dia": 8,
-   "categoria": "natura",
-   "nombre": "Alberoni (Lido)",
-   "lat": 45.348,
-   "lon": 12.323,
-   "descripcion": "Dunas protegidas en un oasis del WWF: la playa más natural y menos concurrida de la laguna. Si necesitas mar por la tarde.",
-   "precio": "GRATIS",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 62,
-   "dia": 9,
-   "categoria": "ver",
-   "nombre": "Comacchio · Trepponti",
-   "lat": 44.694,
-   "lon": 12.185,
-   "descripcion": "La «pequeña Venecia» del delta del Po, con un puente monumental de cinco escaleras. Casi ningún extranjero la conoce. 45 minutos y gratis.",
-   "precio": "GRATIS",
-   "coords_aproximadas": false
   },
   {
    "id": 63,
@@ -1118,17 +1021,6 @@
    "lon": 12.63,
    "descripcion": "4 km monte arriba entre encinas, gratis. En el Monte Subasio hace 10 °C menos que en el valle.",
    "precio": "GRATIS",
-   "coords_aproximadas": false
-  },
-  {
-   "id": 71,
-   "dia": 10,
-   "categoria": "natura",
-   "nombre": "Cascata delle Marmore",
-   "lat": 42.551,
-   "lon": 12.715,
-   "descripcion": "165 m de caída, hecha por los romanos en el 271 a.C. CRÍTICO: solo cae agua en las sueltas, de 10:00 a 19:00 y de 21:00 a 22:00. Los senderos 1 y 2 te meten detrás de la cascada: el paseo más fresco del viaje.",
-   "precio": "12 €",
    "coords_aproximadas": false
   },
   {
@@ -1261,18 +1153,6 @@
    11.3426
   ],
   [
-   45.488,
-   12.238
-  ],
-  [
-   45.4341,
-   12.3388
-  ],
-  [
-   44.694,
-   12.185
-  ],
-  [
    44.4208,
    12.1969
   ],
@@ -1374,16 +1254,26 @@
    "abierto_24h": true
   },
   {
-   "id": "mestre",
+   "id": "bolonia",
    "fecha": "2026-08-21",
-   "nombre": "Mestre — Parco San Giuliano o calles fuera de la ZTL",
-   "lat": 45.488,
-   "lon": 12.238,
+   "nombre": "Bolonia — Certosa / Parco Nord",
+   "lat": 44.4914,
+   "lon": 11.307,
    "precio_eur": 0,
-   "tipo": "coche",
    "servicios": [],
-   "nota": "Dos noches (21 y 22). Sin vigilancia: no dejar nada visible. Alternativa: Park 2000 Pili, 5 €/día. El Terminal Fusina PROHÍBE pernoctar.",
-   "abierto_24h": true
+   "nota": "Aparcamiento diurno gratuito según los datos: CONFIRMAR que se puede pernoctar. Alternativa de pago: Parcheggio Tanari."
+  },
+  {
+   "id": "ravena",
+   "fecha": "2026-08-22",
+   "nombre": "Marina di Ravenna / Punta Marina",
+   "lat": 44.4869,
+   "lon": 12.2789,
+   "precio_eur": 0,
+   "servicios": [
+    "playa"
+   ],
+   "nota": "A 10 km del centro. En agosto la costa adriática restringe la pernocta: CONFIRMAR antes de salir. Alternativa: área de sosta de pago en Rávena."
   },
   {
    "id": "sanmarino",
@@ -1411,17 +1301,17 @@
   "partidas": [
    {
     "concepto": "Combustible",
-    "nota": "1.950 km · gasolina ≈1,98 €/l · gasóleo ≈2,07 €/l · Modus ≈7 l/100 (gasolina) o 5,3 (diésel)",
-    "minimo": 215,
-    "recomendado": 245,
-    "completo": 270
+    "nota": "1.795 km · gasolina ≈1,98 €/l · gasóleo ≈2,07 €/l · Modus ≈7 l/100 (gasolina) o 5,3 (diésel)",
+    "minimo": 198,
+    "recomendado": 226,
+    "completo": 249
    },
    {
     "concepto": "Peajes",
     "nota": "Mínimo = maximizando SS1, SS2, RA3, FI-PI-LI y E45 (gratuitas)",
-    "minimo": 45,
-    "recomendado": 85,
-    "completo": 85
+    "minimo": 38,
+    "recomendado": 65,
+    "completo": 65
    },
    {
     "concepto": "Dormir",
@@ -1467,14 +1357,14 @@
    }
   ],
   "totales": {
-   "minimo": 568,
-   "recomendado": 845,
-   "completo": 1200
+   "minimo": 544,
+   "recomendado": 806,
+   "completo": 1159
   },
   "por_dia": {
-   "minimo": 49,
-   "recomendado": 73,
-   "completo": 104
+   "minimo": 47,
+   "recomendado": 69,
+   "completo": 100
   },
   "diario_recomendado": [
    {
@@ -1535,27 +1425,27 @@
    },
    {
     "dia": 7,
-    "combustible_peajes": 86,
-    "dormir": 5,
+    "combustible_peajes": 58,
+    "dormir": 0,
     "entradas_transporte": 3,
     "comida": 20,
-    "total": 114
+    "total": 81
    },
    {
     "dia": 8,
-    "combustible_peajes": 3,
-    "dormir": 5,
+    "combustible_peajes": 19,
+    "dormir": 0,
     "entradas_transporte": 5,
     "comida": 16,
-    "total": 29
+    "total": 40
    },
    {
     "dia": 9,
-    "combustible_peajes": 50,
+    "combustible_peajes": 17,
     "dormir": 8,
     "entradas_transporte": 25,
     "comida": 16,
-    "total": 99
+    "total": 66
    },
    {
     "dia": 10,
@@ -1682,7 +1572,7 @@
   "Duomo de Siena",
   "San Leo",
   "Basílica de Asís (gratuita)",
-  "Monteriggioni, San Gimignano, Volterra, Portovenere, San Marino, Comacchio",
+  "Monteriggioni, San Gimignano, Volterra, Portovenere, San Marino",
   "Todos los miradores",
   "Todas las playas libres",
   "Todas las termas gratuitas",
@@ -1864,18 +1754,6 @@
     "razon": "Uffizi de tarde (16 €) + Accademia (20 €) = 36 €. No incluye transporte. Pierdes 36-49 €."
    },
    {
-    "nombre": "Abono ACTV Venecia 24 h",
-    "precio_eur": 25,
-    "veredicto": "no",
-    "razon": "Solo compensa desde 3 vaporettos/día. El plan es a pie."
-   },
-   {
-    "nombre": "Rolling Venice (6-29 años)",
-    "precio_eur": 6,
-    "veredicto": "condicional",
-    "razon": "Baja el pase de 72 h de 45 a 27 €. Solo si acabas usando mucho vaporetto."
-   },
-   {
     "nombre": "Bologna Welcome Card",
     "precio_eur": 35,
     "veredicto": "no",
@@ -1917,22 +1795,6 @@
     "titulo": "Sencillo 75 min",
     "precio_eur": 2.3,
     "nota": "Diario 9 €"
-   },
-   {
-    "ciudad": "Venecia",
-    "titulo": "Vaporetto 75 min",
-    "precio_eur": 9.5
-   },
-   {
-    "ciudad": "Venecia",
-    "titulo": "Bus/tranvía terrestre y tren Mestre-Santa Lucia",
-    "precio_eur": 1.5
-   },
-   {
-    "ciudad": "Venecia",
-    "titulo": "Traghetto (góndola de servicio)",
-    "precio_eur": 2.0,
-    "nota": "Santa Sofia 9:00-18:00 · San Tomà 9:00-18:30"
    },
    {
     "ciudad": "La Spezia",
@@ -1999,25 +1861,18 @@
     "alternativa_gratis": "SS62 paso de la Cisa (+50 min)"
    },
    {
-    "tramo": "A1 Parma → Bolonia",
+    "tramo": "A1 Parma → Módena → Bolonia",
     "dia": 7,
     "km": 100,
     "eur": 8,
     "alternativa_gratis": "SS9 Via Emilia"
    },
    {
-    "tramo": "A13+A4 Bolonia → Venecia",
-    "dia": 7,
-    "km": 173,
-    "eur": 13.6,
-    "alternativa_gratis": null
-   },
-   {
-    "tramo": "A13/A14 Venecia → Rávena",
-    "dia": 9,
-    "km": 150,
-    "eur": 12,
-    "alternativa_gratis": "SS309 Romea"
+    "tramo": "A14 Bolonia → Rávena",
+    "dia": 8,
+    "km": 80,
+    "eur": 7,
+    "alternativa_gratis": "SS253 San Vitale (+25 min)"
    },
    {
     "tramo": "E45 Cesena → Perugia → Orte",
@@ -2073,12 +1928,6 @@
      "riesgo": "medio",
      "horario": "centro histórico",
      "multa_eur": "80-332"
-    },
-    {
-     "ciudad": "Mestre",
-     "riesgo": "medio",
-     "horario": "24 h alrededor de Piazza Ferretto",
-     "multa_eur": "~107"
     }
    ],
    "mito": "«En agosto se suspenden las ZTL y aparcar es gratis» es FALSO. En Florencia no se suspende nada."
@@ -2180,13 +2029,6 @@
    "razon": "Entradas incluidas (ya valen 14-18 €), así que el guía sale por ~10 €. Los mosaicos sin explicación son manchas doradas. Español solo los viernes."
   },
   {
-   "nombre": "Traghetto de Venecia",
-   "dia": 8,
-   "precio_eur": 2,
-   "veredicto": "si",
-   "razon": "Góndola real cruzando el Gran Canal. La turística cuesta 90 € por 30 min."
-  },
-  {
    "nombre": "Un trayecto en barco por Cinque Terre",
    "dia": 6,
    "precio_eur": 10,
@@ -2215,13 +2057,6 @@
    "razon": "Los tours normales (63 €, con español) NO operan el 16 de agosto."
   },
   {
-   "nombre": "Góndola en Venecia",
-   "dia": 8,
-   "precio_eur": 90,
-   "veredicto": "no",
-   "razon": "Tarifa oficial por góndola, 30 min. De noche 110 €."
-  },
-  {
    "nombre": "Visita guiada de Asís",
    "dia": 10,
    "precio_eur": 57,
@@ -2238,7 +2073,6 @@
    "cubre": [
     "Roma (11 recorridos)",
     "Florencia (5)",
-    "Venecia (4, incluido Grand Canal Cruise)",
     "Asís (2)",
     "Siena"
    ]
@@ -2268,11 +2102,11 @@
   "Precio real de la Cinque Terre Card en la fecha (precio dinámico) en card.parconazionale5terre.it",
   "Estado de los senderos de Cinque Terre el día antes: lecinqueterre.org/trekking/statodeisentieri.php",
   "Tarifa y horario de barrera del Parcheggio Villa Costanza: tel. +39 055 0750605",
-  "Si el campanile de San Giorgio Maggiore (Venecia) ha reabierto",
   "Si hay aparcamiento utilizable en la estación de Anguillara para el día 11",
   "Si Palatucci y Carducci (Lucca) siguen siendo gratuitos",
-  "Si el Parco San Giuliano (Mestre) es gratis del todo o solo 3 horas",
   "Precio del Panteón (subió a 7 € el 1 de julio de 2026, sin confirmar en fuente oficial)",
-  "Bono de 4 monumentos de Rávena: las fuentes dan 14,00 € y 14,50 €"
+  "Bono de 4 monumentos de Rávena: las fuentes dan 14,00 € y 14,50 €",
+  "Si se puede pernoctar en Certosa o Parco Nord (Bolonia) o hay ordenanza municipal",
+  "Si Marina di Ravenna o Punta Marina permiten dormir en el coche en agosto"
  ]
 }

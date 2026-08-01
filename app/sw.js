@@ -8,7 +8,7 @@
 //
 // => Si tocas cualquier fichero de la lista SHELL, sube VERSION.
 
-const VERSION = 'v33';
+const VERSION = 'v36';
 const CACHE_APP = `italia2026-app-${VERSION}`;
 const CACHE_TILES = 'italia2026-tiles-v1';   // lo comparte js/tiles.js
 const HOST_TILES = 'tile.openstreetmap.org';
@@ -25,7 +25,6 @@ const FOTOS = [
   'imagenes/d05-pisa.jpg',
   'imagenes/d06-cinqueterre.jpg',
   'imagenes/d07-bolonia.jpg',
-  'imagenes/d08-venecia.jpg',
   'imagenes/d09-ravena.jpg',
   'imagenes/d10-asis.jpg',
   'imagenes/d11-vaticano.jpg'

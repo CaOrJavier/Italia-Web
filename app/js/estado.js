@@ -18,8 +18,7 @@ const PLANTILLA = () => ({
   variante: null,          // id de la variante de ruta aplicada, si hay alguna
   prioridades: {},         // {"12": "imprescindible"} — decisión del usuario
   notas: {},               // {"12": "texto"}   claves: lugar:ID o dia:N
-  // La edad decide qué descuentos aplican: el estatal italiano corta en 25 y
-  // la Rolling Venice de Venecia en 29.
+  // La edad decide el descuento de museos estatales italianos, que corta en 25.
   // Tema claro por defecto, no "auto": la app se usa sobre todo a pleno sol,
   // y seguir al sistema la dejaba oscura en móviles con modo noche activado.
   ajustes: { tema: 'claro', combustible: 'gasolina', consumo: 7, edad: 29 }

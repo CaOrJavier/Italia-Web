@@ -142,32 +142,6 @@
   "donde_html": "<b>Osteria dell'Orsa</b>, Via Mentana 1 (Bolonia) — 15-20 € completo · <b>Trattoria del Rosso</b>, Via Righi 30 — menú fijo desde 10 € · <b>Mercato delle Erbe</b>, Via Ugo Bassi 23 · <b>Mercato Albinelli</b> (Módena), puesto «Vino e Tortellino» n.º 103 · <b>Sosta Emiliana</b>, Piazza XX Settembre · rosticcerías en Rávena, 6-9 € comida completa"
  },
  {
-  "region": "Véneto",
-  "zonas": [
-   "Venecia"
-  ],
-  "platos": [
-   {
-    "nombre": "Cicchetti (pinchos de mostrador) + «ombra» (chato de vino)",
-    "destacado": true
-   },
-   {
-    "nombre": "sarde in saor",
-    "destacado": false
-   },
-   {
-    "nombre": "baccalà mantecato",
-    "destacado": false
-   },
-   {
-    "nombre": "tramezzini",
-    "destacado": false
-   }
-  ],
-  "precios": "1,50-3 € c/u · 1-2 € la ombra · 10-15 € la cena",
-  "donde_html": "<b>Bacareto da Lele</b>, Campo dei Tolentini 183 — <b>paninetti desde 1 €</b>, el más barato de Venecia · <b>Cantine del Vino già Schiavi</b>, Dorsoduro 992 · <b>All'Arco</b>, San Polo 436 · <b>Cantina Do Mori</b>, San Polo 429 (desde 1462) · <b>Alla Vedova</b>, Cannaregio 3912"
- },
- {
   "region": "Umbría",
   "zonas": [
    "Asís"
