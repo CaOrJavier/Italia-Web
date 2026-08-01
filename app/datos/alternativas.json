@@ -47,7 +47,7 @@
         "detalle": "La esquina suroeste de la Toscana — termas gratis, pueblos etruscos excavados en la toba — quedaba fuera del anillo, y está <b>a hora y media del puerto</b>."
       }
     ],
-    "fijo": "No se toca en ninguna ruta: el ferri (llegada el 14 a las 22:00, salida el 25 a las 17:00, en el puerto a las 13:30), <b>Ferragosto el 15</b> con los Museos Vaticanos cerrados — por eso la Sixtina va el último día — y la primera noche en Tolfa, a 20 minutos del puerto."
+    "fijo": "No se toca en ninguna ruta: el ferri (llegada el 14 a las 22:00, salida el 25 a las 22:30, en el puerto a las 20:30), <b>Ferragosto el 15</b> con los Museos Vaticanos cerrados — por eso la Sixtina va el último día — y la primera noche en Tolfa, a 20 minutos del puerto."
   },
 
   "comparativa": {
@@ -116,7 +116,7 @@
         { "n": 8,  "etiqueta": "Sáb 22", "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere", "km": 40,  "min": 45,  "dormir": "Palaspezia · gratis 12 h", "cambia": true },
         { "n": 9,  "etiqueta": "Dom 23", "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)", "km": 300, "min": 210, "dormir": "Saturnia · gratis", "cambia": true, "verificar": true },
         { "n": 10, "etiqueta": "Lun 24", "etapa": "Saturnia → Pitigliano → Roma (miradores) → Bracciano", "km": 200, "min": 165, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 17:00" }
+        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
       ]
     },
     {
@@ -160,7 +160,7 @@
         { "n": 8,  "etiqueta": "Sáb 22", "etapa": "Cinque Terre II: Vernazza, Monterosso, Levanto y Portovenere", "km": 35,  "min": 45,  "dormir": "Palaspezia · gratis 12 h" },
         { "n": 9,  "etiqueta": "Dom 23", "etapa": "La Spezia → costa toscana → SATURNIA (baño al atardecer y de noche)", "km": 300, "min": 210, "dormir": "Saturnia · gratis", "cambia": true, "verificar": true },
         { "n": 10, "etiqueta": "Lun 24", "etapa": "Saturnia → Pitigliano → Sovana → Bracciano", "km": 190, "min": 150, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 17:00" }
+        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
       ]
     },
     {
@@ -204,7 +204,7 @@
         { "n": 8,  "etiqueta": "Sáb 22", "etapa": "Bolonia entera a pie, sin mover el coche", "km": 0,   "min": 0,   "dormir": "Bolonia · Certosa / Parco Nord", "cambia": true, "verificar": true },
         { "n": 9,  "etiqueta": "Dom 23", "etapa": "Bolonia → E45 (gratuita) → Asís", "km": 240, "min": 195, "dormir": "Asís · Porta San Giacomo", "cambia": true, "verificar": true },
         { "n": 10, "etiqueta": "Lun 24", "etapa": "Asís → Eremo delle Carceri → Cascata delle Marmore → Bracciano", "km": 250, "min": 210, "dormir": "Bracciano · gratis", "cambia": true },
-        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 17:00" }
+        { "n": 11, "etiqueta": "Mar 25", "etapa": "Capilla Sixtina → Civitavecchia", "km": 90,  "min": 90,  "dormir": "Ferri, 22:30" }
       ]
     }
   ],

@@ -18,9 +18,9 @@
   },
   "salida": {
    "fecha": "2026-08-25",
-   "hora": "17:00",
+   "hora": "22:30",
    "puerto": "Civitavecchia",
-   "estar_en_puerto": "13:30"
+   "estar_en_puerto": "20:30"
   },
   "km_totales": 2005,
   "km_etapas": 1927,
@@ -319,7 +319,7 @@
    "dormir_ref": null,
    "amanecer": "06:28",
    "ocaso": "19:55",
-   "aviso": "Salida del ferri a las 17:00; estar en el puerto a las 13:30-14:00.",
+   "aviso": "Salida del ferri a las 22:30; embarque 2 h antes, en el puerto a las 20:30. Sales de Roma a las 18:00, no antes.",
    "lugares": [
     74,
     75,
@@ -1182,7 +1182,7 @@
    "nombre": "Vuelta a Civitavecchia",
    "lat": 42.094,
    "lon": 11.79,
-   "descripcion": "Por la SS1 Aurelia (gratis), 75 km, 1h20. Llegada hacia las 13:30 para el ferri de las 17:00. Antes de entrar al puerto, llena la nevera en un Lidl o un Eurospin: la comida a bordo cuesta 3 o 4 veces más.",
+   "descripcion": "Desde Anguillara por la Braccianese y la SS1 Aurelia (gratis), 55 km, 1 h. Sal del coche aparcado a las 19:00 y estarás en el puerto a las 20:00, media hora antes del embarque de las 20:30 (ferri a las 22:30). Antes de entrar al puerto, llena la nevera en un Lidl o un Eurospin: la comida a bordo cuesta 3 o 4 veces más.",
    "precio": null,
    "coords_aproximadas": false
   }

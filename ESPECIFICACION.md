@@ -20,7 +20,7 @@ cambios sobre la marcha.
 
 | | |
 |---|---|
-| Fechas | Llegada en ferri a **Civitavecchia el viernes 14 de agosto a las 22:00**; salida el **martes 25 a las 17:00** |
+| Fechas | Llegada en ferri a **Civitavecchia el viernes 14 de agosto a las 22:00**; salida el **martes 25 a las 22:30** (embarque 2 h antes, en el puerto a las 20:30) |
 | Ruta | Anillo de **1.950 km** sin repetir tramo: Roma → Siena (Palio) → Toscana → Cinque Terre → Emilia → Venecia → Rávena → San Marino → Asís → Roma |
 | Vehículo | **Renault Modus**. Importante: está matriculado como *autovettura* (turismo), **no** como autocaravana — eso cambia qué normativa italiana le aplica |
 | Viajero | **Solo**, primer viaje a Italia, **presupuesto mínimo**, **duerme en el coche** 11 noches |

@@ -23,8 +23,8 @@ largos en la ventana tranquila del 17-21), pero tiene tres problemas medibles:
 
 Lo que **no** se toca en ninguna alternativa (son fechas cerradas):
 Ferragosto el 15 (Vaticano cerrado → la Sixtina tiene que ir el último día),
-**Palio el 16 en Siena**, ferri de llegada el 14 a las 22:00 y de salida el 25 a las 17:00
-(en el puerto a las 13:30).
+**Palio el 16 en Siena**, ferri de llegada el 14 a las 22:00 y de salida el 25 a las 22:30
+(embarque 2 h antes: en el puerto a las 20:30).
 
 ---
 
