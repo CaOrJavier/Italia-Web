@@ -28,7 +28,7 @@ function region(r) {
   const rutasConEsto = datos.RUTAS.rutas.filter(ru => datos.regionesDe(ru.id).some(x => x.id === r.id));
   const soloEn = rutasConEsto.length < datos.RUTAS.rutas.length
     ? `<span class="etiq etiq-rojo">Solo en la ruta ${rutasConEsto.map(x => x.numero).join(' y ')}</span>`
-    : `<span class="etiq etiq-verde">En las cuatro rutas</span>`;
+    : `<span class="etiq etiq-verde">En las seis rutas</span>`;
 
   return `
   <details class="tarjeta">

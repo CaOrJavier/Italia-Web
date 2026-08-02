@@ -1,4 +1,4 @@
-// La ruta en seco: una línea por día con las paradas, los kilómetros y dónde
+﻿// La ruta en seco: una línea por día con las paradas, los kilómetros y dónde
 // duermes. Sin explicaciones, para copiar y pegar en otro sitio.
 //
 // El formato usa separadores « · » y no columnas con espacios a propósito: pegado
@@ -44,11 +44,11 @@ export function pintar(main, params) {
 
     <details class="tarjeta">
       <summary class="cab-tarjeta" style="cursor:pointer">
-        <h3>Las cuatro rutas seguidas</h3>
+        <h3>Las seis rutas seguidas</h3>
         <span class="etiq etiq-gris">Para comparar en otro sitio</span>
       </summary>
       <div class="cab-tarjeta" style="border-top:1px solid var(--linea)">
-        <span class="peq" style="flex:1">Los cuatro bloques, uno detrás de otro.</span>
+        <span class="peq" style="flex:1">Los seis bloques, uno detrás de otro.</span>
         <button type="button" id="copiar-todas" class="btn-copiar">Copiar</button>
       </div>
       <pre class="seco" id="seco-todas">${esc(datos.RUTAS.rutas.map(texto).join('\n\n\n'))}</pre>

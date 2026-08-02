@@ -653,19 +653,19 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 /* ── Las tres rutas en paralelo ──────────────────────────────────────────── */
 
-/* Sólo tiene sentido a partir de 1000 px: con cuatro columnas más estrechas que
+/* Sólo tiene sentido a partir de 1240 px: con seis columnas más estrechas que
    eso los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista
    cae sola al modo de una ruta y este interruptor sobra. */
 .modo { display: none; }
 .par { display: none; }
 
-@media (min-width: 1000px) {
+@media (min-width: 1240px) {
   .modo { display: flex; }
   .par { display: block; margin-bottom: 16px; }
 
   .par-fila {
     display: grid;
-    grid-template-columns: 52px repeat(4, minmax(0, 1fr));
+    grid-template-columns: 46px repeat(6, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 10px;
     /* Estiradas a la misma altura: es lo que hace que se puedan comparar de un
@@ -777,9 +777,11 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   .leyenda ul { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (min-width: 1000px) {
-  .selector { grid-template-columns: repeat(4, 1fr); }
-  .vs { grid-template-columns: repeat(4, 1fr); }
+@media (min-width: 900px) {
+  /* Seis rutas en seis columnas quedan demasiado estrechas para leerlas: mejor
+     tres y tres, en dos filas. */
+  .selector { grid-template-columns: repeat(3, 1fr); }
+  .vs { grid-template-columns: repeat(3, 1fr); }
 }
 
 @media (min-width: 768px) {

@@ -122,6 +122,16 @@
    "articulo": "https://commons.wikimedia.org/wiki/File:Cornelia_Metro_Station_internal_escalator.jpg"
   },
   {
+   "id": "anguillara",
+   "archivo": "anguillara.jpg",
+   "pie": "Anguillara Sabazia · estación FL3",
+   "autor": "fotokoci",
+   "licencia": "CC0",
+   "licencia_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "origen": "https://commons.wikimedia.org/wiki/File:Anguillara_lago_(14710998179).jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Anguillara_lago_(14710998179).jpg"
+  },
+  {
    "id": "siena",
    "archivo": "siena.jpg",
    "pie": "Siena · Piazza del Campo",
@@ -160,6 +170,26 @@
    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
    "origen": "https://commons.wikimedia.org/wiki/File:Panorama_San_Gimignano.jpg",
    "articulo": "https://es.wikipedia.org/wiki/San%20Gimignano"
+  },
+  {
+   "id": "pienza",
+   "archivo": "pienza.jpg",
+   "pie": "Pienza",
+   "autor": "Luca Aless",
+   "licencia": "CC BY-SA 3.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg"
+  },
+  {
+   "id": "montepulciano",
+   "archivo": "montepulciano.jpg",
+   "pie": "Montepulciano",
+   "autor": "Michal Osmenda from Brussels",
+   "licencia": "CC BY-SA 2.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
   },
   {
    "id": "villa-costanza",
@@ -470,6 +500,56 @@
    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
    "origen": "https://commons.wikimedia.org/wiki/File:Panorama_di_Orvieto.jpg",
    "articulo": "https://es.wikipedia.org/wiki/Orvieto"
+  },
+  {
+   "id": "tivoli",
+   "archivo": "tivoli.jpg",
+   "pie": "Tívoli · Villa d'Este",
+   "autor": "Albarubescens",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Cento_fontane,_Villa_d%27Este,_Tivoli,_Italy.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Cento_fontane,_Villa_d%27Este,_Tivoli,_Italy.jpg"
+  },
+  {
+   "id": "lago-albano",
+   "archivo": "lago-albano.jpg",
+   "pie": "Castelli Romani · Lago Albano",
+   "autor": "Deblu68",
+   "licencia": "Public domain",
+   "licencia_url": "",
+   "origen": "https://commons.wikimedia.org/wiki/File:Castel_Gandolfo_e_Lago_Albano_-_panorama_da_Monte_Cavo.JPG",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Castel_Gandolfo_e_Lago_Albano_-_panorama_da_Monte_Cavo.JPG"
+  },
+  {
+   "id": "trasimeno",
+   "archivo": "trasimeno.jpg",
+   "pie": "Lago Trasimeno",
+   "autor": "Wolfgang Sauber",
+   "licencia": "CC BY-SA 4.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Castiglione_del_Lago_-_Lago_Trasimeno_2.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Castiglione_del_Lago_-_Lago_Trasimeno_2.jpg"
+  },
+  {
+   "id": "santa-severa",
+   "archivo": "santa-severa.jpg",
+   "pie": "Santa Severa · castillo en la playa",
+   "autor": "Fczarnowski",
+   "licencia": "CC BY-SA 3.0",
+   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+   "origen": "https://commons.wikimedia.org/wiki/File:Severa-castle.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:Severa-castle.jpg"
+  },
+  {
+   "id": "santa-marinella",
+   "archivo": "santa-marinella.jpg",
+   "pie": "Santa Marinella",
+   "autor": "Atbc",
+   "licencia": "Public domain",
+   "licencia_url": "",
+   "origen": "https://commons.wikimedia.org/wiki/File:SantaMarinellagiugno2015.jpg",
+   "articulo": "https://commons.wikimedia.org/wiki/File:SantaMarinellagiugno2015.jpg"
   },
   {
    "id": "parma",

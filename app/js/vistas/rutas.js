@@ -1,4 +1,4 @@
-// Las tres rutas, día a día.
+﻿// Las tres rutas, día a día.
 //
 // Dos modos: una ruta a lo largo (el de siempre, y el único que cabe en el móvil)
 // y las tres en paralelo, alineadas día a día, que es donde se ve de un vistazo
@@ -10,8 +10,8 @@ import { marcaDia, tiraLugares, leyenda } from '../marcas.js';
 import { figura } from '../fotos.js';
 import { ir } from '../app.js';
 
-// Cuatro columnas piden más sitio que tres: por debajo de 1000 px no se leen.
-const ANCHA = '(min-width: 1000px)';
+// Seis columnas piden sitio de verdad: por debajo de 1240 px no se leen.
+const ANCHA = '(min-width: 1240px)';
 const esAncha = () => matchMedia(ANCHA).matches;
 
 export function pintar(main, params) {
@@ -91,7 +91,7 @@ function paralelo(main, params, modoExplicito) {
   const dias = rutas[0].dias.length;
 
   main.innerHTML = `
-    <p class="intro">Las cuatro a la vez, alineadas por día. Pincha en cualquier casilla y se
+    <p class="intro">Las seis a la vez, alineadas por día. Pincha en cualquier casilla y se
     abre la fila entera: así ves qué hacen las otras tres rutas ese mismo día.</p>
     ${cambiaModo('tres')}
     ${leyenda()}
@@ -144,7 +144,7 @@ function fila(n, rutas, abierta) {
   return `<div class="par-fila${abierta ? ' abierta' : ''}" data-n="${n}">
     <div class="par-dia">
       <button type="button" class="par-abre" aria-expanded="${abierta}"
-              aria-label="Abrir el día ${n} en las cuatro rutas">
+              aria-label="Abrir el día ${n} en las seis rutas">
         <b>D${n}</b><span>${esc(fechaCorta(dia0.fecha))}</span>
       </button>
     </div>
@@ -176,7 +176,7 @@ function celda(d, r, abierta) {
 function cambiaModo(activo) {
   return `<div class="filtros modo" role="group" aria-label="Cómo ver las rutas">
     <button type="button" data-modo="una" aria-pressed="${activo === 'una'}">Una ruta a lo largo</button>
-    <button type="button" data-modo="tres" aria-pressed="${activo === 'tres'}">Las cuatro en paralelo</button>
+    <button type="button" data-modo="tres" aria-pressed="${activo === 'tres'}">Las seis en paralelo</button>
   </div>`;
 }
 

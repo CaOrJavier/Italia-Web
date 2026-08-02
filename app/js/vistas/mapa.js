@@ -52,22 +52,30 @@ function vertice(trazado, lat, lon) {
 
 const plano = (a, b) => Math.hypot(a[0] - b[0], (a[1] - b[1]) * 0.74);
 
-/** El punto que parte un camino en dos mitades de igual longitud. Ahí es donde se
- *  pone la etiqueta de kilómetros, para que caiga encima de la línea y no al lado. */
-function mitad(puntos) {
+/** El punto que está a una fracción dada de la longitud de un camino. La etiqueta
+ *  de kilómetros va ahí, encima de la línea. Si el punto medio está ocupado por un
+ *  icono se prueban otros: es preferible la cifra un poco descentrada a no verla. */
+function puntoEn(puntos, fraccion) {
   const acum = [0];
   for (let i = 1; i < puntos.length; i++) acum.push(acum[i - 1] + plano(puntos[i - 1], puntos[i]));
   const total = acum[acum.length - 1];
   if (!total) return puntos[0];
-  const i = acum.findIndex(a => a >= total / 2);
-  const t = (total / 2 - acum[i - 1]) / (acum[i] - acum[i - 1]);
+  const objetivo = total * fraccion;
+  const i = Math.max(1, acum.findIndex(a => a >= objetivo));
+  const t = (objetivo - acum[i - 1]) / (acum[i] - acum[i - 1] || 1);
   return [puntos[i - 1][0] + (puntos[i][0] - puntos[i - 1][0]) * t,
           puntos[i - 1][1] + (puntos[i][1] - puntos[i - 1][1]) * t];
 }
 
+/** Por dónde se intenta colocar la etiqueta, en orden de preferencia. */
+const FRACCIONES = [0.5, 0.35, 0.65, 0.22, 0.78];
+
 // Patrón de trazo además del color: en gris, o para quien no distingue el verde
 // del rojo, siguen siendo cuatro líneas distintas.
-const TRAZO = { toscana: null, agua: '10 7', comer: '2 8', etruria: '18 6 3 6' };
+const TRAZO = {
+  toscana: null, agua: '10 7', comer: '2 8',
+  etruria: '18 6 3 6', multas: '6 5', castelli: '16 4 2 4 2 4'
+};
 
 let cargando = null;
 
@@ -112,7 +120,7 @@ export async function pintar(main, params) {
         aria-pressed="${r.id === inicial}" style="--c:${esc(r.color)}">
         <span class="raya"></span>${r.numero}. ${esc(r.nombre)}</button>`).join('')}
       <button type="button" data-r="todas" aria-pressed="false" style="--c:var(--tinta-2)">
-        <span class="punto"></span>Las cuatro a la vez</button>
+        <span class="punto"></span>Las seis a la vez</button>
     </div>
 
     <div class="mapa-caja">
@@ -184,9 +192,11 @@ export async function pintar(main, params) {
       }).bindPopup(`<b>${r.numero}. ${esc(r.nombre)}</b>
         <span class="peq">${esc(r.lema)} · ${r.km} km</span>`).addTo(capaLineas);
     });
-
-    pintarKm();
   }
+
+  /** Dónde han quedado los iconos de los puntos. Las etiquetas de kilómetros los
+   *  esquivan: si no, el pin del día se pinta encima y tapa media cifra. */
+  let ocupados = [];
 
   /** Los kilómetros de cada día, puestos encima del tramo que se recorre ese día.
    *  Van en la línea y no junto al punto porque son de lo que hay entre dos sitios:
@@ -198,15 +208,20 @@ export async function pintar(main, params) {
     const r = datos.RUTA.get(id);
 
     // Se colocan de mayor a menor: si dos etiquetas chocan, gana la del día largo,
-    // que es la que más informa.
-    const puestas = [];
+    // que es la que más informa. Y se esquivan también los puntos ya dibujados.
+    const puestas = [...ocupados];
     for (const { dia, camino } of tramos(r).sort((a, b) => b.dia.km - a.dia.km)) {
-      const centro = mitad(camino);
-      const p = mapa.latLngToLayerPoint(centro);
       const ancho = 22 + String(dia.km).length * 8;
-      const choca = puestas.some(q =>
-        Math.abs(q.p.x - p.x) < (q.ancho + ancho) / 2 && Math.abs(q.p.y - p.y) < 20);
-      if (choca) continue;
+      const libre = q => !puestas.some(o =>
+        Math.abs(o.p.x - q.x) < (o.ancho + ancho) / 2 && Math.abs(o.p.y - q.y) < 22);
+
+      let centro = null, p = null;
+      for (const f of FRACCIONES) {
+        const c = puntoEn(camino, f);
+        const q = mapa.latLngToLayerPoint(c);
+        if (libre(q)) { centro = c; p = q; break; }
+      }
+      if (!centro) continue;         // el tramo entero está ocupado: se deja para el zoom
       puestas.push({ p, ancho });
 
       L.marker(centro, {
@@ -246,7 +261,10 @@ export async function pintar(main, params) {
         if (lejos && lejos[1] > 0) camino = [base, [lejos[0].lat, lejos[0].lon]];
       }
 
-      if (camino && camino.length > 1) salida.push({ dia, camino });
+      // Los días de 0 km son los de coche parado (Roma en metro o en tren): un
+      // «0 km» encima de la línea no dice nada y estorba. Eso ya lo cuenta la
+      // pastilla del día y el plan.
+      if (dia.km && camino && camino.length > 1) salida.push({ dia, camino });
       desde = hasta;
     });
     return salida;
@@ -309,7 +327,10 @@ export async function pintar(main, params) {
 
   function pintarPuntos() {
     capaPuntos.clearLayers();
+    ocupados = [];
     for (const g of agrupar(visibles())) {
+      const et = g.items.length > 1 || rutaUnica() ? etiquetaDe(g.items) : null;
+      ocupados.push({ p: g.p, ancho: anchoIcono(et) });
       if (g.items.length === 1) capaPuntos.addLayer(pinSuelto(g.items[0]));
       else capaPuntos.addLayer(pinGrupo(g));
     }
@@ -391,7 +412,10 @@ export async function pintar(main, params) {
       const pts = rutas.filter(r => activas.has(r.id)).flatMap(r => r.trazado.map(p => [p[0], p[1]]));
       if (pts.length) mapa.fitBounds(L.latLngBounds(pts), { padding: [26, 26] });
     }
+    // Los puntos primero y los kilómetros después: las etiquetas necesitan saber
+    // dónde han quedado los iconos para no meterse debajo.
     pintarPuntos();
+    pintarKm();
     main.querySelectorAll('#f-rutas button').forEach(b => {
       const activo = b.dataset.r === 'todas'
         ? activas.size === rutas.length

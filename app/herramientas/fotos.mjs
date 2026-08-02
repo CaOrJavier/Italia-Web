@@ -89,7 +89,16 @@ const CANDIDATOS = {
   'civita-bagnoregio': [['es', 'Civita di Bagnoregio'], ['it', 'Civita di Bagnoregio']],
   bomarzo: [['es', 'Parque de los Monstruos'], ['it', 'Parco dei Mostri']],
   viterbo: [['es', 'Viterbo'], ['it', 'Viterbo']],
-  sorano: [['it', 'Sorano (Italia)'], ['es', 'Sorano']]
+  sorano: [['it', 'Sorano (Italia)'], ['es', 'Sorano']],
+
+  pienza: [['es', 'Pienza'], ['it', 'Pienza']],
+  montepulciano: [['es', 'Montepulciano'], ['it', 'Montepulciano']],
+  tivoli: [['es', 'Villa d\'Este'], ['it', "Villa d'Este"]],
+  'lago-albano': [['es', 'Lago Albano'], ['it', 'Lago Albano']],
+  trasimeno: [['es', 'Lago Trasimeno'], ['it', 'Lago Trasimeno']],
+  'santa-severa': [['it', 'Castello di Santa Severa']],
+  'santa-marinella': [['it', 'Santa Marinella']],
+  anguillara: [['it', 'Anguillara Sabazia']]
 };
 
 // Cuando la portada del artículo no vale (no existe, o ya la usa otro lugar), se
@@ -122,7 +131,14 @@ const BUSQUEDA = {
   cerveteri: 'Necropoli Banditaccia Cerveteri',
   bomarzo: 'Sacro Bosco Bomarzo orco',
   sorano: 'Sorano Grosseto veduta',
-  viterbo: 'San Pellegrino Viterbo quartiere'
+  viterbo: 'San Pellegrino Viterbo quartiere',
+  tivoli: "Villa d'Este Tivoli fontane",
+  'lago-albano': 'Lago Albano Castel Gandolfo',
+  'santa-severa': 'Castello Santa Severa spiaggia',
+  'santa-marinella': 'Santa Marinella mare',
+  anguillara: 'Anguillara Sabazia lago',
+  pienza: 'Pienza centro storico',
+  montepulciano: 'Montepulciano panorama'
 };
 
 /** Con --forzar se vuelven a bajar todas; si no, las que ya están se dejan como
@@ -144,7 +160,13 @@ const FIJAS = {
   // lo que vas.
   petriolo: 'Terme di Petriolo-9389-90.jpg',
   // Y para Cerveteri, un panorama tan alargado que en la rejilla salía una tira.
-  cerveteri: 'Banditaccia Tomba Dei Capitelli.jpg'
+  cerveteri: 'Banditaccia Tomba Dei Capitelli.jpg',
+  // La búsqueda daba una escultura de un cisne en una pared. Esta es la playa.
+  'santa-marinella': 'SantaMarinellagiugno2015.jpg',
+  // La del artículo salía con nieve y viñas peladas, y el viaje es en agosto.
+  montepulciano: 'Piazza Grande of Montepulciano.jpg',
+  // Y la del Trasimeno venía en blanco y negro y en vertical.
+  trasimeno: 'Castiglione del Lago - Lago Trasimeno 2.jpg'
 };
 
 /** La portada de los artículos de pueblos italianos suele ser la bandera o el escudo

@@ -33,21 +33,31 @@ const FILAS = [
   { k: 'Noches en Cinque Terre', v: r => String(nochesEn(r, 'Spezia')), n: r => nochesEn(r, 'Spezia'), mejor: 'max' },
   { k: 'Termas naturales gratis', v: r => String(cuantos(r, 'termas')), n: r => cuantos(r, 'termas'), mejor: 'max' },
   { k: 'Playas', v: r => String(cuantos(r, 'playa')), n: r => cuantos(r, 'playa'), mejor: 'max' },
+  { k: 'Cinque Terre', v: r => si(tiene(r, 'vernazza')), n: r => (tiene(r, 'vernazza') ? 1 : 0), mejor: null },
+  { k: 'Saturnia', v: r => si(tiene(r, 'saturnia')), n: r => (tiene(r, 'saturnia') ? 1 : 0), mejor: null },
   { k: 'Siena y los pueblos de torres', v: r => si(tiene(r, 'san-gimignano')), n: r => (tiene(r, 'san-gimignano') ? 1 : 0), mejor: null },
   { k: 'Pisa', v: r => si(tiene(r, 'pisa')), n: r => (tiene(r, 'pisa') ? 1 : 0), mejor: null },
   { k: 'Emilia: Parma, Módena, Bolonia', v: r => si(tiene(r, 'bolonia')), n: r => (tiene(r, 'bolonia') ? 1 : 0), mejor: null },
   { k: 'Umbría y Asís', v: r => si(tiene(r, 'asis')), n: r => (tiene(r, 'asis') ? 1 : 0), mejor: null },
-  { k: 'Etruscos y pueblos de toba', v: r => si(tiene(r, 'civita-bagnoregio')), n: r => (tiene(r, 'civita-bagnoregio') ? 1 : 0), mejor: null }
+  { k: 'Etruscos y pueblos de toba', v: r => si(tiene(r, 'civita-bagnoregio')), n: r => (tiene(r, 'civita-bagnoregio') ? 1 : 0), mejor: null },
+  { k: 'Tívoli y los Castelli Romani', v: r => si(tiene(r, 'tivoli')), n: r => (tiene(r, 'tivoli') ? 1 : 0), mejor: null },
+  { k: 'Días de Roma', v: r => String(diasRoma(r)), n: diasRoma, mejor: 'max' }
 ];
+
+/** Días en los que se pisa Roma, sea en metro o en tren. */
+function diasRoma(r) {
+  const enRoma = ['coliseo', 'vaticano', 'san-pedro', 'panteon', 'testaccio', 'trastevere', 'appia'];
+  return r.dias.filter(d => (d.lugares || []).some(id => enRoma.includes(id))).length;
+}
 
 export function pintar(main) {
   const rutas = datos.RUTAS.rutas;
 
   main.innerHTML = `
-    <p class="intro">Las cuatro llevan a Florencia, Cinque Terre, Saturnia y Roma con días
-    enteros, y las cuatro acaban igual: Roma los días 23, 24 y 25. Lo que de verdad cambia
-    entre ellas no es el dinero —se llevan 66 € de la más barata a la más cara— sino qué
-    Italia ves y lo cansado que acabas.</p>
+    <p class="intro">Las seis llevan a Roma y a Florencia con días enteros y ninguna mete
+    el coche en una ZTL. Lo que de verdad cambia entre ellas no es tanto el dinero —98 €
+    de la más barata a la más cara, en doce días— como cuánto conduces: de los 860 km de
+    la ruta 5 a los 1.527 de la 3 hay casi el doble.</p>
 
     ${tarjetas(rutas)}
     <h2 class="seccion">Fila a fila</h2>
@@ -95,7 +105,7 @@ function barra(et, valor, fraccion) {
 function tabla(rutas) {
   return `<div class="scroll-x"><table>
     <caption class="peq" style="text-align:left;padding:9px 11px">
-      En verde, la mejor de las cuatro en cada fila.</caption>
+      En verde, la mejor de las seis en cada fila.</caption>
     <thead><tr><th scope="col">&nbsp;</th>${rutas.map(r =>
       `<th scope="col"><span class="leyenda-ruta" style="--barra:${esc(r.color)}">
         <i></i>${r.numero}. ${esc(r.nombre)}</span></th>`).join('')}</tr></thead>
@@ -110,7 +120,7 @@ function tabla(rutas) {
 }
 
 /** La comparación en fotos, partida en dos: lo que solo tiene cada ruta —que es
- *  justo lo que estás eligiendo— y lo que sale en las cuatro. */
+ *  justo lo que estás eligiendo— y lo que sale en las seis. */
 function galeria(rutas) {
   if (!hayFotos()) return '';
 
@@ -118,7 +128,7 @@ function galeria(rutas) {
 
   return `
   <h2 class="seccion">Lo que solo ve cada ruta</h2>
-  <p class="intro">Aquí está la decisión en fotos: estos sitios no salen en las cuatro.
+  <p class="intro">Aquí está la decisión en fotos: estos sitios no salen en las seis.
   Lo que elijas es esto.</p>
   ${leyenda()}
   <div class="vs">${rutas.map(r => {
@@ -138,8 +148,8 @@ function galeria(rutas) {
   </div>
 
   <h2 class="seccion">Lo que ves vayas por donde vayas</h2>
-  <p class="intro">${comunes.length} sitios que salen en las cuatro rutas: Florencia,
-  Cinque Terre, Saturnia y los tres días de Roma del final. Esto no se negocia.</p>
+  <p class="intro">${comunes.length} sitios que salen en las seis rutas: Florencia y los
+  días de Roma. Esto no se negocia.</p>
   <div class="tarjeta"><div class="rejilla">
     ${comunes.map(tarjetaLugar).join('')}
   </div></div>
@@ -158,36 +168,50 @@ function tarjetaLugar(l) {
 }
 
 function decidir(rutas) {
-  const [r1, r2, r3, r4] = rutas;
+  const [r1, r2, r3, r4, r5, r6] = rutas;
   return `
   <h2 class="seccion">Cómo elegir</h2>
   <div class="tarjeta"><div class="tarjeta-c">
-    <p><b style="color:${esc(r1.color)}">Si no lo tienes claro, la ${r1.numero}.</b>
-    Es la que reparte mejor y la que menos kilómetros hace: cabe Siena, caben los pueblos de
-    torres, cabe Pitigliano, y aun así deja dos días de Florencia, dos de Cinque Terre y
-    Lucca con noche propia. No destaca en nada y no falla en nada.</p>
+    <p><b>La primera pregunta no es qué quieres ver, es cuánto quieres conducir.</b>
+    Entre la ruta 5 y la 3 hay 667 km de diferencia, que son unas nueve horas de volante.
+    Con eso decidido, lo demás cae solo.</p>
+
+    <p><b style="color:${esc(r5.color)}">La ${r5.numero} si lo que menos te apetece es conducir.</b>
+    860 km, la mitad que la 3. Plantas el coche cuatro noches junto al lago de Bracciano y
+    haces los tres días de Roma en tren regional, sin acercar el Modus a la ciudad. El precio:
+    Cinque Terre se queda fuera entera.</p>
+
+    <p><b style="color:${esc(r1.color)}">La ${r1.numero} si quieres la Toscana de siempre y bien repartida.</b>
+    Cabe Siena, caben los pueblos de torres, cabe Pitigliano, y aun así deja dos días de
+    Florencia, dos de Cinque Terre y Lucca con noche propia. No destaca en nada y no falla
+    en nada.</p>
 
     <p><b style="color:${esc(r2.color)}">La ${r2.numero} si lo que te apetece es meterte en el agua.</b>
     Tres termas naturales gratis y abiertas las 24 horas en vez de una, la Val d'Orcia de por
-    medio y dos tardes de playa. Es además la más barata de las cuatro. El precio: los pueblos
-    de torres se quedan fuera enteros.</p>
+    medio y dos tardes de playa. El precio: los pueblos de torres se quedan fuera enteros.</p>
 
     <p><b style="color:${esc(r3.color)}">La ${r3.numero} si lo que te llevas de un viaje es haber comido.</b>
     Es la única que sube a Emilia-Romaña, donde están el jamón de Parma, el Parmigiano de
-    36 meses, el balsámico y los tortellini. Se paga con 300 km más que la ruta 1 y con la
-    Toscana recortada.</p>
+    36 meses, el balsámico y los tortellini. Se paga con 300 km más que la 1 y con la Toscana
+    recortada. Es la ruta que más conduce de las seis.</p>
 
     <p><b style="color:${esc(r4.color)}">La ${r4.numero} si ya has visto lo de siempre o te aburre.</b>
     Pueblos enteros excavados en la toba, necrópolis etruscas, una ciudad que se cae por un
     precipicio y un bosque del XVI lleno de monstruos de piedra. Todo eso está a menos de dos
-    horas del puerto y no lo pisa ninguna de las otras tres. El precio: 290 km el primer día,
-    de un tirón, para quitarse el norte de encima.</p>
+    horas del puerto y no lo pisa ninguna otra. El precio: 290 km el primer día, de un tirón.</p>
+
+    <p><b style="color:${esc(r6.color)}">La ${r6.numero} si Roma te tira más que la Toscana.</b>
+    Tres días de ciudad con el coche parado y luego lo que casi nadie hace: sus alrededores.
+    Las quinientas fuentes de Villa d'Este en Tívoli, los Castelli Romani en la montaña y un
+    castillo con los pies en la arena. El precio: tres noches durmiendo en un aparcamiento de
+    intercambio, que es lo más incómodo de todo el viaje.</p>
 
     <div class="caja caja-ojo" style="margin-top:14px">
       <b class="caja-t">Lo que ninguna arregla</b>
       Cinque Terre está en el extremo norte y el puerto en el sur. Cualquier ruta que quiera
-      las dos cosas paga una vez un día de más de 200 km seguidos. Aparece en las cuatro y no
-      hay forma de esquivarlo: solo se puede elegir qué día cae.
+      las dos cosas paga una vez un día de más de 200 km seguidos: por eso las dos rutas que
+      menos conducen, la 5 y la 6, son justo las dos que renuncian a Cinque Terre. No hay
+      forma de esquivarlo, solo de elegir qué se sacrifica.
     </div>
   </div></div>`;
 }

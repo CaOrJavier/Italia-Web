@@ -1,13 +1,13 @@
 ﻿{
-  "intro": "Civitavecchia está en el centro exacto de la Italia peninsular, así que el error de bulto sería tratarlo como una ida y vuelta. No lo es: da para un anillo cerrado sin repetir un solo kilómetro. Estas son cuatro formas distintas de cerrarlo.",
+  "intro": "Civitavecchia está en el centro exacto de la Italia peninsular, así que el error de bulto sería tratarlo como una ida y vuelta. No lo es: da para un anillo completo. Estas son seis formas distintas de cerrarlo, de la que menos conduce a la que más.",
   "comun": {
-    "titulo": "Lo que no cambia en ninguna de las cuatro",
+    "titulo": "Lo que no cambia en ninguna de las seis",
     "puntos": [
-      "El primer día es el desembarco de noche y una subida de 22 km a Tolfa para dormir fresco. No hay nada que decidir ahí.",
-      "Roma va al final, los días 23, 24 y 25, y no al principio. El motivo es la Capilla Sixtina: los Museos Vaticanos cierran el 15 de agosto y todos los domingos, así que si Roma fuese el primer día habría que volver a bajar el último solo para eso. Poniéndola al final, la Sixtina cae el lunes 24 y el martes 25 queda de reserva por si algo falla.",
-      "Llegas a Roma el domingo 23. Ese día no hay Vaticano (cierran), así que es la tarde del centro histórico a pie: Panteón, Navona, Trevi. Todo gratis y sin reservar nada.",
-      "El último día es Coliseo por la mañana y al puerto por la tarde, con horas de sobra. El Coliseo es al aire libre y sin sorpresas: si el día se tuerce, se puede recortar sin perder el viaje.",
-      "Florencia, Cinque Terre y Saturnia salen en las cuatro, con días enteros y no de paso. Lo demás es lo que se negocia."
+      "Desembarcas el viernes 14 a las 20:30 y tienes que estar de vuelta en el puerto el martes 25 a las 20:30, porque el ferri sale a las 22:30. Son 11 noches y 12 días, y eso no se negocia.",
+      "El coche no entra nunca en una ZTL. En las seis rutas se aparca fuera y se entra andando, en tranvía, en metro o en tren. Es la única forma de que no llegue una multa a España tres meses después.",
+      "Roma y Florencia salen en las seis. Todo lo demás —Cinque Terre, las termas, Emilia, los etruscos, los Castelli— es exactamente lo que estás eligiendo.",
+      "Los Museos Vaticanos cierran el 15 de agosto y todos los domingos salvo el último de mes. Cada ruta coloca la Capilla Sixtina en un día que abra, y siempre con otro día de reserva por detrás por si algo falla.",
+      "El sábado 15 es Ferragosto: medio comercio cierra y las carreteras a la costa se colapsan. Ninguna de las seis pisa una ciudad ese día, así que apenas te afecta. Lleva comida en el coche, eso sí."
     ]
   },
   "rutas": [
@@ -1194,6 +1194,574 @@
           "comer": "Supplì de camino y un último maritozzo.",
           "aviso": "Es día de ferri y hoy hay una parada de más. Si vas justo, sáltate Cerveteri: cierra sobre las 19:30 y lo que no se puede perder es el barco. Mira su horario de verano antes de contar con ello.",
           "coste_dia": 66, "apretado": "Coliseo, una necrópolis y el puerto el mismo día. Cabe, pero es el único día de esta ruta sin margen."
+        }
+      ]
+    }
+    ,{
+      "id": "multas",
+      "numero": 5,
+      "nombre": "Cero multas",
+      "lema": "La de menos volante",
+      "color": "#C25E00",
+      "km": 860,
+      "minutos_volante": 780,
+      "coste_estimado": 420,
+      "resumen": "La que menos conduce con diferencia: 860 km, la mitad que la ruta 3. El truco es plantar el coche cuatro noches junto al lago de Bracciano y hacer los tres días de Roma en tren regional, sin acercar el Modus a la ciudad. Cinque Terre se queda fuera para que todo lo demás quepa sin correr.",
+      "ganas": [
+        "860 km y 13 horas de volante: la mitad de carretera que la ruta 3",
+        "Tres días enteros de Roma llegando en tren desde el lago, con el coche parado y a cero riesgo de multa",
+        "Val d'Orcia con calma: Pienza, Montepulciano y las colinas de las postales",
+        "San Gimignano con noche propia, para verlo antes de que lleguen los autobuses"
+      ],
+      "pierdes": [
+        "Cinque Terre entera: es la única de las seis, junto con la 6, que no las pisa",
+        "Lucca, Portovenere y toda la costa de Liguria",
+        "Emilia, Umbría y los pueblos de toba del sur",
+        "El día 5 sigue siendo de 320 km: es el precio de bajar de Florencia a Orvieto de un tirón"
+      ],
+      "bases": [
+        { "sitio": "Saturnia", "noches": 1 },
+        { "sitio": "Siena", "noches": 1 },
+        { "sitio": "San Gimignano", "noches": 1 },
+        { "sitio": "Florencia · Villa Costanza", "noches": 2 },
+        { "sitio": "Orvieto", "noches": 1 },
+        { "sitio": "Lago de Bracciano", "noches": 4 },
+        { "sitio": "Santa Marinella", "noches": 1 }
+      ],
+      "trazado": [
+        [42.094, 11.79, "Civitavecchia"],
+        [42.647, 11.511, "Saturnia"],
+        [43.0765, 11.6785, "Pienza"],
+        [43.0995, 11.7815, "Montepulciano"],
+        [43.319, 11.332, "Siena"],
+        [43.468, 11.043, "San Gimignano"],
+        [43.749, 11.183, "Villa Costanza"],
+        [43.773, 11.256, "Florencia"],
+        [43.723, 10.397, "Pisa"],
+        [42.718, 12.111, "Orvieto"],
+        [42.094, 12.183, "Lago de Bracciano"],
+        [42.0, 12.1, "Cerveteri"],
+        [42.0335, 11.8525, "Santa Marinella"],
+        [42.094, 11.79, "Civitavecchia"]
+      ],
+      "dias": [
+        {
+          "n": 0, "fecha": "2026-08-14", "dia_semana": "viernes",
+          "titulo": "Del puerto directo a las termas",
+          "etapa": "Civitavecchia → Saturnia",
+          "km": 115, "minutos": 100,
+          "plan": [
+            { "hora": "20:30", "que": "Atraca el ferri. Sales del puerto sobre las 21:00." },
+            { "hora": "21:00", "que": "Súper rápido en Civitavecchia: cierran entre las 21:00 y las 21:30 y hoy no vas a parar más." },
+            { "hora": "21:20", "que": "115 km hacia el noroeste por la Aurelia y luego tierra adentro por Manciano. De noche y por secundaria, hora y media larga." },
+            { "hora": "22:50", "que": "Llegas a las Cascate del Mulino. Aparcas gratis y te metes en el agua de noche: están abiertas 24 horas y a esa hora no hay nadie. Linterna obligatoria, que no hay ni una farola." }
+          ],
+          "lugares": ["civitavecchia", "saturnia"],
+          "dormir": "saturnia", "aparcar": null,
+          "comer": "Cena de súper dentro del coche. Compra también el desayuno: mañana amaneces en mitad de la Maremma.",
+          "aviso": "Es el día más ajustado del arranque: desembarcas a las 20:30 y conduces 115 km de noche por carretera de curvas. Si llegas cansado, párate en Tolfa o en Manciano y haz el último tramo por la mañana: las termas no cierran.",
+          "coste_dia": 25, "apretado": null
+        },
+        {
+          "n": 1, "fecha": "2026-08-15", "dia_semana": "sábado",
+          "titulo": "Termas al amanecer y la Val d'Orcia",
+          "etapa": "Saturnia → Pienza → Montepulciano → Siena",
+          "km": 155, "minutos": 150,
+          "plan": [
+            { "hora": "07:00", "que": "Baño al amanecer en las cascadas, que es cuando están vacías y con vapor. El mejor momento del día." },
+            { "hora": "10:00", "que": "75 km subiendo hacia la Val d'Orcia. Es Ferragosto: las ciudades están colapsadas y medio comercio cerrado, así que hoy toca campo y pueblos por fuera." },
+            { "hora": "11:30", "que": "Pienza: un papa mandó rehacer el pueblo entero en cinco años como ciudad ideal del Renacimiento. Se ve en una hora y es la capital del pecorino." },
+            { "hora": "13:30", "que": "Montepulciano, a 15 km: encaramado en una loma con toda la Val d'Orcia debajo, y con bodegas excavadas bajo las casas." },
+            { "hora": "16:30", "que": "La carretera de los cipreses de la Val d'Orcia, que es el paisaje de las postales. Parar en los miradores es medio plan del día." },
+            { "hora": "18:30", "que": "65 km hasta Siena. Aparcas en Due Ponti, 2 € el día y abierto 24 h, y ahí duermes." }
+          ],
+          "lugares": ["saturnia", "pienza", "montepulciano", "val-dorcia", "siena-parking"],
+          "dormir": "siena", "aparcar": "siena",
+          "comer": "Pecorino de Pienza comprado en el pueblo, curado en heno o en ceniza, y pici. Es lo más barato y lo más de allí que vas a comer.",
+          "aviso": "Muchas guías dan el aparcamiento del Fagiolone de Siena como gratuito. Ya no: son 20 € las 24 horas. Due Ponti cuesta 2 € y tiene escaleras mecánicas soterradas hasta Porta Camollia.",
+          "coste_dia": 33, "apretado": null
+        },
+        {
+          "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
+          "titulo": "Siena entera y a las torres",
+          "etapa": "Siena → San Gimignano",
+          "km": 45, "minutos": 45,
+          "plan": [
+            { "hora": "08:00", "que": "Subes por las escaleras mecánicas y tienes Siena para ti: Piazza del Campo vacía, el Duomo con el suelo de mármol taraceado descubierto (solo unas semanas al año, y agosto es una) y la Torre del Mangia." },
+            { "hora": "13:30", "que": "Comes pici all'aglione lejos del Campo." },
+            { "hora": "16:00", "que": "45 km hasta San Gimignano por la campiña. Es de los tramos más bonitos de la Toscana." },
+            { "hora": "17:30", "que": "Aparcas en los de abajo, que valen la mitad que los pegados a la muralla, y subes andando." },
+            { "hora": "18:00", "que": "San Gimignano a última hora, cuando ya se han ido los autobuses: catorce torres medievales en pie de las setenta y dos que hubo." },
+            { "hora": "21:30", "que": "Cena y a dormir con las torres iluminadas encima." }
+          ],
+          "lugares": ["siena", "siena-parking", "san-gimignano"],
+          "dormir": "san-gimignano", "aparcar": ["siena", "san-gimignano"],
+          "comer": "Pici all'aglione en Siena y schiacciata rellena en San Gimignano. Y azafrán de San Gimignano, que lo cultivan ahí desde el siglo XIII.",
+          "aviso": null,
+          "coste_dia": 22, "apretado": null
+        },
+        {
+          "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+          "titulo": "San Gimignano de mañana y a Florencia",
+          "etapa": "San Gimignano → Florencia (Villa Costanza)",
+          "km": 55, "minutos": 50,
+          "plan": [
+            { "hora": "08:00", "que": "San Gimignano vacío otra vez: Piazza della Cisterna, la Collegiata y subir a la Torre Grossa." },
+            { "hora": "12:00", "que": "Comida temprana y salida." },
+            { "hora": "14:30", "que": "55 km hasta Villa Costanza. Se entra directamente desde la A1, entre Firenze Scandicci y Firenze Impruneta: no pisas ni una calle de Florencia." },
+            { "hora": "15:30", "que": "El tranvía T1 sale de dentro del propio aparcamiento: 23 minutos hasta Santa Maria Novella. Aquí el coche se queda quieto dos días." },
+            { "hora": "16:30", "que": "Primera tarde de Florencia: Duomo, Ponte Vecchio y Piazzale Michelangelo al atardecer." },
+            { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta." }
+          ],
+          "lugares": ["san-gimignano", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
+          "dormir": "villa-costanza", "aparcar": ["san-gimignano", "florencia"],
+          "comer": "Cena en Santo Spirito o San Frediano, en el Oltrarno, que es donde se come a precio de barrio.",
+          "aviso": "Villa Costanza es el mejor invento de este viaje para un coche extranjero: entras desde la autopista, sales en tranvía y no hay ni un metro de riesgo de ZTL. 7 € el día y se puede dejar hasta 30 días.",
+          "coste_dia": 40, "apretado": null
+        },
+        {
+          "n": 4, "fecha": "2026-08-18", "dia_semana": "martes",
+          "titulo": "Florencia entera, con el coche parado",
+          "etapa": "Villa Costanza ⇄ Florencia",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "07:30", "que": "Tranvía al centro. A esa hora Florencia todavía es de los florentinos." },
+            { "hora": "08:00", "que": "Piazza del Duomo vacía: catedral, campanile de Giotto y baptisterio con las puertas del Paraíso." },
+            { "hora": "10:00", "que": "Signoria, la Loggia dei Lanzi (museo de escultura al aire libre y gratis) y el Ponte Vecchio." },
+            { "hora": "11:30", "que": "Lampredotto de carrito, de pie: 5 € y lleva ahí desde el siglo XV." },
+            { "hora": "13:00", "que": "Mercato Centrale de San Lorenzo." },
+            { "hora": "15:00", "que": "Horas de calor dentro de Santa Croce, con Miguel Ángel, Galileo y Maquiavelo enterrados." },
+            { "hora": "17:30", "que": "San Miniato al Monte con el canto gregoriano de los monjes, que es diario." },
+            { "hora": "19:30", "que": "Piazzale Michelangelo al atardecer y bajada andando." },
+            { "hora": "21:00", "que": "Cena y tranvía." }
+          ],
+          "lugares": ["florencia-duomo", "mercato-centrale", "piazzale-michelangelo", "villa-costanza"],
+          "dormir": "villa-costanza", "aparcar": "florencia",
+          "comer": "Lampredotto, panzanella y cena de mercado.",
+          "aviso": "Hoy el coche no se mueve: cero kilómetros. Los Uffizi (25 €) y la Accademia (16 €) hay que reservarlos con semanas y están fuera del presupuesto mínimo.",
+          "coste_dia": 25, "apretado": null
+        },
+        {
+          "n": 5, "fecha": "2026-08-19", "dia_semana": "miércoles",
+          "titulo": "Pisa y bajada a Umbría",
+          "etapa": "Florencia → Pisa → Orvieto",
+          "km": 320, "minutos": 270,
+          "plan": [
+            { "hora": "07:30", "que": "85 km hasta Pisa. Aparcas gratis en Via Pietrasantina y coges la lanzadera de 1 €, o andas los 20 minutos llanos." },
+            { "hora": "09:00", "que": "Piazza dei Miracoli con el césped vacío: la torre, el Duomo, el baptisterio y el Camposanto, los cuatro en la misma explanada." },
+            { "hora": "12:00", "que": "Comida en el mercado de las Vettovaglie, junto al Arno, que es donde come Pisa de verdad." },
+            { "hora": "14:00", "que": "235 km hasta Orvieto por Siena. Es el día largo de la ruta y no hay forma de partirlo." },
+            { "hora": "18:00", "que": "Llegas a Orvieto. Aparcas abajo, en Campo della Fiera, y ahí duermes: al casco viejo se sube en ascensores excavados en la roca." },
+            { "hora": "19:30", "que": "Orvieto al atardecer: la fachada de la catedral es de las cosas más desproporcionadamente buenas de Italia para el tamaño del pueblo." }
+          ],
+          "lugares": ["pisa", "orvieto"],
+          "dormir": "orvieto", "aparcar": ["pisa", "orvieto"],
+          "comer": "Cecina pisana (la farinata local) al mediodía y umbrichelli con vino blanco de Orvieto por la noche.",
+          "aviso": "320 km, casi el 40 % de toda la ruta en un solo día. Sal a las 7:30 y come en Pisa, no antes: si sales tarde, llegas a Orvieto de noche y te pierdes la catedral con luz.",
+          "coste_dia": 71, "apretado": "320 km con Pisa por la mañana. Es el único día duro de la ruta, y el precio de tener todo lo demás tan tranquilo."
+        },
+        {
+          "n": 6, "fecha": "2026-08-20", "dia_semana": "jueves",
+          "titulo": "Orvieto y al campamento base del lago",
+          "etapa": "Orvieto → Lago de Bracciano",
+          "km": 90, "minutos": 80,
+          "plan": [
+            { "hora": "08:00", "que": "Orvieto por dentro: la catedral, y el Pozzo di San Patrizio, un pozo de 54 m con dos escaleras de caracol que no se cruzan nunca." },
+            { "hora": "12:00", "que": "La Orvieto Underground: la peña está agujereada por 1.200 cuevas etruscas y medievales." },
+            { "hora": "15:00", "que": "90 km hacia el sur hasta el lago de Bracciano. Aquí planta el coche: se queda cuatro noches sin moverse." },
+            { "hora": "17:00", "que": "Baño en el lago, que es volcánico y está limpio. Y reconocimiento de la estación de Anguillara Sabazia, que es tu puerta a Roma los tres próximos días." },
+            { "hora": "20:00", "que": "Cena tranquila junto al agua." }
+          ],
+          "lugares": ["orvieto", "bracciano", "anguillara"],
+          "dormir": "bracciano", "aparcar": ["orvieto", "anguillara"],
+          "comer": "Pescado de lago en Anguillara o Trevignano: coregone y lucio, que no se comen en la costa.",
+          "aviso": "Mira hoy el horario de la línea FL3 y compra ya los billetes de los tres días si puedes. El último tren de vuelta desde Roma sale sobre las 22:30: es el dato que condiciona las cenas de los tres próximos días.",
+          "coste_dia": 29, "apretado": null
+        },
+        {
+          "n": 7, "fecha": "2026-08-21", "dia_semana": "viernes",
+          "titulo": "Roma en tren: Vaticano",
+          "etapa": "Anguillara ⇄ Roma · el coche no se mueve",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "07:00", "que": "Dejas el coche gratis en la explanada de la estación de Anguillara Sabazia y coges la FL3." },
+            { "hora": "07:50", "que": "50 minutos de tren y te bajas en Roma San Pietro, que está literalmente al lado del Vaticano." },
+            { "hora": "08:30", "que": "Museos Vaticanos con la primera franja reservada. Cuatro kilómetros de galerías que acaban en la Capilla Sixtina." },
+            { "hora": "12:30", "que": "Basílica de San Pedro, que es gratis. Cúpula por 10 €: 551 escalones y la mejor vista de Roma." },
+            { "hora": "14:30", "que": "Pizza al taglio en un forno de Prati, el barrio de detrás del Vaticano." },
+            { "hora": "16:30", "que": "Castel Sant'Angelo por fuera y el puente de los ángeles de Bernini." },
+            { "hora": "18:30", "que": "Trastevere: Santa Maria in Trastevere y el Gianicolo para la vista al atardecer." },
+            { "hora": "21:00", "que": "Tren de vuelta al lago. Mira la hora del último: sobre las 22:30." }
+          ],
+          "lugares": ["anguillara", "vaticano", "san-pedro", "trastevere"],
+          "dormir": "bracciano", "aparcar": "anguillara",
+          "comer": "Pizza al taglio al peso en Prati y un maritozzo de desayuno en el bar de la estación.",
+          "aviso": "Hoy es el día de la Sixtina, y por eso va en viernes: los Museos cierran los domingos, así que mañana sábado te queda de reserva si algo se tuerce. Reserva la primera franja en la web oficial.",
+          "coste_dia": 50, "apretado": null
+        },
+        {
+          "n": 8, "fecha": "2026-08-22", "dia_semana": "sábado",
+          "titulo": "Roma en tren: la Roma antigua",
+          "etapa": "Anguillara ⇄ Roma · el coche no se mueve",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "06:45", "que": "Mismo tren, y esta vez te bajas en Roma Trastevere y enlazas con el metro." },
+            { "hora": "08:30", "que": "Coliseo con la entrada de franja horaria reservada. La misma entrada vale 24 h para el Foro y el Palatino." },
+            { "hora": "10:30", "que": "Arco de Constantino, Foro Romano y Palatino, toda la mañana. Sube al Palatino para ver el Foro desde arriba." },
+            { "hora": "13:30", "que": "Comida en Testaccio, el barrio del antiguo matadero, donde nació la cocina romana." },
+            { "hora": "16:00", "que": "Siesta a la sombra en el Giardino degli Aranci del Aventino, con Roma entera debajo, y el ojo de la cerradura de los Caballeros de Malta." },
+            { "hora": "18:00", "que": "Panteón, Piazza Navona, Fontana di Trevi y la Escalinata de España. Todo gratis y todo seguido." },
+            { "hora": "21:00", "que": "Cena y tren de vuelta." }
+          ],
+          "lugares": ["anguillara", "coliseo", "testaccio", "panteon"],
+          "dormir": "bracciano", "aparcar": "anguillara",
+          "comer": "Cacio e pepe o carbonara con guanciale de verdad en Testaccio. Rellena las botellas en los nasoni: hay 2.500 y el agua sale fría.",
+          "aviso": "Si ayer falló algo con los Museos Vaticanos, hoy es el día de recuperarlo: sábado abren y mañana domingo ya no.",
+          "coste_dia": 48, "apretado": null
+        },
+        {
+          "n": 9, "fecha": "2026-08-23", "dia_semana": "domingo",
+          "titulo": "La Appia, o el lago si estás harto de ciudad",
+          "etapa": "Anguillara ⇄ Roma · el coche no se mueve",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "08:30", "que": "Tren a Roma. Los domingos la Via Appia Antica está cortada al tráfico: ocho kilómetros de calzada romana original entre pinos, tumbas y acueductos. Alquila una bici y hazla entera." },
+            { "hora": "12:30", "que": "Parco degli Acquedotti, al lado, donde los acueductos cruzan el campo enteros. Gratis y casi vacío." },
+            { "hora": "14:30", "que": "Comida en Garbatella o en Testaccio, dos barrios sin un turista." },
+            { "hora": "17:00", "que": "Villa Borghese o el Pincio sobre Piazza del Popolo, y última vuelta por el centro." },
+            { "hora": "21:00", "que": "Tren de vuelta." },
+            { "hora": "—", "que": "Alternativa si ya estás harto de ciudad: quédate en el lago, date un baño, y sube al Castello Orsini-Odescalchi de Bracciano, que es de los castillos mejor conservados de Italia." }
+          ],
+          "lugares": ["anguillara", "appia", "bracciano"],
+          "dormir": "bracciano", "aparcar": "anguillara",
+          "comer": "Porchetta de Ariccia en bocadillo, que es de los Castelli Romani y aquí la tienes de verdad.",
+          "aviso": "Hoy no hay Vaticano: los Museos cierran los domingos. Por eso el domingo es el día de la Appia, que además solo está peatonal ese día de la semana.",
+          "coste_dia": 30, "apretado": null
+        },
+        {
+          "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
+          "titulo": "Etruscos y a la playa",
+          "etapa": "Bracciano → Cerveteri → Santa Marinella",
+          "km": 60, "minutos": 60,
+          "plan": [
+            { "hora": "09:00", "que": "Arrancas el coche por primera vez en cuatro días. 30 km hasta Cerveteri." },
+            { "hora": "10:00", "que": "La necrópolis de la Banditaccia: una ciudad de los muertos etrusca con calles, plazas y casas-tumba redondas cubiertas de hierba, del siglo VII antes de Cristo. Patrimonio de la Humanidad y casi vacía." },
+            { "hora": "13:00", "que": "30 km hasta la costa. Comes en Santa Marinella con el mar delante." },
+            { "hora": "15:00", "que": "Tarde entera de playa. Después de tres días de Roma en agosto, esto es exactamente lo que hace falta." },
+            { "hora": "20:00", "que": "Cena junto al mar y a dormir a quince minutos del puerto." }
+          ],
+          "lugares": ["bracciano", "cerveteri", "santa-marinella"],
+          "dormir": "santa-marinella", "aparcar": null,
+          "comer": "Pescado en Santa Marinella, y un último helado. La costa de aquí es de italianos de Roma, no de turistas, y los precios lo notan.",
+          "aviso": "Cerveteri cierra sobre las 19:30 en verano y el lunes es día de cierre en muchos museos italianos: confirma el horario antes de contar con ello.",
+          "coste_dia": 30, "apretado": null
+        },
+        {
+          "n": 11, "fecha": "2026-08-25", "dia_semana": "martes",
+          "titulo": "Última mañana de playa y al puerto",
+          "etapa": "Santa Marinella → Civitavecchia",
+          "km": 20, "minutos": 25,
+          "plan": [
+            { "hora": "09:00", "que": "Último baño con la playa vacía." },
+            { "hora": "13:00", "que": "Última comida italiana con calma: pasta de marisco por la zona." },
+            { "hora": "16:00", "que": "20 km hasta Civitavecchia. Súper de última hora: aceite, parmesano y vino salen mucho mejor de precio aquí que en España." },
+            { "hora": "18:00", "que": "Vuelta por el paseo del puerto, que tiene el fuerte Michelangelo." },
+            { "hora": "20:30", "que": "En el puerto, dos horas antes. El ferri sale a las 22:30." }
+          ],
+          "lugares": ["santa-marinella", "civitavecchia"],
+          "dormir": null, "aparcar": null,
+          "comer": "Pasta con almejas o con erizo, y el último helado del viaje.",
+          "aviso": "El ferri sale a las 22:30, no a las 20:30: las 20:30 es la hora a la que hay que estar en el puerto con el coche. Aun así, no apures: en agosto la cola de embarque se hace larga.",
+          "coste_dia": 17, "apretado": null
+        }
+      ]
+    },
+    {
+      "id": "castelli",
+      "numero": 6,
+      "nombre": "Roma a fondo, Tívoli y los Castelli",
+      "lema": "La de los alrededores de Roma",
+      "color": "#2E7D7B",
+      "km": 1175,
+      "minutos_volante": 1100,
+      "coste_estimado": 444,
+      "resumen": "Tres días de Roma con el coche aparcado en el intercambiador, y luego lo que casi nadie hace: salir a sus alrededores. Las quinientas fuentes de Villa d'Este en Tívoli, los Castelli Romani y el lago Albano en la montaña, y un castillo con los pies en la arena en Santa Severa.",
+      "ganas": [
+        "Tívoli y Villa d'Este: quinientas fuentes en cascada por la ladera de un jardín del XVI, y el sitio más fresco de todo agosto",
+        "Los Castelli Romani y el lago Albano, en la montaña a media hora de Roma, donde veranea el Papa",
+        "El castillo de Santa Severa, con los pies literalmente en la playa",
+        "Lago Trasimeno de paso, con playas de agua dulce"
+      ],
+      "pierdes": [
+        "Cinque Terre entera, igual que la ruta 5",
+        "Saturnia: es la única de las seis que no pisa las termas",
+        "Emilia, Umbría y los pueblos de toba del sur",
+        "Tres noches durmiendo en un aparcamiento de intercambio de Roma, que es lo más incómodo del viaje"
+      ],
+      "bases": [
+        { "sitio": "Lago de Bracciano", "noches": 1 },
+        { "sitio": "Bagno Vignoni · Val d'Orcia", "noches": 1 },
+        { "sitio": "Siena", "noches": 1 },
+        { "sitio": "Florencia · Villa Costanza", "noches": 2 },
+        { "sitio": "Lago Trasimeno", "noches": 1 },
+        { "sitio": "Roma · Anagnina", "noches": 3 },
+        { "sitio": "Castelli Romani · Lago Albano", "noches": 1 },
+        { "sitio": "Santa Marinella", "noches": 1 }
+      ],
+      "trazado": [
+        [42.094, 11.79, "Civitavecchia"],
+        [42.094, 12.183, "Lago de Bracciano"],
+        [42.635, 11.669, "Pitigliano"],
+        [43.0295, 11.6185, "Bagno Vignoni"],
+        [43.0765, 11.6785, "Pienza"],
+        [43.0995, 11.7815, "Montepulciano"],
+        [43.319, 11.332, "Siena"],
+        [43.749, 11.183, "Villa Costanza"],
+        [43.773, 11.256, "Florencia"],
+        [43.723, 10.397, "Pisa"],
+        [43.843, 10.502, "Lucca"],
+        [43.135, 12.1055, "Lago Trasimeno"],
+        [41.89, 12.492, "Roma"],
+        [41.9635, 12.7955, "Tívoli"],
+        [41.7495, 12.6665, "Lago Albano"],
+        [42.0, 12.1, "Cerveteri"],
+        [42.0275, 11.9575, "Santa Severa"],
+        [42.0335, 11.8525, "Santa Marinella"],
+        [42.094, 11.79, "Civitavecchia"]
+      ],
+      "dias": [
+        {
+          "n": 0, "fecha": "2026-08-14", "dia_semana": "viernes",
+          "titulo": "Del puerto al lago, a dormir fresco",
+          "etapa": "Civitavecchia → Lago de Bracciano",
+          "km": 60, "minutos": 55,
+          "plan": [
+            { "hora": "20:30", "que": "Atraca el ferri. Sales del puerto sobre las 21:00." },
+            { "hora": "21:00", "que": "Súper en Civitavecchia antes de que cierren, entre las 21:00 y las 21:30." },
+            { "hora": "21:30", "que": "60 km tierra adentro hasta el lago de Bracciano. Es lago volcánico y está a 165 m: se duerme bastante mejor que en la costa." },
+            { "hora": "22:30", "que": "Aparcas junto al agua y cenas en el coche." }
+          ],
+          "lugares": ["civitavecchia", "bracciano"],
+          "dormir": "bracciano", "aparcar": null,
+          "comer": "Cena de súper y despensa para el coche.",
+          "aviso": "No te quedes a dormir en Civitavecchia: es puerto, es ruidoso y en agosto no baja de 26 °C por la noche. Los 60 km al lago se pagan solos.",
+          "coste_dia": 19, "apretado": null
+        },
+        {
+          "n": 1, "fecha": "2026-08-15", "dia_semana": "sábado",
+          "titulo": "Ferragosto de pueblos de piedra",
+          "etapa": "Bracciano → Pitigliano → Bagno Vignoni",
+          "km": 200, "minutos": 180,
+          "plan": [
+            { "hora": "08:00", "que": "Salida temprana. Es Ferragosto: las ciudades están colapsadas y medio comercio cerrado, así que hoy toca campo." },
+            { "hora": "10:00", "que": "110 km hasta Pitigliano. Para en el mirador de la carretera antes de entrar: el pueblo entero colgado de un risco de toba se fotografía desde ahí." },
+            { "hora": "10:30", "que": "Pitigliano por dentro: el barrio judío que le vale el apodo de la Pequeña Jerusalén, y las vie cave, caminos etruscos excavados en la roca con paredes de veinte metros. Se anda por dentro y hace fresco aunque estés a 38 °C." },
+            { "hora": "14:00", "que": "Comes en Pitigliano." },
+            { "hora": "16:00", "que": "90 km hasta Bagno Vignoni, ya en plena Val d'Orcia." },
+            { "hora": "18:00", "que": "Bagno Vignoni: la plaza mayor del pueblo es una piscina termal humeante del siglo XVI. En la plaza no te puedes bañar, pero en el Parco dei Mulini, justo debajo, hay pozas libres y gratuitas con vista al valle." },
+            { "hora": "20:30", "que": "Atardecer sobre la Val d'Orcia y a dormir ahí mismo." }
+          ],
+          "lugares": ["bracciano", "pitigliano", "bagno-vignoni", "val-dorcia"],
+          "dormir": "val-dorcia", "aparcar": "pitigliano",
+          "comer": "Cinghiale (jabalí) en Pitigliano y el sfratto dei goym, el dulce de nuez y miel del horno judío que solo se hace ahí.",
+          "aviso": "200 km en Ferragosto, pero todos por carretera secundaria y en dirección contraria al atasco de la costa. Lleva comida en el coche por si no encuentras nada abierto.",
+          "coste_dia": 38, "apretado": null
+        },
+        {
+          "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
+          "titulo": "La Val d'Orcia entera y a Siena",
+          "etapa": "Bagno Vignoni → Pienza → Montepulciano → Siena",
+          "km": 90, "minutos": 100,
+          "plan": [
+            { "hora": "07:30", "que": "Baño de buena mañana en las pozas del Parco dei Mulini." },
+            { "hora": "10:00", "que": "Pienza, a 10 km: un papa mandó rehacer el pueblo entero en cinco años como ciudad ideal del Renacimiento. Y es la capital del pecorino." },
+            { "hora": "12:30", "que": "Montepulciano, a 15 km, encaramado en una loma con toda la Val d'Orcia debajo y bodegas excavadas bajo las casas." },
+            { "hora": "15:00", "que": "La carretera de los cipreses, parando en los miradores. Es medio plan del día." },
+            { "hora": "17:30", "que": "65 km hasta Siena. Aparcas en Due Ponti, 2 € el día, y subes por las escaleras mecánicas soterradas." },
+            { "hora": "18:30", "que": "Siena a última hora, cuando la piedra se pone naranja: Piazza del Campo, el Duomo y las callejas de las contradas." },
+            { "hora": "21:30", "que": "Cena y vuelta al coche por las escaleras." }
+          ],
+          "lugares": ["bagno-vignoni", "pienza", "montepulciano", "val-dorcia", "siena", "siena-parking"],
+          "dormir": "siena", "aparcar": "siena",
+          "comer": "Pecorino de Pienza comprado en el pueblo y pici all'aglione en Siena.",
+          "aviso": "El aparcamiento del Fagiolone de Siena, que muchas guías dan como gratuito, cuesta ahora 20 € las 24 horas. Due Ponti son 2 € y tiene escaleras mecánicas hasta Porta Camollia.",
+          "coste_dia": 27, "apretado": null
+        },
+        {
+          "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+          "titulo": "Siena de mañana y a Florencia",
+          "etapa": "Siena → Florencia (Villa Costanza)",
+          "km": 70, "minutos": 70,
+          "plan": [
+            { "hora": "08:00", "que": "Siena con calma: el Duomo por dentro, con el suelo de mármol taraceado descubierto, y la Torre del Mangia si aguantas los 400 escalones." },
+            { "hora": "13:00", "que": "Comida en Siena." },
+            { "hora": "15:00", "que": "70 km hasta Villa Costanza. Se entra directamente desde la A1: no pisas ni una calle de Florencia." },
+            { "hora": "16:30", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde: Duomo, Ponte Vecchio y Piazzale Michelangelo al atardecer." },
+            { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta." }
+          ],
+          "lugares": ["siena", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
+          "dormir": "villa-costanza", "aparcar": ["siena", "florencia"],
+          "comer": "Cena en Santo Spirito o San Frediano, a precio de barrio.",
+          "aviso": null,
+          "coste_dia": 33, "apretado": null
+        },
+        {
+          "n": 4, "fecha": "2026-08-18", "dia_semana": "martes",
+          "titulo": "Florencia entera a pie",
+          "etapa": "Villa Costanza ⇄ Florencia",
+          "km": 15, "minutos": 30,
+          "plan": [
+            { "hora": "07:30", "que": "Tranvía al centro con la ciudad todavía vacía." },
+            { "hora": "08:00", "que": "Piazza del Duomo: catedral, campanile y baptisterio." },
+            { "hora": "10:00", "que": "Signoria, Loggia dei Lanzi y Ponte Vecchio." },
+            { "hora": "11:30", "que": "Lampredotto de carrito, 5 €." },
+            { "hora": "13:00", "que": "Mercato Centrale de San Lorenzo." },
+            { "hora": "15:00", "que": "Calor: Santa Croce por dentro." },
+            { "hora": "17:30", "que": "San Miniato al Monte con el canto gregoriano." },
+            { "hora": "19:30", "que": "Piazzale Michelangelo al atardecer." },
+            { "hora": "21:00", "que": "Cena y tranvía." }
+          ],
+          "lugares": ["florencia-duomo", "mercato-centrale", "piazzale-michelangelo", "villa-costanza"],
+          "dormir": "villa-costanza", "aparcar": "florencia",
+          "comer": "Lampredotto, panzanella y cena de mercado.",
+          "aviso": "Uffizi (25 €) y Accademia (16 €) hay que reservarlos con semanas y están fuera del presupuesto mínimo.",
+          "coste_dia": 27, "apretado": null
+        },
+        {
+          "n": 5, "fecha": "2026-08-19", "dia_semana": "miércoles",
+          "titulo": "Pisa, Lucca y cruzar a Umbría",
+          "etapa": "Florencia → Pisa → Lucca → Lago Trasimeno",
+          "km": 330, "minutos": 270,
+          "plan": [
+            { "hora": "07:00", "que": "85 km hasta Pisa. Aparcas gratis en Via Pietrasantina y lanzadera de 1 €." },
+            { "hora": "08:30", "que": "Piazza dei Miracoli con el césped vacío: la torre, el Duomo, el baptisterio y el Camposanto." },
+            { "hora": "10:30", "que": "25 km hasta Lucca. Aparcas gratis fuera de la muralla y entras andando: es todo llano." },
+            { "hora": "11:00", "que": "Bici por 4 € y vuelta completa a la muralla renacentista: 4,2 km arbolados por encima de la ciudad. Es lo mejor de Lucca." },
+            { "hora": "13:30", "que": "Comida en Lucca y Piazza dell'Anfiteatro, levantada encima del anfiteatro romano." },
+            { "hora": "16:00", "que": "220 km cruzando a Umbría hasta el lago Trasimeno. Es el día largo de la ruta." },
+            { "hora": "20:00", "que": "Llegas al lago. Baño de agua dulce y a dormir en la orilla." }
+          ],
+          "lugares": ["pisa", "lucca", "trasimeno"],
+          "dormir": "trasimeno", "aparcar": ["pisa", "lucca"],
+          "comer": "Cecina en Pisa, buccellato en Lucca, y por la noche pescado de lago en el Trasimeno.",
+          "aviso": "330 km con dos ciudades por la mañana. Es con diferencia el día más duro de esta ruta: sal a las 7:00 y no te enredes en Lucca, por bien que se esté.",
+          "coste_dia": 68, "apretado": "330 km y dos ciudades. Si vas mal de tiempo, quita Lucca antes que Pisa: Lucca pide calma y hacerla con prisa no vale la pena."
+        },
+        {
+          "n": 6, "fecha": "2026-08-20", "dia_semana": "jueves",
+          "titulo": "Bajar a Roma y plantar el coche",
+          "etapa": "Trasimeno → Roma (Anagnina)",
+          "km": 180, "minutos": 130,
+          "plan": [
+            { "hora": "08:00", "que": "Baño de despedida en el lago y 180 km hasta Roma por la E45 y la A1." },
+            { "hora": "11:00", "que": "Llegas al aparcamiento de intercambio de Anagnina, al final de la Metro A. Aquí se queda el coche tres días: no vuelves a conducir hasta el domingo." },
+            { "hora": "12:00", "que": "Metro A al centro. Panteón, Piazza Navona, Fontana di Trevi y la Escalinata de España, todo gratis y todo seguido." },
+            { "hora": "15:00", "que": "Comida en Testaccio, el barrio del antiguo matadero, donde nació la cocina romana." },
+            { "hora": "18:00", "que": "Trastevere: Santa Maria in Trastevere y el Gianicolo para la vista de toda Roma al atardecer." },
+            { "hora": "22:00", "que": "Metro de vuelta a Anagnina." }
+          ],
+          "lugares": ["trasimeno", "anagnina", "panteon", "testaccio", "trastevere"],
+          "dormir": "roma-anagnina", "aparcar": "roma",
+          "comer": "Cacio e pepe o carbonara con guanciale en Testaccio. Rellena las botellas en los nasoni: hay 2.500 y el agua sale fría.",
+          "aviso": "Dormir en un aparcamiento de intercambio de Roma es lo más incómodo del viaje: ruido, asfalto y sin ducha. Si te lo puedes permitir, un área de autocaravanas o un camping de las afueras cuesta 15-25 € la noche y en agosto la ducha se agradece de verdad.",
+          "coste_dia": 52, "apretado": null
+        },
+        {
+          "n": 7, "fecha": "2026-08-21", "dia_semana": "viernes",
+          "titulo": "Vaticano y Capilla Sixtina",
+          "etapa": "Anagnina ⇄ Roma · el coche no se mueve",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "07:15", "que": "Metro A directo desde Anagnina hasta Ottaviano: 35 minutos sin cambiar de línea." },
+            { "hora": "08:30", "que": "Museos Vaticanos con la primera franja reservada. Cuatro kilómetros de galerías hasta la Capilla Sixtina." },
+            { "hora": "12:30", "que": "Basílica de San Pedro, gratis. Cúpula por 10 €: 551 escalones." },
+            { "hora": "14:30", "que": "Pizza al taglio en un forno de Prati." },
+            { "hora": "16:30", "que": "Castel Sant'Angelo por fuera y el puente de los ángeles de Bernini." },
+            { "hora": "19:00", "que": "Villa Borghese o el Pincio sobre Piazza del Popolo." },
+            { "hora": "22:00", "que": "Metro de vuelta." }
+          ],
+          "lugares": ["anagnina", "vaticano", "san-pedro"],
+          "dormir": "roma-anagnina", "aparcar": "roma",
+          "comer": "Pizza al taglio al peso en Prati y un maritozzo de desayuno.",
+          "aviso": "Día de la Sixtina, y va en viernes a propósito: los Museos cierran los domingos, así que mañana sábado te queda de reserva si algo falla.",
+          "coste_dia": 44, "apretado": null
+        },
+        {
+          "n": 8, "fecha": "2026-08-22", "dia_semana": "sábado",
+          "titulo": "La Roma antigua, a pie",
+          "etapa": "Anagnina ⇄ Roma · el coche no se mueve",
+          "km": 0, "minutos": 0,
+          "plan": [
+            { "hora": "07:30", "que": "Metro hasta el Coliseo." },
+            { "hora": "08:30", "que": "Coliseo con franja horaria reservada. La misma entrada vale 24 h para el Foro y el Palatino." },
+            { "hora": "10:30", "que": "Arco de Constantino, Foro Romano y Palatino, toda la mañana." },
+            { "hora": "13:30", "que": "Comida en Testaccio o en el Mercato di Testaccio." },
+            { "hora": "16:00", "que": "Siesta en el Giardino degli Aranci del Aventino y el ojo de la cerradura de los Caballeros de Malta." },
+            { "hora": "18:00", "que": "Barrio judío y la Isla Tiberina, que es la Roma que casi nadie pisa." },
+            { "hora": "22:00", "que": "Metro de vuelta." }
+          ],
+          "lugares": ["anagnina", "coliseo", "testaccio"],
+          "dormir": "roma-anagnina", "aparcar": "roma",
+          "comer": "Carciofi alla giudia en el barrio judío si es temporada, y supplì de camino.",
+          "aviso": "Si ayer falló algo con los Museos Vaticanos, hoy es el último día para recuperarlo: mañana domingo cierran.",
+          "coste_dia": 42, "apretado": null
+        },
+        {
+          "n": 9, "fecha": "2026-08-23", "dia_semana": "domingo",
+          "titulo": "Las fuentes de Tívoli y la montaña del Papa",
+          "etapa": "Roma → Tívoli → Castelli Romani",
+          "km": 90, "minutos": 110,
+          "plan": [
+            { "hora": "08:00", "que": "Sacas el coche de Roma antes de que despierte. 35 km hasta Tívoli." },
+            { "hora": "09:00", "que": "Villa d'Este: quinientas fuentes en cascada por la ladera de un jardín del siglo XVI, todas movidas solo por la gravedad. En agosto es el sitio más fresco que vas a pisar, porque el aire se enfría con el agua." },
+            { "hora": "12:30", "que": "Si te sobra tiempo y ganas, Villa Adriana está 6 km antes: 120 hectáreas de la residencia de campo del emperador Adriano." },
+            { "hora": "14:30", "que": "Comida en Tívoli y 55 km hacia el sur, a los Castelli Romani." },
+            { "hora": "17:00", "que": "Lago Albano: lago volcánico en la montaña donde veranea el Papa, con Castel Gandolfo en la orilla. Baño y paseo." },
+            { "hora": "19:30", "que": "Cena en Frascati o Ariccia: la porchetta de Ariccia es la buena, y aquí es donde se come." },
+            { "hora": "22:00", "que": "A dormir a 400 m de altitud. Después de tres noches en el asfalto de Anagnina, esto es otra cosa." }
+          ],
+          "lugares": ["tivoli", "lago-albano"],
+          "dormir": "castelli", "aparcar": "tivoli",
+          "comer": "Porchetta de Ariccia cortada gruesa en bocadillo, y vino blanco de Frascati. Es la escapada de fin de semana de los romanos desde hace siglos.",
+          "aviso": "Villa d'Este cuesta unos 15 € y es la entrada más cara de la ruta después de las de Roma. Merece la pena: es lo que hace distinta a esta ruta.",
+          "coste_dia": 40, "apretado": null
+        },
+        {
+          "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
+          "titulo": "Etruscos, un castillo en la arena y playa",
+          "etapa": "Castelli → Cerveteri → Santa Severa → Santa Marinella",
+          "km": 120, "minutos": 130,
+          "plan": [
+            { "hora": "08:30", "que": "70 km bordeando Roma hasta Cerveteri." },
+            { "hora": "10:00", "que": "La necrópolis de la Banditaccia: una ciudad de los muertos etrusca con calles y casas-tumba redondas cubiertas de hierba, del siglo VII antes de Cristo. Patrimonio de la Humanidad." },
+            { "hora": "13:00", "que": "30 km hasta Santa Severa. Comes ahí." },
+            { "hora": "14:30", "que": "El castillo de Santa Severa, con los pies literalmente en la arena. La playa es libre y el sitio no se parece a nada del resto de la costa." },
+            { "hora": "18:00", "que": "20 km hasta Santa Marinella, donde duermes a quince minutos del puerto." },
+            { "hora": "20:30", "que": "Cena junto al mar." }
+          ],
+          "lugares": ["cerveteri", "santa-severa", "santa-marinella"],
+          "dormir": "santa-marinella", "aparcar": null,
+          "comer": "Pescado y pasta de marisco en la costa. Aquí veranean los romanos, no los turistas, y los precios lo notan.",
+          "aviso": "Cerveteri cierra sobre las 19:30 en verano y el lunes es día de cierre en muchos museos italianos: confirma el horario antes de contar con ello.",
+          "coste_dia": 37, "apretado": null
+        },
+        {
+          "n": 11, "fecha": "2026-08-25", "dia_semana": "martes",
+          "titulo": "Última mañana de playa y al puerto",
+          "etapa": "Santa Marinella → Civitavecchia",
+          "km": 20, "minutos": 25,
+          "plan": [
+            { "hora": "09:00", "que": "Último baño con la playa vacía." },
+            { "hora": "13:00", "que": "Última comida italiana sin prisa." },
+            { "hora": "16:00", "que": "20 km hasta Civitavecchia. Súper de última hora: aceite, parmesano y vino salen mucho mejor de precio aquí." },
+            { "hora": "18:00", "que": "Paseo del puerto y el fuerte Michelangelo." },
+            { "hora": "20:30", "que": "En el puerto. El ferri sale a las 22:30." }
+          ],
+          "lugares": ["santa-marinella", "civitavecchia"],
+          "dormir": null, "aparcar": null,
+          "comer": "Pasta con almejas y el último helado del viaje.",
+          "aviso": "El ferri sale a las 22:30 y hay que estar en el puerto a las 20:30. En agosto la cola de embarque se hace larga: no apures.",
+          "coste_dia": 17, "apretado": null
         }
       ]
     }
