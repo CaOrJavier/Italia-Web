@@ -22,7 +22,7 @@
 import * as datos from '../datos.js';
 import { imagenSuelta } from '../fotos.js';
 import { marca, leyenda } from '../marcas.js';
-import { esc } from '../util.js';
+import { esc, minutosAHoras, numero, euros } from '../util.js';
 
 const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
 const LEAFLET_CSS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
@@ -130,8 +130,11 @@ export async function pintar(main, params) {
 
     <div class="filtros" id="f-tipos" role="group" aria-label="Tipos de lugar">
       ${Object.entries(tipos).map(([id, t]) => `<button type="button" data-t="${esc(id)}"
-        aria-pressed="true" style="--c:${esc(t.color)}"><span class="punto"></span>${esc(t.nombre)}</button>`).join('')}
+        aria-pressed="true" style="--c:${esc(t.color)}"><span class="punto"></span>${esc(t.nombre)}
+        <b class="cuantos" data-cuenta="${esc(id)}"></b></button>`).join('')}
     </div>
+
+    <div id="datos-mapa"></div>
 
     ${leyenda()}
 
@@ -404,6 +407,97 @@ export async function pintar(main, params) {
 
   // ── Interacción ─────────────────────────────────────────────────────────
 
+  // ── Los números de lo que se está mirando ───────────────────────────────
+
+  /** Cuenta de sitios por tipo, solo de las rutas encendidas. Va en los propios
+   *  filtros: así el botón dice cuánto te vas a quitar antes de pulsarlo. */
+  function contarPorTipo() {
+    const cuenta = {};
+    for (const l of datos.LUGARES.lugares) {
+      if (!l.rutas.some(id => activas.has(id))) continue;
+      cuenta[l.tipo] = (cuenta[l.tipo] || 0) + 1;
+    }
+    main.querySelectorAll('[data-cuenta]').forEach(b => {
+      const n = cuenta[b.dataset.cuenta] || 0;
+      b.textContent = n || '';
+      b.closest('button').disabled = n === 0;
+    });
+    return cuenta;
+  }
+
+  function pintarDatos() {
+    const caja = main.querySelector('#datos-mapa');
+    contarPorTipo();
+    const id = rutaUnica();
+    caja.innerHTML = id ? datosDeUna(datos.RUTA.get(id)) : datosDeTodas();
+  }
+
+  function datosDeUna(r) {
+    const suyos = datos.lugaresDe(r.id);
+    const vistos = visibles();
+    const solos = datos.exclusivosDe(r.id).length;
+    const comb = datos.combustible(r);
+    const apretados = datos.apretadosDe(r);
+    const tpt = r.dias.reduce((t, d) => t + datos.minutosTransporte(d), 0);
+    const nochesGratis = r.dias.filter(d => datos.camaDe(d) && datos.camaDe(d).precio === 0).length;
+    const largo = datos.diaMasLargo(r);
+    const porTipo = Object.entries(datos.LUGARES.tipos)
+      .map(([tid, t]) => [t, suyos.filter(l => l.tipo === tid).length])
+      .filter(([, n]) => n > 0);
+
+    return `
+      <div class="tarjeta" style="--barra:${esc(r.color)}">
+        <div class="cab-tarjeta">
+          <h3>${r.numero}. ${esc(r.nombre)}</h3>
+          <span class="etiq etiq-gris">${esc(r.lema)}</span>
+        </div>
+        <div class="cifras">
+          <div><b>${numero(r.km)}</b><span>kilómetros</span></div>
+          <div><b>${minutosAHoras(r.minutos_volante)}</b><span>al volante</span></div>
+          <div><b>${vistos.length}${vistos.length !== suyos.length ? `<small> de ${suyos.length}</small>` : ''}</b><span>sitios en el mapa</span></div>
+          <div><b>${solos}</b><span>solo en esta ruta</span></div>
+        </div>
+        <div class="tarjeta-c">
+          <div class="reparto">${porTipo.map(([t, n]) => `
+            <span class="reparto-i" style="--c:${esc(t.color)}">
+              <i>${esc(t.icono)}</i>${n} <small>${esc(t.nombre.toLowerCase())}</small></span>`).join('')}
+          </div>
+          <dl class="datos">
+            <div><dt>Día más largo</dt><dd>D${largo.n} · ${largo.km} km <small>${esc(largo.titulo)}</small></dd></div>
+            <div><dt>Días apretados</dt><dd>${apretados.length ? apretados.map(d => 'D' + d.n).join(', ') : 'ninguno'}</dd></div>
+            <div><dt>Sitios propios</dt><dd>${datos.propiosDe(r.id).length} de ${suyos.length} <small>no salen en las seis rutas</small></dd></div>
+            <div><dt>Noches</dt><dd>${nochesGratis} gratis de ${r.dias.filter(d => d.dormir).length} <small>durmiendo en el coche</small></dd></div>
+            <div><dt>Bases</dt><dd>${r.bases.length} sitios distintos <small>${r.bases.filter(b => b.noches > 1).length} con más de una noche</small></dd></div>
+            <div><dt>Transporte público</dt><dd>${minutosAHoras(tpt)} <small>en total, ida y vuelta a los centros</small></dd></div>
+            <div><dt>Combustible</dt><dd>${comb.litros} litros · ${euros(comb.euros)} <small>a ${String(datos.VIAJE.combustible.precio_litro_estimado).replace('.', ',')} €/l</small></dd></div>
+            <div><dt>Gasto estimado</dt><dd>${euros(r.coste_estimado)} <small>${euros(Math.round(r.coste_estimado / 12))} al día</small></dd></div>
+          </dl>
+        </div>
+      </div>`;
+  }
+
+  function datosDeTodas() {
+    const rs = datos.RUTAS.rutas;
+    return `
+      <div class="scroll-x"><table>
+        <caption class="peq" style="text-align:left;padding:9px 11px">
+          Enciende una sola ruta para ver sus números en detalle.</caption>
+        <thead><tr>
+          <th scope="col">Ruta</th><th scope="col">km</th><th scope="col">Volante</th>
+          <th scope="col">Sitios</th><th scope="col">Solo ahí</th><th scope="col">Coste</th>
+        </tr></thead>
+        <tbody>${rs.map(r => `<tr>
+          <th scope="row"><span class="leyenda-ruta" style="--barra:${esc(r.color)}">
+            <i></i>${r.numero}. ${esc(r.nombre)}</span></th>
+          <td class="num">${numero(r.km)}</td>
+          <td class="num">${minutosAHoras(r.minutos_volante)}</td>
+          <td class="num">${datos.lugaresDe(r.id).length}</td>
+          <td class="num">${datos.exclusivosDe(r.id).length}</td>
+          <td class="num">${euros(r.coste_estimado)}</td>
+        </tr>`).join('')}</tbody>
+      </table></div>`;
+  }
+
   function refrescar({ encuadrar = false } = {}) {
     pintarLineas();
     // Primero encuadrar y luego agrupar: los grupos dependen del zoom, así que
@@ -416,6 +510,7 @@ export async function pintar(main, params) {
     // dónde han quedado los iconos para no meterse debajo.
     pintarPuntos();
     pintarKm();
+    pintarDatos();
     main.querySelectorAll('#f-rutas button').forEach(b => {
       const activo = b.dataset.r === 'todas'
         ? activas.size === rutas.length
@@ -439,6 +534,8 @@ export async function pintar(main, params) {
     activos.has(b.dataset.t) ? activos.delete(b.dataset.t) : activos.add(b.dataset.t);
     b.setAttribute('aria-pressed', String(activos.has(b.dataset.t)));
     pintarPuntos();
+    pintarKm();
+    pintarDatos();
   });
 
   const btn = main.querySelector('#agrandar');
