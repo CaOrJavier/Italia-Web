@@ -39,6 +39,32 @@ const ALTO_ICONO = 28;
 
 const anchoIcono = et => (et ? Math.max(34, 18 + et.length * 8) : 30);
 
+/** Índice del vértice del trazado más cercano a unas coordenadas. Se compara por
+ *  cuadrados de la diferencia: no hace falta la distancia real, solo cuál gana. */
+function vertice(trazado, lat, lon) {
+  let mejor = 0, min = Infinity;
+  trazado.forEach((p, i) => {
+    const d = (p[0] - lat) ** 2 + (p[1] - lon) ** 2;
+    if (d < min) { min = d; mejor = i; }
+  });
+  return mejor;
+}
+
+const plano = (a, b) => Math.hypot(a[0] - b[0], (a[1] - b[1]) * 0.74);
+
+/** El punto que parte un camino en dos mitades de igual longitud. Ahí es donde se
+ *  pone la etiqueta de kilómetros, para que caiga encima de la línea y no al lado. */
+function mitad(puntos) {
+  const acum = [0];
+  for (let i = 1; i < puntos.length; i++) acum.push(acum[i - 1] + plano(puntos[i - 1], puntos[i]));
+  const total = acum[acum.length - 1];
+  if (!total) return puntos[0];
+  const i = acum.findIndex(a => a >= total / 2);
+  const t = (total / 2 - acum[i - 1]) / (acum[i] - acum[i - 1]);
+  return [puntos[i - 1][0] + (puntos[i][0] - puntos[i - 1][0]) * t,
+          puntos[i - 1][1] + (puntos[i][1] - puntos[i - 1][1]) * t];
+}
+
 // Patrón de trazo además del color: en gris, o para quien no distingue el verde
 // del rojo, siguen siendo cuatro líneas distintas.
 const TRAZO = { toscana: null, agua: '10 7', comer: '2 8', etruria: '18 6 3 6' };
@@ -78,7 +104,8 @@ export async function pintar(main, params) {
     <p class="intro">Una ruta cada vez, que es como se lee. Cada icono lleva el día en que
     estás ahí: <b>D0</b> es el desembarco y <b>D11</b> el día del ferri de vuelta.
     <b>D3-4</b> quiere decir que pasas dos días seguidos, y la chapita negra dice cuántos
-    sitios hay debajo: pínchala y el mapa se acerca hasta separarlos.</p>
+    sitios hay debajo: pínchala y el mapa se acerca hasta separarlos. Los kilómetros van
+    sobre la línea, en mitad del tramo que se hace ese día.</p>
 
     <div class="filtros" id="f-rutas" role="group" aria-label="Ruta que se muestra">
       ${rutas.map(r => `<button type="button" data-r="${esc(r.id)}"
@@ -128,6 +155,7 @@ export async function pintar(main, params) {
   avisarSinTeselas(mapa);
 
   const capaLineas = L.layerGroup().addTo(mapa);
+  const capaKm = L.layerGroup().addTo(mapa);
   const capaPuntos = L.layerGroup().addTo(mapa);
 
   /** La ruta única encendida, o null si hay varias. Es lo que permite poner días. */
@@ -156,6 +184,72 @@ export async function pintar(main, params) {
       }).bindPopup(`<b>${r.numero}. ${esc(r.nombre)}</b>
         <span class="peq">${esc(r.lema)} · ${r.km} km</span>`).addTo(capaLineas);
     });
+
+    pintarKm();
+  }
+
+  /** Los kilómetros de cada día, puestos encima del tramo que se recorre ese día.
+   *  Van en la línea y no junto al punto porque son de lo que hay entre dos sitios:
+   *  «150 km» pegado a Siena no dice si es para llegar o para salir. */
+  function pintarKm() {
+    capaKm.clearLayers();
+    const id = rutaUnica();
+    if (!id) return;                       // con varias rutas, cada una tiene los suyos
+    const r = datos.RUTA.get(id);
+
+    // Se colocan de mayor a menor: si dos etiquetas chocan, gana la del día largo,
+    // que es la que más informa.
+    const puestas = [];
+    for (const { dia, camino } of tramos(r).sort((a, b) => b.dia.km - a.dia.km)) {
+      const centro = mitad(camino);
+      const p = mapa.latLngToLayerPoint(centro);
+      const ancho = 22 + String(dia.km).length * 8;
+      const choca = puestas.some(q =>
+        Math.abs(q.p.x - p.x) < (q.ancho + ancho) / 2 && Math.abs(q.p.y - p.y) < 20);
+      if (choca) continue;
+      puestas.push({ p, ancho });
+
+      L.marker(centro, {
+        interactive: false,
+        zIndexOffset: -200,                // por debajo de los puntos
+        icon: L.divIcon({
+          className: '',
+          html: `<span class="km" style="--c:${esc(r.color)}">${dia.km} km</span>`,
+          iconSize: [ancho, 18], iconAnchor: [ancho / 2, 9]
+        })
+      }).addTo(capaKm);
+    }
+  }
+
+  /** Un tramo por día: el trozo de trazado que se recorre ese día. Los extremos se
+   *  buscan por el sitio donde se duerme, no por el nombre, que no siempre casa. */
+  function tramos(r) {
+    const t = r.trazado;
+    const puerto = datos.lugar('civitavecchia');
+    const salida = [];
+    let desde = vertice(t, puerto.lat, puerto.lon);
+
+    r.dias.forEach(dia => {
+      const cama = datos.camaDe(dia) || puerto;
+      const hasta = vertice(t, cama.lat, cama.lon);
+      let camino = null;
+
+      if (hasta > desde) {
+        camino = t.slice(desde, hasta + 1).map(p => [p[0], p[1]]);
+      } else {
+        // Día de ida y vuelta (duermes donde dormiste): el recorrido no avanza por
+        // el trazado, así que se toma del sitio más lejano que se pisa ese día.
+        const base = [t[hasta][0], t[hasta][1]];
+        const lejos = datos.lugaresDeDia(dia)
+          .map(l => [l, plano(base, [l.lat, l.lon])])
+          .sort((a, b) => b[1] - a[1])[0];
+        if (lejos && lejos[1] > 0) camino = [base, [lejos[0].lat, lejos[0].lon]];
+      }
+
+      if (camino && camino.length > 1) salida.push({ dia, camino });
+      desde = hasta;
+    });
+    return salida;
   }
 
   // ── Puntos, agrupados ───────────────────────────────────────────────────
@@ -331,8 +425,9 @@ export async function pintar(main, params) {
     setTimeout(() => mapa.invalidateSize(), 220);
   });
 
-  // Los grupos dependen del zoom: al acercarse, los puntos se separan solos.
-  mapa.on('zoomend', pintarPuntos);
+  // Grupos y etiquetas de km se reparten según el zoom: al acercarse, lo que
+  // estaba montado se separa y cabe más.
+  mapa.on('zoomend', () => { pintarPuntos(); pintarKm(); });
 
   refrescar({ encuadrar: true });
   setTimeout(() => mapa.invalidateSize(), 60);
