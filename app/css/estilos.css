@@ -413,8 +413,18 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
    donde más se agradece ver de un golpe qué te estás jugando al elegir. */
 .pin-solo { box-shadow: 0 0 0 2px var(--m), 0 1px 5px rgba(0, 0, 0, .45); }
 
+/* Con una sola ruta encendida, el icono lleva escrito el día: pasa de círculo a
+   pastilla porque «D9-11» no cabe en 24 px. El color sigue diciendo qué es. */
+.pin-dia {
+  width: auto; min-width: 24px; height: 22px;
+  padding: 0 7px; border-radius: 999px;
+  font-size: 11.5px; letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
 /* Varios sitios que se pisan a este zoom. Se pincha y el mapa se acerca. */
 .grupo {
+  position: relative;
   display: grid; place-items: center;
   width: 30px; height: 30px; border-radius: 50%;
   background: var(--papel);
@@ -422,22 +432,23 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   border: 2px solid var(--linea-2);
   box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
   cursor: pointer;
+  font-variant-numeric: tabular-nums;
 }
 .grupo-solo { border-color: var(--rojo); color: var(--rojo-txt); }
-.grupo::after {
-  content: '+'; position: absolute; right: -1px; top: -3px;
-  font-size: 11px; color: var(--tinta-2);
+/* Cuando el grupo muestra el día, la cuenta de sitios pasa a ser una chapita. */
+.grupo-dia {
+  width: auto; min-width: 34px; height: 26px;
+  padding: 0 8px; border-radius: 999px; font-size: 12px;
 }
-
-/* El número de orden de la parada: sin esto el mapa no dice por dónde se empieza. */
-.orden {
+.grupo i {
+  position: absolute; right: -7px; top: -7px;
   display: grid; place-items: center;
-  width: 20px; height: 20px; border-radius: 50%;
-  background: var(--c, var(--tinta-2));
-  color: #fff; font-size: 11px; font-weight: 700; line-height: 1;
-  border: 2px solid var(--papel);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+  min-width: 16px; height: 16px; padding: 0 3px;
+  border-radius: 999px;
+  background: var(--tinta); color: var(--papel);
+  font-size: 10px; font-style: normal; font-weight: 700; line-height: 1;
 }
+.grupo:not(.grupo-dia) i { display: none; }
 
 .filtros { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
 .filtros button {

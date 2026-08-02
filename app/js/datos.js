@@ -50,6 +50,7 @@ export async function cargar() {
   (IMAGENES.fotos || []).forEach(f => FOTO.set(f.id, f));
 
   RUTAS.rutas.forEach(comprobarSumas);
+  comprobarLugares();
   return true;
 }
 
@@ -123,6 +124,40 @@ export function lugar(id) {
 /** Los lugares que toca un día, ya resueltos y sin repetir. */
 export function lugaresDeDia(dia) {
   return comoArray(dia.lugares).map(lugar).filter(Boolean);
+}
+
+/** Los días de una ruta en los que se pisa un lugar. Vacío si esa ruta no pasa. */
+export function diasDeLugar(idRuta, idLugar) {
+  const r = RUTA.get(idRuta);
+  if (!r) return [];
+  return r.dias.filter(d => comoArray(d.lugares).includes(idLugar)).map(d => d.n);
+}
+
+/** [3] → 'D3' · [3,4,5] → 'D3-5' · [0,9,10,11] → 'D0·9-11'.
+ *  Los días seguidos se comprimen en tramos: el sitio donde duermes al empezar y
+ *  al acabar sale como «D0·9-11» y no como «D0·9·10·11», que no cabe en el icono. */
+export function etiquetaDias(ns) {
+  if (!ns || !ns.length) return null;
+  const tramos = [];
+  for (const n of ns) {
+    const ultimo = tramos[tramos.length - 1];
+    if (ultimo && n === ultimo[1] + 1) ultimo[1] = n;
+    else tramos.push([n, n]);
+  }
+  return 'D' + tramos.map(([a, b]) => (a === b ? a : `${a}-${b}`)).join('·');
+}
+
+/** Aviso por consola si un lugar dice ser de una ruta que no lo visita, o al revés.
+ *  Son dos listas escritas a mano y es justo donde se descuadran. */
+function comprobarLugares() {
+  RUTAS.rutas.forEach(r => {
+    const enDias = new Set(r.dias.flatMap(d => comoArray(d.lugares)));
+    const suyos = LUGARES.lugares.filter(l => l.rutas.includes(r.id)).map(l => l.id);
+    suyos.filter(id => !enDias.has(id))
+      .forEach(id => console.warn(`[${r.id}] "${id}" dice ser de esta ruta pero ningún día lo visita`));
+    [...enDias].filter(id => !suyos.includes(id))
+      .forEach(id => console.warn(`[${r.id}] un día visita "${id}", que no consta en esta ruta`));
+  });
 }
 
 /** En cuántas rutas sale un lugar, traducido a la marca que se pinta en los menús:
