@@ -376,15 +376,26 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 .mapa-caja {
   position: relative;
-  height: min(62vh, 520px);
-  min-height: 320px;
+  height: min(66vh, 560px);
+  min-height: 340px;
   border: 1px solid var(--linea);
   border-radius: var(--r);
   overflow: hidden;
   background: var(--papel-3);
   margin-bottom: 12px;
 }
+.mapa-caja.grande { height: min(88vh, 900px); }
 #mapa { position: absolute; inset: 0; }
+
+.mapa-btn {
+  position: absolute; z-index: 500; right: 10px; bottom: 10px;
+  min-height: 34px; padding: 7px 12px;
+  font: inherit; font-size: 13px; font-weight: 650;
+  background: var(--papel); color: var(--tinta);
+  border: 1px solid var(--linea-2); border-radius: 999px;
+  box-shadow: var(--sombra); cursor: pointer;
+}
+.mapa-btn:hover { background: var(--papel-2); }
 .leaflet-container { background: var(--papel-3); font: inherit; }
 .leaflet-popup-content { margin: 11px 13px; font-size: 14px; line-height: 1.5; }
 .leaflet-popup-content b { display: block; margin-bottom: 3px; }
@@ -392,11 +403,40 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 .pin {
   display: grid; place-items: center;
-  width: 22px; height: 22px; border-radius: 50%;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--c, var(--tinta-2));
+  color: #fff; font-size: 12px; font-weight: 700; line-height: 1;
+  border: 2px solid var(--papel);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+}
+/* Los sitios exclusivos de una ruta llevan un aro de su color: en el mapa es
+   donde más se agradece ver de un golpe qué te estás jugando al elegir. */
+.pin-solo { box-shadow: 0 0 0 2px var(--m), 0 1px 5px rgba(0, 0, 0, .45); }
+
+/* Varios sitios que se pisan a este zoom. Se pincha y el mapa se acerca. */
+.grupo {
+  display: grid; place-items: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--papel);
+  color: var(--tinta); font-size: 13px; font-weight: 700; line-height: 1;
+  border: 2px solid var(--linea-2);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, .3);
+  cursor: pointer;
+}
+.grupo-solo { border-color: var(--rojo); color: var(--rojo-txt); }
+.grupo::after {
+  content: '+'; position: absolute; right: -1px; top: -3px;
+  font-size: 11px; color: var(--tinta-2);
+}
+
+/* El número de orden de la parada: sin esto el mapa no dice por dónde se empieza. */
+.orden {
+  display: grid; place-items: center;
+  width: 20px; height: 20px; border-radius: 50%;
   background: var(--c, var(--tinta-2));
   color: #fff; font-size: 11px; font-weight: 700; line-height: 1;
   border: 2px solid var(--papel);
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
 }
 
 .filtros { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
