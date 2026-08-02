@@ -503,6 +503,40 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .cab-tarjeta h3 { font-size: 15.5px; flex: 1; min-width: 0; }
 .cab-tarjeta .peq { flex-basis: 100%; margin: 0; }
 
+/* ── Resumen para copiar ─────────────────────────────────────────────────── */
+
+/* Sin envolver líneas: el texto está pensado para copiarse tal cual, así que si
+   una línea es larga se desplaza dentro de su caja en vez de partirse. */
+.seco {
+  margin: 0;
+  padding: 13px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  font: 12.5px/1.75 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre;
+  color: var(--tinta);
+  background: var(--papel-2);
+  border-top: 1px solid var(--linea);
+  -webkit-user-select: text; user-select: text;
+}
+
+.btn-copiar {
+  flex: none;
+  min-height: 36px; padding: 8px 14px;
+  font: inherit; font-size: 13px; font-weight: 650;
+  color: var(--verde-txt);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-linea);
+  border-radius: 999px;
+  cursor: pointer;
+}
+.btn-copiar:hover { background: var(--papel); }
+.btn-copiar.ok { background: var(--verde); border-color: var(--verde); color: #fff; }
+
+@media (max-width: 400px) {
+  .seco { font-size: 11.5px; padding: 11px; }
+}
+
 /* ── Marcas de diferencia ────────────────────────────────────────────────── */
 
 /* Un símbolo y un color por sitio según en cuántas rutas sale. El símbolo no es

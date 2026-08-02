@@ -1,4 +1,4 @@
-{
+﻿{
   "intro": "Civitavecchia está en el centro exacto de la Italia peninsular, así que el error de bulto sería tratarlo como una ida y vuelta. No lo es: da para un anillo cerrado sin repetir un solo kilómetro. Estas son cuatro formas distintas de cerrarlo.",
   "comun": {
     "titulo": "Lo que no cambia en ninguna de las cuatro",
@@ -267,7 +267,7 @@
         {
           "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
           "titulo": "Capilla Sixtina y San Pedro",
-          "etapa": "Bracciano ⇄ Roma · Vaticano",
+          "etapa": "Bracciano ⇄ Roma (Vaticano)",
           "km": 90, "minutos": 100,
           "plan": [
             { "hora": "06:45", "que": "45 km hasta el aparcamiento de Cornelia, en el lado oeste de Roma, sin pisar el centro." },
@@ -563,7 +563,7 @@
         {
           "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
           "titulo": "Capilla Sixtina y San Pedro",
-          "etapa": "Bracciano ⇄ Roma · Vaticano",
+          "etapa": "Bracciano ⇄ Roma (Vaticano)",
           "km": 90, "minutos": 100,
           "plan": [
             { "hora": "06:45", "que": "45 km hasta Cornelia, en el lado oeste de Roma." },
@@ -859,7 +859,7 @@
         {
           "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
           "titulo": "Capilla Sixtina y San Pedro",
-          "etapa": "Bracciano ⇄ Roma · Vaticano",
+          "etapa": "Bracciano ⇄ Roma (Vaticano)",
           "km": 90, "minutos": 100,
           "plan": [
             { "hora": "06:45", "que": "45 km hasta Cornelia, en el lado oeste de Roma." },
@@ -1157,7 +1157,7 @@
         {
           "n": 10, "fecha": "2026-08-24", "dia_semana": "lunes",
           "titulo": "Capilla Sixtina y San Pedro",
-          "etapa": "Bracciano ⇄ Roma · Vaticano",
+          "etapa": "Bracciano ⇄ Roma (Vaticano)",
           "km": 90, "minutos": 100,
           "plan": [
             { "hora": "06:45", "que": "45 km hasta Cornelia, en el lado oeste de Roma." },
