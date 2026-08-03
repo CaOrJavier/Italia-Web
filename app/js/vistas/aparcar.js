@@ -32,8 +32,9 @@ export function pintar(main) {
     <h2 class="seccion">Ciudad por ciudad</h2>
     ${ciudades.map(ciudad).join('')}
 
-    <h2 class="seccion">Verificar antes de salir</h2>
-    ${verificar()}
+    <p class="peq">Los precios son de agosto de 2026 y algunos cambian de una
+      temporada a otra. La lista de lo que hay que confirmar antes de salir está
+      en <a href="#/reservar">Reservar</a>.</p>
   `;
 }
 
@@ -92,21 +93,3 @@ function ciudad(c) {
   </details>`;
 }
 
-function verificar() {
-  return `<div class="tarjeta">
-    <div class="cab-tarjeta">
-      <h3>Lo que hay que confirmar</h3>
-      <span class="etiq etiq-ambar">Precios estimados</span>
-    </div>
-    <div class="tarjeta-c">
-      <p class="peq">Los precios y horarios de esta web son de agosto de 2026 y algunos cambian
-      de una temporada a otra. Nada de lo que hay aquí sustituye a mirarlo en la web oficial la
-      semana antes de salir.</p>
-    </div>
-    ${datos.VIAJE.verificar.map(v => `<div class="truco">
-      <b>${esc(v.que)}</b>
-      <p>${esc(v.detalle)}</p>
-      <p style="margin-top:5px"><a href="${esc(v.url)}" target="_blank" rel="noopener">${esc(v.url)}</a></p>
-    </div>`).join('')}
-  </div>`;
-}

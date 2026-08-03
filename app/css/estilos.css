@@ -738,6 +738,27 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   .sk-menores { max-width: 220px; }
 }
 
+/* ── Reservas ────────────────────────────────────────────────────────────── */
+
+/* La franja de color de la izquierda es el estado: roja si la venta ya está
+   abierta y no la has sacado, verde si está abierta sin prisa, gris si aún no
+   se puede. Es lo que hay que ver de un vistazo al abrir la pantalla. */
+.reserva { border-left: 4px solid var(--linea-2); }
+.reserva-ya { border-left-color: var(--rojo); }
+.reserva-abierta { border-left-color: var(--verde); }
+.reserva-espera { border-left-color: var(--linea-2); }
+
+.btn-oficial {
+  display: inline-flex; align-items: center;
+  min-height: 40px; padding: 10px 16px;
+  font-size: 14px; font-weight: 650; text-decoration: none;
+  color: var(--verde-txt);
+  background: var(--verde-suave);
+  border: 1px solid var(--verde-linea);
+  border-radius: 999px;
+}
+.btn-oficial:hover { background: var(--papel); }
+
 /* ── Resumen para copiar ─────────────────────────────────────────────────── */
 
 /* Sin envolver líneas: el texto está pensado para copiarse tal cual, así que si
@@ -1037,7 +1058,9 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 }
 
 @media (max-width: 400px) {
-  .nav-t { font-size: 9.5px; }
+  /* Con ocho pestañas tocan a 45 px: a 9,5 px la palabra más larga («Comparar»)
+     se quedaba a 3 px del borde y en otro móvil se cortaría. */
+  .nav-t { font-size: 9px; letter-spacing: -0.01em; }
   .dia-n { width: 34px; }
   .horas li { grid-template-columns: 46px 1fr; gap: 8px; }
   .ficha > div { grid-template-columns: 62px 1fr; gap: 8px; }

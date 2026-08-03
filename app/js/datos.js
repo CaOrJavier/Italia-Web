@@ -12,6 +12,7 @@ export let COMER = null;
 export let DORMIR = null;
 export let IMAGENES = null;
 export let ARBOL = null;
+export let RESERVAS = null;
 
 /** id → objeto, para resolver las referencias de los días. */
 export const RUTA = new Map();
@@ -26,7 +27,7 @@ async function json(ruta) {
 }
 
 export async function cargar() {
-  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes, arbol] = await Promise.all([
+  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes, arbol, reservas] = await Promise.all([
     json('datos/viaje.json'),
     json('datos/rutas.json'),
     json('datos/lugares.json'),
@@ -35,7 +36,8 @@ export async function cargar() {
     json('datos/dormir.json'),
     // Las fotos son un extra: si faltan, la web va igual, solo que sin imágenes.
     json('datos/imagenes.json').catch(() => ({ fotos: [] })),
-    json('datos/arbol.json')
+    json('datos/arbol.json'),
+    json('datos/reservas.json')
   ]);
 
   VIAJE = viaje;
@@ -46,6 +48,7 @@ export async function cargar() {
   DORMIR = dormir;
   IMAGENES = imagenes;
   ARBOL = arbol;
+  RESERVAS = reservas;
 
   RUTAS.rutas.forEach(r => RUTA.set(r.id, r));
   APARCAR.ciudades.forEach(c => PARKING.set(c.id, c));
