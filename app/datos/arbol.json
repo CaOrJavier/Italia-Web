@@ -1,14 +1,16 @@
 {
   "titulo": "Mezclar la 1 y la 2",
-  "intro": "Las rutas 1 y 2 no son dos viajes distintos: son el mismo viaje que se abre y se vuelve a cerrar tres veces. Salen juntas de Civitavecchia, duermen las dos en Tolfa y en Saturnia, se separan después de las termas, se reencuentran en Florencia, se vuelven a separar, y acaban juntas los tres días de Roma. Aquí puedes elegir por dónde vas en cada bifurcación y armarte la tuya.",
-  "explica": "En cada bifurcación las dos ramas empiezan y acaban en el mismo sitio y a la misma hora, así que cualquier combinación cuadra: son 8 viajes posibles. Y en cada rama hay desvíos opcionales para robarle a la otra lo que más te apetezca.",
+  "intro": "Las rutas 1 y 2 no son dos viajes distintos: son el mismo viaje que se abre y se vuelve a cerrar tres veces. Salen juntas de Civitavecchia, duermen las dos en Tolfa y en Saturnia, se separan después de las termas, se reencuentran en Florencia, se vuelven a separar, y acaban juntas los tres días de Roma.",
+  "explica": "Pulsa un nodo para tomar ese camino. Las dos ramas de cada bifurcación salen del mismo sitio y acaban en el mismo sitio a la misma hora, así que cualquier combinación cuadra: son 8 viajes posibles. Los nodos pequeños que cuelgan son desvíos opcionales, para robarle a la otra rama lo que más te apetezca.",
   "rutas": ["toscana", "agua"],
 
   "tramos": [
     {
       "tipo": "tronco",
       "id": "salida",
+      "icono": "⚓",
       "titulo": "Desembarco y las termas",
+      "corto": "Desembarco",
       "nota": "Los dos primeros días son idénticos en las dos rutas. No hay nada que elegir.",
       "dias": [0, 1],
       "ruta": "toscana"
@@ -23,6 +25,7 @@
       "opciones": [
         {
           "id": "pueblos",
+          "icono": "★",
           "ruta": "toscana",
           "nombre": "Por los pueblos de piedra",
           "corto": "Pueblos",
@@ -32,6 +35,7 @@
         },
         {
           "id": "termas",
+          "icono": "≈",
           "ruta": "agua",
           "nombre": "Por las termas y la Val d'Orcia",
           "corto": "Termas",
@@ -44,7 +48,9 @@
     {
       "tipo": "tronco",
       "id": "florencia",
+      "icono": "✦",
       "titulo": "Florencia entera a pie",
+      "corto": "Florencia",
       "nota": "Vengas por donde vengas, el martes 18 es Florencia y el coche no se mueve.",
       "dias": [4],
       "ruta": "toscana"
@@ -59,6 +65,7 @@
       "opciones": [
         {
           "id": "lucca",
+          "icono": "◎",
           "ruta": "toscana",
           "nombre": "Lucca con noche propia",
           "corto": "Lucca de noche",
@@ -68,6 +75,7 @@
         },
         {
           "id": "pisa",
+          "icono": "❖",
           "ruta": "agua",
           "nombre": "Lucca y Pisa el mismo día, y Portovenere",
           "corto": "Pisa y Portovenere",
@@ -87,6 +95,7 @@
       "opciones": [
         {
           "id": "ct-dos-dias",
+          "icono": "▲",
           "ruta": "toscana",
           "nombre": "Cinque Terre en dos días",
           "corto": "CT en 2 días",
@@ -96,6 +105,7 @@
         },
         {
           "id": "ct-un-dia",
+          "icono": "◡",
           "ruta": "agua",
           "nombre": "Cinque Terre de una tacada y bajar parando",
           "corto": "CT en 1 día",
@@ -108,7 +118,9 @@
     {
       "tipo": "tronco",
       "id": "roma",
+      "icono": "◆",
       "titulo": "Roma, los tres últimos días",
+      "corto": "Roma",
       "nota": "Idéntico en las dos: llegas el domingo 23, la Capilla Sixtina el lunes 24 y el Coliseo el martes 25 antes del ferri.",
       "dias": [9, 10, 11],
       "ruta": "toscana"
@@ -118,6 +130,7 @@
   "desvios": [
     {
       "id": "san-filippo",
+      "icono": "≈",
       "tramo": "interior", "opcion": "pueblos", "dia": 2,
       "nombre": "Bagni San Filippo",
       "lugar": "bagni-san-filippo",
@@ -126,6 +139,7 @@
     },
     {
       "id": "volterra",
+      "icono": "★",
       "tramo": "interior", "opcion": "pueblos", "dia": 3,
       "nombre": "Volterra",
       "lugar": "volterra",
@@ -133,7 +147,17 @@
       "que": "Ciudad etrusca amurallada sobre un balcón de piedra, con un teatro romano entero abajo y las Balze, unos barrancos que se están comiendo el pueblo por un lado. Mucho menos visitada que San Gimignano, a media hora de allí."
     },
     {
+      "id": "sovana-desvio",
+      "icono": "❖",
+      "tramo": "interior", "opcion": "pueblos", "dia": 2,
+      "nombre": "Sovana y Sorano",
+      "lugar": "sovana",
+      "km": 35, "minutos": 50, "coste": 5,
+      "que": "Los otros dos pueblos de toba, a diez minutos de Pitigliano: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco. Es meterse en la ruta 4 sin cogerla entera."
+    },
+    {
       "id": "pitigliano-desvio",
+      "icono": "★",
       "tramo": "interior", "opcion": "termas", "dia": 2,
       "nombre": "Pitigliano",
       "lugar": "pitigliano",
@@ -142,6 +166,7 @@
     },
     {
       "id": "portovenere-desvio",
+      "icono": "◡",
       "tramo": "mar", "opcion": "ct-un-dia", "dia": 8,
       "nombre": "Portovenere",
       "lugar": "portovenere",
@@ -150,6 +175,7 @@
     },
     {
       "id": "alberese-desvio",
+      "icono": "◡",
       "tramo": "mar", "opcion": "ct-dos-dias", "dia": 8,
       "nombre": "Marina di Alberese",
       "lugar": "alberese",
@@ -158,19 +184,12 @@
     },
     {
       "id": "bolgheri-desvio",
+      "icono": "❖",
       "tramo": "mar", "opcion": "ct-dos-dias", "dia": 8,
       "nombre": "Bolgheri",
       "lugar": "bolgheri",
       "km": 15, "minutos": 25, "coste": 0,
       "que": "Cinco kilómetros rectos de cipreses, la avenida más fotografiada de la Toscana. Te pilla justo al lado de la Aurelia bajando: es la parada más barata de todo el árbol."
-    },
-    {
-      "id": "sovana-desvio",
-      "tramo": "interior", "opcion": "pueblos", "dia": 2,
-      "nombre": "Sovana y Sorano",
-      "lugar": "sovana",
-      "km": 35, "minutos": 50, "coste": 5,
-      "que": "Los otros dos pueblos de toba, a diez minutos de Pitigliano: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco. Es meterse en la ruta 4 sin cogerla entera."
     }
   ]
 }
