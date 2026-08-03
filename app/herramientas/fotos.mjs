@@ -91,6 +91,7 @@ const CANDIDATOS = {
   viterbo: [['es', 'Viterbo'], ['it', 'Viterbo']],
   sorano: [['it', 'Sorano (Italia)'], ['es', 'Sorano']],
 
+  volterra: [['es', 'Volterra'], ['it', 'Volterra']],
   pienza: [['es', 'Pienza'], ['it', 'Pienza']],
   montepulciano: [['es', 'Montepulciano'], ['it', 'Montepulciano']],
   tivoli: [['es', 'Villa d\'Este'], ['it', "Villa d'Este"]],

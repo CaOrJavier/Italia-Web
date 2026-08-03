@@ -1,0 +1,176 @@
+{
+  "titulo": "Mezclar la 1 y la 2",
+  "intro": "Las rutas 1 y 2 no son dos viajes distintos: son el mismo viaje que se abre y se vuelve a cerrar tres veces. Salen juntas de Civitavecchia, duermen las dos en Tolfa y en Saturnia, se separan después de las termas, se reencuentran en Florencia, se vuelven a separar, y acaban juntas los tres días de Roma. Aquí puedes elegir por dónde vas en cada bifurcación y armarte la tuya.",
+  "explica": "En cada bifurcación las dos ramas empiezan y acaban en el mismo sitio y a la misma hora, así que cualquier combinación cuadra: son 8 viajes posibles. Y en cada rama hay desvíos opcionales para robarle a la otra lo que más te apetezca.",
+  "rutas": ["toscana", "agua"],
+
+  "tramos": [
+    {
+      "tipo": "tronco",
+      "id": "salida",
+      "titulo": "Desembarco y las termas",
+      "nota": "Los dos primeros días son idénticos en las dos rutas. No hay nada que elegir.",
+      "dias": [0, 1],
+      "ruta": "toscana"
+    },
+    {
+      "tipo": "bifurcacion",
+      "id": "interior",
+      "titulo": "Después de Saturnia, ¿por dónde subes a Florencia?",
+      "desde": "Sales de las termas de Saturnia la mañana del domingo 16",
+      "hasta": "Los dos caminos duermen el lunes 17 en Villa Costanza, en Florencia",
+      "dias": [2, 3],
+      "opciones": [
+        {
+          "id": "pueblos",
+          "ruta": "toscana",
+          "nombre": "Por los pueblos de piedra",
+          "corto": "Pueblos",
+          "resumen": "Pitigliano colgado del risco de toba, Siena entera con calma, y luego Monteriggioni y San Gimignano camino de Florencia.",
+          "gana": ["Siena con su plaza y el Duomo del suelo taraceado", "Pitigliano y las vie cave etruscas", "Monteriggioni y San Gimignano, las torres"],
+          "pierde": ["Las termas de Bagni San Filippo", "La Val d'Orcia de las postales"]
+        },
+        {
+          "id": "termas",
+          "ruta": "agua",
+          "nombre": "Por las termas y la Val d'Orcia",
+          "corto": "Termas",
+          "resumen": "La cascada blanca de Bagni San Filippo, la plaza-piscina de Bagno Vignoni, las colinas de la Val d'Orcia y las pozas de Petriolo metidas en el río.",
+          "gana": ["Tres termas naturales más, todas gratis y abiertas 24 h", "La Val d'Orcia, que es el paisaje toscano de las fotos", "Es la rama más tranquila: menos ciudad y menos reloj"],
+          "pierde": ["Siena entera", "Los pueblos de torres", "Pitigliano"]
+        }
+      ]
+    },
+    {
+      "tipo": "tronco",
+      "id": "florencia",
+      "titulo": "Florencia entera a pie",
+      "nota": "Vengas por donde vengas, el martes 18 es Florencia y el coche no se mueve.",
+      "dias": [4],
+      "ruta": "toscana"
+    },
+    {
+      "tipo": "bifurcacion",
+      "id": "costa",
+      "titulo": "De Florencia al golfo, ¿parando dónde?",
+      "desde": "Sales de Florencia la mañana del miércoles 19",
+      "hasta": "Los dos caminos duermen el jueves 20 en La Spezia, listos para Cinque Terre",
+      "dias": [5, 6],
+      "opciones": [
+        {
+          "id": "lucca",
+          "ruta": "toscana",
+          "nombre": "Lucca con noche propia",
+          "corto": "Lucca de noche",
+          "resumen": "Un día entero para Lucca, durmiendo dentro, y Pisa al día siguiente de camino al golfo.",
+          "gana": ["Lucca sin reloj: da para la vuelta entera a la muralla en bici y volver a pie al atardecer", "Se duerme en una ciudad pequeña y tranquila", "15 km menos que la otra rama"],
+          "pierde": ["Portovenere, que en esta rama cae más tarde", "Pisa se ve con más prisa"]
+        },
+        {
+          "id": "pisa",
+          "ruta": "agua",
+          "nombre": "Lucca y Pisa el mismo día, y Portovenere",
+          "corto": "Pisa y Portovenere",
+          "resumen": "Lucca por la mañana, Pisa por la tarde durmiendo junto a la torre, y al día siguiente el golfo de los Poetas con Portovenere entero.",
+          "gana": ["Portovenere con una tarde entera: San Pietro sobre el acantilado y el atardecer del golfo", "Piazza dei Miracoli de noche, iluminada y vacía", "Se duerme gratis en Pisa, en la zona de autocaravanas"],
+          "pierde": ["Lucca se queda en media jornada", "15 km y 15 minutos más"]
+        }
+      ]
+    },
+    {
+      "tipo": "bifurcacion",
+      "id": "mar",
+      "titulo": "Cinque Terre, ¿en dos días o en uno y bajas con calma?",
+      "desde": "Sales de La Spezia el viernes 21 con la Cinque Terre Card en el bolsillo",
+      "hasta": "Los dos caminos duermen el sábado 22 en la playa de Castiglione della Pescaia",
+      "dias": [7, 8],
+      "opciones": [
+        {
+          "id": "ct-dos-dias",
+          "ruta": "toscana",
+          "nombre": "Cinque Terre en dos días",
+          "corto": "CT en 2 días",
+          "resumen": "Los tres del sur un día y los dos del norte al siguiente, con Portovenere al atardecer, y luego 200 km de tirón hasta la Maremma.",
+          "gana": ["Los cinco pueblos sin correr, con tiempo de bañarte en cada uno", "Portovenere al atardecer", "Es la rama con menos kilómetros"],
+          "pierde": ["La bajada por la costa se hace de una sentada, sin parar", "Ni Bolgheri ni el parque de la Maremma"]
+        },
+        {
+          "id": "ct-un-dia",
+          "ruta": "agua",
+          "nombre": "Cinque Terre de una tacada y bajar parando",
+          "corto": "CT en 1 día",
+          "resumen": "Los cinco pueblos en una sola jornada, y al día siguiente la bajada larga parando en la avenida de cipreses de Bolgheri y en la playa salvaje del parque de la Maremma.",
+          "gana": ["Bolgheri: cinco kilómetros rectos de cipreses", "Marina di Alberese, playa salvaje con troncos varados dentro del parque natural", "Una tarde de playa de verdad, no una parada"],
+          "pierde": ["Los cinco pueblos en un día es una carrera", "35 km más y el día más largo de las dos rutas"]
+        }
+      ]
+    },
+    {
+      "tipo": "tronco",
+      "id": "roma",
+      "titulo": "Roma, los tres últimos días",
+      "nota": "Idéntico en las dos: llegas el domingo 23, la Capilla Sixtina el lunes 24 y el Coliseo el martes 25 antes del ferri.",
+      "dias": [9, 10, 11],
+      "ruta": "toscana"
+    }
+  ],
+
+  "desvios": [
+    {
+      "id": "san-filippo",
+      "tramo": "interior", "opcion": "pueblos", "dia": 2,
+      "nombre": "Bagni San Filippo",
+      "lugar": "bagni-san-filippo",
+      "km": 40, "minutos": 45, "coste": 0,
+      "que": "Le robas a la otra rama su mejor sitio: la cascada de calcáreo blanco puro con forma de ballena, gratis y abierta 24 h. Cae de camino entre Saturnia y Siena si subes por el monte Amiata en vez de por Pitigliano."
+    },
+    {
+      "id": "volterra",
+      "tramo": "interior", "opcion": "pueblos", "dia": 3,
+      "nombre": "Volterra",
+      "lugar": "volterra",
+      "km": 55, "minutos": 60, "coste": 3,
+      "que": "Ciudad etrusca amurallada sobre un balcón de piedra, con un teatro romano entero abajo y las Balze, unos barrancos que se están comiendo el pueblo por un lado. Mucho menos visitada que San Gimignano, a media hora de allí."
+    },
+    {
+      "id": "pitigliano-desvio",
+      "tramo": "interior", "opcion": "termas", "dia": 2,
+      "nombre": "Pitigliano",
+      "lugar": "pitigliano",
+      "km": 50, "minutos": 60, "coste": 2,
+      "que": "Le robas a la otra rama el pueblo colgado del risco de toba, con su barrio judío y las vie cave excavadas en la roca. Sale de Saturnia hacia el este antes de subir al Amiata."
+    },
+    {
+      "id": "portovenere-desvio",
+      "tramo": "mar", "opcion": "ct-un-dia", "dia": 8,
+      "nombre": "Portovenere",
+      "lugar": "portovenere",
+      "km": 30, "minutos": 45, "coste": 0,
+      "que": "Si vienes por la rama de Lucca no habrás pisado Portovenere, y sería una pena: San Pietro sobre el acantilado y la gruta de Byron. Media mañana antes de empezar a bajar."
+    },
+    {
+      "id": "alberese-desvio",
+      "tramo": "mar", "opcion": "ct-dos-dias", "dia": 8,
+      "nombre": "Marina di Alberese",
+      "lugar": "alberese",
+      "km": 35, "minutos": 50, "coste": 5,
+      "que": "Le robas a la otra rama la playa salvaje del parque de la Maremma, con troncos varados y pinar detrás. Se entra en bus desde el centro de visitantes, así que mira el horario del último de vuelta."
+    },
+    {
+      "id": "bolgheri-desvio",
+      "tramo": "mar", "opcion": "ct-dos-dias", "dia": 8,
+      "nombre": "Bolgheri",
+      "lugar": "bolgheri",
+      "km": 15, "minutos": 25, "coste": 0,
+      "que": "Cinco kilómetros rectos de cipreses, la avenida más fotografiada de la Toscana. Te pilla justo al lado de la Aurelia bajando: es la parada más barata de todo el árbol."
+    },
+    {
+      "id": "sovana-desvio",
+      "tramo": "interior", "opcion": "pueblos", "dia": 2,
+      "nombre": "Sovana y Sorano",
+      "lugar": "sovana",
+      "km": 35, "minutos": 50, "coste": 5,
+      "que": "Los otros dos pueblos de toba, a diez minutos de Pitigliano: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco. Es meterse en la ruta 4 sin cogerla entera."
+    }
+  ]
+}

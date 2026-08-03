@@ -11,6 +11,7 @@ export let APARCAR = null;
 export let COMER = null;
 export let DORMIR = null;
 export let IMAGENES = null;
+export let ARBOL = null;
 
 /** id → objeto, para resolver las referencias de los días. */
 export const RUTA = new Map();
@@ -25,7 +26,7 @@ async function json(ruta) {
 }
 
 export async function cargar() {
-  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes] = await Promise.all([
+  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes, arbol] = await Promise.all([
     json('datos/viaje.json'),
     json('datos/rutas.json'),
     json('datos/lugares.json'),
@@ -33,7 +34,8 @@ export async function cargar() {
     json('datos/comer.json'),
     json('datos/dormir.json'),
     // Las fotos son un extra: si faltan, la web va igual, solo que sin imágenes.
-    json('datos/imagenes.json').catch(() => ({ fotos: [] }))
+    json('datos/imagenes.json').catch(() => ({ fotos: [] })),
+    json('datos/arbol.json')
   ]);
 
   VIAJE = viaje;
@@ -43,6 +45,7 @@ export async function cargar() {
   COMER = comer;
   DORMIR = dormir;
   IMAGENES = imagenes;
+  ARBOL = arbol;
 
   RUTAS.rutas.forEach(r => RUTA.set(r.id, r));
   APARCAR.ciudades.forEach(c => PARKING.set(c.id, c));
@@ -166,6 +169,13 @@ function comprobarLugares() {
 export function exclusividadDe(l) {
   const total = RUTAS.rutas.length;
   const n = l.rutas.length;
+  // Los sitios que solo existen como desvío al mezclar rutas no están en ninguna,
+  // así que no se les puede aplicar la escala normal.
+  if (!n) {
+    return { clave: 'algunas', ...LUGARES.exclusividad.algunas,
+             nombre: 'Solo como desvío', corto: 'Desvío',
+             cuantas: 0, total, ruta: null };
+  }
   const clave = n >= total ? 'todas' : n === 1 ? 'solo' : 'algunas';
   const base = LUGARES.exclusividad[clave];
   // Si es de una sola ruta, la marca se pinta del color de esa ruta: así se ve

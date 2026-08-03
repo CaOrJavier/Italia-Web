@@ -155,10 +155,10 @@
    "id": "monteriggioni",
    "archivo": "monteriggioni.jpg",
    "pie": "Monteriggioni",
-   "autor": "WikiRomaWiki",
+   "autor": "Carsten Steger",
    "licencia": "CC BY-SA 4.0",
    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Panorama_of_Monteriggioni.jpg",
+   "origen": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Monteriggioni_(view_from_the_east).jpg",
    "articulo": "https://es.wikipedia.org/wiki/Monteriggioni"
   },
   {
@@ -170,6 +170,16 @@
    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
    "origen": "https://commons.wikimedia.org/wiki/File:Panorama_San_Gimignano.jpg",
    "articulo": "https://es.wikipedia.org/wiki/San%20Gimignano"
+  },
+  {
+   "id": "volterra",
+   "archivo": "volterra.jpg",
+   "pie": "Volterra",
+   "autor": "Andrés Nieto Porras from Palma de Mallorca",
+   "licencia": "CC BY-SA 2.0",
+   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+   "origen": "https://commons.wikimedia.org/wiki/File:Volterra_al_atardecer_(5113682960).jpg",
+   "articulo": "https://es.wikipedia.org/wiki/Volterra"
   },
   {
    "id": "pienza",

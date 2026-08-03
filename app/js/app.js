@@ -8,6 +8,7 @@ const VISTAS = {
   rutas: () => import('./vistas/rutas.js'),
   mapa: () => import('./vistas/mapa.js'),
   comparar: () => import('./vistas/comparar.js'),
+  mezclar: () => import('./vistas/mezclar.js'),
   resumen: () => import('./vistas/resumen.js'),
   comer: () => import('./vistas/comer.js'),
   aparcar: () => import('./vistas/aparcar.js')
