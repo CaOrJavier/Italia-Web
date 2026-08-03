@@ -203,11 +203,9 @@ export function lugaresDe(idRuta) {
   return LUGARES.lugares.filter(l => l.rutas.includes(idRuta));
 }
 
-/** Las regiones de comida que toca una ruta, en el orden en que se atraviesan. */
-export function regionesDe(idRuta) {
-  const enTodas = ['lazio', 'toscana', 'liguria', 'maremma'];
-  const soloRuta3 = ['emilia', 'umbria'];
-  return COMER.regiones.filter(r =>
-    enTodas.includes(r.id) || (idRuta === 'comer' && soloRuta3.includes(r.id)) || !idRuta
-  );
+/** Las regiones de comida que toca una ruta. Con las dos rutas que quedan, las
+ *  cuatro regiones caen en las dos: el Lacio de Roma, la Toscana, la Liguria de
+ *  Cinque Terre y la Maremma de Saturnia. */
+export function regionesDe() {
+  return COMER.regiones;
 }

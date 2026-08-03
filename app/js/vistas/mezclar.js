@@ -15,7 +15,7 @@
 // forman cada rama.
 
 import * as datos from '../datos.js';
-import { esc, fechaCorta, minutosAHoras, numero, euros } from '../util.js';
+import { esc, fechaCorta, fechaLarga, minutosAHoras, numero, euros } from '../util.js';
 import { figura } from '../fotos.js';
 import { ir } from '../app.js';
 
@@ -283,9 +283,26 @@ function sobras(dias, cogidos) {
     </div>`;
 }
 
+/** La primera y la última hora del plan del día: a qué hora arrancas y a qué hora
+ *  se acaba la jornada. Están en el propio plan, no hacen falta datos nuevos. */
+function horas(d) {
+  const validas = (d.plan || []).map(p => p.hora).filter(h => /^\d/.test(h));
+  if (!validas.length) return null;
+  return { salida: validas[0], llegada: validas[validas.length - 1] };
+}
+
+/** Todos los sitios del día, los de la ruta y los del desvío, con su tipo. */
+function sitiosDelDia(d, extras) {
+  const propios = datos.lugaresDeDia(d).map(l => ({ l, desvio: false }));
+  const puestos = extras.map(x => datos.lugar(x.lugar)).filter(Boolean).map(l => ({ l, desvio: true }));
+  const vistos = new Set();
+  return [...propios, ...puestos].filter(({ l }) => !vistos.has(l.id) && vistos.add(l.id));
+}
+
 function itinerario(dias, cogidos, t) {
   const porDia = {};
   cogidos.forEach(d => (porDia[d.dia] = porDia[d.dia] || []).push(d));
+  const noches = dias.filter(d => d.dormir).length;
 
   return `
   <div class="tarjeta">
@@ -294,19 +311,69 @@ function itinerario(dias, cogidos, t) {
       const extras = porDia[d.n] || [];
       const r = datos.RUTA.get(d._ruta);
       const km = d.km + extras.reduce((a, x) => a + x.km, 0);
-      return `<div class="mez-dia" style="--barra:${esc(r.color)}">
-        <span class="mez-n"><b>D${d.n}</b>${esc(fechaCorta(d.fecha))}</span>
-        <span class="mez-t">
-          <b>${esc(d.titulo)}</b>
-          <span class="peq">${esc(d.etapa)}${extras.length ? ' + ' + extras.map(x => esc(x.nombre)).join(' + ') : ''}</span>
-          <span class="peq">Duermes en ${cama ? esc(cama.nombre.split('·')[0].trim()) : 'el ferri'}</span>
-        </span>
-        <span class="mez-km"><b>${km} km</b>${extras.length ? `<small>+${extras.reduce((a, x) => a + x.km, 0)} de desvío</small>` : ''}</span>
-      </div>`;
+      const min = d.minutos + extras.reduce((a, x) => a + x.minutos, 0);
+      const h = horas(d);
+      const sitios = sitiosDelDia(d, extras);
+      const parkings = datos.parkingsDe(d);
+      const tpt = datos.minutosTransporte(d);
+
+      return `<details class="jornada" style="--barra:${esc(r.color)}">
+        <summary>
+          <span class="jor-n"><b>D${d.n}</b><span>de 11</span></span>
+          <span class="jor-t">
+            <b>${esc(d.titulo)}</b>
+            <span class="jor-fecha">${esc(fechaLarga(d.fecha))}</span>
+            <span class="jor-etapa">${esc(d.etapa)}${extras.length ? ' <b>+ ' + extras.map(x => esc(x.nombre)).join(' + ') + '</b>' : ''}</span>
+          </span>
+          <span class="jor-km">
+            <b>${km} km</b>
+            <small>${minutosAHoras(min)}</small>
+            ${extras.length ? `<small class="jor-extra">+${extras.reduce((a, x) => a + x.km, 0)} desvío</small>` : ''}
+          </span>
+        </summary>
+
+        <div class="jor-c">
+          <div class="jor-reloj">
+            ${h ? `<span><i>Salida</i><b>${esc(h.salida)}</b></span>
+                   <span><i>Fin del día</i><b>${esc(h.llegada)}</b></span>` : ''}
+            <span><i>Al volante</i><b>${minutosAHoras(min)}</b></span>
+            ${tpt ? `<span><i>Transporte</i><b>${minutosAHoras(tpt)}</b></span>` : ''}
+            <span><i>Duermes en</i><b>${cama ? esc(cama.nombre.split('·')[0].trim()) : 'el ferri'}</b></span>
+          </div>
+
+          ${sitios.length ? `<div class="jor-sitios">
+            <b class="jor-tit">Los ${sitios.length} sitios de este día</b>
+            <ul>${sitios.map(({ l, desvio }) => {
+              const tp = datos.LUGARES.tipos[l.tipo];
+              return `<li style="--c:${esc(tp.color)}">
+                <i>${esc(tp.icono)}</i>
+                <span>${esc(l.nombre)}${desvio ? ' <em>desvío</em>' : ''}</span>
+                <small>${esc(tp.nombre)}${l.precio ? ' · ' + esc(l.precio) : ''}</small>
+              </li>`;
+            }).join('')}</ul>
+          </div>` : ''}
+
+          ${parkings.length ? `<p class="peq"><b>Dejas el coche en</b> ${parkings.map(p =>
+            `${esc(p.parking)} (${esc(p.ciudad)}, ${esc(p.precio)}, ${p.minutos_centro} min al centro)`).join(' · ')}</p>` : ''}
+
+          <b class="jor-tit">Hora a hora</b>
+          <ul class="horas">${(d.plan || []).map(p =>
+            `<li><time>${esc(p.hora)}</time><span>${esc(p.que)}</span></li>`).join('')}</ul>
+
+          ${extras.map(x => `<div class="caja caja-info">
+            <b class="caja-t">Desvío · ${esc(x.nombre)}</b>${esc(x.que)}
+            <p class="peq" style="margin-top:6px">+${x.km} km · +${minutosAHoras(x.minutos)}${x.coste ? ' · +' + euros(x.coste) : ''}</p>
+          </div>`).join('')}
+
+          ${d.aviso ? `<div class="caja caja-ojo"><b class="caja-t">Ojo</b>${esc(d.aviso)}</div>` : ''}
+          <p class="peq"><b>Comer ·</b> ${esc(d.comer)}</p>
+        </div>
+      </details>`;
     }).join('')}
     <div class="mez-total">
       <b>Total</b>
-      <span>${numero(t.km)} km · ${minutosAHoras(t.min)} al volante · ${euros(t.eur)} estimados</span>
+      <span>${numero(t.km)} km · ${minutosAHoras(t.min)} al volante · ${euros(t.eur)} estimados ·
+        ${dias.length} días y ${noches} noches</span>
     </div>
   </div>`;
 }

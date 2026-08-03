@@ -90,7 +90,7 @@
     {
       "id": "toscana",
       "region": "Toscana · Florencia, Siena y los pueblos",
-      "cuando": "El grueso del viaje en las tres rutas",
+      "cuando": "El grueso del viaje en las dos rutas",
       "resumen": "Cocina de pobres hecha con productos buenísimos: pan sin sal, aceite verde, legumbre, casquería y caza. En agosto se come frío y en ensalada, que es justo lo que quieres.",
       "platos": [
         {
@@ -142,7 +142,7 @@
     {
       "id": "liguria",
       "region": "Liguria · Cinque Terre y La Spezia",
-      "cuando": "Los días de Cinque Terre, en las cuatro rutas",
+      "cuando": "Los días de Cinque Terre, en las dos rutas",
       "resumen": "Verde y salado: albahaca, aceite de oliva ligur, piñones y anchoa. Es la cocina de mar más vegetal de Italia, y la más barata de comer de pie.",
       "platos": [
         {
@@ -185,99 +185,9 @@
       "presupuesto_dia": "15-22 €"
     },
     {
-      "id": "emilia",
-      "region": "Emilia-Romaña · Parma, Módena y Bolonia",
-      "cuando": "Solo en la ruta 3",
-      "resumen": "La despensa de Europa y la razón entera de que exista la ruta 3. Aquí están el Parmigiano Reggiano, el jamón de Parma, la mortadella, el balsámico tradicional y la pasta rellena. De todo esto hay imitaciones en España; el original es otro producto.",
-      "platos": [
-        {
-          "nombre": "Tortellini in brodo",
-          "que_es": "Tortellini diminutos rellenos de lomo, jamón, mortadella y parmesano, servidos en caldo de capón. Se hacen a mano uno a uno. En agosto suena raro comer sopa, pero es el plato madre de Bolonia y no hay nada parecido en ningún sitio.",
-          "precio": "10-13 €",
-          "donde": "Bolonia y Módena, en trattorias de las de mantel de papel",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Tagliatelle al ragù",
-          "que_es": "Lo que en el mundo llaman boloñesa y en Bolonia no existe con ese nombre ni se sirve con espaguetis. Ragù de verdad: carne picada gorda, sofrito, vino y leche, tres horas a fuego lento, sobre tagliatelle al huevo hechas a mano.",
-          "precio": "10-12 €",
-          "donde": "Bolonia",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Parmigiano Reggiano de 36 meses",
-          "que_es": "El de 36 meses cruje, tiene cristales de tirosina y sabe a fruto seco. Nada que ver con el rallado de bolsa. En las queserías de Parma y Reggio venden las puntas y los trozos irregulares a mitad de precio.",
-          "precio": "3-5 € un trozo",
-          "donde": "Caseifici de Parma y mercados",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Mortadella di Bologna",
-          "que_es": "Nada que ver con la mortadela del súper: cerdo de verdad, cubitos de tocino de cuello y pistacho, cortada finísima al momento. Con un pan de agua caliente es una cena.",
-          "precio": "3-4 € 100 g",
-          "donde": "Las salumerías del Quadrilatero, en Bolonia",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Gnocco fritto y tigelle",
-          "que_es": "Masa frita hinchada, y pancitos redondos de la brasa, para rellenar de embutido y de crema de manteca con ajo y romero. Es la merienda-cena de Emilia y se pide para compartir, pero nadie te va a mirar mal por pedirlo solo.",
-          "precio": "6-9 €",
-          "donde": "Módena y los Apeninos",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Aceto balsamico tradizionale",
-          "que_es": "El de 12 o 25 años, en la botellita de 100 ml precintada. No es vinagre: es un almíbar denso que se toma a gotas sobre parmesano o incluso sobre helado. Cuesta 40-70 € y no entra en el presupuesto, pero probarlo en una acetaia de Módena sí.",
-          "precio": "Probarlo, gratis o 5 € en visita",
-          "donde": "Acetaie de Módena",
-          "imprescindible": false
-        }
-      ],
-      "donde_comer": "En Bolonia, el Quadrilatero (las callejas detrás de Piazza Maggiore) es un mercado medieval de salumerías y pescaderías: compras cortado al momento y te lo comes ahí. Y la apericena bolonesa entre las 18:30 y las 21:00 te da de cenar por 10 €.",
-      "presupuesto_dia": "18-25 €"
-    },
-    {
-      "id": "umbria",
-      "region": "Umbría · Asís",
-      "cuando": "Solo en la ruta 3",
-      "resumen": "Cocina de montaña y de monasterio: cerdo, legumbre, trufa negra y aceite. Umbría es la región más barata de las que pisas.",
-      "platos": [
-        {
-          "nombre": "Strangozzi al tartufo nero",
-          "que_es": "Pasta gruesa a mano con trufa negra de verano rallada encima. La trufa de Umbría es tan corriente que la ponen sin que sea plato de lujo: en Asís lo comes por 12 €.",
-          "precio": "10-14 €",
-          "donde": "Asís y Spello",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Salumi di Norcia",
-          "que_es": "Los embutidos de Norcia son tan buenos que en italiano al charcutero se le llama norcino. Capocollo, lomo, salchichón de jabalí.",
-          "precio": "3-4 € 100 g",
-          "donde": "Norcinerías de Asís",
-          "imprescindible": true
-        },
-        {
-          "nombre": "Torta al testo",
-          "que_es": "Pan plano cocido en una piedra caliente, abierto y relleno de embutido, queso o verdura. El bocadillo umbro, y cuesta 4 €.",
-          "precio": "4-6 €",
-          "donde": "Puestos y hornos",
-          "imprescindible": false
-        },
-        {
-          "nombre": "Lenticchie di Castelluccio",
-          "que_es": "Lenteja diminuta de altiplano que no necesita remojo y no se deshace. Guisada con salchicha.",
-          "precio": "8-10 €",
-          "donde": "Trattorias de Asís",
-          "imprescindible": false
-        }
-      ],
-      "donde_comer": "Asís vive del peregrino, así que hay carta en cinco idiomas por todas partes. Sube por Via San Francesco hasta pasar la basílica y busca detrás, o baja a Santa Maria degli Angeli, en el llano, donde comen los de allí.",
-      "presupuesto_dia": "12-16 €"
-    },
-    {
       "id": "maremma",
       "region": "Maremma · Saturnia y Pitigliano",
-      "cuando": "Los días de Saturnia, casi siempre al principio del viaje",
+      "cuando": "El sábado 15 y el domingo 16, en Saturnia",
       "resumen": "La Toscana que no sale en las fotos: vaquera, de jabalí y de toba volcánica. Y, en Pitigliano, con quinientos años de cocina judía encima.",
       "platos": [
         {

@@ -1,7 +1,6 @@
 {
   "intro": "Casi todo este viaje se hace sin reservar nada: los aparcamientos, las termas, las playas y las basílicas se pagan en la puerta o son gratis. Lo que sí hay que sacar con antelación son tres cosas, y una de ellas tiene una ventana de venta que se abre en un día exacto.",
   "aviso_franja": "Las entradas con franja horaria son nominativas: van a tu nombre y te pueden pedir el DNI en la puerta. Sácalas con el nombre bien escrito y llévalas en el móvil y en papel, que en agosto la cobertura dentro del Coliseo es la que es.",
-
   "reservas": [
     {
       "id": "coliseo",
@@ -80,39 +79,67 @@
       "como": "Franja horaria y aforo muy limitado: entran pocos cada media hora, así que se agota.",
       "ojo": "Son 251 escalones en una torre inclinada y sin aire. La plaza y el resto de monumentos se ven igual de bien desde abajo y gratis.",
       "reventa": null
-    },
-    {
-      "id": "tivoli",
-      "que": "Villa d'Este, en Tívoli",
-      "lugar": "tivoli",
-      "prioridad": "recomendada",
-      "precio": 15,
-      "precio_txt": "≈ 15 €",
-      "url": "https://villadestetivoli.info",
-      "abre_dias_antes": null,
-      "como": "Se puede sacar en taquilla, pero reservando te ahorras la cola de agosto, que a mediodía es larga.",
-      "ojo": "Solo entra si coges la ruta 6.",
-      "reventa": null
     }
   ],
-
   "sin_reserva": [
-    { "que": "Cinque Terre Treno MS Card", "detalle": "17,30 € el día, se compra en la máquina de la estación de La Spezia el mismo día. No se agota." },
-    { "que": "Todos los aparcamientos", "detalle": "Villa Costanza, Due Ponti, Via Pietrasantina, Anagnina, Cornelia… se pagan al salir o son gratis. Ninguno se reserva." },
-    { "que": "Las termas libres", "detalle": "Saturnia, Bagni San Filippo, Petriolo y el Bulicame son gratis, al aire libre y abiertas las 24 horas. No hay taquilla ni horario." },
-    { "que": "Basílica de San Pedro", "detalle": "Entrar es gratis y no se reserva. Lo que cuesta es la cola del control de seguridad: a primera hora o a última se pasa en veinte minutos." },
-    { "que": "Basílica de San Francisco de Asís", "detalle": "Gratis y sin reserva, con los frescos de Giotto dentro." },
-    { "que": "Duomo de Siena, Piazza dei Miracoli, los pueblos", "detalle": "Se pagan en taquilla el mismo día. En agosto hay cola pero se entra." },
-    { "que": "Bomarzo, Civita di Bagnoregio y Cerveteri", "detalle": "Taquilla el mismo día. Lo que hay que mirar no es la reserva sino el horario de cierre en verano." }
+    {
+      "que": "Cinque Terre Treno MS Card",
+      "detalle": "17,30 € el día, se compra en la máquina de la estación de La Spezia el mismo día. No se agota."
+    },
+    {
+      "que": "Todos los aparcamientos",
+      "detalle": "Villa Costanza, Due Ponti, Via Pietrasantina, Anagnina, Cornelia… se pagan al salir o son gratis. Ninguno se reserva."
+    },
+    {
+      "que": "Las termas libres",
+      "detalle": "Saturnia, Bagni San Filippo, Petriolo y el Bulicame son gratis, al aire libre y abiertas las 24 horas. No hay taquilla ni horario."
+    },
+    {
+      "que": "Basílica de San Pedro",
+      "detalle": "Entrar es gratis y no se reserva. Lo que cuesta es la cola del control de seguridad: a primera hora o a última se pasa en veinte minutos."
+    },
+    {
+      "que": "Basílica de San Francisco de Asís",
+      "detalle": "Gratis y sin reserva, con los frescos de Giotto dentro."
+    },
+    {
+      "que": "Duomo de Siena, Piazza dei Miracoli, los pueblos",
+      "detalle": "Se pagan en taquilla el mismo día. En agosto hay cola pero se entra."
+    },
+    {
+      "que": "Bomarzo, Civita di Bagnoregio y Cerveteri",
+      "detalle": "Taquilla el mismo día. Lo que hay que mirar no es la reserva sino el horario de cierre en verano."
+    }
   ],
-
   "papeleo": [
-    { "que": "Tarjeta Sanitaria Europea", "detalle": "Gratis, se pide por la web de la Seguridad Social y tarda unos días en llegar. Sin ella, una urgencia en Italia se paga y luego se reclama.", "url": "https://sede.seg-social.gob.es" },
-    { "que": "Seguro del coche fuera de España", "detalle": "Llama a tu aseguradora y confirma la cobertura en Italia y la asistencia en carretera. Lleva el parte amistoso europeo en la guantera." },
-    { "que": "Documentación del coche", "detalle": "Permiso de circulación, ficha técnica, ITV en vigor y el recibo del seguro. En Italia la Guardia di Finanza para bastante a matrículas extranjeras." },
-    { "que": "Chaleco y triángulos", "detalle": "Obligatorios en Italia, y el chaleco tiene que ir dentro del habitáculo, no en el maletero: hay que poder ponérselo antes de salir del coche." },
-    { "que": "Avisar al banco", "detalle": "Que no te bloqueen la tarjeta el primer día por uso en el extranjero. Y lleva algo de efectivo: muchos aparcamientos de pueblo solo cogen monedas." },
-    { "que": "Mapas descargados", "detalle": "Descarga el mapa de la Toscana y el Lacio en Google Maps o en Organic Maps antes de salir. En la Maremma y en los Apeninos hay tramos sin cobertura." },
-    { "que": "Mosquitera y ventilador", "detalle": "Para dormir en el coche en agosto: malla mosquitera de imán para las ventanillas delanteras y un ventilador USB con batería. Es la diferencia entre dormir y no dormir." }
+    {
+      "que": "Tarjeta Sanitaria Europea",
+      "detalle": "Gratis, se pide por la web de la Seguridad Social y tarda unos días en llegar. Sin ella, una urgencia en Italia se paga y luego se reclama.",
+      "url": "https://sede.seg-social.gob.es"
+    },
+    {
+      "que": "Seguro del coche fuera de España",
+      "detalle": "Llama a tu aseguradora y confirma la cobertura en Italia y la asistencia en carretera. Lleva el parte amistoso europeo en la guantera."
+    },
+    {
+      "que": "Documentación del coche",
+      "detalle": "Permiso de circulación, ficha técnica, ITV en vigor y el recibo del seguro. En Italia la Guardia di Finanza para bastante a matrículas extranjeras."
+    },
+    {
+      "que": "Chaleco y triángulos",
+      "detalle": "Obligatorios en Italia, y el chaleco tiene que ir dentro del habitáculo, no en el maletero: hay que poder ponérselo antes de salir del coche."
+    },
+    {
+      "que": "Avisar al banco",
+      "detalle": "Que no te bloqueen la tarjeta el primer día por uso en el extranjero. Y lleva algo de efectivo: muchos aparcamientos de pueblo solo cogen monedas."
+    },
+    {
+      "que": "Mapas descargados",
+      "detalle": "Descarga el mapa de la Toscana y el Lacio en Google Maps o en Organic Maps antes de salir. En la Maremma y en los Apeninos hay tramos sin cobertura."
+    },
+    {
+      "que": "Mosquitera y ventilador",
+      "detalle": "Para dormir en el coche en agosto: malla mosquitera de imán para las ventanillas delanteras y un ventilador USB con batería. Es la diferencia entre dormir y no dormir."
+    }
   ]
 }

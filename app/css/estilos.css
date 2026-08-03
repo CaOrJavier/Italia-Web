@@ -708,6 +708,69 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   color: var(--tinta-2); font-size: 12px; white-space: nowrap;
 }
 
+/* El itinerario compuesto, al final: una jornada por día que se abre entera. */
+.jornada { border-top: 1px solid var(--linea); border-left: 4px solid var(--barra); }
+.jornada:first-child { border-top: 0; }
+.jornada > summary {
+  display: grid; grid-template-columns: 40px 1fr auto; gap: 10px; align-items: center;
+  padding: 11px 12px; cursor: pointer; list-style: none;
+}
+.jornada > summary::-webkit-details-marker { display: none; }
+.jornada > summary:hover { background: var(--papel-2); }
+.jornada[open] > summary { background: var(--papel-2); border-bottom: 1px solid var(--linea); }
+
+.jor-n { text-align: center; line-height: 1.15; }
+.jor-n b { display: block; font-size: 15px; }
+.jor-n span { font-size: 9.5px; text-transform: uppercase; letter-spacing: .04em; color: var(--tinta-2); }
+.jor-t { min-width: 0; }
+.jor-t b { display: block; font-size: 14.5px; line-height: 1.25; }
+.jor-fecha { display: block; font-size: 12px; color: var(--tinta-2); }
+.jor-etapa { display: block; font-size: 12.5px; margin-top: 2px; }
+.jor-km { text-align: right; font-size: 11.5px; color: var(--tinta-2); font-variant-numeric: tabular-nums; }
+.jor-km b { display: block; font-size: 13.5px; color: var(--tinta); }
+.jor-km small { display: block; }
+.jor-extra { color: var(--azul-txt); }
+
+.jor-c { padding: 12px; font-size: 14px; }
+.jor-tit {
+  display: block; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em;
+  color: var(--tinta-2); margin: 14px 0 7px;
+}
+.jor-c > .jor-tit:first-child { margin-top: 0; }
+
+/* Las horas del día de un vistazo: cuándo sales, cuándo acabas y dónde duermes. */
+.jor-reloj {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr)); gap: 1px;
+  background: var(--linea); border: 1px solid var(--linea); border-radius: var(--r-peq);
+  overflow: hidden; margin-bottom: 4px;
+}
+.jor-reloj span { background: var(--papel); padding: 8px 10px; }
+.jor-reloj i {
+  display: block; font-style: normal;
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-2);
+}
+.jor-reloj b { font-size: 14px; font-variant-numeric: tabular-nums; }
+
+.jor-sitios ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 5px; }
+.jor-sitios li {
+  display: grid; grid-template-columns: 20px 1fr auto; gap: 8px; align-items: center;
+  padding: 7px 10px; margin: 0; font-size: 13.5px;
+  background: var(--papel-2); border: 1px solid var(--linea);
+  border-left: 3px solid var(--c); border-radius: var(--r-peq);
+}
+.jor-sitios i { font-style: normal; color: var(--c); text-align: center; }
+.jor-sitios em {
+  font-style: normal; font-size: 10.5px; font-weight: 650;
+  color: var(--azul-txt); background: var(--azul-suave);
+  padding: 2px 6px; border-radius: 999px; margin-left: 4px;
+}
+.jor-sitios small { font-size: 11px; color: var(--tinta-2); text-align: right; }
+
+@media (max-width: 400px) {
+  .jor-sitios li { grid-template-columns: 18px 1fr; }
+  .jor-sitios small { grid-column: 2; text-align: left; }
+}
+
 /* El itinerario compuesto, al final. */
 .mez-dia {
   display: grid; grid-template-columns: 44px 1fr auto; gap: 10px; align-items: center;
@@ -894,19 +957,19 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 
 /* ── Las tres rutas en paralelo ──────────────────────────────────────────── */
 
-/* Sólo tiene sentido a partir de 1240 px: con seis columnas más estrechas que
-   eso los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista
-   cae sola al modo de una ruta y este interruptor sobra. */
+/* Sólo tiene sentido a partir de 820 px: con dos columnas más estrechas que eso
+   los títulos se parten en cuatro líneas y deja de leerse. Debajo, la vista cae
+   sola al modo de una ruta y este interruptor sobra. */
 .modo { display: none; }
 .par { display: none; }
 
-@media (min-width: 1240px) {
+@media (min-width: 820px) {
   .modo { display: flex; }
   .par { display: block; margin-bottom: 16px; }
 
   .par-fila {
     display: grid;
-    grid-template-columns: 46px repeat(6, minmax(0, 1fr));
+    grid-template-columns: 52px repeat(2, minmax(0, 1fr));
     gap: 10px;
     margin-bottom: 10px;
     /* Estiradas a la misma altura: es lo que hace que se puedan comparar de un
@@ -1018,12 +1081,6 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   .leyenda ul { grid-template-columns: repeat(3, 1fr); }
 }
 
-@media (min-width: 900px) {
-  /* Seis rutas en seis columnas quedan demasiado estrechas para leerlas: mejor
-     tres y tres, en dos filas. */
-  .selector { grid-template-columns: repeat(3, 1fr); }
-  .vs { grid-template-columns: repeat(3, 1fr); }
-}
 
 @media (min-width: 768px) {
   body { padding-bottom: 26px; }

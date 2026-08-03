@@ -1,8 +1,8 @@
 // Las marcas de diferencia: un símbolo y un color por sitio según en cuántas
 // rutas sale.
 //
-//   ●  verde    en las seis     → esto lo ves elijas lo que elijas
-//   ◐  ámbar    en algunas      → depende de la ruta
+//   ●  verde    en las dos      → esto lo ves elijas lo que elijas
+//   ◐  ámbar    solo desvío     → no está en ninguna ruta de serie
 //   ★  color de la ruta   solo en una  → aquí es donde se decide
 //
 // El símbolo va siempre acompañado de texto, porque un color solo no vale: hay

@@ -6,15 +6,15 @@
 //    ocho sitios caían a menos de cuatro píxeles unos de otros. Ahora, cuando dos
 //    puntos se pisan, se dibuja un solo círculo con el número de sitios dentro, y
 //    al pincharlo el mapa se acerca hasta separarlos.
-// 2. Se ve una ruta cada vez. Las cuatro comparten casi todo el recorrido, así que
-//    dibujadas a la vez son cuatro líneas encima de la misma carretera. Hay botón
+// 2. Se ve una ruta cada vez. Las dos comparten casi todo el recorrido, así que
+//    dibujadas a la vez son dos líneas encima de la misma carretera. Hay botón
 //    para verlas todas, y entonces se pintan con grosores distintos para que los
 //    tramos compartidos se lean como bandas concéntricas.
 // 3. Con una sola ruta encendida, cada punto lleva escrito el día en que se pisa
 //    (D0 a D11). Un mapa de puntos no dice por dónde se empieza ni cuándo estás
 //    en cada sitio; con el día encima se lee de un vistazo. El color sigue
-//    diciendo qué es cada punto, así que no se pierde nada. Con las cuatro rutas
-//    a la vez no se ponen: cada una tiene su propio calendario y serían cuatro
+//    diciendo qué es cada punto, así que no se pierde nada. Con las dos rutas
+//    a la vez no se ponen: cada una tiene su propio calendario y serían dos
 //    numeraciones distintas sobre el mismo sitio.
 //
 // Leaflet pesa 145 KB y solo hace falta aquí: se carga al abrir esta pantalla.
@@ -71,11 +71,8 @@ function puntoEn(puntos, fraccion) {
 const FRACCIONES = [0.5, 0.35, 0.65, 0.22, 0.78];
 
 // Patrón de trazo además del color: en gris, o para quien no distingue el verde
-// del rojo, siguen siendo cuatro líneas distintas.
-const TRAZO = {
-  toscana: null, agua: '10 7', comer: '2 8',
-  etruria: '18 6 3 6', multas: '6 5', castelli: '16 4 2 4 2 4'
-};
+// del rojo, siguen siendo dos líneas distintas.
+const TRAZO = { toscana: null, agua: '10 7' };
 
 let cargando = null;
 
@@ -120,7 +117,7 @@ export async function pintar(main, params) {
         aria-pressed="${r.id === inicial}" style="--c:${esc(r.color)}">
         <span class="raya"></span>${r.numero}. ${esc(r.nombre)}</button>`).join('')}
       <button type="button" data-r="todas" aria-pressed="false" style="--c:var(--tinta-2)">
-        <span class="punto"></span>Las seis a la vez</button>
+        <span class="punto"></span>Las dos a la vez</button>
     </div>
 
     <div class="mapa-caja">
@@ -465,7 +462,7 @@ export async function pintar(main, params) {
           <dl class="datos">
             <div><dt>Día más largo</dt><dd>D${largo.n} · ${largo.km} km <small>${esc(largo.titulo)}</small></dd></div>
             <div><dt>Días apretados</dt><dd>${apretados.length ? apretados.map(d => 'D' + d.n).join(', ') : 'ninguno'}</dd></div>
-            <div><dt>Sitios propios</dt><dd>${datos.propiosDe(r.id).length} de ${suyos.length} <small>no salen en las seis rutas</small></dd></div>
+            <div><dt>Sitios propios</dt><dd>${datos.propiosDe(r.id).length} de ${suyos.length} <small>no salen en las dos rutas</small></dd></div>
             <div><dt>Noches</dt><dd>${nochesGratis} gratis de ${r.dias.filter(d => d.dormir).length} <small>durmiendo en el coche</small></dd></div>
             <div><dt>Bases</dt><dd>${r.bases.length} sitios distintos <small>${r.bases.filter(b => b.noches > 1).length} con más de una noche</small></dd></div>
             <div><dt>Transporte público</dt><dd>${minutosAHoras(tpt)} <small>en total, ida y vuelta a los centros</small></dd></div>
@@ -523,7 +520,7 @@ export async function pintar(main, params) {
     const b = e.target.closest('button');
     if (!b) return;
     // Selección única: pinchar una ruta muestra esa y apaga las demás. Es lo que
-    // hace que no se solapen cuatro líneas sobre la misma carretera.
+    // hace que no se solapen dos líneas sobre la misma carretera.
     activas = b.dataset.r === 'todas' ? new Set(rutas.map(r => r.id)) : new Set([b.dataset.r]);
     refrescar({ encuadrar: true });
   });

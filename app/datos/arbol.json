@@ -153,7 +153,7 @@
       "nombre": "Sovana y Sorano",
       "lugar": "sovana",
       "km": 35, "minutos": 50, "coste": 5,
-      "que": "Los otros dos pueblos de toba, a diez minutos de Pitigliano: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco. Es meterse en la ruta 4 sin cogerla entera."
+      "que": "Los otros dos pueblos de toba, a diez minutos de Pitigliano: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco. Es meterse en la Maremma de la toba sin dedicarle un día entero."
     },
     {
       "id": "pitigliano-desvio",
@@ -163,6 +163,19 @@
       "lugar": "pitigliano",
       "km": 50, "minutos": 60, "coste": 2,
       "que": "Le robas a la otra rama el pueblo colgado del risco de toba, con su barrio judío y las vie cave excavadas en la roca. Sale de Saturnia hacia el este antes de subir al Amiata."
+    },
+    {
+      "id": "pienza-desvio",
+      "icono": "▲",
+      "tramo": "interior",
+      "opcion": "termas",
+      "dia": 3,
+      "nombre": "Pienza y Montepulciano",
+      "lugar": "pienza",
+      "km": 45,
+      "minutos": 60,
+      "coste": 4,
+      "que": "Están a diez y a veinticinco kilómetros de donde duermes en Bagno Vignoni, así que salen casi de balde. Pienza es un pueblo que un papa mandó rehacer entero en cinco años como ciudad ideal del Renacimiento, y es la capital del pecorino: cómpralo ahí, curado en heno o en ceniza. Montepulciano está encaramado en una loma con toda la Val d'Orcia debajo y bodegas excavadas bajo las casas."
     },
     {
       "id": "portovenere-desvio",
