@@ -693,6 +693,14 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 }
 .sk-parada-fija .sk-parada-cab { opacity: .75; }
 
+/* «O Pisa o Portovenere»: la disyuntiva del día, encima de los nodos. Sin esto
+   hay que deducir de dos iconos que son excluyentes, y no lo parecen. */
+.sk-disyuntiva {
+  margin: -2px 0 2px; text-align: center;
+  font-size: 12.5px; color: var(--tinta-2);
+}
+.sk-disyuntiva b { color: var(--tinta); }
+
 .sk-fila { display: grid; gap: 10px; justify-items: center; width: 100%; }
 .sk-fila-n1 { grid-template-columns: 1fr; }
 /* Sin hueco entre columnas a propósito: así el centro de cada nodo cae exactamente
@@ -903,6 +911,9 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .op-mas, .op-menos { display: block; font-size: 13px; padding-left: 15px; text-indent: -15px; }
 .op-mas::before { content: '+ '; font-weight: 700; color: var(--verde-txt); }
 .op-menos::before { content: '− '; font-weight: 700; color: var(--rojo-txt); }
+
+.jor-disyuntiva { font-size: 13.5px; color: var(--tinta-2); margin: 0 0 8px; }
+.jor-disyuntiva b { color: var(--tinta); }
 
 /* Por qué un día no se puede cambiar. Va donde iría el selector de caminos. */
 .jor-porque {

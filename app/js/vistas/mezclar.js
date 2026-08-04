@@ -334,6 +334,16 @@ function enlace(anterior, siguiente, est) {
     <path ${g} class="sk-viva" style="stroke:${esc(cB)}" d="M50 13 V26"/></svg>`;
 }
 
+/** «O Pisa o Portovenere». La disyuntiva se escribe sola con los nombres de los
+ *  caminos que quedan vivos, que no son todos los del día: dependen de dónde
+ *  dormiste. Por eso no vale tenerla escrita en el JSON, donde diría siempre lo
+ *  mismo aunque la mitad de las opciones no estén disponibles esa noche. */
+function disyuntiva(posibles) {
+  const n = posibles.map(o => `<b>${esc(o.corto)}</b>`);
+  if (n.length === 2) return `O ${n[0]} o ${n[1]}. Solo cabe uno.`;
+  return `${n.slice(0, -1).join(', ')} o ${n[n.length - 1]}. Solo cabe uno.`;
+}
+
 /** Una parada del camino: la cabecera del día y sus caminos posibles. */
 function parada(d, est, variantes, desvios) {
   const posibles = est.abanico[d.n];
@@ -350,6 +360,7 @@ function parada(d, est, variantes, desvios) {
       <i>${desde ? 'sales de ' + esc(desde) : 'desembarcas'}</i>
       ${elige ? `<em>${posibles.length} caminos</em>` : '<em class="sk-fijo-et">día fijo</em>'}
     </header>
+    ${elige ? `<p class="sk-disyuntiva">${disyuntiva(posibles)}</p>` : ''}
     <div class="sk-fila sk-fila-n${posibles.length}">
       ${posibles.map(x => nodo(d, x, x.id === o.id)).join('')}
     </div>
@@ -416,6 +427,7 @@ function alternativas(d, est) {
   if (posibles.length < 2) return '';
   return `
   <b class="jor-tit">Este día podría ser otro</b>
+  <p class="jor-disyuntiva">${disyuntiva(posibles)}${d.pregunta ? ' ' + esc(d.pregunta) : ''}</p>
   <div class="var-ops">
     ${posibles.map(o => {
       const puesta = est.sel[d.n] === o.id;

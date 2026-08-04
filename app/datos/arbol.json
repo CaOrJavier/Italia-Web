@@ -243,7 +243,7 @@
           "icono": "◈",
           "ruta": null,
           "nombre": "La Val d'Orcia por la mañana y Siena entera",
-          "corto": "Orcia y Siena",
+          "corto": "Siena",
           "sale": "val-dorcia", "duerme": "villa-costanza",
           "resumen": "Sales de Bagno Vignoni por San Quirico, cruzas la Val d'Orcia con la luz buena y le das a Siena el mediodía y la tarde, con Monteriggioni de propina si el reloj lo permite. Este día no está en ninguna de las dos rutas.",
           "gana": ["Siena entera sin haber dormido en ella: Campo, Duomo por dentro y Torre del Mangia", "La Val d'Orcia a primera hora, que es cuando la luz vale la pena", "Es la única forma de llevarte Siena yendo por las termas"],
@@ -390,7 +390,7 @@
           "icono": "◎",
           "ruta": "toscana", "usa": 5,
           "nombre": "Lucca con noche propia",
-          "corto": "Lucca",
+          "corto": "Solo Lucca",
           "sale": "villa-costanza", "duerme": "lucca",
           "resumen": "Una sola ciudad en todo el día, y duermes dentro. Vuelta a la muralla en bici por la mañana y otra a pie con la luz baja.",
           "gana": ["Lucca sin reloj: es el único día de una sola ciudad del viaje", "La muralla dos veces, en bici y andando", "Se duerme en una ciudad pequeña y tranquila"],
@@ -413,7 +413,7 @@
       "n": 6,
       "icono": "⑂",
       "titulo": "Bajada al golfo de los Poetas",
-      "pregunta": "Todos los caminos duermen esta noche en La Spezia, listos para coger el tren de Cinque Terre mañana a las siete. Lo que cambia es qué haces con el día.",
+      "pregunta": "Todos duermen esta noche en La Spezia, listos para el tren de Cinque Terre de mañana a las siete. Lo que cambia es qué haces con el día, y saliendo de Lucca no da tiempo a las dos cosas: la torre está al sur y el golfo al norte.",
       "opciones": [
         {
           "id": "pisa-golfo",
