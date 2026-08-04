@@ -1,4 +1,4 @@
-﻿// La ruta en seco: una línea por día con las paradas, los kilómetros y dónde
+// La ruta en seco: una línea por día con las paradas, los kilómetros y dónde
 // duermes. Sin explicaciones, para copiar y pegar en otro sitio.
 //
 // El formato usa separadores « · » y no columnas con espacios a propósito: pegado
@@ -7,24 +7,17 @@
 
 import * as datos from '../datos.js';
 import { esc, fechaCorta, minutosAHoras, numero, euros } from '../util.js';
-import { ir } from '../app.js';
 
 export function pintar(main, params) {
-  const idRuta = datos.RUTA.has(params.get('r')) ? params.get('r') : datos.RUTAS.rutas[0].id;
-  const ruta = datos.RUTA.get(idRuta);
+  const ruta = datos.RUTAS.rutas[0];
 
   main.innerHTML = `
     <p class="intro">La ruta en seco, para copiar y pegar donde quieras.</p>
 
-    <div class="filtros" id="f-rutas" role="group" aria-label="Ruta">
-      ${datos.RUTAS.rutas.map(r => `<button type="button" data-r="${esc(r.id)}"
-        aria-pressed="${r.id === idRuta}" style="--c:${esc(r.color)}">
-        <span class="raya"></span>${r.numero}. ${esc(r.nombre)}</button>`).join('')}
-    </div>
 
     <div class="tarjeta">
       <div class="cab-tarjeta">
-        <h3>${ruta.numero}. ${esc(ruta.nombre)}</h3>
+        <h3>La ruta, día a día</h3>
         <button type="button" id="copiar" class="btn-copiar">Copiar</button>
       </div>
       <pre class="seco" id="seco">${esc(texto(ruta))}</pre>
@@ -42,33 +35,17 @@ export function pintar(main, params) {
       <pre class="seco" id="seco-km">${esc(soloKm(ruta))}</pre>
     </details>
 
-    <details class="tarjeta">
-      <summary class="cab-tarjeta" style="cursor:pointer">
-        <h3>Las seis rutas seguidas</h3>
-        <span class="etiq etiq-gris">Para comparar en otro sitio</span>
-      </summary>
-      <div class="cab-tarjeta" style="border-top:1px solid var(--linea)">
-        <span class="peq" style="flex:1">Los seis bloques, uno detrás de otro.</span>
-        <button type="button" id="copiar-todas" class="btn-copiar">Copiar</button>
-      </div>
-      <pre class="seco" id="seco-todas">${esc(datos.RUTAS.rutas.map(texto).join('\n\n\n'))}</pre>
-    </details>
   `;
-
-  main.querySelectorAll('#f-rutas button').forEach(b => {
-    b.addEventListener('click', () => ir('resumen', new URLSearchParams({ r: b.dataset.r })));
-  });
 
   enlazarCopia(main, 'copiar', 'seco');
   enlazarCopia(main, 'copiar-km', 'seco-km');
-  enlazarCopia(main, 'copiar-todas', 'seco-todas');
 }
 
 /** Una línea por día: día, fecha, paradas, kilómetros y dónde se duerme. */
 function texto(r) {
   const f = datos.VIAJE.ferri;
   const l = [];
-  l.push(`RUTA ${r.numero} · ${r.nombre.toUpperCase()} (${r.lema.toLowerCase()})`);
+  l.push(`ITALIA EN COCHE · ${r.lema.toUpperCase()}`);
   l.push(`${numero(r.km)} km · ${minutosAHoras(r.minutos_volante)} al volante · ${euros(r.coste_estimado)} estimados`);
   l.push(`Del ${tramoFechas(f.llegada.fecha, f.salida.fecha)} · ${f.noches} noches durmiendo en el coche`);
   l.push('');
@@ -86,7 +63,7 @@ function texto(r) {
 
 /** La versión mínima: día y kilómetros, nada más. */
 function soloKm(r) {
-  const l = [`RUTA ${r.numero} · ${numero(r.km)} km`];
+  const l = [`ITALIA EN COCHE · ${numero(r.km)} km`];
   r.dias.forEach(d => l.push(`D${d.n} ${fechaCorta(d.fecha)} · ${d.km} km`));
   l.push(`TOTAL ${numero(r.km)} km`);
   return l.join('\n');

@@ -11,7 +11,7 @@ export let APARCAR = null;
 export let COMER = null;
 export let DORMIR = null;
 export let IMAGENES = null;
-export let ARBOL = null;
+export let EXTRAS = null;
 export let RESERVAS = null;
 
 /** id → objeto, para resolver las referencias de los días. */
@@ -27,7 +27,7 @@ async function json(ruta) {
 }
 
 export async function cargar() {
-  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes, arbol, reservas] = await Promise.all([
+  const [viaje, rutas, lugares, aparcar, comer, dormir, imagenes, extras, reservas] = await Promise.all([
     json('datos/viaje.json'),
     json('datos/rutas.json'),
     json('datos/lugares.json'),
@@ -36,7 +36,7 @@ export async function cargar() {
     json('datos/dormir.json'),
     // Las fotos son un extra: si faltan, la web va igual, solo que sin imágenes.
     json('datos/imagenes.json').catch(() => ({ fotos: [] })),
-    json('datos/arbol.json'),
+    json('datos/extras.json'),
     json('datos/reservas.json')
   ]);
 
@@ -47,7 +47,7 @@ export async function cargar() {
   COMER = comer;
   DORMIR = dormir;
   IMAGENES = imagenes;
-  ARBOL = arbol;
+  EXTRAS = extras;
   RESERVAS = reservas;
 
   RUTAS.rutas.forEach(r => RUTA.set(r.id, r));
@@ -153,59 +153,41 @@ export function etiquetaDias(ns) {
   return 'D' + tramos.map(([a, b]) => (a === b ? a : `${a}-${b}`)).join('·');
 }
 
-/** Aviso por consola si un lugar dice ser de una ruta que no lo visita, o al revés.
- *  Son dos listas escritas a mano y es justo donde se descuadran. */
+/** Aviso por consola si un lugar dice ser de la ruta y ningún día lo pisa, o al
+ *  revés. Son dos listas escritas a mano y es justo donde se descuadran. */
 function comprobarLugares() {
-  RUTAS.rutas.forEach(r => {
-    const enDias = new Set(r.dias.flatMap(d => comoArray(d.lugares)));
-    const suyos = LUGARES.lugares.filter(l => l.rutas.includes(r.id)).map(l => l.id);
-    suyos.filter(id => !enDias.has(id))
-      .forEach(id => console.warn(`[${r.id}] "${id}" dice ser de esta ruta pero ningún día lo visita`));
-    [...enDias].filter(id => !suyos.includes(id))
-      .forEach(id => console.warn(`[${r.id}] un día visita "${id}", que no consta en esta ruta`));
-  });
+  const r = RUTAS.rutas[0];
+  const enDias = new Set(r.dias.flatMap(d => comoArray(d.lugares)));
+  const suyos = LUGARES.lugares.filter(l => l.rutas.includes(r.id)).map(l => l.id);
+  suyos.filter(id => !enDias.has(id))
+    .forEach(id => console.warn(`"${id}" dice estar en la ruta pero ningún día lo visita`));
+  [...enDias].filter(id => !suyos.includes(id))
+    .forEach(id => console.warn(`un día visita "${id}", que no consta en la ruta`));
 }
 
-/** En cuántas rutas sale un lugar, traducido a la marca que se pinta en los menús:
- *  lo que ves siempre, lo que depende de la ruta y lo que solo tiene una.
- *  Es la respuesta a «¿qué gano y qué pierdo eligiendo esta?». */
+/** Con una sola ruta ya no hay «¿qué gano y qué pierdo eligiendo esta?»: solo hay
+ *  dos clases de sitio, los que están en el plan y los que hay que añadir a mano
+ *  desde A medida, pagando kilómetros. */
 export function exclusividadDe(l) {
-  const total = RUTAS.rutas.length;
-  const n = l.rutas.length;
-  // Los sitios que solo existen como desvío al mezclar rutas no están en ninguna,
-  // así que no se les puede aplicar la escala normal.
-  if (!n) {
-    return { clave: 'algunas', ...LUGARES.exclusividad.algunas,
-             nombre: 'Solo como desvío', corto: 'Desvío',
-             cuantas: 0, total, ruta: null };
-  }
-  const clave = n >= total ? 'todas' : n === 1 ? 'solo' : 'algunas';
-  const base = LUGARES.exclusividad[clave];
-  // Si es de una sola ruta, la marca se pinta del color de esa ruta: así se ve
-  // de un vistazo a cuál pertenece sin leer nada.
-  const suya = clave === 'solo' ? RUTA.get(l.rutas[0]) : null;
-  return { clave, ...base, color: suya ? suya.color : base.color, ruta: suya, cuantas: n, total };
+  const clave = l.rutas.length ? 'todas' : 'algunas';
+  return { clave, ...LUGARES.exclusividad[clave], enLaRuta: clave === 'todas' };
 }
 
-/** Cuenta de lugares propios de una ruta: los que no salen en todas. */
-export function propiosDe(idRuta) {
-  return LUGARES.lugares.filter(l => l.rutas.includes(idRuta) && l.rutas.length < RUTAS.rutas.length);
-}
+/** Los sitios que hay que ganarse: no están en el plan, se meten como desvío. */
+export const soloDesvio = () => LUGARES.lugares.filter(l => !l.rutas.length);
 
-/** Lugares exclusivos de una ruta: si no la coges, no los ves. */
-export function exclusivosDe(idRuta) {
-  return LUGARES.lugares.filter(l => l.rutas.length === 1 && l.rutas[0] === idRuta);
-}
+/** La ruta, que ahora es una. Se sigue guardando en una lista porque el resto de
+ *  los datos la referencian por id, pero ya no hay nada que elegir. */
+export const LA_RUTA = () => RUTAS.rutas[0];
 
-/** Lugares del mapa que pertenecen a una ruta (o todos si no se pasa ninguna). */
+/** Lugares del mapa: los de la ruta, o todos contando los desvíos. */
 export function lugaresDe(idRuta) {
   if (!idRuta) return LUGARES.lugares;
   return LUGARES.lugares.filter(l => l.rutas.includes(idRuta));
 }
 
-/** Las regiones de comida que toca una ruta. Con las dos rutas que quedan, las
- *  cuatro regiones caen en las dos: el Lacio de Roma, la Toscana, la Liguria de
- *  Cinque Terre y la Maremma de Saturnia. */
+/** Las cuatro regiones de comida que se tocan: el Lacio de Roma, la Toscana, la
+ *  Liguria de Cinque Terre y la Maremma de Saturnia. */
 export function regionesDe() {
   return COMER.regiones;
 }

@@ -89,7 +89,7 @@
       "id": "lucca",
       "ciudad": "Lucca",
       "ztl": "Media",
-      "ztl_detalle": "El centro dentro de la muralla renacentista es ZTL, pero la muralla misma es un parque público por el que se puede pasear y montar en bici.",
+      "ztl_detalle": "El centro dentro de la muralla renacentista es ZTL, pero la muralla misma es un parque público por el que se pasea.",
       "parking": "Zona del antiguo hospital y Borgo Giannotti, fuera de la muralla",
       "lat": 43.848,
       "lon": 10.503,
@@ -99,7 +99,7 @@
       "minutos_centro": 15,
       "desglose": "15 min andando llanos, entrando por una de las puertas de la muralla",
       "billete": "—",
-      "nota": "De las pocas ciudades italianas donde todavía se aparca gratis cerca del centro. Es todo llano. Si te sobra un rato, alquilar una bici y dar la vuelta completa a la muralla (4,2 km, todo arbolado) cuesta unos 4 € la hora y es lo mejor de Lucca."
+      "nota": "De las pocas ciudades italianas donde todavía se aparca gratis cerca del centro. Es todo llano, y desde el aparcamiento se entra al centro por una de las puertas de la muralla, que es un parque público arbolado por el que se pasea."
     },
     {
       "id": "pisa",

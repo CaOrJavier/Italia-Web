@@ -58,8 +58,8 @@ function urgencia(e, r, salida) {
 const ORDEN = { critica: 0, recomendada: 1, opcional: 2 };
 
 export function pintar(main, params) {
-  const idRuta = datos.RUTA.has(params.get('r')) ? params.get('r') : datos.RUTAS.rutas[0].id;
-  const ruta = datos.RUTA.get(idRuta);
+  const ruta = datos.RUTAS.rutas[0];
+  const idRuta = ruta.id;
   const R = datos.RESERVAS;
 
   const salida = diasHasta(datos.VIAJE.ferri.llegada.fecha);
@@ -77,14 +77,6 @@ export function pintar(main, params) {
     <p class="intro">${esc(R.intro)}</p>
 
     ${cabecera(salida, criticas, gasto, conOpcionales)}
-
-    <div class="filtros" id="f-rutas" role="group" aria-label="Ruta">
-      ${datos.RUTAS.rutas.map(r => `<button type="button" data-r="${esc(r.id)}"
-        aria-pressed="${r.id === idRuta}" style="--c:${esc(r.color)}">
-        <span class="raya"></span>${r.numero}. ${esc(r.nombre)}</button>`).join('')}
-    </div>
-    <p class="peq" style="margin:-6px 0 14px">Las fechas de abajo son las de la ruta
-      <b>${ruta.numero}. ${esc(ruta.nombre)}</b>. Si coges otra, cambian.</p>
 
     <div class="caja caja-ojo"><b class="caja-t">Entradas nominativas</b>${esc(R.aviso_franja)}</div>
 
@@ -109,9 +101,6 @@ export function pintar(main, params) {
       </div>`).join('')}</div>
   `;
 
-  main.querySelectorAll('#f-rutas button').forEach(b => {
-    b.addEventListener('click', () => ir('reservar', new URLSearchParams({ r: b.dataset.r })));
-  });
 }
 
 function cabecera(salida, criticas, gasto, conOpcionales) {

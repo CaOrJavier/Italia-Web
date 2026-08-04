@@ -6,22 +6,19 @@
 //    ocho sitios caían a menos de cuatro píxeles unos de otros. Ahora, cuando dos
 //    puntos se pisan, se dibuja un solo círculo con el número de sitios dentro, y
 //    al pincharlo el mapa se acerca hasta separarlos.
-// 2. Se ve una ruta cada vez. Las dos comparten casi todo el recorrido, así que
-//    dibujadas a la vez son dos líneas encima de la misma carretera. Hay botón
-//    para verlas todas, y entonces se pintan con grosores distintos para que los
-//    tramos compartidos se lean como bandas concéntricas.
-// 3. Con una sola ruta encendida, cada punto lleva escrito el día en que se pisa
-//    (D0 a D11). Un mapa de puntos no dice por dónde se empieza ni cuándo estás
-//    en cada sitio; con el día encima se lee de un vistazo. El color sigue
-//    diciendo qué es cada punto, así que no se pierde nada. Con las dos rutas
-//    a la vez no se ponen: cada una tiene su propio calendario y serían dos
-//    numeraciones distintas sobre el mismo sitio.
+// 2. Los sitios que solo se pisan cogiendo un desvío empiezan apagados. Son 21 y
+//    encendidos taparían la ruta, que es lo que se viene a ver. El botón los
+//    enciende cuando se está eligiendo qué añadir en A medida.
+// 3. Cada punto de la ruta lleva escrito el día en que se pisa (D0 a D11). Un
+//    mapa de puntos no dice por dónde se empieza ni cuándo estás en cada sitio;
+//    con el día encima se lee de un vistazo. El color sigue diciendo qué es cada
+//    punto, así que no se pierde nada. Los desvíos no llevan día: dependen de si
+//    los coges, y eso se decide en otra pantalla.
 //
 // Leaflet pesa 145 KB y solo hace falta aquí: se carga al abrir esta pantalla.
 
 import * as datos from '../datos.js';
 import { imagenSuelta } from '../fotos.js';
-import { marca, leyenda } from '../marcas.js';
 import { esc, minutosAHoras, numero, euros } from '../util.js';
 
 const LEAFLET_JS = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
@@ -72,7 +69,6 @@ const FRACCIONES = [0.5, 0.35, 0.65, 0.22, 0.78];
 
 // Patrón de trazo además del color: en gris, o para quien no distingue el verde
 // del rojo, siguen siendo dos líneas distintas.
-const TRAZO = { toscana: null, agua: '10 7' };
 
 let cargando = null;
 
@@ -101,9 +97,11 @@ function cargarLeaflet() {
 }
 
 export async function pintar(main, params) {
-  const rutas = datos.RUTAS.rutas;
+  const ruta = datos.RUTAS.rutas[0];
   const tipos = datos.LUGARES.tipos;
-  const inicial = datos.RUTA.has(params.get('r')) ? params.get('r') : rutas[0].id;
+  // Los sitios que solo existen como desvío empiezan apagados: son 21 y taparían
+  // la ruta, que es lo que se viene a ver.
+  const inicial = params.get('d') === '1';
 
   main.innerHTML = `
     <p class="intro">Una ruta cada vez, que es como se lee. Cada icono lleva el día en que
@@ -112,12 +110,11 @@ export async function pintar(main, params) {
     sitios hay debajo: pínchala y el mapa se acerca hasta separarlos. Los kilómetros van
     sobre la línea, en mitad del tramo que se hace ese día.</p>
 
-    <div class="filtros" id="f-rutas" role="group" aria-label="Ruta que se muestra">
-      ${rutas.map(r => `<button type="button" data-r="${esc(r.id)}"
-        aria-pressed="${r.id === inicial}" style="--c:${esc(r.color)}">
-        <span class="raya"></span>${r.numero}. ${esc(r.nombre)}</button>`).join('')}
-      <button type="button" data-r="todas" aria-pressed="false" style="--c:var(--tinta-2)">
-        <span class="punto"></span>Las dos a la vez</button>
+    <div class="filtros" id="f-desvios" role="group" aria-label="Qué se muestra">
+      <button type="button" data-d="0" aria-pressed="${!inicial}" style="--c:${esc(ruta.color)}">
+        <span class="raya"></span>Solo la ruta</button>
+      <button type="button" data-d="1" aria-pressed="${inicial}" style="--c:var(--ambar-txt)">
+        <span class="punto"></span>Con los desvíos</button>
     </div>
 
     <div class="mapa-caja">
@@ -132,8 +129,6 @@ export async function pintar(main, params) {
     </div>
 
     <div id="datos-mapa"></div>
-
-    ${leyenda()}
 
     <p class="peq">Teselas de OpenStreetMap. Las coordenadas de los aparcamientos son
     aproximadas: en el navegador del coche busca el nombre del aparcamiento, no el punto.</p>
@@ -157,7 +152,7 @@ export async function pintar(main, params) {
 
   // La vista se fija antes de dibujar nada: agrupar los puntos exige proyectar
   // coordenadas a píxeles, y sin centro ni zoom Leaflet todavía no sabe hacerlo.
-  const TODO = rutas.flatMap(r => r.trazado.map(p => [p[0], p[1]]));
+  const TODO = datos.RUTAS.rutas[0].trazado.map(p => [p[0], p[1]]);
   mapa.fitBounds(L.latLngBounds(TODO), { padding: [26, 26] });
 
   avisarSinTeselas(mapa);
@@ -166,32 +161,18 @@ export async function pintar(main, params) {
   const capaKm = L.layerGroup().addTo(mapa);
   const capaPuntos = L.layerGroup().addTo(mapa);
 
-  /** La ruta única encendida, o null si hay varias. Es lo que permite poner días. */
-  const rutaUnica = () => (activas.size === 1 ? [...activas][0] : null);
-
-  /** Rutas encendidas. Empieza con una sola: es lo que hace el mapa legible. */
-  let activas = new Set([inicial]);
+  /** Si se pintan también los sitios que solo se pisan cogiendo un desvío. */
+  let conDesvios = inicial;
   const activos = new Set(Object.keys(tipos));
 
   // ── Trazados ────────────────────────────────────────────────────────────
 
   function pintarLineas() {
     capaLineas.clearLayers();
-    const enOrden = rutas.filter(r => activas.has(r.id));
-
-    // Con varias encendidas, grosores decrecientes: donde coinciden se ven como
-    // bandas concéntricas en vez de taparse unas a otras.
-    const grueso = enOrden.length > 1;
-    enOrden.forEach((r, i) => {
-      L.polyline(r.trazado.map(p => [p[0], p[1]]), {
-        color: r.color,
-        weight: grueso ? 9 - i * 2 : 4,
-        opacity: grueso ? 0.55 : 0.9,
-        dashArray: TRAZO[r.id] || null,
-        lineJoin: 'round'
-      }).bindPopup(`<b>${r.numero}. ${esc(r.nombre)}</b>
-        <span class="peq">${esc(r.lema)} · ${r.km} km</span>`).addTo(capaLineas);
-    });
+    L.polyline(ruta.trazado.map(p => [p[0], p[1]]), {
+      color: ruta.color, weight: 4, opacity: 0.9, lineJoin: 'round'
+    }).bindPopup(`<b>${esc(ruta.nombre)}</b>
+      <span class="peq">${esc(ruta.lema)} · ${ruta.km} km</span>`).addTo(capaLineas);
   }
 
   /** Dónde han quedado los iconos de los puntos. Las etiquetas de kilómetros los
@@ -203,9 +184,7 @@ export async function pintar(main, params) {
    *  «150 km» pegado a Siena no dice si es para llegar o para salir. */
   function pintarKm() {
     capaKm.clearLayers();
-    const id = rutaUnica();
-    if (!id) return;                       // con varias rutas, cada una tiene los suyos
-    const r = datos.RUTA.get(id);
+    const r = ruta;
 
     // Se colocan de mayor a menor: si dos etiquetas chocan, gana la del día largo,
     // que es la que más informa. Y se esquivan también los puntos ya dibujados.
@@ -274,7 +253,7 @@ export async function pintar(main, params) {
 
   function visibles() {
     return datos.LUGARES.lugares.filter(l =>
-      activos.has(l.tipo) && l.rutas.some(id => activas.has(id)));
+      activos.has(l.tipo) && (l.rutas.length || conDesvios));
   }
 
   /** Centro en píxeles de un montón de lugares. Es donde se dibuja el icono, así
@@ -305,7 +284,7 @@ export async function pintar(main, params) {
     // Segundo barrido: fusionar solo los que de verdad se pisarían, midiendo cada
     // icono por su propia etiqueta. Así dos pastillas cortas pueden quedarse a
     // 40 px sin molestarse, y solo se juntan las que se taparían.
-    const ancho = g => anchoIcono(g.items.length > 1 || rutaUnica() ? etiquetaDe(g.items) : null);
+    const ancho = g => anchoIcono(etiquetaDe(g.items));
     for (let toco = true; toco; ) {
       toco = false;
       salir:
@@ -329,23 +308,20 @@ export async function pintar(main, params) {
     capaPuntos.clearLayers();
     ocupados = [];
     for (const g of agrupar(visibles())) {
-      const et = g.items.length > 1 || rutaUnica() ? etiquetaDe(g.items) : null;
+      const et = etiquetaDe(g.items);
       ocupados.push({ p: g.p, ancho: anchoIcono(et) });
       if (g.items.length === 1) capaPuntos.addLayer(pinSuelto(g.items[0]));
       else capaPuntos.addLayer(pinGrupo(g));
     }
   }
 
-  /** Los días de un lugar en la ruta que esté sola encendida. */
-  function diasDe(l) {
-    const r = rutaUnica();
-    return r ? datos.diasDeLugar(r, l.id) : [];
-  }
+  /** Los días en que se pisa un lugar. Los desvíos no tienen: dependen de si los
+   *  coges, y eso se decide en A medida. */
+  const diasDe = l => datos.diasDeLugar(ruta.id, l.id);
 
   function pinSuelto(l) {
     const t = datos.LUGARES.tipos[l.tipo];
     const e = datos.exclusividadDe(l);
-    const enRutas = l.rutas.map(id => datos.RUTA.get(id)).filter(Boolean);
     const dias = diasDe(l);
     const et = datos.etiquetaDias(dias);
     // Con día, el icono es una pastilla con el día escrito; sin él (varias rutas
@@ -367,8 +343,7 @@ export async function pintar(main, params) {
       <span class="peq">${esc(t.nombre)}${l.precio ? ' · ' + esc(l.precio) : ''}</span>
       ${dias.length ? `<span class="peq"><b>${esc(textoDias(dias))}</b></span>` : ''}
       <p style="margin:6px 0 0">${esc(l.nota)}</p>
-      ${marca(l, { largo: true })}
-      <span class="peq">Ruta ${enRutas.map(r => r.numero).join(', ')}${l.aprox ? ' · coordenadas aproximadas' : ''}</span>`,
+      <span class="peq"><b>${esc(e.nombre)}.</b> ${esc(e.explica)}${l.aprox ? ' Coordenadas aproximadas.' : ''}</span>`,
       { minWidth: 240, maxWidth: 280 });
   }
 
@@ -377,7 +352,6 @@ export async function pintar(main, params) {
     // El icono va exactamente en el punto que se ha usado para agrupar, para que
     // lo que se mide y lo que se ve sean lo mismo.
     const donde = mapa.layerPointToLatLng(g.p);
-    const solos = items.filter(l => datos.exclusividadDe(l).clave === 'solo').length;
     // El día manda sobre la cuenta: en un grupo que es una ciudad, saber que son
     // los días 9 a 11 dice más que saber que hay nueve puntos dentro.
     const dias = [...new Set(items.flatMap(diasDe))].sort((a, b) => a - b);
@@ -389,7 +363,7 @@ export async function pintar(main, params) {
       zIndexOffset: 200,
       icon: L.divIcon({
         className: '',
-        html: `<span class="grupo${solos ? ' grupo-solo' : ''}${et ? ' grupo-dia' : ''}"
+        html: `<span class="grupo${et ? ' grupo-dia' : ''}"
                  >${esc(et || items.length)}<i>${items.length}</i></span>`,
         iconSize: [ancho, 30], iconAnchor: [ancho / 2, 15]
       })
@@ -411,7 +385,7 @@ export async function pintar(main, params) {
   function contarPorTipo() {
     const cuenta = {};
     for (const l of datos.LUGARES.lugares) {
-      if (!l.rutas.some(id => activas.has(id))) continue;
+      if (!l.rutas.length && !conDesvios) continue;
       cuenta[l.tipo] = (cuenta[l.tipo] || 0) + 1;
     }
     main.querySelectorAll('[data-cuenta]').forEach(b => {
@@ -425,14 +399,13 @@ export async function pintar(main, params) {
   function pintarDatos() {
     const caja = main.querySelector('#datos-mapa');
     contarPorTipo();
-    const id = rutaUnica();
-    caja.innerHTML = id ? datosDeUna(datos.RUTA.get(id)) : datosDeTodas();
+    caja.innerHTML = datosDeUna(ruta);
   }
 
   function datosDeUna(r) {
     const suyos = datos.lugaresDe(r.id);
     const vistos = visibles();
-    const solos = datos.exclusivosDe(r.id).length;
+    const desvios = datos.soloDesvio().length;
     const comb = datos.combustible(r);
     const apretados = datos.apretadosDe(r);
     const tpt = r.dias.reduce((t, d) => t + datos.minutosTransporte(d), 0);
@@ -445,14 +418,14 @@ export async function pintar(main, params) {
     return `
       <div class="tarjeta" style="--barra:${esc(r.color)}">
         <div class="cab-tarjeta">
-          <h3>${r.numero}. ${esc(r.nombre)}</h3>
+          <h3>${esc(r.nombre)}</h3>
           <span class="etiq etiq-gris">${esc(r.lema)}</span>
         </div>
         <div class="cifras">
           <div><b>${numero(r.km)}</b><span>kilómetros</span></div>
           <div><b>${minutosAHoras(r.minutos_volante)}</b><span>al volante</span></div>
           <div><b>${vistos.length}${vistos.length !== suyos.length ? `<small> de ${suyos.length}</small>` : ''}</b><span>sitios en el mapa</span></div>
-          <div><b>${solos}</b><span>solo en esta ruta</span></div>
+          <div><b>${desvios}</b><span>sitios de desvío</span></div>
         </div>
         <div class="tarjeta-c">
           <div class="reparto">${porTipo.map(([t, n]) => `
@@ -462,7 +435,6 @@ export async function pintar(main, params) {
           <dl class="datos">
             <div><dt>Día más largo</dt><dd>D${largo.n} · ${largo.km} km <small>${esc(largo.titulo)}</small></dd></div>
             <div><dt>Días apretados</dt><dd>${apretados.length ? apretados.map(d => 'D' + d.n).join(', ') : 'ninguno'}</dd></div>
-            <div><dt>Sitios propios</dt><dd>${datos.propiosDe(r.id).length} de ${suyos.length} <small>no salen en las dos rutas</small></dd></div>
             <div><dt>Noches</dt><dd>${nochesGratis} gratis de ${r.dias.filter(d => d.dormir).length} <small>durmiendo en el coche</small></dd></div>
             <div><dt>Bases</dt><dd>${r.bases.length} sitios distintos <small>${r.bases.filter(b => b.noches > 1).length} con más de una noche</small></dd></div>
             <div><dt>Transporte público</dt><dd>${minutosAHoras(tpt)} <small>en total, ida y vuelta a los centros</small></dd></div>
@@ -473,34 +445,12 @@ export async function pintar(main, params) {
       </div>`;
   }
 
-  function datosDeTodas() {
-    const rs = datos.RUTAS.rutas;
-    return `
-      <div class="scroll-x"><table>
-        <caption class="peq" style="text-align:left;padding:9px 11px">
-          Enciende una sola ruta para ver sus números en detalle.</caption>
-        <thead><tr>
-          <th scope="col">Ruta</th><th scope="col">km</th><th scope="col">Volante</th>
-          <th scope="col">Sitios</th><th scope="col">Solo ahí</th><th scope="col">Coste</th>
-        </tr></thead>
-        <tbody>${rs.map(r => `<tr>
-          <th scope="row"><span class="leyenda-ruta" style="--barra:${esc(r.color)}">
-            <i></i>${r.numero}. ${esc(r.nombre)}</span></th>
-          <td class="num">${numero(r.km)}</td>
-          <td class="num">${minutosAHoras(r.minutos_volante)}</td>
-          <td class="num">${datos.lugaresDe(r.id).length}</td>
-          <td class="num">${datos.exclusivosDe(r.id).length}</td>
-          <td class="num">${euros(r.coste_estimado)}</td>
-        </tr>`).join('')}</tbody>
-      </table></div>`;
-  }
-
   function refrescar({ encuadrar = false } = {}) {
     pintarLineas();
     // Primero encuadrar y luego agrupar: los grupos dependen del zoom, así que
     // calcularlos antes de mover la vista daría el reparto de la vista anterior.
     if (encuadrar) {
-      const pts = rutas.filter(r => activas.has(r.id)).flatMap(r => r.trazado.map(p => [p[0], p[1]]));
+      const pts = ruta.trazado.map(p => [p[0], p[1]]);
       if (pts.length) mapa.fitBounds(L.latLngBounds(pts), { padding: [26, 26] });
     }
     // Los puntos primero y los kilómetros después: las etiquetas necesitan saber
@@ -508,20 +458,16 @@ export async function pintar(main, params) {
     pintarPuntos();
     pintarKm();
     pintarDatos();
-    main.querySelectorAll('#f-rutas button').forEach(b => {
-      const activo = b.dataset.r === 'todas'
-        ? activas.size === rutas.length
-        : activas.has(b.dataset.r) && activas.size === 1;
-      b.setAttribute('aria-pressed', String(activo));
-    });
+    main.querySelectorAll('#f-desvios button').forEach(b =>
+      b.setAttribute('aria-pressed', String((b.dataset.d === '1') === conDesvios)));
   }
 
-  main.querySelector('#f-rutas').addEventListener('click', e => {
+  main.querySelector('#f-desvios').addEventListener('click', e => {
     const b = e.target.closest('button');
     if (!b) return;
     // Selección única: pinchar una ruta muestra esa y apaga las demás. Es lo que
     // hace que no se solapen dos líneas sobre la misma carretera.
-    activas = b.dataset.r === 'todas' ? new Set(rutas.map(r => r.id)) : new Set([b.dataset.r]);
+    conDesvios = b.dataset.d === '1';
     refrescar({ encuadrar: true });
   });
 

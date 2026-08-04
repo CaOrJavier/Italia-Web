@@ -33,25 +33,18 @@
   },
   "exclusividad": {
     "todas": {
-      "nombre": "En las dos rutas",
-      "corto": "En las 2",
+      "nombre": "En la ruta",
+      "corto": "En la ruta",
       "simbolo": "●",
       "color": "#00663A",
-      "explica": "Lo elijas como lo elijas, esto lo ves."
+      "explica": "Está en el plan: lo ves sí o sí."
     },
     "algunas": {
       "nombre": "Solo como desvío",
       "corto": "Desvío",
       "simbolo": "◐",
       "color": "#8A5A00",
-      "explica": "No está en ninguna ruta de serie: se añade en Mezclar."
-    },
-    "solo": {
-      "nombre": "Solo en una ruta",
-      "corto": "Solo aquí",
-      "simbolo": "★",
-      "color": "#CD212A",
-      "explica": "Si no coges esa ruta, no lo ves. Aquí es donde se decide."
+      "explica": "No está en el plan de serie: se añade a mano en A medida, con sus kilómetros contados aparte."
     }
   },
   "lugares": [
@@ -62,8 +55,7 @@
       "lat": 42.094,
       "lon": 11.79,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "nota": "Llegas el 14 a las 20:30 y embarcas el 25 a las 22:30. Hay que estar en el puerto a las 20:30."
     },
@@ -75,8 +67,7 @@
       "lon": 11.9366,
       "aprox": true,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Primera noche, a 450 m de altitud: 4-6 °C más fresco que la costa."
@@ -112,8 +103,7 @@
       "lat": 42.094,
       "lon": 12.183,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Base para los tres días de Roma del final. Lago volcánico: es la ducha de la mañana antes de bajar a la ciudad."
@@ -136,8 +126,7 @@
       "lat": 41.8902,
       "lon": 12.4922,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "18 €",
       "nota": "Entrada nominativa con franja horaria, a la venta 30 días antes exactos. La misma entrada vale para el Foro y el Palatino durante 24 h."
@@ -149,8 +138,7 @@
       "lat": 41.9065,
       "lon": 12.4536,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "≈ 20 €",
       "nota": "Cierran el 15 de agosto y los domingos. Por eso Roma va al final: la Sixtina cae el lunes 24 y el martes 25 queda de reserva."
@@ -162,8 +150,7 @@
       "lat": 41.9022,
       "lon": 12.4539,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis · cúpula 10 €",
       "nota": "Entrar es gratis; lo que cuesta es la cola del control. A primera hora o a última se pasa en veinte minutos."
@@ -175,8 +162,7 @@
       "lat": 41.8986,
       "lon": 12.4769,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "El circuito del centro histórico, todo a pie y todo gratis."
@@ -188,8 +174,7 @@
       "lat": 41.877,
       "lon": 12.475,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "5-8 €",
       "nota": "Donde nació la cocina romana. El mercado tiene puestos de comida hecha a mediodía."
@@ -201,8 +186,7 @@
       "lat": 41.889,
       "lon": 12.47,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Cruza la Viale di Trastevere y aléjate de Santa Maria: ahí bajan los precios a la mitad."
@@ -214,8 +198,7 @@
       "lat": 41.856,
       "lon": 12.515,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Los domingos está cortada al tráfico: ocho kilómetros de calzada romana original entre pinos y tumbas. Las catacumbas de San Calixto y San Sebastián están en el mismo camino."
@@ -239,8 +222,7 @@
       "lon": 12.586,
       "aprox": true,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "1,50 € / 12 h",
       "nota": "Final de la Metro A. 45 minutos puerta a puerta hasta el centro."
@@ -253,8 +235,7 @@
       "lon": 12.4025,
       "aprox": true,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "≈ 1,50 € / 12 h",
       "nota": "Lado oeste de Roma: dos paradas de metro hasta el Vaticano sin pisar el centro."
@@ -266,7 +247,7 @@
       "lat": 43.3186,
       "lon": 11.3319,
       "rutas": [
-        "toscana"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "La plaza en forma de concha, el Duomo con el suelo de mármol taraceado (descubierto en agosto) y la Torre del Mangia."
@@ -279,7 +260,7 @@
       "lon": 11.335,
       "aprox": true,
       "rutas": [
-        "toscana"
+        "italia"
       ],
       "precio": "2 € el día",
       "nota": "Escaleras mecánicas soterradas hasta Porta Camollia. 20 minutos al Campo sin cuestas. Ojo: el Fagiolone, que salía como gratuito en muchas guías, ahora cuesta 20 € las 24 h."
@@ -291,7 +272,7 @@
       "lat": 43.3906,
       "lon": 11.223,
       "rutas": [
-        "toscana"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Un pueblo entero dentro de una muralla circular con catorce torres. Media hora y se ve todo."
@@ -302,22 +283,10 @@
       "tipo": "ver",
       "lat": 43.4677,
       "lon": 11.0431,
-      "rutas": [
-        "toscana"
-      ],
-      "precio": "Aparcar 12-20 €",
-      "nota": "Catorce torres medievales en pie de las setenta y dos que hubo. Aparca en los de abajo, que valen la mitad."
-    },
-    {
-      "id": "certaldo",
-      "nombre": "Certaldo Alto",
-      "tipo": "ver",
-      "lat": 43.5478,
-      "lon": 11.0397,
       "rutas": [],
-      "solo_desvio": true,
-      "precio": "Funicular 2 €",
-      "nota": "El pueblo de ladrillo rojo donde murió Boccaccio, sin coches dentro y con funicular desde la parte baja. Una sola calle, el palacio pretorio con escudos de mayólica y el valle delante. Entre San Gimignano y Florencia."
+      "precio": "Aparcar 12-20 €",
+      "nota": "Catorce torres medievales en pie de las setenta y dos que hubo. Aparca en los de abajo, que valen la mitad.",
+      "solo_desvio": true
     },
     {
       "id": "chianti",
@@ -330,17 +299,6 @@
       "solo_desvio": true,
       "precio": "Gratis",
       "nota": "La SR222, la Chiantigiana: 40 km de curvas entre viñedos y castillos de Siena a Florencia. Castellina tiene una calle entera cubierta por bóvedas dentro de la muralla, y Greve una plaza triangular con soportales desiguales."
-    },
-    {
-      "id": "volterra",
-      "nombre": "Volterra",
-      "tipo": "ver",
-      "lat": 43.4022,
-      "lon": 10.86,
-      "rutas": [],
-      "solo_desvio": true,
-      "precio": "≈ 3 € aparcar",
-      "nota": "Ciudad etrusca amurallada sobre un balcón de piedra, con un teatro romano entero abajo y las Balze, unos barrancos que se están comiendo el pueblo por un lado. Mucho menos visitada que San Gimignano, a media hora de allí. Solo entra como desvío al mezclar las rutas 1 y 2."
     },
     {
       "id": "pienza",
@@ -374,8 +332,7 @@
       "lon": 11.183,
       "aprox": true,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "7 € el día",
       "nota": "Se entra desde la A1 sin pisar una sola calle de Florencia, y el tranvía T1 sale de dentro del parking: 23 minutos hasta Santa Maria Novella. También es donde duermes."
@@ -387,8 +344,7 @@
       "lat": 43.7731,
       "lon": 11.256,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis por fuera",
       "nota": "La cúpula de Brunelleschi, el campanile de Giotto y el baptisterio con las puertas del Paraíso, todo en la misma plaza."
@@ -400,8 +356,7 @@
       "lat": 43.7629,
       "lon": 11.265,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "La vista de Florencia al atardecer. Justo debajo está el Giardino delle Rose, gratis y con sombra."
@@ -435,8 +390,7 @@
       "lat": 43.7765,
       "lon": 11.2535,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "5-10 €",
       "nota": "Abajo el mercado, arriba los puestos de comida. Y a un paso, los carritos de lampredotto: 5 € el bocadillo de callos florentino."
@@ -448,8 +402,7 @@
       "lat": 43.771,
       "lon": 11.266,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "4-8 €",
       "nota": "El mercado donde compran los florentinos, sin un turista dentro."
@@ -461,11 +414,10 @@
       "lat": 43.843,
       "lon": 10.502,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Aparcar gratis",
-      "nota": "La muralla renacentista es un parque público de 4,2 km arbolado. Bici por 4 € y vuelta entera: lo mejor de la ciudad."
+      "nota": "La muralla renacentista es un parque público arbolado que corre por encima de la ciudad, y se pasea. Aparcar fuera es gratis y se entra andando: es todo llano."
     },
     {
       "id": "pisa",
@@ -474,11 +426,10 @@
       "lat": 43.723,
       "lon": 10.3966,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Aparcar gratis · torre 20 €",
-      "nota": "Aparcamiento gratuito en Via Pietrasantina y lanzadera de 1 € hasta la torre. La lanzadera deja de pasar a las 17:30."
+      "nota": "Aparcamiento gratuito en Via Pietrasantina, y también es donde se duerme. Lanzadera de 1 € hasta la torre, o veinte minutos andando llanos. Parada de foto: la plaza se ve en hora y media."
     },
     {
       "id": "carrara",
@@ -500,8 +451,7 @@
       "lon": 9.811,
       "aprox": true,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis de 20:00 a 8:00",
       "nota": "La noche más ruidosa del viaje, pero a las 7:00 estás en el tren a Riomaggiore. Cinque Terre Treno MS Card: 17,30 € el día."
@@ -513,8 +463,7 @@
       "lat": 44.099,
       "lon": 9.737,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Con la Card",
       "nota": "El primero viniendo de La Spezia, a 8 minutos de tren. Antes de las 9:00 el pueblo es tuyo."
@@ -526,8 +475,7 @@
       "lat": 44.107,
       "lon": 9.728,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Con la Card",
       "nota": "El mirador de Punta Bonfiglio es la postal de las Cinque Terre. Baño desde las rocas del puertecillo."
@@ -539,8 +487,7 @@
       "lat": 44.12,
       "lon": 9.71,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Con la Card",
       "nota": "El único que no está a nivel del mar: 382 escalones o bus de 1,50 €. Por eso es el más tranquilo."
@@ -552,8 +499,7 @@
       "lat": 44.135,
       "lon": 9.684,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Con la Card",
       "nota": "El más bonito de los cinco: un puerto natural diminuto con un castillo encima."
@@ -565,8 +511,7 @@
       "lat": 44.146,
       "lon": 9.654,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Zona libre gratis",
       "nota": "El único de los cinco con playa de arena de verdad. Sus anchoas tienen denominación propia."
@@ -578,8 +523,7 @@
       "lat": 44.053,
       "lon": 9.837,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "No es de las Cinque Terre y es el mejor de todos: San Pietro sobre el acantilado y el atardecer del golfo de los Poetas."
@@ -603,8 +547,7 @@
       "lat": 43.228,
       "lon": 10.6,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Cinco kilómetros rectos de cipreses, parada natural para estirar las piernas bajando la costa."
@@ -628,8 +571,7 @@
       "lat": 42.766,
       "lon": 10.876,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "Playa de la Maremma con pinar detrás: sombra para el coche, que en agosto no es un lujo."
@@ -641,7 +583,7 @@
       "lat": 42.657,
       "lon": 11.068,
       "rutas": [
-        "agua"
+        "italia"
       ],
       "precio": "Entrada al parque",
       "nota": "Playa salvaje con troncos varados dentro del parque natural. Se llega en bus desde el centro de visitantes."
@@ -653,8 +595,7 @@
       "lat": 42.6467,
       "lon": 11.5108,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis, 24 h",
       "nota": "Termas naturales a 37,5 °C cayendo en escalones de travertino. Gratis, abiertas siempre, parking gratuito y sin una sola farola: lleva linterna."
@@ -666,8 +607,7 @@
       "lat": 42.665,
       "lon": 11.51,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "10-15 €",
       "nota": "3 km más arriba de las cascadas y un tercio más barato. Acquacotta y tortelli maremmani."
@@ -689,11 +629,10 @@
       "tipo": "ver",
       "lat": 42.635,
       "lon": 11.669,
-      "rutas": [
-        "toscana"
-      ],
+      "rutas": [],
       "precio": "Gratis",
-      "nota": "Un pueblo entero encaramado en un risco de toba. Barrio judío, sinagoga del XVI y las vie cave etruscas excavadas en la roca."
+      "nota": "Un pueblo entero encaramado en un risco de toba. Barrio judío, sinagoga del XVI y las vie cave etruscas excavadas en la roca.",
+      "solo_desvio": true
     },
     {
       "id": "sovana",
@@ -714,7 +653,7 @@
       "lon": 11.6165,
       "aprox": true,
       "rutas": [
-        "agua"
+        "italia"
       ],
       "precio": "Gratis, 24 h",
       "nota": "Una cascada de calcáreo blanco puro, con forma de ballena, y pozas de agua caliente entre el bosque. Gratis y bastante menos conocida que Saturnia."
@@ -727,7 +666,7 @@
       "lon": 11.6185,
       "aprox": true,
       "rutas": [
-        "agua"
+        "italia"
       ],
       "precio": "Gratis mirar · pozas libres abajo",
       "nota": "Un pueblo cuya plaza mayor es una piscina termal del siglo XVI. En la plaza no te puedes bañar; en el Parco dei Mulini, justo debajo, sí y es gratis."
@@ -739,22 +678,10 @@
       "lat": 43.0468,
       "lon": 11.2757,
       "aprox": true,
-      "rutas": [
-        "agua"
-      ],
-      "precio": "Gratis",
-      "nota": "Pozas de agua a 43 °C al lado del río Farma, debajo del puente de la carretera. Libres, gratuitas y con el río frío al lado para alternar."
-    },
-    {
-      "id": "san-galgano",
-      "nombre": "Abadía de San Galgano",
-      "tipo": "ver",
-      "lat": 43.1519,
-      "lon": 11.1544,
       "rutas": [],
-      "solo_desvio": true,
-      "precio": "≈ 5 €",
-      "nota": "Una abadía gótica sin tejado: se le cayó en el XVIII y quedan las paredes, los ventanales y el suelo de hierba con el cielo encima. En la colina de al lado, la espada clavada en la roca de San Galgano. A 20 km de Petriolo."
+      "precio": "Gratis",
+      "nota": "Pozas de agua a 43 °C al lado del río Farma, debajo del puente de la carretera. Libres, gratuitas y con el río frío al lado para alternar.",
+      "solo_desvio": true
     },
     {
       "id": "montalcino",
@@ -775,8 +702,7 @@
       "lat": 43.0605,
       "lon": 11.6135,
       "rutas": [
-        "toscana",
-        "agua"
+        "italia"
       ],
       "precio": "Gratis",
       "nota": "El paisaje toscano de las postales: colinas peladas, cipreses en fila y granjas solas. Patrimonio de la Humanidad por el paisaje, no por los edificios."

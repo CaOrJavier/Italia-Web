@@ -25,10 +25,9 @@ function trucos() {
 }
 
 function region(r) {
-  const rutasConEsto = datos.RUTAS.rutas.filter(ru => datos.regionesDe(ru.id).some(x => x.id === r.id));
-  const soloEn = rutasConEsto.length < datos.RUTAS.rutas.length
-    ? `<span class="etiq etiq-rojo">Solo en la ruta ${rutasConEsto.map(x => x.numero).join(' y ')}</span>`
-    : `<span class="etiq etiq-verde">En las dos rutas</span>`;
+  // Las cuatro regiones caen dentro de la ruta, así que ya no hay nada que
+  // advertir: el aviso era para cuando había que elegir entre dos.
+  const soloEn = '<span class="etiq etiq-verde">En la ruta</span>';
 
   return `
   <details class="tarjeta">
@@ -85,7 +84,9 @@ function dormir() {
 }
 
 function sitio(s) {
-  const rutas = datos.RUTAS.rutas.filter(r => r.dias.some(d => d.dormir === s.id));
+  // En qué noches se duerme aquí: con una sola ruta, o es una parada del viaje o
+  // es un sitio de repuesto por si algo falla.
+  const noches = datos.RUTAS.rutas[0].dias.filter(d => d.dormir === s.id).length;
   return `<div class="plato">
     <div class="plato-t">
       <b>${esc(s.nombre)}</b>
@@ -99,7 +100,7 @@ function sitio(s) {
     <p class="donde">
       ${s.servicios.map(x => esc(x)).join(' · ')}
       · ruido ${esc(s.ruido)}
-      ${rutas.length ? ` · ruta ${rutas.map(r => r.numero).join(', ')}` : ''}
+      ${noches ? ` · ${noches} ${noches === 1 ? 'noche' : 'noches'} aquí` : ' · de repuesto, no está en el plan'}
     </p>
   </div>`;
 }

@@ -1,445 +1,435 @@
 {
- "nota": "Generado por herramientas/fotos.mjs. Todas de Wikimedia Commons con licencia libre.",
- "fotos": [
-  {
-   "id": "civitavecchia",
-   "archivo": "civitavecchia.jpg",
-   "pie": "Civitavecchia · puerto",
-   "autor": "Shapiro1983",
-   "licencia": "Public domain",
-   "licencia_url": "",
-   "origen": "https://commons.wikimedia.org/wiki/File:Porto_antico_civitavecchia.JPG",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Porto_antico_civitavecchia.JPG"
-  },
-  {
-   "id": "tolfa",
-   "archivo": "tolfa.jpg",
-   "pie": "Tolfa",
-   "autor": "Pippo-b",
-   "licencia": "CC BY 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Tolfa_05-080325.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Tolfa"
-  },
-  {
-   "id": "bracciano",
-   "archivo": "bracciano.jpg",
-   "pie": "Lago de Bracciano",
-   "autor": "Wikimedia Commons",
-   "licencia": "Public domain",
-   "licencia_url": "",
-   "origen": "https://commons.wikimedia.org/wiki/File:Bracciano_Lago.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Bracciano_Lago.jpg"
-  },
-  {
-   "id": "coliseo",
-   "archivo": "coliseo.jpg",
-   "pie": "Coliseo, Foro y Palatino",
-   "autor": "kevinmcgill from Den Bosch",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Roma_-_Colosseo_esterno_su_via_dei_Fori_Imperiali.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Roma_-_Colosseo_esterno_su_via_dei_Fori_Imperiali.jpg"
-  },
-  {
-   "id": "vaticano",
-   "archivo": "vaticano.jpg",
-   "pie": "Museos Vaticanos y Capilla Sixtina",
-   "autor": "The original uploader was Snowdog",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
-   "origen": "https://commons.wikimedia.org/wiki/File:Sistina-interno.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Capilla%20Sixtina"
-  },
-  {
-   "id": "san-pedro",
-   "archivo": "san-pedro.jpg",
-   "pie": "Basílica de San Pedro",
-   "autor": "Jebulon",
-   "licencia": "CC0",
-   "licencia_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-   "origen": "https://commons.wikimedia.org/wiki/File:Saint_Peter%27s_Basilica_facade,_Rome,_Italy.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Bas%C3%ADlica%20de%20San%20Pedro"
-  },
-  {
-   "id": "panteon",
-   "archivo": "panteon.jpg",
-   "pie": "Panteón, Navona y Trevi",
-   "autor": "Rabax63",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Pantheon_Rom_1_cropped.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Pante%C3%B3n%20de%20Agripa"
-  },
-  {
-   "id": "testaccio",
-   "archivo": "testaccio.jpg",
-   "pie": "Testaccio · el barrio del matadero",
-   "autor": "Lalupa",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Testaccio_-_il_nuovo_mercato_1280317.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Testaccio_-_il_nuovo_mercato_1280317.jpg"
-  },
-  {
-   "id": "trastevere",
-   "archivo": "trastevere.jpg",
-   "pie": "Trastevere",
-   "autor": "Jensens",
-   "licencia": "Public domain",
-   "licencia_url": "",
-   "origen": "https://commons.wikimedia.org/wiki/File:Santa_Maria_in_Trastevere_fountain.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Trast%C3%A9vere"
-  },
-  {
-   "id": "appia",
-   "archivo": "appia.jpg",
-   "pie": "Via Appia Antica",
-   "autor": "Livioandronico2013",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Appian_Way.jpg",
-   "articulo": "https://it.wikipedia.org/wiki/Via%20Appia"
-  },
-  {
-   "id": "anagnina",
-   "archivo": "anagnina.jpg",
-   "pie": "Anagnina · aparcamiento de intercambio",
-   "autor": "Andreas",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Roma_Metro_at_Anagnina_Station.jpg",
-   "articulo": "https://it.wikipedia.org/wiki/Anagnina%20(metropolitana%20di%20Roma)"
-  },
-  {
-   "id": "cornelia",
-   "archivo": "cornelia.jpg",
-   "pie": "Cornelia · aparcamiento del Vaticano",
-   "autor": "Notafly",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Cornelia_Metro_Station_internal_escalator.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Cornelia_Metro_Station_internal_escalator.jpg"
-  },
-  {
-   "id": "siena",
-   "archivo": "siena.jpg",
-   "pie": "Siena · Piazza del Campo",
-   "autor": "Ricardo André Frantz",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Siena5.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Piazza%20del%20Campo"
-  },
-  {
-   "id": "siena-parking",
-   "archivo": "siena-parking.jpg",
-   "pie": "Siena · Due Ponti",
-   "autor": "gaspa",
-   "licencia": "CC BY 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Porta_camollia_siena.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Porta_camollia_siena.jpg"
-  },
-  {
-   "id": "monteriggioni",
-   "archivo": "monteriggioni.jpg",
-   "pie": "Monteriggioni",
-   "autor": "Carsten Steger",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Monteriggioni_(view_from_the_east).jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Monteriggioni"
-  },
-  {
-   "id": "san-gimignano",
-   "archivo": "san-gimignano.jpg",
-   "pie": "San Gimignano",
-   "autor": "WikiRomaWiki",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Panorama_San_Gimignano.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/San%20Gimignano"
-  },
-  {
-   "id": "volterra",
-   "archivo": "volterra.jpg",
-   "pie": "Volterra",
-   "autor": "Andrés Nieto Porras from Palma de Mallorca",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Volterra_al_atardecer_(5113682960).jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Volterra"
-  },
-  {
-   "id": "pienza",
-   "archivo": "pienza.jpg",
-   "pie": "Pienza",
-   "autor": "Luca Aless",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg"
-  },
-  {
-   "id": "montepulciano",
-   "archivo": "montepulciano.jpg",
-   "pie": "Montepulciano",
-   "autor": "Michal Osmenda from Brussels",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
-  },
-  {
-   "id": "villa-costanza",
-   "archivo": "villa-costanza.jpg",
-   "pie": "Villa Costanza · parking y tranvía",
-   "autor": "Rémy Lee",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Tram_GEST_2030_Valfonda_Florence_2021.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Tram_GEST_2030_Valfonda_Florence_2021.jpg"
-  },
-  {
-   "id": "florencia-duomo",
-   "archivo": "florencia-duomo.jpg",
-   "pie": "Florencia · Duomo",
-   "autor": "Bruce Stokes on Flickr",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:View_of_Santa_Maria_del_Fiore_in_Florence.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Catedral%20de%20Santa%20Mar%C3%ADa%20del%20Fiore"
-  },
-  {
-   "id": "piazzale-michelangelo",
-   "archivo": "piazzale-michelangelo.jpg",
-   "pie": "Piazzale Michelangelo",
-   "autor": "Michael Wittwer",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Blick_auf_und_vom_Piazzale_Michelangelo_(LM28908).jpg",
-   "articulo": "https://it.wikipedia.org/wiki/Piazzale%20Michelangelo"
-  },
-  {
-   "id": "mercato-centrale",
-   "archivo": "mercato-centrale.jpg",
-   "pie": "Florencia · Mercato Centrale",
-   "autor": "Sailko",
-   "licencia": "CC BY 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Mercato_centrale_di_san_lorenzo_02.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Mercato_centrale_di_san_lorenzo_02.jpg"
-  },
-  {
-   "id": "santambrogio",
-   "archivo": "santambrogio.jpg",
-   "pie": "Florencia · Mercato di Sant'Ambrogio",
-   "autor": "Txllxt TxllxT",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Piazza_Lorenzo_Ghiberti_-_View_SSW.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Piazza_Lorenzo_Ghiberti_-_View_SSW.jpg"
-  },
-  {
-   "id": "lucca",
-   "archivo": "lucca.jpg",
-   "pie": "Lucca",
-   "autor": "Arne Müseler",
-   "licencia": "CC BY-SA 3.0 de",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-   "origen": "https://commons.wikimedia.org/wiki/File:Italy_-_Lucca_-_2.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Lucca"
-  },
-  {
-   "id": "pisa",
-   "archivo": "pisa.jpg",
-   "pie": "Pisa · Piazza dei Miracoli",
-   "autor": "Arne Müseler",
-   "licencia": "CC BY-SA 3.0 de",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
-   "origen": "https://commons.wikimedia.org/wiki/File:Italy_-_Pisa_-_Leaning_Tower_of_Pisa.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Plaza%20de%20los%20Milagros"
-  },
-  {
-   "id": "la-spezia",
-   "archivo": "la-spezia.jpg",
-   "pie": "La Spezia · base de Cinque Terre",
-   "autor": "William Domenichini",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
-   "origen": "https://commons.wikimedia.org/wiki/File:La_Spezia_-_L%27arsenale.JPG",
-   "articulo": "https://es.wikipedia.org/wiki/La%20Spezia"
-  },
-  {
-   "id": "riomaggiore",
-   "archivo": "riomaggiore.jpg",
-   "pie": "Riomaggiore",
-   "autor": "Timothy A",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Riomaggiore_From_Ferry_Cinque_Terre_Italy_Sep23_A7C_07414.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Riomaggiore"
-  },
-  {
-   "id": "manarola",
-   "archivo": "manarola.jpg",
-   "pie": "Manarola",
-   "autor": "Timothy A",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cinque_Terre_Sep23_A7C_07237.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Manarola"
-  },
-  {
-   "id": "corniglia",
-   "archivo": "corniglia.jpg",
-   "pie": "Corniglia",
-   "autor": "Timothy A",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:East_Above_Corniglia_Cinque_Terre_Sep23_A7C_06797.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Corniglia"
-  },
-  {
-   "id": "vernazza",
-   "archivo": "vernazza.jpg",
-   "pie": "Vernazza",
-   "autor": "Bruno Rijsman",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Cinque_Terre_(Italy,_October_2020)_-_38_(50543598656).jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Vernazza"
-  },
-  {
-   "id": "monterosso",
-   "archivo": "monterosso.jpg",
-   "pie": "Monterosso al Mare",
-   "autor": "Lee & Chantelle McArthur from SMiths",
-   "licencia": "CC BY 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Monterosso_al_Mare-panorama-convento_dei_cappuccini2-flickr.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Monterosso%20al%20Mare"
-  },
-  {
-   "id": "portovenere",
-   "archivo": "portovenere.jpg",
-   "pie": "Portovenere",
-   "autor": "Aconcagua",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Porto_Venere_from_Lerici.jpg",
-   "articulo": "https://es.wikipedia.org/wiki/Porto%20Venere"
-  },
-  {
-   "id": "bolgheri",
-   "archivo": "bolgheri.jpg",
-   "pie": "Bolgheri · avenida de cipreses",
-   "autor": "Lucarelli",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Viale_dei_Cipressi,_Bolgheri,_Castagneto_Carducci.JPG",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Viale_dei_Cipressi,_Bolgheri,_Castagneto_Carducci.JPG"
-  },
-  {
-   "id": "castiglione",
-   "archivo": "castiglione.jpg",
-   "pie": "Castiglione della Pescaia",
-   "autor": "Cristiano64",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Rocchette_al_tramonto.JPG",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Rocchette_al_tramonto.JPG"
-  },
-  {
-   "id": "alberese",
-   "archivo": "alberese.jpg",
-   "pie": "Marina di Alberese · Parco della Maremma",
-   "autor": "Vinattieri Matteo",
-   "licencia": "Public domain",
-   "licencia_url": "",
-   "origen": "https://commons.wikimedia.org/wiki/File:Marina_di_Alberese.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Marina_di_Alberese.jpg"
-  },
-  {
-   "id": "saturnia",
-   "archivo": "saturnia.jpg",
-   "pie": "Saturnia · Cascate del Mulino",
-   "autor": "Markus Bernet",
-   "licencia": "CC BY-SA 2.5",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.5",
-   "origen": "https://commons.wikimedia.org/wiki/File:Saturnia_Cascate_del_Mulino.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Saturnia_Cascate_del_Mulino.jpg"
-  },
-  {
-   "id": "saturnia-pueblo",
-   "archivo": "saturnia-pueblo.jpg",
-   "pie": "Saturnia · el pueblo",
-   "autor": "LigaDue",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:MancianoSaturniaPanorama1.jpg",
-   "articulo": "https://it.wikipedia.org/wiki/Saturnia"
-  },
-  {
-   "id": "pitigliano",
-   "archivo": "pitigliano.jpg",
-   "pie": "Pitigliano",
-   "autor": "Wikimedia Commons",
-   "licencia": "CC BY-SA 3.0",
-   "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
-   "origen": "https://commons.wikimedia.org/wiki/File:Pitigliano-veduta.JPG",
-   "articulo": "https://es.wikipedia.org/wiki/Pitigliano"
-  },
-  {
-   "id": "sovana",
-   "archivo": "sovana.jpg",
-   "pie": "Sovana y la necrópolis etrusca",
-   "autor": "Sailko",
-   "licencia": "CC BY 3.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/3.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Sovana,_palazzetto_dell%27archivio_01.JPG",
-   "articulo": "https://it.wikipedia.org/wiki/Sovana"
-  },
-  {
-   "id": "bagni-san-filippo",
-   "archivo": "bagni-san-filippo.jpg",
-   "pie": "Bagni San Filippo · la Balena Bianca",
-   "autor": "Mongolo1984",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg"
-  },
-  {
-   "id": "bagno-vignoni",
-   "archivo": "bagno-vignoni.jpg",
-   "pie": "Bagno Vignoni",
-   "autor": "Photo2023",
-   "licencia": "CC BY 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_2020.jpg",
-   "articulo": "https://it.wikipedia.org/wiki/Bagno%20Vignoni"
-  },
-  {
-   "id": "petriolo",
-   "archivo": "petriolo.jpg",
-   "pie": "Terme di Petriolo",
-   "autor": "Raimond Spekking",
-   "licencia": "CC BY-SA 4.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg"
-  },
-  {
-   "id": "val-dorcia",
-   "archivo": "val-dorcia.jpg",
-   "pie": "Val d'Orcia",
-   "autor": "lo",
-   "licencia": "CC BY-SA 2.0",
-   "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
-   "origen": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg",
-   "articulo": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg"
-  }
- ]
+  "nota": "Generado por herramientas/fotos.mjs. Todas de Wikimedia Commons con licencia libre.",
+  "fotos": [
+    {
+      "id": "civitavecchia",
+      "archivo": "civitavecchia.jpg",
+      "pie": "Civitavecchia · puerto",
+      "autor": "Shapiro1983",
+      "licencia": "Public domain",
+      "licencia_url": "",
+      "origen": "https://commons.wikimedia.org/wiki/File:Porto_antico_civitavecchia.JPG",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Porto_antico_civitavecchia.JPG"
+    },
+    {
+      "id": "tolfa",
+      "archivo": "tolfa.jpg",
+      "pie": "Tolfa",
+      "autor": "Pippo-b",
+      "licencia": "CC BY 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Tolfa_05-080325.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Tolfa"
+    },
+    {
+      "id": "bracciano",
+      "archivo": "bracciano.jpg",
+      "pie": "Lago de Bracciano",
+      "autor": "Wikimedia Commons",
+      "licencia": "Public domain",
+      "licencia_url": "",
+      "origen": "https://commons.wikimedia.org/wiki/File:Bracciano_Lago.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Bracciano_Lago.jpg"
+    },
+    {
+      "id": "coliseo",
+      "archivo": "coliseo.jpg",
+      "pie": "Coliseo, Foro y Palatino",
+      "autor": "kevinmcgill from Den Bosch",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Roma_-_Colosseo_esterno_su_via_dei_Fori_Imperiali.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Roma_-_Colosseo_esterno_su_via_dei_Fori_Imperiali.jpg"
+    },
+    {
+      "id": "vaticano",
+      "archivo": "vaticano.jpg",
+      "pie": "Museos Vaticanos y Capilla Sixtina",
+      "autor": "The original uploader was Snowdog",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "origen": "https://commons.wikimedia.org/wiki/File:Sistina-interno.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Capilla%20Sixtina"
+    },
+    {
+      "id": "san-pedro",
+      "archivo": "san-pedro.jpg",
+      "pie": "Basílica de San Pedro",
+      "autor": "Jebulon",
+      "licencia": "CC0",
+      "licencia_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "origen": "https://commons.wikimedia.org/wiki/File:Saint_Peter%27s_Basilica_facade,_Rome,_Italy.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Bas%C3%ADlica%20de%20San%20Pedro"
+    },
+    {
+      "id": "panteon",
+      "archivo": "panteon.jpg",
+      "pie": "Panteón, Navona y Trevi",
+      "autor": "Rabax63",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Pantheon_Rom_1_cropped.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Pante%C3%B3n%20de%20Agripa"
+    },
+    {
+      "id": "testaccio",
+      "archivo": "testaccio.jpg",
+      "pie": "Testaccio · el barrio del matadero",
+      "autor": "Lalupa",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Testaccio_-_il_nuovo_mercato_1280317.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Testaccio_-_il_nuovo_mercato_1280317.jpg"
+    },
+    {
+      "id": "trastevere",
+      "archivo": "trastevere.jpg",
+      "pie": "Trastevere",
+      "autor": "Jensens",
+      "licencia": "Public domain",
+      "licencia_url": "",
+      "origen": "https://commons.wikimedia.org/wiki/File:Santa_Maria_in_Trastevere_fountain.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Trast%C3%A9vere"
+    },
+    {
+      "id": "appia",
+      "archivo": "appia.jpg",
+      "pie": "Via Appia Antica",
+      "autor": "Livioandronico2013",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Appian_Way.jpg",
+      "articulo": "https://it.wikipedia.org/wiki/Via%20Appia"
+    },
+    {
+      "id": "anagnina",
+      "archivo": "anagnina.jpg",
+      "pie": "Anagnina · aparcamiento de intercambio",
+      "autor": "Andreas",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Roma_Metro_at_Anagnina_Station.jpg",
+      "articulo": "https://it.wikipedia.org/wiki/Anagnina%20(metropolitana%20di%20Roma)"
+    },
+    {
+      "id": "cornelia",
+      "archivo": "cornelia.jpg",
+      "pie": "Cornelia · aparcamiento del Vaticano",
+      "autor": "Notafly",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Cornelia_Metro_Station_internal_escalator.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Cornelia_Metro_Station_internal_escalator.jpg"
+    },
+    {
+      "id": "siena",
+      "archivo": "siena.jpg",
+      "pie": "Siena · Piazza del Campo",
+      "autor": "Ricardo André Frantz",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Siena5.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Piazza%20del%20Campo"
+    },
+    {
+      "id": "siena-parking",
+      "archivo": "siena-parking.jpg",
+      "pie": "Siena · Due Ponti",
+      "autor": "gaspa",
+      "licencia": "CC BY 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Porta_camollia_siena.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Porta_camollia_siena.jpg"
+    },
+    {
+      "id": "monteriggioni",
+      "archivo": "monteriggioni.jpg",
+      "pie": "Monteriggioni",
+      "autor": "Carsten Steger",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Aerial_image_of_Monteriggioni_(view_from_the_east).jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Monteriggioni"
+    },
+    {
+      "id": "san-gimignano",
+      "archivo": "san-gimignano.jpg",
+      "pie": "San Gimignano",
+      "autor": "WikiRomaWiki",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Panorama_San_Gimignano.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/San%20Gimignano"
+    },
+    {
+      "id": "pienza",
+      "archivo": "pienza.jpg",
+      "pie": "Pienza",
+      "autor": "Luca Aless",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Pienza_-_Piazza_Pio_II.jpg"
+    },
+    {
+      "id": "villa-costanza",
+      "archivo": "villa-costanza.jpg",
+      "pie": "Villa Costanza · parking y tranvía",
+      "autor": "Rémy Lee",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Tram_GEST_2030_Valfonda_Florence_2021.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Tram_GEST_2030_Valfonda_Florence_2021.jpg"
+    },
+    {
+      "id": "florencia-duomo",
+      "archivo": "florencia-duomo.jpg",
+      "pie": "Florencia · Duomo",
+      "autor": "Bruce Stokes on Flickr",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:View_of_Santa_Maria_del_Fiore_in_Florence.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Catedral%20de%20Santa%20Mar%C3%ADa%20del%20Fiore"
+    },
+    {
+      "id": "piazzale-michelangelo",
+      "archivo": "piazzale-michelangelo.jpg",
+      "pie": "Piazzale Michelangelo",
+      "autor": "Michael Wittwer",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Blick_auf_und_vom_Piazzale_Michelangelo_(LM28908).jpg",
+      "articulo": "https://it.wikipedia.org/wiki/Piazzale%20Michelangelo"
+    },
+    {
+      "id": "mercato-centrale",
+      "archivo": "mercato-centrale.jpg",
+      "pie": "Florencia · Mercato Centrale",
+      "autor": "Sailko",
+      "licencia": "CC BY 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Mercato_centrale_di_san_lorenzo_02.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Mercato_centrale_di_san_lorenzo_02.jpg"
+    },
+    {
+      "id": "santambrogio",
+      "archivo": "santambrogio.jpg",
+      "pie": "Florencia · Mercato di Sant'Ambrogio",
+      "autor": "Txllxt TxllxT",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Piazza_Lorenzo_Ghiberti_-_View_SSW.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Firenze_-_Florence_-_Piazza_Lorenzo_Ghiberti_-_View_SSW.jpg"
+    },
+    {
+      "id": "lucca",
+      "archivo": "lucca.jpg",
+      "pie": "Lucca",
+      "autor": "Arne Müseler",
+      "licencia": "CC BY-SA 3.0 de",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "origen": "https://commons.wikimedia.org/wiki/File:Italy_-_Lucca_-_2.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Lucca"
+    },
+    {
+      "id": "pisa",
+      "archivo": "pisa.jpg",
+      "pie": "Pisa · Piazza dei Miracoli",
+      "autor": "Arne Müseler",
+      "licencia": "CC BY-SA 3.0 de",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+      "origen": "https://commons.wikimedia.org/wiki/File:Italy_-_Pisa_-_Leaning_Tower_of_Pisa.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Plaza%20de%20los%20Milagros"
+    },
+    {
+      "id": "la-spezia",
+      "archivo": "la-spezia.jpg",
+      "pie": "La Spezia · base de Cinque Terre",
+      "autor": "William Domenichini",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "origen": "https://commons.wikimedia.org/wiki/File:La_Spezia_-_L%27arsenale.JPG",
+      "articulo": "https://es.wikipedia.org/wiki/La%20Spezia"
+    },
+    {
+      "id": "riomaggiore",
+      "archivo": "riomaggiore.jpg",
+      "pie": "Riomaggiore",
+      "autor": "Timothy A",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Riomaggiore_From_Ferry_Cinque_Terre_Italy_Sep23_A7C_07414.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Riomaggiore"
+    },
+    {
+      "id": "manarola",
+      "archivo": "manarola.jpg",
+      "pie": "Manarola",
+      "autor": "Timothy A",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Manarola_NW_Cinque_Terre_Sep23_A7C_07237.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Manarola"
+    },
+    {
+      "id": "corniglia",
+      "archivo": "corniglia.jpg",
+      "pie": "Corniglia",
+      "autor": "Timothy A",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:East_Above_Corniglia_Cinque_Terre_Sep23_A7C_06797.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Corniglia"
+    },
+    {
+      "id": "vernazza",
+      "archivo": "vernazza.jpg",
+      "pie": "Vernazza",
+      "autor": "Bruno Rijsman",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Cinque_Terre_(Italy,_October_2020)_-_38_(50543598656).jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Vernazza"
+    },
+    {
+      "id": "monterosso",
+      "archivo": "monterosso.jpg",
+      "pie": "Monterosso al Mare",
+      "autor": "Lee & Chantelle McArthur from SMiths",
+      "licencia": "CC BY 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Monterosso_al_Mare-panorama-convento_dei_cappuccini2-flickr.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Monterosso%20al%20Mare"
+    },
+    {
+      "id": "portovenere",
+      "archivo": "portovenere.jpg",
+      "pie": "Portovenere",
+      "autor": "Aconcagua",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Porto_Venere_from_Lerici.jpg",
+      "articulo": "https://es.wikipedia.org/wiki/Porto%20Venere"
+    },
+    {
+      "id": "bolgheri",
+      "archivo": "bolgheri.jpg",
+      "pie": "Bolgheri · avenida de cipreses",
+      "autor": "Lucarelli",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Viale_dei_Cipressi,_Bolgheri,_Castagneto_Carducci.JPG",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Viale_dei_Cipressi,_Bolgheri,_Castagneto_Carducci.JPG"
+    },
+    {
+      "id": "castiglione",
+      "archivo": "castiglione.jpg",
+      "pie": "Castiglione della Pescaia",
+      "autor": "Cristiano64",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Rocchette_al_tramonto.JPG",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Rocchette_al_tramonto.JPG"
+    },
+    {
+      "id": "alberese",
+      "archivo": "alberese.jpg",
+      "pie": "Marina di Alberese · Parco della Maremma",
+      "autor": "Vinattieri Matteo",
+      "licencia": "Public domain",
+      "licencia_url": "",
+      "origen": "https://commons.wikimedia.org/wiki/File:Marina_di_Alberese.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Marina_di_Alberese.jpg"
+    },
+    {
+      "id": "saturnia",
+      "archivo": "saturnia.jpg",
+      "pie": "Saturnia · Cascate del Mulino",
+      "autor": "Markus Bernet",
+      "licencia": "CC BY-SA 2.5",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.5",
+      "origen": "https://commons.wikimedia.org/wiki/File:Saturnia_Cascate_del_Mulino.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Saturnia_Cascate_del_Mulino.jpg"
+    },
+    {
+      "id": "saturnia-pueblo",
+      "archivo": "saturnia-pueblo.jpg",
+      "pie": "Saturnia · el pueblo",
+      "autor": "LigaDue",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:MancianoSaturniaPanorama1.jpg",
+      "articulo": "https://it.wikipedia.org/wiki/Saturnia"
+    },
+    {
+      "id": "pitigliano",
+      "archivo": "pitigliano.jpg",
+      "pie": "Pitigliano",
+      "autor": "Wikimedia Commons",
+      "licencia": "CC BY-SA 3.0",
+      "licencia_url": "http://creativecommons.org/licenses/by-sa/3.0/",
+      "origen": "https://commons.wikimedia.org/wiki/File:Pitigliano-veduta.JPG",
+      "articulo": "https://es.wikipedia.org/wiki/Pitigliano"
+    },
+    {
+      "id": "sovana",
+      "archivo": "sovana.jpg",
+      "pie": "Sovana y la necrópolis etrusca",
+      "autor": "Sailko",
+      "licencia": "CC BY 3.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/3.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Sovana,_palazzetto_dell%27archivio_01.JPG",
+      "articulo": "https://it.wikipedia.org/wiki/Sovana"
+    },
+    {
+      "id": "bagni-san-filippo",
+      "archivo": "bagni-san-filippo.jpg",
+      "pie": "Bagni San Filippo · la Balena Bianca",
+      "autor": "Mongolo1984",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Bagni_San_Filippo,_Fosso_Bianco_01.jpg"
+    },
+    {
+      "id": "bagno-vignoni",
+      "archivo": "bagno-vignoni.jpg",
+      "pie": "Bagno Vignoni",
+      "autor": "Photo2023",
+      "licencia": "CC BY 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Bagno_Vignoni_2020.jpg",
+      "articulo": "https://it.wikipedia.org/wiki/Bagno%20Vignoni"
+    },
+    {
+      "id": "petriolo",
+      "archivo": "petriolo.jpg",
+      "pie": "Terme di Petriolo",
+      "autor": "Raimond Spekking",
+      "licencia": "CC BY-SA 4.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Terme_di_Petriolo-9389-90.jpg"
+    },
+    {
+      "id": "val-dorcia",
+      "archivo": "val-dorcia.jpg",
+      "pie": "Val d'Orcia",
+      "autor": "lo",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Flickr_-_lo.tangelini_-_S._Quirico_d%27_Orcia_(1).jpg"
+    },
+    {
+      "id": "montepulciano",
+      "archivo": "montepulciano.jpg",
+      "pie": "Montepulciano",
+      "autor": "Michal Osmenda from Brussels",
+      "licencia": "CC BY-SA 2.0",
+      "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+      "origen": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg",
+      "articulo": "https://commons.wikimedia.org/wiki/File:Piazza_Grande_of_Montepulciano.jpg"
+    }
+  ]
 }
