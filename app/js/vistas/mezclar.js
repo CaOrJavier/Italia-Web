@@ -21,6 +21,7 @@
 import * as datos from '../datos.js';
 import { esc, fechaCorta, fechaLarga, minutosAHoras, numero, euros, comoArray } from '../util.js';
 import { figura } from '../fotos.js';
+import { cadena, nivelDeHora, NIVELES } from '../cadena.js';
 import { ir } from '../app.js';
 
 // ── Lo que sobrevive al repintado ──────────────────────────────────────────
@@ -520,6 +521,19 @@ function sobras(dias, cogidos, desvios) {
 
 // ── El itinerario ──────────────────────────────────────────────────────────
 
+/** El hora a hora, con la marca de nivel en las líneas que son una parada de la
+ *  cadena. Así se lee de corrido y se sigue viendo qué es lo que se puede soltar. */
+function horasDelDia(d) {
+  const niveles = nivelDeHora(d);
+  return (d.plan || []).map(p => {
+    const n = niveles.get(p.hora);
+    return `<li${n ? ` class="${NIVELES[n].clase}"` : ''}>
+      <time>${esc(p.hora)}</time>
+      <span>${n ? `<i class="pa-marca" title="${esc(NIVELES[n].nombre)}">${NIVELES[n].simbolo}</i> ` : ''}${esc(p.que)}</span>
+    </li>`;
+  }).join('');
+}
+
 /** La primera y la última hora del plan del día: a qué hora arrancas y a qué hora
  *  se acaba la jornada. Están en el propio plan, no hacen falta datos nuevos. */
 function horas(d) {
@@ -609,9 +623,10 @@ function itinerario(dias, est, cogidos, variantes, desvios, t) {
           ${parkings.length ? `<p class="peq"><b>Dejas el coche en</b> ${parkings.map(p =>
             `${esc(p.parking)} (${esc(p.ciudad)}, ${esc(p.precio)}, ${p.minutos_centro} min al centro)`).join(' · ')}</p>` : ''}
 
+          ${cadena(d)}
+
           <b class="jor-tit">Hora a hora</b>
-          <ul class="horas">${(d.plan || []).map(p =>
-            `<li><time>${esc(p.hora)}</time><span>${esc(p.que)}</span></li>`).join('')}</ul>
+          <ul class="horas">${horasDelDia(d)}</ul>
 
           ${vars.map(v => bloqueVariante(v, est.vsel)).join('')}
 

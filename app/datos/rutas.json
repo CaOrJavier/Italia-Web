@@ -77,6 +77,10 @@
             { "hora": "21:45", "que": "22 km de subida a Tolfa por la SP3. Curvas y de noche, pero es media hora." },
             { "hora": "22:30", "que": "Aparcas en Tolfa, cenas en el coche y a dormir. Estás a 450 m: se duerme 4-6 °C más fresco que abajo." }
           ],
+          "paradas": [
+            {"hora":"21:00","dura":30,"nivel":1,"lugar":"civitavecchia"},
+            {"hora":"22:30","dura":0,"nivel":1,"lugar":"tolfa"}
+          ],
           "lugares": ["civitavecchia", "tolfa"],
           "dormir": "tolfa", "aparcar": null,
           "comer": "Cena de súper. Aprovecha para comprar ya un paquete de pasta, tomate y aceite: la despensa del coche te ahorra 5-8 € casi todos los días.",
@@ -96,6 +100,10 @@
             { "hora": "19:30", "que": "Segundo baño con la luz cayendo, que es cuando el vapor se ve." },
             { "hora": "22:30", "que": "Tercer baño de noche, sin nadie. Linterna obligatoria: no hay ni una farola." }
           ],
+          "paradas": [
+            {"hora":"10:00","dura":480,"nivel":1,"lugar":"saturnia"},
+            {"hora":"13:30","dura":90,"nivel":2,"lugar":"saturnia-pueblo","salta":"Comes en el coche al lado del agua y te ahorras subir y bajar los 3 km del pueblo"}
+          ],
           "lugares": ["saturnia", "saturnia-pueblo"],
           "dormir": "saturnia", "aparcar": null,
           "comer": "Acquacotta, la sopa de los pastores de la Maremma con un huevo escalfado encima, y tortelli maremmani. Es la zona más barata de todo el viaje.",
@@ -104,20 +112,28 @@
         },
         {
           "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
-          "titulo": "Pitigliano y subida a Siena",
-          "etapa": "Saturnia → Pitigliano → Siena",
+          "titulo": "Pitigliano, la Val d'Orcia y subida a Siena",
+          "etapa": "Saturnia → Pitigliano → Val d'Orcia → Siena",
           "km": 150, "minutos": 135,
           "plan": [
             { "hora": "07:00", "que": "Baño al amanecer en las cascadas, que es cuando están vacías y con vapor. El mejor de los cuatro." },
             { "hora": "09:30", "que": "25 km hasta Pitigliano. Para en el mirador de la carretera antes de entrar: la foto del pueblo colgado del risco de toba se hace desde ahí." },
             { "hora": "10:00", "que": "Pitigliano por dentro: el barrio judío que le vale el apodo de la Pequeña Jerusalén, la sinagoga del siglo XVI y las vie cave, caminos etruscos excavados en la roca con paredes de veinte metros." },
             { "hora": "13:00", "que": "Comes en Pitigliano y compras un sfratto en el horno, el dulce de nuez y miel que solo se hace ahí." },
-            { "hora": "15:00", "que": "125 km hasta Siena, subiendo por la Maremma y la Val d'Orcia. Es de los tramos más bonitos del viaje." },
-            { "hora": "17:30", "que": "Aparcas en Due Ponti (2 €) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
-            { "hora": "18:00", "que": "Siena a última hora, que es cuando la piedra se pone naranja: Piazza del Campo, la fachada del Duomo y las callejas de las contradas." },
+            { "hora": "15:00", "que": "80 km por la Cassia hasta San Quirico d'Orcia, saliendo de la Maremma y entrando en la Val d'Orcia. Es de los tramos más bonitos del viaje." },
+            { "hora": "16:15", "que": "Parada en la Val d'Orcia: San Quirico d'Orcia y los Horti Leonini, un jardín renacentista abierto y gratis, y tres kilómetros al sur la capilla de la Madonna di Vitaleta, sola en mitad de la colina, que es la foto de la Toscana. Cuarenta minutos y no te sales de la carretera." },
+            { "hora": "17:00", "que": "45 km hasta Siena, siempre por la Cassia." },
+            { "hora": "18:00", "que": "Aparcas en Due Ponti (2 €) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
+            { "hora": "18:30", "que": "Siena a última hora, que es cuando la piedra se pone naranja: Piazza del Campo, la fachada del Duomo y las callejas de las contradas." },
             { "hora": "21:00", "que": "Cena de pici all'aglione y vuelta al coche por las escaleras." }
           ],
-          "lugares": ["saturnia", "pitigliano", "siena", "siena-parking"],
+          "paradas": [
+            {"hora":"07:00","dura":150,"nivel":1,"lugar":"saturnia"},
+            {"hora":"10:00","dura":180,"nivel":1,"lugar":"pitigliano"},
+            {"hora":"16:15","dura":45,"nivel":3,"lugar":"val-dorcia","salta":"Tira directo por la Cassia: la Val d'Orcia la ves igual desde el coche y ganas media hora larga de Siena con luz"},
+            {"hora":"18:30","dura":210,"nivel":1,"lugar":"siena"}
+          ],
+          "lugares": ["saturnia", "pitigliano", "val-dorcia", "siena", "siena-parking"],
           "dormir": "siena", "aparcar": ["pitigliano", "siena"],
           "comer": "Cinghiale (jabalí) en Pitigliano y el sfratto dei goym del horno judío. Por la noche, pici all'aglione en Siena.",
           "aviso": "El Palio de Siena es hoy, pero no entra en el plan: son cuatro horas de pie al sol en una plaza abarrotada de la que no se puede salir. Si aun así te apetece asomarte, la plaza se llena desde media tarde y a partir de cierta hora cierran los accesos.",
@@ -136,6 +152,12 @@
             { "hora": "16:30", "que": "55 km hasta Villa Costanza, que es tu base los dos próximos días. Se entra directamente desde la A1." },
             { "hora": "18:00", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y subir a Piazzale Michelangelo al atardecer." },
             { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
+          ],
+          "paradas": [
+            {"hora":"08:00","dura":180,"nivel":1,"lugar":"siena"},
+            {"hora":"11:00","dura":45,"nivel":3,"lugar":"monteriggioni","salta":"Es el más prescindible del día: se ve entero desde la carretera y por dentro no hay más que una plaza"},
+            {"hora":"13:00","dura":210,"nivel":1,"lugar":"san-gimignano"},
+            {"hora":"18:00","dura":210,"nivel":2,"lugar":"florencia-duomo","salta":"La primera tarde de Florencia es de propina: mañana tienes el día entero"}
           ],
           "lugares": ["siena", "monteriggioni", "san-gimignano", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
           "dormir": "villa-costanza", "aparcar": ["siena", "san-gimignano", "florencia"],
@@ -159,6 +181,14 @@
             { "hora": "19:30", "que": "Piazzale Michelangelo al atardecer y bajada andando." },
             { "hora": "21:00", "que": "Cena en Santo Spirito y tranvía." }
           ],
+          "paradas": [
+            {"hora":"08:00","dura":120,"nivel":1,"lugar":"florencia-duomo"},
+            {"hora":"10:00","dura":90,"nivel":1,"nombre":"Signoria y Ponte Vecchio"},
+            {"hora":"13:00","dura":90,"nivel":2,"lugar":"mercato-centrale","salta":"Comes un lampredotto de carrito por el camino y sigues"},
+            {"hora":"15:00","dura":120,"nivel":3,"nombre":"Santa Croce o San Marco","salta":"Son las horas de calor: si vas tarde, cámbialo por una siesta a la sombra del Giardino delle Rose"},
+            {"hora":"17:30","dura":60,"nivel":3,"lugar":"santambrogio","salta":"El segundo mercado es para el que le sobra tiempo; el de San Lorenzo ya lo has visto"},
+            {"hora":"19:30","dura":90,"nivel":1,"lugar":"piazzale-michelangelo"}
+          ],
           "lugares": ["florencia-duomo", "mercato-centrale", "santambrogio", "piazzale-michelangelo", "villa-costanza"],
           "dormir": "villa-costanza", "aparcar": "florencia",
           "comer": "Lampredotto de carrito por 5 €, panzanella para el calor y cena de mercado. Crostini di fegatini con un Chianti de la casa en jarra, que cuesta la mitad que el de botella y es bueno.",
@@ -179,6 +209,12 @@
             { "hora": "19:00", "que": "Otra vuelta a la muralla, esta a pie y con la luz baja. En Lucca no hay que correr para nada." },
             { "hora": "21:00", "que": "Cena en el centro y vuelves andando al coche." }
           ],
+          "paradas": [
+            {"hora":"11:00","dura":150,"nivel":1,"lugar":"lucca"},
+            {"hora":"13:30","dura":120,"nivel":2,"nombre":"Comida larga en Lucca","salta":"Bocadillo en la muralla y te sobra media tarde"},
+            {"hora":"16:00","dura":120,"nivel":2,"nombre":"Anfiteatro y Torre Guinigi","salta":"La Torre Guinigi son 230 escalones: con ver la plaza del Anfiteatro ya te llevas Lucca"},
+            {"hora":"19:00","dura":90,"nivel":3,"nombre":"Segunda vuelta a la muralla, a pie","salta":"Ya la has dado en bici por la mañana. Se suelta sin pena si prefieres cenar pronto"}
+          ],
           "lugares": ["lucca"],
           "dormir": "lucca", "aparcar": "lucca",
           "comer": "Tordelli lucchesi (pasta rellena de carne con ragú) y buccellato de postre. Los precios de Lucca son de ciudad normal, no de sitio turístico.",
@@ -197,6 +233,11 @@
             { "hora": "15:00", "que": "80 km hasta La Spezia por la costa." },
             { "hora": "17:00", "que": "Llegas con luz, dejas el coche y paseas el puerto. Compra ya la focaccia y la farinata para mañana." },
             { "hora": "20:00", "que": "Cena por Via del Prione, que tiene precios de ciudad y no de postal. A partir de las 20:00 muchos aparcamientos pasan a ser gratis." }
+          ],
+          "paradas": [
+            {"hora":"09:00","dura":180,"nivel":1,"lugar":"pisa"},
+            {"hora":"12:00","dura":120,"nivel":2,"nombre":"Mercato delle Vettovaglie y el Arno","salta":"Es el sitio donde come Pisa de verdad, pero se puede cambiar por un bocadillo y salir antes"},
+            {"hora":"17:00","dura":90,"nivel":3,"lugar":"la-spezia","salta":"El paseo del puerto es relleno: lo único que no puedes saltarte es comprar la focaccia de mañana"}
           ],
           "lugares": ["pisa", "la-spezia"],
           "dormir": "la-spezia", "aparcar": "pisa",
@@ -218,6 +259,12 @@
             { "hora": "16:30", "que": "Vuelta a Manarola a bañarte cuando ya baja el sol, o el sendero de Corniglia a Vernazza si te quedan piernas y está abierto." },
             { "hora": "20:00", "que": "Tren de vuelta a La Spezia y cena." }
           ],
+          "paradas": [
+            {"hora":"07:30","dura":120,"nivel":1,"lugar":"riomaggiore"},
+            {"hora":"09:30","dura":180,"nivel":1,"lugar":"manarola"},
+            {"hora":"12:30","dura":150,"nivel":2,"lugar":"corniglia","salta":"Son 382 escalones o un bus: si vas tarde, come en Manarola y saltatelo"},
+            {"hora":"16:30","dura":120,"nivel":3,"nombre":"Vuelta a bañarte o sendero a Vernazza","salta":"Es el colchón del día: se suelta entero sin tocar ningún pueblo"}
+          ],
           "lugares": ["la-spezia", "riomaggiore", "manarola", "corniglia"],
           "dormir": "la-spezia", "aparcar": "cinque-terre",
           "comer": "Trofie al pesto de verdad, hecho al mortero con albahaca ligur, piñones y dos quesos. El pesto de tarro español y esto no son el mismo plato.",
@@ -238,6 +285,13 @@
             { "hora": "17:30", "que": "185 km bajando la costa hasta la Maremma. Parada en Bolgheri para estirar las piernas entre los cinco kilómetros de cipreses." },
             { "hora": "21:00", "que": "Llegas a Castiglione della Pescaia. Duermes en el pinar, con la playa al lado." }
           ],
+          "paradas": [
+            {"hora":"06:45","dura":105,"nivel":1,"lugar":"vernazza"},
+            {"hora":"08:30","dura":45,"nivel":3,"nombre":"Sendero al mirador de Vernazza","salta":"Diez minutos de subida por la foto de arriba. Si el tren se ha retrasado, es lo primero que se cae"},
+            {"hora":"10:00","dura":180,"nivel":1,"lugar":"monterosso"},
+            {"hora":"15:00","dura":90,"nivel":2,"lugar":"portovenere","salta":"Si el tren se retrasa, sacrifica Portovenere antes que salir de noche con 185 km por delante"},
+            {"hora":"17:30","dura":30,"nivel":3,"lugar":"bolgheri","salta":"Cinco kilómetros de cipreses para estirar las piernas: si vas tarde, se ve conduciendo"}
+          ],
           "lugares": ["vernazza", "monterosso", "portovenere", "bolgheri", "castiglione"],
           "dormir": "castiglione", "aparcar": "cinque-terre",
           "comer": "Anchoas de Monterosso con pan y aceite, y un cono de fritto misto en el muelle de Portovenere antes de coger carretera.",
@@ -257,6 +311,13 @@
             { "hora": "18:30", "que": "Centro histórico a pie con la luz cayendo: Panteón, Piazza Navona, Fontana di Trevi y la Escalinata de España. Todo gratis y todo seguido." },
             { "hora": "21:00", "que": "Cena en el Trastevere, cruzando la Viale di Trastevere para escapar de los precios de la plaza." },
             { "hora": "23:00", "que": "Metro y vuelta al lago." }
+          ],
+          "paradas": [
+            {"hora":"07:30","dura":120,"nivel":2,"lugar":"castiglione","salta":"Sal a las 8:30 en vez de a las 10:00 y llegas a Roma con margen para el Aventino"},
+            {"hora":"13:30","dura":90,"nivel":1,"lugar":"testaccio"},
+            {"hora":"15:30","dura":180,"nivel":1,"lugar":"appia"},
+            {"hora":"18:30","dura":150,"nivel":1,"lugar":"panteon"},
+            {"hora":"21:00","dura":120,"nivel":2,"lugar":"trastevere","salta":"La cena se puede hacer en Testaccio y ahorrarte un cruce de ciudad"}
           ],
           "lugares": ["castiglione", "bracciano", "testaccio", "appia", "panteon", "trastevere", "anagnina"],
           "dormir": "bracciano", "aparcar": "roma",
@@ -279,6 +340,12 @@
             { "hora": "18:30", "que": "Trastevere con calma: Santa Maria in Trastevere y sus mosaicos, y subir al Gianicolo para la vista de toda la ciudad al atardecer." },
             { "hora": "21:30", "que": "Cena y vuelta al lago." }
           ],
+          "paradas": [
+            {"hora":"08:30","dura":210,"nivel":1,"lugar":"vaticano"},
+            {"hora":"12:00","dura":120,"nivel":1,"lugar":"san-pedro"},
+            {"hora":"16:30","dura":60,"nivel":3,"nombre":"Castel Sant'Angelo y el puente de Bernini","salta":"Por fuera y de paso. Es el primero que se cae si los Museos te han comido la mañana"},
+            {"hora":"18:30","dura":150,"nivel":2,"lugar":"trastevere","salta":"El Gianicolo es la vista; Trastevere ya lo cenaste ayer"}
+          ],
           "lugares": ["vaticano", "san-pedro", "trastevere", "cornelia", "bracciano"],
           "dormir": "bracciano", "aparcar": "roma-vaticano",
           "comer": "Pizza al taglio al peso en Prati y un maritozzo de desayuno: bollo abierto y relleno de nata hasta reventar, que es el desayuno romano de toda la vida.",
@@ -298,6 +365,11 @@
             { "hora": "15:30", "que": "Metro de vuelta al coche y 70 km hasta Civitavecchia por la A12." },
             { "hora": "17:30", "que": "En Civitavecchia con margen de sobra. Súper de última hora: aceite, parmesano y vino salen mucho mejor de precio aquí que en España." },
             { "hora": "20:30", "que": "En el puerto, dos horas antes. El ferri sale a las 22:30." }
+          ],
+          "paradas": [
+            {"hora":"08:30","dura":300,"nivel":1,"lugar":"coliseo"},
+            {"hora":"13:30","dura":120,"nivel":2,"lugar":"testaccio","salta":"Si vas justo, come de camino: lo que no se negocia es estar en el puerto a las 20:30"},
+            {"hora":"20:30","dura":0,"nivel":1,"lugar":"civitavecchia"}
           ],
           "lugares": ["coliseo", "testaccio", "cornelia", "civitavecchia"],
           "dormir": null, "aparcar": "roma-vaticano",
@@ -373,6 +445,10 @@
             { "hora": "21:45", "que": "22 km de subida a Tolfa por la SP3." },
             { "hora": "22:30", "que": "Cena en el coche y a dormir a 450 m de altitud." }
           ],
+          "paradas": [
+            {"hora":"21:00","dura":30,"nivel":1,"lugar":"civitavecchia"},
+            {"hora":"22:30","dura":0,"nivel":1,"lugar":"tolfa"}
+          ],
           "lugares": ["civitavecchia", "tolfa"],
           "dormir": "tolfa", "aparcar": null,
           "comer": "Cena de súper y despensa para el coche.",
@@ -391,6 +467,10 @@
             { "hora": "16:00", "que": "Tarde de no hacer nada. Es Ferragosto y este es el mejor sitio de Italia para pasarlo." },
             { "hora": "19:30", "que": "Segundo baño con la luz cayendo." },
             { "hora": "22:30", "que": "Tercer baño de noche, sin nadie. Linterna obligatoria." }
+          ],
+          "paradas": [
+            {"hora":"10:00","dura":480,"nivel":1,"lugar":"saturnia"},
+            {"hora":"13:30","dura":90,"nivel":2,"lugar":"saturnia-pueblo","salta":"Comes en el coche al lado del agua y te ahorras subir y bajar los 3 km del pueblo"}
           ],
           "lugares": ["saturnia", "saturnia-pueblo"],
           "dormir": "saturnia", "aparcar": null,
@@ -412,6 +492,12 @@
             { "hora": "17:00", "que": "Bagno Vignoni: la plaza mayor del pueblo es una piscina termal humeante del siglo XVI. Ahí no te puedes bañar, pero en el Parco dei Mulini, justo debajo, hay pozas libres y gratuitas con vista al valle." },
             { "hora": "20:00", "que": "Atardecer sobre la Val d'Orcia desde el borde del pueblo: colinas peladas, cipreses en fila y ni un ruido." }
           ],
+          "paradas": [
+            {"hora":"07:00","dura":150,"nivel":1,"lugar":"saturnia"},
+            {"hora":"11:00","dura":180,"nivel":1,"lugar":"bagni-san-filippo"},
+            {"hora":"17:00","dura":180,"nivel":1,"lugar":"bagno-vignoni"},
+            {"hora":"20:00","dura":60,"nivel":2,"lugar":"val-dorcia","salta":"El atardecer sobre las colinas se ve desde el propio pueblo sin moverse"}
+          ],
           "lugares": ["saturnia", "bagni-san-filippo", "bagno-vignoni", "val-dorcia"],
           "dormir": "val-dorcia", "aparcar": null,
           "comer": "Pici, pecorino de Pienza (que está a 12 km) y cinta senese. Compra una cuña de pecorino curado en heno para el coche.",
@@ -431,6 +517,11 @@
             { "hora": "15:00", "que": "100 km hasta Villa Costanza, tu base los dos próximos días." },
             { "hora": "17:00", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia: Duomo, Ponte Vecchio y Piazzale Michelangelo al atardecer." },
             { "hora": "21:00", "que": "Cena en el Oltrarno y tranvía de vuelta." }
+          ],
+          "paradas": [
+            {"hora":"07:30","dura":120,"nivel":2,"lugar":"bagno-vignoni","salta":"Ya te bañaste ayer: saliendo a las 8:00 llegas a Petriolo antes de que se llene"},
+            {"hora":"10:30","dura":180,"nivel":1,"lugar":"petriolo"},
+            {"hora":"17:00","dura":240,"nivel":1,"lugar":"florencia-duomo"}
           ],
           "lugares": ["bagno-vignoni", "petriolo", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
           "dormir": "villa-costanza", "aparcar": "florencia",
@@ -454,6 +545,14 @@
             { "hora": "19:30", "que": "Piazzale Michelangelo al atardecer." },
             { "hora": "21:00", "que": "Cena en Santo Spirito y tranvía." }
           ],
+          "paradas": [
+            {"hora":"08:00","dura":120,"nivel":1,"lugar":"florencia-duomo"},
+            {"hora":"10:00","dura":90,"nivel":1,"nombre":"Signoria y Ponte Vecchio"},
+            {"hora":"13:00","dura":90,"nivel":2,"lugar":"mercato-centrale","salta":"Comes un lampredotto de carrito por el camino y sigues"},
+            {"hora":"15:00","dura":120,"nivel":3,"nombre":"Santa Croce o San Marco","salta":"Son las horas de calor: si vas tarde, cámbialo por una siesta a la sombra del Giardino delle Rose"},
+            {"hora":"17:30","dura":60,"nivel":3,"lugar":"santambrogio","salta":"El segundo mercado es para el que le sobra tiempo; el de San Lorenzo ya lo has visto"},
+            {"hora":"19:30","dura":90,"nivel":1,"lugar":"piazzale-michelangelo"}
+          ],
           "lugares": ["florencia-duomo", "mercato-centrale", "santambrogio", "piazzale-michelangelo", "villa-costanza"],
           "dormir": "villa-costanza", "aparcar": "florencia",
           "comer": "Lampredotto, panzanella y cena de mercado.",
@@ -474,6 +573,12 @@
             { "hora": "17:00", "que": "Piazza dei Miracoli a última hora, cuando los autobuses ya se han ido: la torre, el Duomo, el baptisterio y el Camposanto." },
             { "hora": "20:00", "que": "Cena en el mercado de las Vettovaglie o por el Arno, que es donde come Pisa de verdad." }
           ],
+          "paradas": [
+            {"hora":"09:30","dura":150,"nivel":1,"lugar":"lucca"},
+            {"hora":"12:00","dura":90,"nivel":2,"nombre":"Anfiteatro y Torre Guinigi","salta":"Con la muralla ya te llevas Lucca; esto es el postre"},
+            {"hora":"17:00","dura":180,"nivel":1,"lugar":"pisa"},
+            {"hora":"20:00","dura":90,"nivel":3,"nombre":"Cena en las Vettovaglie o por el Arno","salta":"Duermes a veinte minutos: la plaza de noche la tienes cuando quieras"}
+          ],
           "lugares": ["lucca", "pisa"],
           "dormir": "pisa", "aparcar": ["lucca", "pisa"],
           "comer": "Tordelli lucchesi y buccellato en Lucca. En Pisa, cecina (que es la farinata local) y la torta co' bischeri.",
@@ -493,6 +598,11 @@
             { "hora": "16:00", "que": "Baño largo desde las rocas, o el barco a la isla Palmaria si te apetece gastar." },
             { "hora": "19:00", "que": "Atardecer desde San Pietro con el golfo entero delante." },
             { "hora": "21:00", "que": "Vuelta a La Spezia y cena por Via del Prione." }
+          ],
+          "paradas": [
+            {"hora":"11:00","dura":180,"nivel":1,"lugar":"portovenere"},
+            {"hora":"16:00","dura":150,"nivel":2,"nombre":"Baño desde las rocas o barco a Palmaria","salta":"El barco a la Palmaria es lo caro y lo prescindible; el baño desde las rocas es gratis"},
+            {"hora":"19:00","dura":60,"nivel":1,"nombre":"Atardecer desde San Pietro"}
           ],
           "lugares": ["la-spezia", "portovenere"],
           "dormir": "la-spezia", "aparcar": "cinque-terre",
@@ -515,6 +625,13 @@
             { "hora": "19:00", "que": "Corniglia si te quedan fuerzas (382 escalones o bus de 1,50 €), o directo a La Spezia." },
             { "hora": "20:30", "que": "Cena en La Spezia." }
           ],
+          "paradas": [
+            {"hora":"07:15","dura":60,"nivel":1,"lugar":"riomaggiore"},
+            {"hora":"08:30","dura":120,"nivel":1,"lugar":"manarola"},
+            {"hora":"11:00","dura":150,"nivel":1,"lugar":"vernazza"},
+            {"hora":"15:30","dura":180,"nivel":1,"lugar":"monterosso"},
+            {"hora":"19:00","dura":60,"nivel":3,"lugar":"corniglia","salta":"El quinto es el que sobra: 382 escalones al final de un día de cuatro pueblos"}
+          ],
           "lugares": ["riomaggiore", "manarola", "vernazza", "monterosso", "corniglia", "la-spezia"],
           "dormir": "la-spezia", "aparcar": "cinque-terre",
           "comer": "Trofie al pesto y anchoas de Monterosso con pan y aceite.",
@@ -533,6 +650,11 @@
             { "hora": "16:00", "que": "Baño largo y comida a la sombra del pinar. Aquí no hay chiringuitos ni sombrillas de alquiler: es playa y ya." },
             { "hora": "19:00", "que": "20 km hasta Castiglione della Pescaia, donde duermes." },
             { "hora": "20:30", "que": "Cena y último baño con la luz cayendo." }
+          ],
+          "paradas": [
+            {"hora":"10:00","dura":60,"nivel":2,"lugar":"bolgheri","salta":"Café y foto: si vas tarde, los cipreses se ven desde el coche"},
+            {"hora":"12:30","dura":300,"nivel":1,"lugar":"alberese"},
+            {"hora":"20:30","dura":90,"nivel":2,"lugar":"castiglione","salta":"Llegando de noche, cena y a dormir: la playa la tienes mañana al amanecer"}
           ],
           "lugares": ["bolgheri", "alberese", "castiglione"],
           "dormir": "castiglione", "aparcar": null,
@@ -553,6 +675,13 @@
             { "hora": "18:30", "que": "Centro histórico a pie: Panteón, Navona, Trevi y la Escalinata. Todo gratis." },
             { "hora": "21:00", "que": "Cena en el Trastevere." },
             { "hora": "23:00", "que": "Metro y vuelta al lago." }
+          ],
+          "paradas": [
+            {"hora":"07:30","dura":120,"nivel":2,"lugar":"castiglione","salta":"Sal a las 8:30 en vez de a las 10:00 y llegas a Roma con margen para el Aventino"},
+            {"hora":"13:30","dura":90,"nivel":1,"lugar":"testaccio"},
+            {"hora":"15:30","dura":180,"nivel":1,"lugar":"appia"},
+            {"hora":"18:30","dura":150,"nivel":1,"lugar":"panteon"},
+            {"hora":"21:00","dura":120,"nivel":2,"lugar":"trastevere","salta":"La cena se puede hacer en Testaccio y ahorrarte un cruce de ciudad"}
           ],
           "lugares": ["castiglione", "bracciano", "testaccio", "appia", "panteon", "trastevere", "anagnina"],
           "dormir": "bracciano", "aparcar": "roma",
@@ -575,6 +704,12 @@
             { "hora": "18:30", "que": "Trastevere y el Gianicolo para la vista al atardecer." },
             { "hora": "21:30", "que": "Cena y vuelta al lago." }
           ],
+          "paradas": [
+            {"hora":"08:30","dura":210,"nivel":1,"lugar":"vaticano"},
+            {"hora":"12:00","dura":120,"nivel":1,"lugar":"san-pedro"},
+            {"hora":"16:30","dura":60,"nivel":3,"nombre":"Castel Sant'Angelo y el puente de Bernini","salta":"Por fuera y de paso. Es el primero que se cae si los Museos te han comido la mañana"},
+            {"hora":"18:30","dura":150,"nivel":2,"lugar":"trastevere","salta":"El Gianicolo es la vista; Trastevere ya lo cenaste ayer"}
+          ],
           "lugares": ["vaticano", "san-pedro", "trastevere", "cornelia", "bracciano"],
           "dormir": "bracciano", "aparcar": "roma-vaticano",
           "comer": "Pizza al taglio al peso y un maritozzo de desayuno.",
@@ -594,6 +729,11 @@
             { "hora": "15:30", "que": "Coche y 70 km hasta Civitavecchia por la A12." },
             { "hora": "17:30", "que": "Súper de última hora: aceite, parmesano y vino." },
             { "hora": "20:30", "que": "En el puerto. Ferri a las 22:30." }
+          ],
+          "paradas": [
+            {"hora":"08:30","dura":300,"nivel":1,"lugar":"coliseo"},
+            {"hora":"13:30","dura":120,"nivel":2,"lugar":"testaccio","salta":"Si vas justo, come de camino: lo que no se negocia es estar en el puerto a las 20:30"},
+            {"hora":"20:30","dura":0,"nivel":1,"lugar":"civitavecchia"}
           ],
           "lugares": ["coliseo", "testaccio", "cornelia", "civitavecchia"],
           "dormir": null, "aparcar": "roma-vaticano",

@@ -7,6 +7,7 @@
 import * as datos from '../datos.js';
 import { esc, fechaLarga, fechaCorta, minutosAHoras, numero, euros } from '../util.js';
 import { marcaDia, tiraLugares, leyenda } from '../marcas.js';
+import { cadena, nivelDeHora, NIVELES } from '../cadena.js';
 import { figura } from '../fotos.js';
 import { ir } from '../app.js';
 
@@ -271,6 +272,7 @@ function detalle(d) {
   const parkings = datos.parkingsDe(d);
   const cama = datos.camaDe(d);
   const tpt = datos.minutosTransporte(d);
+  const niveles = nivelDeHora(d);
 
   return `
     <p class="peq" style="margin:-2px 0 10px">${esc(fechaLarga(d.fecha))}</p>
@@ -278,8 +280,15 @@ function detalle(d) {
     ${d.apretado ? `<div class="caja caja-ojo">
       <b class="caja-t">Día apretado</b>${esc(d.apretado)}</div>` : ''}
 
-    <ul class="horas">${d.plan.map(p =>
-      `<li><time>${esc(p.hora)}</time><span>${esc(p.que)}</span></li>`).join('')}</ul>
+    ${cadena(d)}
+
+    <ul class="horas">${d.plan.map(p => {
+      const n = niveles.get(p.hora);
+      return `<li${n ? ` class="${NIVELES[n].clase}"` : ''}>
+        <time>${esc(p.hora)}</time>
+        <span>${n ? `<i class="pa-marca" title="${esc(NIVELES[n].nombre)}">${NIVELES[n].simbolo}</i> ` : ''}${esc(p.que)}</span>
+      </li>`;
+    }).join('')}</ul>
 
     ${d.aviso ? `<div class="caja caja-ojo"><b class="caja-t">Ojo</b>${esc(d.aviso)}</div>` : ''}
 

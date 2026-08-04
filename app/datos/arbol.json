@@ -90,19 +90,27 @@
           "dia": {
             "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
             "titulo": "La cascada blanca y Siena",
-            "etapa": "Saturnia → Bagni San Filippo → Siena",
+            "etapa": "Saturnia → Bagni San Filippo → Val d'Orcia → Siena",
             "km": 150, "minutos": 145,
             "plan": [
               { "hora": "07:00", "que": "Baño al amanecer en las Cascate del Mulino, que es cuando están vacías y con vapor. El mejor de los cuatro." },
               { "hora": "09:00", "que": "70 km subiendo por el monte Amiata hasta Bagni San Filippo. Carretera de montaña, con bosque a los dos lados." },
               { "hora": "10:30", "que": "La Balena Bianca: una cascada de calcáreo blanco puro con forma de ballena y pozas calientes metidas en el bosque. Gratis y bastante menos conocida que Saturnia. Baja por el sendero hasta las pozas de arriba, que están más calientes y más vacías." },
               { "hora": "13:00", "que": "Comes en el pueblo de Bagni San Filippo, que son cuatro casas y un par de sitios." },
-              { "hora": "14:30", "que": "80 km hasta Siena por la Val d'Orcia y la Cassia. Es de los tramos más bonitos del viaje y se hace sin prisa." },
-              { "hora": "17:00", "que": "Aparcas en Due Ponti (2 €) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
-              { "hora": "17:45", "que": "Siena a última hora, que es cuando la piedra se pone naranja: Piazza del Campo, la fachada del Duomo y las callejas de las contradas." },
+              { "hora": "14:30", "que": "35 km por la Cassia hasta San Quirico d'Orcia, ya en plena Val d'Orcia." },
+              { "hora": "16:00", "que": "Parada en la Val d'Orcia: los Horti Leonini de San Quirico, un jardín renacentista abierto y gratis, y tres kilómetros al sur la capilla de la Madonna di Vitaleta, sola en mitad de la colina, que es la foto de la Toscana." },
+              { "hora": "16:40", "que": "45 km hasta Siena, siempre por la Cassia." },
+              { "hora": "17:30", "que": "Aparcas en Due Ponti (2 €) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
+              { "hora": "18:00", "que": "Siena a última hora, que es cuando la piedra se pone naranja: Piazza del Campo, la fachada del Duomo y las callejas de las contradas." },
               { "hora": "21:00", "que": "Cena de pici all'aglione y vuelta al coche por las escaleras." }
             ],
-            "lugares": ["saturnia", "bagni-san-filippo", "siena", "siena-parking"],
+            "paradas": [
+              {"hora":"07:00","dura":120,"nivel":1,"lugar":"saturnia"},
+              {"hora":"10:30","dura":150,"nivel":1,"lugar":"bagni-san-filippo"},
+              {"hora":"16:00","dura":30,"nivel":3,"lugar":"val-dorcia","salta":"La Cassia cruza la Val d'Orcia entera: si vas tarde, se ve conduciendo"},
+              {"hora":"18:00","dura":210,"nivel":1,"lugar":"siena"}
+            ],
+            "lugares": ["saturnia", "bagni-san-filippo", "val-dorcia", "siena", "siena-parking"],
             "dormir": "siena", "aparcar": "siena",
             "comer": "Pici y pecorino por el camino, y por la noche pici all'aglione en Siena. Compra una cuña de queso en San Filippo o en la Cassia: es zona de pecorino.",
             "aviso": "El aparcamiento de Bagni San Filippo es pequeño y en agosto se llena a media mañana. Llegando a las 10:30 vas bien; a las 13:00, ya no.",
@@ -145,6 +153,13 @@
               { "hora": "16:30", "que": "90 km subiendo por el monte Amiata hasta Bagno Vignoni. Es una carretera larga de montaña: cuenta hora y media larga." },
               { "hora": "18:30", "que": "Bagno Vignoni: la plaza mayor del pueblo es una piscina termal humeante del siglo XVI. Ahí no te bañas, pero en el Parco dei Mulini, justo debajo, hay pozas libres y gratuitas con vista al valle." },
               { "hora": "20:30", "que": "Atardecer sobre la Val d'Orcia desde el borde del pueblo: colinas peladas, cipreses en fila y ni un ruido." }
+            ],
+            "paradas": [
+              {"hora":"07:00","dura":120,"nivel":1,"lugar":"saturnia"},
+              {"hora":"09:45","dura":135,"nivel":1,"lugar":"pitigliano"},
+              {"hora":"12:00","dura":90,"nivel":2,"lugar":"sovana","salta":"Sovana es una calle y una catedral: la necrópolis es lo que cuesta tiempo"},
+              {"hora":"15:00","dura":90,"nivel":3,"nombre":"Sorano","salta":"El tercer pueblo de toba es el que sobra: quítalo antes que Sovana y llegas a Bagno Vignoni con luz"},
+              {"hora":"18:30","dura":120,"nivel":1,"lugar":"bagno-vignoni"}
             ],
             "lugares": ["saturnia", "pitigliano", "sovana", "bagno-vignoni", "val-dorcia"],
             "dormir": "val-dorcia", "aparcar": "pitigliano",
@@ -198,6 +213,13 @@
               { "hora": "18:30", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y subir a Piazzale Michelangelo al atardecer." },
               { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
             ],
+            "paradas": [
+              {"hora":"08:00","dura":180,"nivel":1,"lugar":"siena"},
+              {"hora":"12:30","dura":90,"nivel":1,"lugar":"chianti"},
+              {"hora":"14:00","dura":120,"nivel":2,"nombre":"Comida en Panzano o Greve","salta":"La carnicería de Panzano es una parada de peregrinaje, pero se come igual en el coche"},
+              {"hora":"16:00","dura":90,"nivel":3,"nombre":"Greve in Chianti","salta":"Con Castellina ya has visto el Chianti: Greve es el que se suelta si quieres más tarde de Florencia"},
+              {"hora":"18:30","dura":210,"nivel":2,"lugar":"florencia-duomo","salta":"La primera tarde de Florencia es de propina"}
+            ],
             "lugares": ["siena", "chianti", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
             "dormir": "villa-costanza", "aparcar": ["siena", "florencia"],
             "comer": "Bistecca no, que es cara: en Panzano se come el resto de la vaca y sale la mitad. Y una copa de Chianti Classico en la propia Greve, que es el pueblo donde se inventó la denominación.",
@@ -240,6 +262,12 @@
               { "hora": "15:30", "que": "55 km hasta Villa Costanza, que es tu base los dos próximos días. Se entra directamente desde la A1." },
               { "hora": "17:00", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y Piazzale Michelangelo al atardecer." },
               { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
+            ],
+            "paradas": [
+              {"hora":"07:30","dura":90,"nivel":2,"lugar":"bagno-vignoni","salta":"Un baño rápido y para arriba: cada media hora aquí es media hora menos de San Gimignano"},
+              {"hora":"10:45","dura":45,"nivel":3,"lugar":"monteriggioni","salta":"Se ve entero desde la carretera. Es lo primero que se cae en un día de 175 km"},
+              {"hora":"12:15","dura":195,"nivel":1,"lugar":"san-gimignano"},
+              {"hora":"17:00","dura":240,"nivel":2,"lugar":"florencia-duomo","salta":"La primera tarde de Florencia es de propina"}
             ],
             "lugares": ["bagno-vignoni", "monteriggioni", "san-gimignano", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
             "dormir": "villa-costanza", "aparcar": ["san-gimignano", "florencia"],
@@ -339,6 +367,12 @@
               { "hora": "19:00", "que": "Atardecer desde San Pietro con el golfo entero delante. Es la mejor hora del sitio y la mayoría de la gente ya se ha ido." },
               { "hora": "21:00", "que": "Vuelta a La Spezia y cena por Via del Prione, que tiene precios de ciudad y no de postal. Compra ya la focaccia y la farinata de mañana: en los cinco pueblos cuestan el triple." }
             ],
+            "paradas": [
+              {"hora":"08:00","dura":60,"nivel":3,"lugar":"lucca","salta":"La muralla ya la diste ayer en bici: si prefieres llegar antes al golfo, sal directo"},
+              {"hora":"11:45","dura":180,"nivel":1,"lugar":"portovenere"},
+              {"hora":"16:00","dura":150,"nivel":2,"nombre":"Baño desde las rocas o barco a Palmaria","salta":"El barco a la Palmaria es lo caro y lo prescindible"},
+              {"hora":"19:00","dura":60,"nivel":1,"nombre":"Atardecer desde San Pietro"}
+            ],
             "lugares": ["lucca", "la-spezia", "portovenere"],
             "dormir": "la-spezia", "aparcar": "cinque-terre",
             "comer": "Focaccia genovese recién hecha y farinata (torta de harina de garbanzo cocida en horno de leña) a 2 € el trozo, y fritto misto en el muelle de Portovenere.",
@@ -381,6 +415,13 @@
               { "hora": "17:30", "que": "Tellaro: un pueblo diminuto colgado literalmente de la roca sobre el mar, todo de casas rosas y naranjas, con la iglesia asomada al agua. Media hora y se ve entero." },
               { "hora": "19:00", "que": "12 km hasta La Spezia. Dejas el coche donde duermes las dos próximas noches." },
               { "hora": "20:00", "que": "Cena por Via del Prione y compra de focaccia y farinata para mañana, que en los cinco pueblos cuestan el triple." }
+            ],
+            "paradas": [
+              {"hora":"08:00","dura":30,"nivel":3,"lugar":"pisa","salta":"Duermes a veinte minutos de la torre: si prefieres dormir, ya la viste anoche"},
+              {"hora":"11:00","dura":120,"nivel":1,"lugar":"lerici"},
+              {"hora":"13:00","dura":120,"nivel":2,"nombre":"San Terenzo y la casa de los Shelley","salta":"Se come igual en Lerici sin moverse"},
+              {"hora":"15:00","dura":150,"nivel":1,"nombre":"Calas de Fiascherino"},
+              {"hora":"17:30","dura":45,"nivel":3,"nombre":"Tellaro","salta":"Media hora y se ve entero, pero es lo primero que se cae si te has quedado en el agua"}
             ],
             "lugares": ["pisa", "lerici", "la-spezia"],
             "dormir": "la-spezia", "aparcar": "cinque-terre",
