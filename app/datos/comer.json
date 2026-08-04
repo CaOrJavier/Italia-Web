@@ -90,7 +90,7 @@
     {
       "id": "toscana",
       "region": "Toscana · Florencia, Siena y los pueblos",
-      "cuando": "El grueso del viaje en las dos rutas",
+      "cuando": "El grueso del viaje: del D2 al D8",
       "resumen": "Cocina de pobres hecha con productos buenísimos: pan sin sal, aceite verde, legumbre, casquería y caza. En agosto se come frío y en ensalada, que es justo lo que quieres.",
       "platos": [
         {
@@ -142,7 +142,7 @@
     {
       "id": "liguria",
       "region": "Liguria · Cinque Terre y La Spezia",
-      "cuando": "Los días de Cinque Terre, en las dos rutas",
+      "cuando": "Los días de Cinque Terre y del golfo, del D6 al D8",
       "resumen": "Verde y salado: albahaca, aceite de oliva ligur, piñones y anchoa. Es la cocina de mar más vegetal de Italia, y la más barata de comer de pie.",
       "platos": [
         {
