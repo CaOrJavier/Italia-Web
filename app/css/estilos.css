@@ -336,6 +336,30 @@ h2.seccion:first-child { margin-top: 4px; }
    distinguen solo por el símbolo: el color de la franja de la izquierda hace el
    trabajo de lejos, y el símbolo lo confirma de cerca. Nunca solo por color. */
 .cadena { margin: 14px 0; }
+
+/* ¿Cabe el día? Las horas útiles son las que quedan después de restarle a la
+   jornada el volante y el transporte urbano; las visitas, lo que suman las
+   paradas. Si la resta sale corta, el día va justo y da igual cuántos km tenga. */
+.holgura {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(96px, 1fr));
+  gap: 2px 10px; align-items: baseline;
+  padding: 9px 11px; margin-bottom: 8px;
+  border: 1px solid var(--linea); border-left: 4px solid var(--linea-2);
+  border-radius: var(--r-peq);
+  font-size: 13px; font-variant-numeric: tabular-nums;
+}
+.holgura b { grid-column: 1 / -1; font-size: 13.5px; margin-bottom: 3px; }
+.holgura i {
+  display: block; font-style: normal;
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-2);
+}
+.holgura small { color: var(--tinta-2); font-size: 11.5px; }
+.ho-justo { background: var(--rojo-suave); border-color: var(--rojo-linea); border-left-color: var(--rojo); }
+.ho-justo b { color: var(--rojo-txt); }
+.ho-ajustado { background: var(--ambar-suave); border-left-color: var(--ambar-txt); }
+.ho-ajustado b { color: var(--ambar-txt); }
+.ho-holgado { background: var(--verde-suave); border-color: var(--verde-linea); border-left-color: var(--verde); }
+.ho-holgado b { color: var(--verde-txt); }
 .cadena-l {
   list-style: none; padding: 0; margin: 0;
   border: 1px solid var(--linea); border-radius: var(--r-peq); overflow: hidden;
@@ -914,6 +938,10 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .jor-km b { display: block; font-size: 13.5px; color: var(--tinta); }
 .jor-km small { display: block; }
 .jor-extra { color: var(--azul-txt); }
+/* La marca de día apretado, visible con la jornada cerrada. */
+.jor-aprieto { font-weight: 650; }
+.jor-aprieto.jor-justo { color: var(--rojo-txt); font-weight: 700; }
+.jor-aprieto.jor-ajustado { color: var(--ambar-txt); }
 
 .jor-c { padding: 12px; font-size: 14px; }
 .jor-tit {

@@ -41,6 +41,44 @@ export function colchon(dia) {
   return { sueltas, minutos: sueltas.reduce((t, p) => t + (p.dura || 0), 0) };
 }
 
+const enMinutos = h => { const [a, b] = h.split(':').map(Number); return a * 60 + b; };
+
+/** Cuánto del día se te va solo en llegar a los sitios.
+ *
+ *  Es lo que decide si un día se disfruta o se sufre, y no se ve en los
+ *  kilómetros: 200 km de autopista de una sentada molestan menos que 100 con
+ *  tres paradas y dos aparcamientos lejos del centro. Así que se cuenta la
+ *  jornada entera, de la primera hora del plan a la última, y de ahí se separa
+ *  lo que es moverse —volante más el ir y volver del transporte urbano, que ya
+ *  está medido puerta a puerta en aparcar.json— de lo que queda para ver cosas.
+ *
+ *  Todo lo que entra aquí son datos duros: horas del plan, minutos de carretera
+ *  y minutos de transporte. Nada de estimar cuánto se tarda en ver una iglesia. */
+export function holgura(dia) {
+  const horas = (dia.plan || []).map(p => p.hora).filter(h => /^\d/.test(h));
+  if (horas.length < 2) return null;
+
+  let ventana = enMinutos(horas[horas.length - 1]) - enMinutos(horas[0]);
+  if (ventana < 0) ventana += 1440;                       // el día que acaba pasada la medianoche
+  if (ventana < 60) return null;                          // el desembarco no es una jornada
+
+  const transporte = datos.minutosTransporte(dia);
+  const moverse = (dia.minutos || 0) + transporte;
+  const parte = moverse / ventana;
+
+  // Un tercio del día metido en el coche es el punto en el que la jornada deja
+  // de ser una visita y pasa a ser un traslado con paradas.
+  const nivel = parte > 0.34 ? 'justo' : parte > 0.22 ? 'ajustado' : 'holgado';
+
+  return { ventana, moverse, transporte, ver: ventana - moverse, parte, nivel };
+}
+
+const RESPIRO = {
+  justo: { clase: 'ho-justo', texto: 'Más de un tercio del día se va en carretera y transporte' },
+  ajustado: { clase: 'ho-ajustado', texto: 'Un cuarto del día se va en llegar a los sitios' },
+  holgado: { clase: 'ho-holgado', texto: 'Casi todo el día es para ver cosas' }
+};
+
 /** El nivel de una hora del plan, para marcar la línea que le toca. */
 export function nivelDeHora(dia) {
   const m = new Map();
@@ -53,10 +91,17 @@ export function cadena(dia) {
   const paradas = dia.paradas || [];
   if (!paradas.length) return '';
   const c = colchon(dia);
+  const g = holgura(dia);
 
   return `
   <div class="cadena">
     <b class="jor-tit">La ruta del día, en orden</b>
+    ${g ? `<div class="holgura ${RESPIRO[g.nivel].clase}">
+      <b>${esc(RESPIRO[g.nivel].texto)}</b>
+      <span><i>Jornada</i>${minutosAHoras(g.ventana)}</span>
+      <span><i>Moviéndote</i>${minutosAHoras(g.moverse)} <small>${Math.round(g.parte * 100)} %</small></span>
+      <span><i>Para ver cosas</i>${minutosAHoras(g.ver)}</span>
+    </div>` : ''}
     <ol class="cadena-l">
       ${paradas.map(p => {
         const n = NIVELES[p.nivel];

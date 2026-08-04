@@ -21,7 +21,7 @@
 import * as datos from '../datos.js';
 import { esc, fechaCorta, fechaLarga, minutosAHoras, numero, euros, comoArray } from '../util.js';
 import { figura } from '../fotos.js';
-import { cadena, nivelDeHora, NIVELES } from '../cadena.js';
+import { cadena, nivelDeHora, holgura, NIVELES } from '../cadena.js';
 import { ir } from '../app.js';
 
 // ── Lo que sobrevive al repintado ──────────────────────────────────────────
@@ -590,6 +590,13 @@ function itinerario(dias, est, cogidos, variantes, desvios, t) {
           <span class="jor-km">
             <b>${km} km</b>
             <small>${minutosAHoras(min)}</small>
+            ${(() => {
+              // El aviso de «este día va justo» tiene que verse con la jornada
+              // cerrada: si hay que abrir los doce para descubrirlo, no sirve.
+              const g = holgura(d);
+              return g && g.nivel !== 'holgado'
+                ? `<small class="jor-aprieto jor-${g.nivel}">${Math.round(g.parte * 100)} % moviéndote</small>` : '';
+            })()}
             ${otros ? `<small class="jor-extra">${otros} camino${otros > 1 ? 's' : ''} más</small>` : ''}
             ${extras.length ? `<small class="jor-extra">+${extras.reduce((a, x) => a + x.km, 0)} desvío</small>` : ''}
           </span>
