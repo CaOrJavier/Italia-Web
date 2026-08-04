@@ -886,10 +886,24 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   color: var(--tinta-2); font-size: 12px; white-space: nowrap;
 }
 
-/* Las opciones de un día o de una variante, con su letra pequeña: se elige
-   leyendo, no a ciegas. Todo va dentro de un botón, así que nada de listas ni de
-   párrafos aquí dentro: solo contenido en línea. */
-.caja-var { background: var(--papel-2); margin-top: 14px; }
+/* Lo que hay que decidir un día, con todas sus opciones y su letra pequeña. Va
+   como texto y no como interruptor: la decisión se toma una vez, antes de salir
+   de casa, y llevar la cuenta en la web no sirve de nada dentro del coche. */
+.caja-var { background: var(--papel-2); margin: 14px 0; }
+.opciones { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; }
+.opciones li {
+  margin: 0; padding: 10px 11px;
+  background: var(--papel); border: 1px solid var(--linea);
+  border-left: 3px solid var(--linea-2); border-radius: var(--r-peq);
+}
+.opciones li.op-plan { border-left-color: var(--verde); }
+.opciones b { font-size: 14px; margin-right: 7px; }
+.opciones .etiq { vertical-align: 2px; }
+.opciones p { font-size: 13.5px; color: var(--tinta-2); margin: 5px 0 0; }
+
+/* Los desvíos del día, plegados: son de leer una vez, no de consultar a diario. */
+.tarjeta-desvios { margin: 14px 0; border-left: 4px solid var(--ambar-txt); }
+
 .var-ops { display: grid; gap: 8px; margin-top: 8px; }
 .var-op {
   display: grid; gap: 4px; width: 100%;

@@ -27,6 +27,14 @@ jobs:
 
       - uses: actions/configure-pages@v5
 
+      # Le pone el sello del commit a cada URL interna (?v=abc1234). Sin esto,
+      # GitHub Pages sirve los ficheros con diez minutos de caché y el navegador
+      # se queda con los módulos viejos durante horas: en el ordenador se arregla
+      # con Ctrl+Shift+R, pero en un móvil no hay Ctrl+Shift+R. Se hace sobre la
+      # copia que se publica y nunca sobre los fuentes.
+      - name: Sellar las URLs con el commit
+        run: node app/herramientas/sellar.mjs app "${{ github.sha }}"
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: app

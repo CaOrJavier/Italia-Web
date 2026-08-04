@@ -1,15 +1,15 @@
 // La ruta, día a día.
 //
-// Hubo dos rutas y una pantalla para compararlas en paralelo. Ya no: hay una,
-// está cerrada, y esta pantalla es leerla de arriba abajo. Lo que se le puede
-// añadir o cambiar vive en A medida.
+// Una sola ruta, cerrada, y esta pantalla es leerla de arriba abajo. Dentro de
+// cada día va todo lo suyo: la ruta del día en orden con lo que se puede soltar,
+// el hora a hora, lo que hay que decidir antes de salir de casa y los desvíos que
+// caben ese día. No hay nada que elegir ni estado que guardar: se lee y ya.
 
 import * as datos from '../datos.js';
 import { esc, fechaLarga, minutosAHoras, numero, euros } from '../util.js';
 import { tiraLugares } from '../marcas.js';
 import { cadena, nivelDeHora, NIVELES } from '../cadena.js';
 import { figura } from '../fotos.js';
-import { ir } from '../app.js';
 
 export function pintar(main, params) {
   const ruta = datos.RUTAS.rutas[0];
@@ -43,7 +43,7 @@ export function pintar(main, params) {
 function resumen(r) {
   const apretados = datos.apretadosDe(r);
   const comb = datos.combustible(r);
-  const desvios = datos.EXTRAS.desvios.length;
+  const nDesvios = datos.EXTRAS.desvios.length;
   return `
   <div class="tarjeta" style="--barra:${esc(r.color)}">
     <div class="tarjeta-c">
@@ -64,9 +64,9 @@ function resumen(r) {
         <p class="peq" style="margin:6px 0 0">Combustible estimado: ${comb.litros} litros,
         unos ${euros(comb.euros)} a ${String(datos.VIAJE.combustible.precio_litro_estimado).replace('.', ',')} €/l.</p>
       </div>
-      <p class="peq" style="margin:10px 0 0">Esto es el plan de serie. En
-        <a href="#/medida">A medida</a> se le pueden colgar ${desvios} desvíos y cambiar
-        las cuatro entradas que hay que decidir antes de salir de casa.</p>
+      <p class="peq" style="margin:10px 0 0">Dentro de cada día están los
+        ${nDesvios} desvíos que caben ese día, con sus kilómetros contados, y las
+        ${datos.EXTRAS.variantes.length} decisiones que hay que tomar antes de salir de casa.</p>
     </div>
   </div>`;
 }
@@ -93,6 +93,63 @@ function dia(d, abierto) {
   </details>`;
 }
 
+/** Lo que hay que decidir ese día, casi siempre antes de salir de casa: en qué
+ *  te gastas la entrada de Florencia, qué tarjeta compras en Cinque Terre. Va
+ *  como texto y no como interruptor: la decisión se toma una vez y no hace falta
+ *  una pantalla para llevar la cuenta. */
+function decidir(d) {
+  const mias = datos.EXTRAS.variantes.filter(v => v.dia === d.n);
+  if (!mias.length) return '';
+  return mias.map(v => `
+    <div class="caja caja-var">
+      <b class="caja-t">${esc(v.icono)} ${esc(v.titulo)}</b>
+      ${v.nota ? `<p class="peq">${esc(v.nota)}</p>` : ''}
+      <ul class="opciones">${v.opciones.map((o, i) => `
+        <li${i === 0 ? ' class="op-plan"' : ''}>
+          <b>${esc(o.icono)} ${esc(o.nombre)}</b>
+          ${i === 0 ? '<span class="etiq etiq-verde">Lo que va en el plan</span>' : ''}
+          ${coste(o) ? `<span class="etiq etiq-gris">${esc(coste(o))}</span>` : ''}
+          <p>${esc(o.que)}</p>
+        </li>`).join('')}</ul>
+    </div>`).join('');
+}
+
+/** Los desvíos que caben ese día: un sitio de más, con lo que cuesta meterlo. No
+ *  se encienden ni se apagan, se leen: los kilómetros y el rato están escritos y
+ *  la suma se hace sobre la marcha si de verdad se coge alguno. */
+function desvios(d) {
+  const mios = datos.EXTRAS.desvios.filter(x => x.dia === d.n);
+  if (!mios.length) return '';
+  return `
+  <details class="tarjeta tarjeta-desvios">
+    <summary class="cab-tarjeta" style="cursor:pointer">
+      <h3>Si te sobra tiempo este día</h3>
+      <span class="etiq etiq-gris">${mios.length} desvío${mios.length > 1 ? 's' : ''}</span>
+    </summary>
+    ${mios.map(x => `<div class="plato">
+      <div class="plato-t">
+        <b>${esc(x.icono)} ${esc(x.nombre)}</b>
+        <span class="etiq etiq-ambar">${esc(coste(x) || 'sin coste')}</span>
+      </div>
+      ${x.cuando ? `<p class="peq"><b>Cuándo cae ·</b> ${esc(x.cuando)}</p>` : ''}
+      <p>${esc(x.que)}</p>
+    </div>`).join('')}
+  </details>`;
+}
+
+/** «+35 km · +50 min de coche · 2 h 30 allí · +5 €», saltándose lo que sea cero.
+ *  Las tres monedas van separadas porque los kilómetros y el volante son una cosa
+ *  y el rato que te come el sitio es otra: Fiesole son tres horas y ni un km. */
+function coste(x) {
+  const p = [];
+  const signo = (n, u) => `${n > 0 ? '+' : '−'}${numero(Math.abs(n))} ${u}`;
+  if (x.km) p.push(signo(x.km, 'km'));
+  if (x.minutos) p.push(`${x.minutos > 0 ? '+' : '−'}${minutosAHoras(Math.abs(x.minutos))} de coche`);
+  if (x.rato) p.push(`${minutosAHoras(x.rato)} allí`);
+  if (x.coste) p.push(signo(x.coste, '€'));
+  return p.length ? p.join(' · ') : null;
+}
+
 /** Las fotos de los sitios del día. Como mucho cuatro: es una muestra, no un álbum. */
 function fotosDia(d) {
   const con = datos.lugaresDeDia(d).filter(l => datos.fotoDe(l.id)).slice(0, 4);
@@ -101,7 +158,7 @@ function fotosDia(d) {
     figura(l.id, { alto: 96, pie: l.nombre })).join('')}</div>`;
 }
 
-/** El cuerpo de un día. Lo comparten los dos modos, para que no se dupliquen los datos. */
+/** El cuerpo de un día. */
 function detalle(d) {
   const parkings = datos.parkingsDe(d);
   const cama = datos.camaDe(d);
@@ -125,6 +182,9 @@ function detalle(d) {
     }).join('')}</ul>
 
     ${d.aviso ? `<div class="caja caja-ojo"><b class="caja-t">Ojo</b>${esc(d.aviso)}</div>` : ''}
+
+    ${decidir(d)}
+    ${desvios(d)}
 
     ${fotosDia(d)}
     ${tiraLugares(d)}

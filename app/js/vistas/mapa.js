@@ -1,4 +1,4 @@
-// Las rutas sobre el mapa.
+// La ruta sobre el mapa.
 //
 // Tres decisiones que vienen de que la primera versión era ilegible:
 //
@@ -6,14 +6,14 @@
 //    ocho sitios caían a menos de cuatro píxeles unos de otros. Ahora, cuando dos
 //    puntos se pisan, se dibuja un solo círculo con el número de sitios dentro, y
 //    al pincharlo el mapa se acerca hasta separarlos.
-// 2. Los sitios que solo se pisan cogiendo un desvío empiezan apagados. Son 21 y
+// 2. Los sitios que solo se pisan cogiendo un desvío empiezan apagados. Son 18 y
 //    encendidos taparían la ruta, que es lo que se viene a ver. El botón los
-//    enciende cuando se está eligiendo qué añadir en A medida.
+//    enciende para ver dónde caen los desvíos que lleva cada día.
 // 3. Cada punto de la ruta lleva escrito el día en que se pisa (D0 a D11). Un
 //    mapa de puntos no dice por dónde se empieza ni cuándo estás en cada sitio;
 //    con el día encima se lee de un vistazo. El color sigue diciendo qué es cada
 //    punto, así que no se pierde nada. Los desvíos no llevan día: dependen de si
-//    los coges, y eso se decide en otra pantalla.
+//    los coges, y eso va escrito dentro de su día.
 //
 // Leaflet pesa 145 KB y solo hace falta aquí: se carga al abrir esta pantalla.
 
@@ -104,8 +104,7 @@ export async function pintar(main, params) {
   const inicial = params.get('d') === '1';
 
   main.innerHTML = `
-    <p class="intro">Una ruta cada vez, que es como se lee. Cada icono lleva el día en que
-    estás ahí: <b>D0</b> es el desembarco y <b>D11</b> el día del ferri de vuelta.
+    <p class="intro">Cada icono lleva el día en que estás ahí: <b>D0</b> es el desembarco y <b>D11</b> el día del ferri de vuelta.
     <b>D3-4</b> quiere decir que pasas dos días seguidos, y la chapita negra dice cuántos
     sitios hay debajo: pínchala y el mapa se acerca hasta separarlos. Los kilómetros van
     sobre la línea, en mitad del tramo que se hace ese día.</p>
@@ -118,7 +117,7 @@ export async function pintar(main, params) {
     </div>
 
     <div class="mapa-caja">
-      <div id="mapa" role="application" aria-label="Mapa de las rutas"></div>
+      <div id="mapa" role="application" aria-label="Mapa de la ruta"></div>
       <button type="button" id="agrandar" class="mapa-btn" aria-pressed="false">Agrandar</button>
     </div>
 
@@ -316,7 +315,7 @@ export async function pintar(main, params) {
   }
 
   /** Los días en que se pisa un lugar. Los desvíos no tienen: dependen de si los
-   *  coges, y eso se decide en A medida. */
+   *  coges, y eso va escrito dentro de su día. */
   const diasDe = l => datos.diasDeLugar(ruta.id, l.id);
 
   function pinSuelto(l) {

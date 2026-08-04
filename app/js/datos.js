@@ -166,8 +166,8 @@ function comprobarLugares() {
 }
 
 /** Con una sola ruta ya no hay «¿qué gano y qué pierdo eligiendo esta?»: solo hay
- *  dos clases de sitio, los que están en el plan y los que hay que añadir a mano
- *  desde A medida, pagando kilómetros. */
+ *  dos clases de sitio, los que están en el plan y los que salen como desvío
+ *  dentro de su día, pagando kilómetros. */
 export function exclusividadDe(l) {
   const clave = l.rutas.length ? 'todas' : 'algunas';
   return { clave, ...LUGARES.exclusividad[clave], enLaRuta: clave === 'todas' };

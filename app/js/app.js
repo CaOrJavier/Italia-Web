@@ -7,9 +7,7 @@ import { esc, fechaCorta, diasHasta } from './util.js';
 const VISTAS = {
   rutas: () => import('./vistas/rutas.js'),
   mapa: () => import('./vistas/mapa.js'),
-  medida: () => import('./vistas/medida.js'),
   reservar: () => import('./vistas/reservar.js'),
-  resumen: () => import('./vistas/resumen.js'),
   comer: () => import('./vistas/comer.js'),
   aparcar: () => import('./vistas/aparcar.js')
 };
