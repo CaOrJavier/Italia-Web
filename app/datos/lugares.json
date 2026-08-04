@@ -82,6 +82,30 @@
       "nota": "Primera noche, a 450 m de altitud: 4-6 °C más fresco que la costa."
     },
     {
+      "id": "tarquinia",
+      "nombre": "Tarquinia · necrópolis etrusca",
+      "tipo": "ver",
+      "lat": 42.245,
+      "lon": 11.766,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "≈ 10 € con museo",
+      "nota": "Doscientas tumbas etruscas pintadas por dentro, Patrimonio de la Humanidad. Se bajan unas escaleras y se mira por un cristal. Cierra los lunes. Cae en la Aurelia entre Tolfa y Saturnia."
+    },
+    {
+      "id": "vulci",
+      "nombre": "Vulci y la Cascata del Pellicone",
+      "tipo": "ver",
+      "lat": 42.4222,
+      "lon": 11.6297,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "≈ 10 € el parque · río gratis",
+      "nota": "Ciudad etrusca en mitad de la nada, con el Ponte dell'Abbadia sobre el barranco del Fiora y un castillo de aduana enfrente. Debajo del puente, la poza del Pellicone, donde se baña la gente."
+    },
+    {
       "id": "bracciano",
       "nombre": "Lago de Bracciano",
       "tipo": "dormir",
@@ -183,7 +207,18 @@
         "agua"
       ],
       "precio": "Gratis",
-      "nota": "Los domingos está cortada al tráfico: ocho kilómetros de calzada romana original entre pinos y tumbas."
+      "nota": "Los domingos está cortada al tráfico: ocho kilómetros de calzada romana original entre pinos y tumbas. Las catacumbas de San Calixto y San Sebastián están en el mismo camino."
+    },
+    {
+      "id": "ostia-antica",
+      "nombre": "Ostia Antica",
+      "tipo": "ver",
+      "lat": 41.755,
+      "lon": 12.292,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "≈ 18 €",
+      "nota": "El puerto de Roma entero: calles empedradas, termas con mosaicos, un teatro en pie y los bares con el mostrador de mármol puesto. Pompeya sin la multitud de Pompeya. Se llega en el tren de Porta San Paolo con el billete de metro."
     },
     {
       "id": "anagnina",
@@ -263,6 +298,17 @@
       "nota": "Catorce torres medievales en pie de las setenta y dos que hubo. Aparca en los de abajo, que valen la mitad."
     },
     {
+      "id": "certaldo",
+      "nombre": "Certaldo Alto",
+      "tipo": "ver",
+      "lat": 43.5478,
+      "lon": 11.0397,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Funicular 2 €",
+      "nota": "El pueblo de ladrillo rojo donde murió Boccaccio, sin coches dentro y con funicular desde la parte baja. Una sola calle, el palacio pretorio con escudos de mayólica y el valle delante. Entre San Gimignano y Florencia."
+    },
+    {
       "id": "volterra",
       "nombre": "Volterra",
       "tipo": "ver",
@@ -338,6 +384,28 @@
       "nota": "La vista de Florencia al atardecer. Justo debajo está el Giardino delle Rose, gratis y con sombra."
     },
     {
+      "id": "fiesole",
+      "nombre": "Fiesole",
+      "tipo": "ver",
+      "lat": 43.807,
+      "lon": 11.293,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Bus 1,70 € · teatro ≈ 7 €",
+      "nota": "El pueblo etrusco de la colina de enfrente y la escapada de los florentinos cuando aprieta el calor: bus 7 desde San Marco, 20 minutos. Teatro romano abajo y la subida a San Francesco, gratis y con la mejor vista de Florencia que existe."
+    },
+    {
+      "id": "certosa-galluzzo",
+      "nombre": "Certosa del Galluzzo",
+      "tipo": "ver",
+      "lat": 43.7404,
+      "lon": 11.2043,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "≈ 5 € de donativo",
+      "nota": "Cartuja del XIV a 3 km de Villa Costanza, donde tienes el coche. Se visita con un monje: claustros, celdas con huerto y los frescos que Pontormo pintó ahí escondido de la peste."
+    },
+    {
       "id": "mercato-centrale",
       "nombre": "Florencia · Mercato Centrale",
       "tipo": "comer",
@@ -388,6 +456,18 @@
       ],
       "precio": "Aparcar gratis · torre 20 €",
       "nota": "Aparcamiento gratuito en Via Pietrasantina y lanzadera de 1 € hasta la torre. La lanzadera deja de pasar a las 17:30."
+    },
+    {
+      "id": "carrara",
+      "nombre": "Carrara · canteras de mármol",
+      "tipo": "ver",
+      "lat": 44.095,
+      "lon": 10.13,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Mirador gratis · visita 10-15 €",
+      "nota": "Los Alpes Apuanos abiertos en canal: paredes blancas de cientos de metros, la piedra del David. Arriba, Colonnata, donde curan el lardo en pilas de mármol. Un cuarto de hora fuera de la A12."
     },
     {
       "id": "la-spezia",
@@ -495,6 +575,18 @@
       "nota": "Cinco kilómetros rectos de cipreses, parada natural para estirar las piernas bajando la costa."
     },
     {
+      "id": "populonia",
+      "nombre": "Populonia y el golfo de Baratti",
+      "tipo": "playa",
+      "lat": 42.99,
+      "lon": 10.494,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Playa gratis · parque ≈ 8 €",
+      "nota": "La única ciudad etrusca a pie de mar: necrópolis entre pinos y una bahía en media luna debajo. La arena tiene brillos negros, que son las escorias de hierro que fundían aquí hace 2.500 años."
+    },
+    {
       "id": "castiglione",
       "nombre": "Castiglione della Pescaia",
       "tipo": "playa",
@@ -544,6 +636,17 @@
       ],
       "precio": "10-15 €",
       "nota": "3 km más arriba de las cascadas y un tercio más barato. Acquacotta y tortelli maremmani."
+    },
+    {
+      "id": "montemerano",
+      "nombre": "Montemerano",
+      "tipo": "ver",
+      "lat": 42.6136,
+      "lon": 11.4867,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Gratis",
+      "nota": "Uno de los borghi più belli d'Italia, a 8 km de las cascadas: tres círculos de murallas y la Madonna della Gattaiola, una tabla pintada a la que le abrieron un agujero para el gato cuando la usaron de puerta."
     },
     {
       "id": "pitigliano",
@@ -606,6 +709,29 @@
       ],
       "precio": "Gratis",
       "nota": "Pozas de agua a 43 °C al lado del río Farma, debajo del puente de la carretera. Libres, gratuitas y con el río frío al lado para alternar."
+    },
+    {
+      "id": "san-galgano",
+      "nombre": "Abadía de San Galgano",
+      "tipo": "ver",
+      "lat": 43.1519,
+      "lon": 11.1544,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "≈ 5 €",
+      "nota": "Una abadía gótica sin tejado: se le cayó en el XVIII y quedan las paredes, los ventanales y el suelo de hierba con el cielo encima. En la colina de al lado, la espada clavada en la roca de San Galgano. A 20 km de Petriolo."
+    },
+    {
+      "id": "montalcino",
+      "nombre": "Montalcino y Sant'Antimo",
+      "tipo": "ver",
+      "lat": 43.058,
+      "lon": 11.489,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Gratis · fortaleza ≈ 5 €",
+      "nota": "El pueblo del Brunello, con una fortaleza del XIV y la Val d'Orcia debajo. A 10 km, sola en un valle de olivos, la abadía románica de Sant'Antimo, de piedra de alabastro que a ciertas horas se pone traslúcida."
     },
     {
       "id": "val-dorcia",

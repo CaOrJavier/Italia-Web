@@ -4,15 +4,22 @@
 // a cerrar tres veces: comprobado día a día, solo duermen en sitio distinto las
 // noches del D2 y del D5. En cada bifurcación las dos ramas salen del mismo sitio
 // y acaban en el mismo sitio, así que cualquier combinación cuadra sin tocar nada.
-// Son 2×2×2 = 8 viajes posibles, más los desvíos.
+// Son 2×2×2 = 8 viajes posibles, y encima van las variantes y los desvíos.
+//
+// Hay cuatro tipos de nodo, y cada uno decide una cosa distinta:
+//   · tronco       días iguales en las dos rutas: no se elige, pero se le cuelgan cosas
+//   · bifurcación  cambia la ruta de la que salen esos días
+//   · variante     dentro de un mismo día: cambia lo que pagas o lo que haces
+//   · desvío       un sitio de más, con sus kilómetros aparte
+// Las variantes y los desvíos no tocan los días: solo suman (o restan) al total, y
+// por eso pueden colgar también de un tronco, que es donde antes no había nada.
 //
 // Se dibuja como un árbol de habilidades de videojuego: nodos en una columna, la
 // línea que se parte en dos donde hay que elegir, el camino tomado encendido del
-// color de su ruta y el otro apagado, y los desvíos como nodos menores colgando
-// del que has elegido.
+// color de su ruta y el otro apagado, y lo menor colgando del que has elegido.
 //
 // Nada duplica datos: los días salen de rutas.json y arbol.json solo dice qué días
-// forman cada rama.
+// forman cada rama y qué se le puede añadir.
 
 import * as datos from '../datos.js';
 import { esc, fechaCorta, fechaLarga, minutosAHoras, numero, euros } from '../util.js';
@@ -22,15 +29,60 @@ import { ir } from '../app.js';
 /** Día n de una ruta. Por su número, no por su posición. */
 const dia = (idRuta, n) => datos.RUTA.get(idRuta).dias.find(d => d.n === n);
 const bifurcaciones = () => datos.ARBOL.tramos.filter(t => t.tipo === 'bifurcacion');
+const tramo = id => datos.ARBOL.tramos.find(t => t.id === id);
 
-function eleccion(params) {
+// ── Estado ─────────────────────────────────────────────────────────────────
+//
+// Todo el estado cabe en la URL: una clave por bifurcación, una por variante y
+// una lista de desvíos. Las claves de bifurcación y de variante no se pisan
+// porque los identificadores del JSON son únicos entre las dos listas.
+
+function estado(params) {
   const sel = {};
   for (const b of bifurcaciones()) {
     const pedido = params.get(b.id);
     sel[b.id] = b.opciones.some(o => o.id === pedido) ? pedido : b.opciones[0].id;
   }
-  return { sel, desvios: new Set((params.get('d') || '').split(',').filter(Boolean)) };
+  const vsel = {};
+  for (const v of datos.ARBOL.variantes) {
+    const pedido = params.get(v.id);
+    vsel[v.id] = v.opciones.some(o => o.id === pedido) ? pedido : v.opciones[0].id;
+  }
+  const pedidos = new Set((params.get('d') || '').split(',').filter(Boolean));
+  return { sel, vsel, pedidos };
 }
+
+/** ¿Este colgante (variante o desvío) está disponible con lo que llevas elegido?
+ *  Cuelga de un tramo, a veces de una rama concreta de ese tramo, y a veces
+ *  además exige que otra decisión haya salido de una manera. */
+function disponible(x, sel, vsel) {
+  const t = tramo(x.tramo);
+  if (!t) return false;
+  if (t.tipo === 'bifurcacion' && x.opcion && sel[t.id] !== x.opcion) return false;
+  const r = x.requiere;
+  if (!r) return true;
+  if (r.tramo) return sel[r.tramo] === r.opcion;
+  if (r.variante) return vsel[r.variante] === r.opcion;
+  return true;
+}
+
+/** Lo que se puede tocar ahora mismo, ya resuelto: variantes vivas, desvíos
+ *  posibles y desvíos realmente puestos. */
+function abierto({ sel, vsel, pedidos }) {
+  const variantes = datos.ARBOL.variantes.filter(v => disponible(v, sel, vsel));
+  // Un desvío puede depender de una variante, así que se mira contra las vivas.
+  const vivas = new Set(variantes.map(v => v.id));
+  const activa = (id, op) => vivas.has(id) && vsel[id] === op;
+  const desvios = datos.ARBOL.desvios.filter(d =>
+    disponible(d, sel, vsel) && (!d.requiere || !d.requiere.variante || activa(d.requiere.variante, d.requiere.opcion)));
+  return { variantes, desvios, cogidos: desvios.filter(d => pedidos.has(d.id)) };
+}
+
+const opcionDe = (v, vsel) => v.opciones.find(o => o.id === vsel[v.id]);
+const variantesDe = (lista, idTramo, idOpcion) =>
+  lista.filter(v => v.tramo === idTramo && (!v.opcion || v.opcion === idOpcion));
+const desviosDe = (lista, idTramo, idOpcion) =>
+  lista.filter(d => d.tramo === idTramo && (!d.opcion || d.opcion === idOpcion));
 
 function componer(sel) {
   const dias = [];
@@ -41,69 +93,116 @@ function componer(sel) {
   return dias.sort((a, b) => a.n - b.n);
 }
 
-const desviosPosibles = sel => datos.ARBOL.desvios.filter(d => sel[d.tramo] === d.opcion);
-
-function total(dias, cogidos) {
+/** El total: los días de la combinación, más lo que suman variantes y desvíos.
+ *  Las variantes pueden restar (una tarjeta más barata, una entrada que no sacas). */
+function total(dias, cogidos, variantes, vsel) {
   const t = dias.reduce((a, d) => ({ km: a.km + d.km, min: a.min + d.minutos, eur: a.eur + d.coste_dia }),
     { km: 0, min: 0, eur: 0 });
-  for (const d of cogidos) { t.km += d.km; t.min += d.minutos; t.eur += d.coste || 0; }
+  const suma = x => { t.km += x.km || 0; t.min += x.minutos || 0; t.eur += x.coste || 0; };
+  cogidos.forEach(suma);
+  variantes.map(v => opcionDe(v, vsel)).forEach(suma);
   return t;
 }
+
+/** Cuántas decisiones hay tomadas y cuántas hay en total, para la ficha de arriba. */
+const cambiadas = (variantes, vsel) =>
+  variantes.filter(v => vsel[v.id] !== v.opciones[0].id).length;
+
+// ── Números con signo ──────────────────────────────────────────────────────
+
+const conSigno = (n, sufijo) => `${n > 0 ? '+' : '−'}${numero(Math.abs(n))} ${sufijo}`;
+
+/** Lo que cuesta meter algo, con las tres monedas separadas: «+35 km · +50 min de
+ *  coche · 2 h 30 allí · +5 €». Los kilómetros y el volante son una cosa y el rato
+ *  que te come el sitio es otra, y mezclarlos era lo que hacía mentir al reloj del
+ *  día: Fiesole son tres horas y ni un kilómetro. */
+function coste(x) {
+  const partes = [];
+  if (x.km) partes.push(conSigno(x.km, 'km'));
+  if (x.minutos) partes.push(`${x.minutos > 0 ? '+' : '−'}${minutosAHoras(Math.abs(x.minutos))} de coche`);
+  if (x.rato) partes.push(`${minutosAHoras(x.rato)} allí`);
+  if (x.coste) partes.push(conSigno(x.coste, '€'));
+  return partes.length ? partes.join(' · ') : null;
+}
+
+/** La versión que cabe en una pastilla del árbol: solo lo que decide, kilómetros y dinero. */
+function costeMini(x) {
+  const partes = [];
+  if (x.km) partes.push(conSigno(x.km, 'km'));
+  if (x.rato && !x.km) partes.push(minutosAHoras(x.rato));
+  if (x.coste) partes.push(conSigno(x.coste, '€'));
+  return partes.length ? partes.join(' · ') : null;
+}
+
+const costeCorto = x => coste(x) || 'sin coste';
 
 // ── Pintado ────────────────────────────────────────────────────────────────
 
 export function pintar(main, params) {
-  const { sel, desvios } = eleccion(params);
+  const est = estado(params);
+  const { sel, vsel } = est;
+  const { variantes, desvios, cogidos } = abierto(est);
   const dias = componer(sel);
-  const cogidos = desviosPosibles(sel).filter(d => desvios.has(d.id));
-  const t = total(dias, cogidos);
+  const t = total(dias, cogidos, variantes, vsel);
 
   main.innerHTML = `
     <p class="intro">${esc(datos.ARBOL.intro)}</p>
-    ${panel(t, sel, cogidos)}
+    ${panel(t, sel, cogidos, desvios, variantes, vsel)}
     <p class="intro">${esc(datos.ARBOL.explica)}</p>
 
     <div class="arbol">
       ${datos.ARBOL.tramos.map((tr, i) =>
         (i ? enlace(tr, datos.ARBOL.tramos[i - 1], sel) : '') +
-        (tr.tipo === 'tronco' ? nodoTronco(tr) : nodosRama(tr, sel, desvios))
+        (tr.tipo === 'tronco'
+          ? nodoTronco(tr, variantes, desvios, vsel, est.pedidos)
+          : nodosRama(tr, sel, variantes, desvios, vsel, est.pedidos))
       ).join('')}
     </div>
+    ${leyenda()}
 
-    ${detalles(sel, desvios)}
-    ${sobras(dias, cogidos)}
+    ${detalles(sel, variantes, desvios, vsel, est.pedidos)}
+    ${sobras(dias, cogidos, desvios)}
 
     <h2 class="seccion">Tu viaje, día a día</h2>
-    ${itinerario(dias, cogidos, t)}
+    ${itinerario(dias, cogidos, variantes, vsel, t)}
   `;
 
   main.querySelectorAll('[data-elige]').forEach(b => b.addEventListener('click', () =>
-    ir('mezclar', nuevaURL(sel, desvios, { rama: b.dataset.elige, opcion: b.dataset.opcion }))));
+    ir('mezclar', nuevaURL(est, { rama: b.dataset.elige, opcion: b.dataset.opcion }))));
+  main.querySelectorAll('[data-variante]').forEach(b => b.addEventListener('click', () =>
+    ir('mezclar', nuevaURL(est, { variante: b.dataset.variante, opcion: b.dataset.opcion }))));
   main.querySelectorAll('[data-desvio]').forEach(b => b.addEventListener('click', () =>
-    ir('mezclar', nuevaURL(sel, desvios, { desvio: b.dataset.desvio }))));
+    ir('mezclar', nuevaURL(est, { desvio: b.dataset.desvio }))));
   const reset = main.querySelector('#reiniciar');
   if (reset) reset.addEventListener('click', () => ir('mezclar', new URLSearchParams()));
 }
 
-function nuevaURL(sel, desvios, cambio) {
-  const s = { ...sel };
-  const d = new Set(desvios);
-  if (cambio.rama) {
-    s[cambio.rama] = cambio.opcion;
-    // Los desvíos cuelgan de una opción concreta: al cambiar de rama se caen solos.
-    for (const x of datos.ARBOL.desvios)
-      if (x.tramo === cambio.rama && x.opcion !== cambio.opcion) d.delete(x.id);
-  }
-  if (cambio.desvio) d.has(cambio.desvio) ? d.delete(cambio.desvio) : d.add(cambio.desvio);
-  const q = new URLSearchParams(s);
-  if (d.size) q.set('d', [...d].join(','));
+/** La URL nueva después de tocar algo. En vez de ir borrando a mano lo que deja
+ *  de tener sentido, se recalcula qué está disponible con el estado nuevo y se
+ *  escribe solo eso: lo que ya no cuelga de ningún sitio se cae solo. */
+function nuevaURL(est, cambio) {
+  const sel = { ...est.sel };
+  const vsel = { ...est.vsel };
+  const pedidos = new Set(est.pedidos);
+
+  if (cambio.rama) sel[cambio.rama] = cambio.opcion;
+  if (cambio.variante) vsel[cambio.variante] = cambio.opcion;
+  if (cambio.desvio) pedidos.has(cambio.desvio) ? pedidos.delete(cambio.desvio) : pedidos.add(cambio.desvio);
+
+  const { variantes, cogidos } = abierto({ sel, vsel, pedidos });
+  const q = new URLSearchParams(sel);
+  // Solo se escriben las variantes que están vivas y que no llevan lo de serie:
+  // la URL se queda corta y compartible.
+  for (const v of variantes) if (vsel[v.id] !== v.opciones[0].id) q.set(v.id, vsel[v.id]);
+  if (cogidos.length) q.set('d', cogidos.map(d => d.id).join(','));
   return q;
 }
 
 /** La barra de estado de arriba, estilo ficha de personaje. */
-function panel(t, sel, cogidos) {
+function panel(t, sel, cogidos, desvios, variantes, vsel) {
   const rutas = datos.ARBOL.rutas.map(id => datos.RUTA.get(id));
-  const pura = cogidos.length ? null : rutas.find(r =>
+  const tocadas = cambiadas(variantes, vsel);
+  const pura = cogidos.length || tocadas ? null : rutas.find(r =>
     bifurcaciones().every(b => b.opciones.find(o => o.id === sel[b.id]).ruta === r.id));
 
   return `
@@ -112,16 +211,21 @@ function panel(t, sel, cogidos) {
       <div><b>${numero(t.km)}</b><span>km</span></div>
       <div><b>${minutosAHoras(t.min)}</b><span>volante</span></div>
       <div><b>${euros(t.eur)}</b><span>coste</span></div>
-      <div><b>${cogidos.length}<small>/${datos.ARBOL.desvios.length}</small></b><span>desvíos</span></div>
+      <div><b>${cogidos.length}<small>/${desvios.length}</small></b><span>desvíos</span></div>
     </div>
     <div class="ficha-pie">
       ${pura
         ? `<span class="etiq etiq-verde">Esto es la ruta ${pura.numero} tal cual</span>`
-        : '<span class="etiq etiq-ambar">Mezcla propia</span>'}
+        : `<span class="etiq etiq-ambar">Mezcla propia${tocadas ? ` · ${tocadas} variante${tocadas > 1 ? 's' : ''}` : ''}</span>`}
       <button type="button" id="reiniciar" class="etiq etiq-gris"
               style="cursor:pointer;min-height:32px;padding:7px 12px">Reiniciar</button>
     </div>
   </div>`;
+}
+
+function leyenda() {
+  return `<ul class="sk-leyenda">${datos.ARBOL.leyenda.map(l => `
+    <li><i>${esc(l.icono)}</i><span><b>${esc(l.nombre)}</b> ${esc(l.que)}</span></li>`).join('')}</ul>`;
 }
 
 /** El trozo de línea entre dos tramos: recta, que se abre, o que se cierra. */
@@ -160,21 +264,28 @@ function linea(tipo, color, izquierda) {
   </svg>`;
 }
 
-function nodoTronco(tr) {
+function nodoTronco(tr, variantes, desvios, vsel, pedidos) {
   const dias = tr.dias.map(n => dia(tr.ruta, n));
   const km = dias.reduce((a, d) => a + d.km, 0);
+  const mias = variantesDe(variantes, tr.id);
+  const misD = desviosDe(desvios, tr.id);
   return `
   <div class="sk-fila sk-fila-1">
-    <div class="sk-nodo sk-tronco" title="${esc(tr.nota)}">
-      <span class="sk-ico">${esc(tr.icono)}</span>
-      <b>${esc(tr.corto)}</b>
-      <span class="sk-dias">D${dias[0].n}${dias.length > 1 ? '-D' + dias[dias.length - 1].n : ''} · ${km} km</span>
-      <span class="sk-fijo">fijo</span>
+    <div class="sk-col">
+      <div class="sk-nodo sk-tronco" title="${esc(tr.nota)}">
+        <span class="sk-ico">${esc(tr.icono)}</span>
+        <b>${esc(tr.corto)}</b>
+        <span class="sk-dias">D${dias[0].n}${dias.length > 1 ? '-D' + dias[dias.length - 1].n : ''} · ${km} km</span>
+        <span class="sk-fijo">fijo en las 2</span>
+      </div>
+      ${/* Lo que cuelga del tronco no es de ninguna de las dos rutas, así que va en
+            tinta y no en color: pintarlo de verde o de azul diría que es de una. */
+        menores(mias, misD, vsel, pedidos, 'var(--tinta-2)')}
     </div>
   </div>`;
 }
 
-function nodosRama(tr, sel, desvios) {
+function nodosRama(tr, sel, variantes, desvios, vsel, pedidos) {
   return `
   <div class="sk-fila sk-fila-2">
     ${tr.opciones.map(o => {
@@ -182,7 +293,6 @@ function nodosRama(tr, sel, desvios) {
       const r = datos.RUTA.get(o.ruta);
       const dias = tr.dias.map(n => dia(o.ruta, n));
       const km = dias.reduce((a, d) => a + d.km, 0);
-      const mis = datos.ARBOL.desvios.filter(d => d.tramo === tr.id && d.opcion === o.id);
       return `<div class="sk-col">
         <button type="button" class="sk-nodo sk-elige ${elegida ? 'sk-on' : 'sk-off'}"
                 style="--barra:${esc(r.color)}" aria-pressed="${elegida}"
@@ -192,20 +302,38 @@ function nodosRama(tr, sel, desvios) {
           <span class="sk-dias">D${tr.dias[0]}-D${tr.dias[tr.dias.length - 1]} · ${km} km</span>
           <span class="sk-ruta">ruta ${r.numero}</span>
         </button>
-        ${elegida && mis.length ? menores(mis, desvios, r.color) : ''}
+        ${elegida
+          ? menores(variantesDe(variantes, tr.id, o.id), desviosDe(desvios, tr.id, o.id), vsel, pedidos, r.color)
+          : ''}
       </div>`;
     }).join('')}
   </div>`;
 }
 
-/** Los desvíos, como nodos menores colgando del elegido. */
-function menores(lista, desvios, color) {
+/** Lo que cuelga de un nodo elegido: primero las variantes, que son decisiones
+ *  dentro del día, y luego los desvíos, que son sitios de más. */
+function menores(variantes, desvios, vsel, pedidos, color) {
+  if (!variantes.length && !desvios.length) return '';
   return `<div class="sk-menores" style="--barra:${esc(color)}">
-    ${lista.map(d => {
-      const puesto = desvios.has(d.id);
+    ${variantes.map(v => `
+      <div class="sk-var">
+        <span class="sk-var-t">${esc(v.icono)} ${esc(v.titulo.split(':')[0])}</span>
+        <div class="sk-var-ops" role="group" aria-label="${esc(v.titulo)}">
+          ${v.opciones.map(o => {
+            const puesta = vsel[v.id] === o.id;
+            const mini = costeMini(o);
+            return `<button type="button" class="sk-op ${puesta ? 'sk-on' : ''}"
+              data-variante="${esc(v.id)}" data-opcion="${esc(o.id)}" aria-pressed="${puesta}"
+              title="${esc(o.nombre)}: ${esc(costeCorto(o))}">
+              <b>${esc(o.corto)}</b>${mini ? `<em>${esc(mini)}</em>` : ''}</button>`;
+          }).join('')}
+        </div>
+      </div>`).join('')}
+    ${desvios.map(d => {
+      const puesto = pedidos.has(d.id);
       return `<button type="button" class="sk-menor ${puesto ? 'sk-on' : ''}"
         data-desvio="${esc(d.id)}" aria-pressed="${puesto}"
-        title="${esc(d.nombre)}: +${d.km} km, +${minutosAHoras(d.minutos)}">
+        title="${esc(d.nombre)}: ${esc(costeCorto(d))}">
         <span class="sk-ico">${esc(d.icono)}</span>
         <span class="sk-menor-t"><b>${esc(d.nombre)}</b><span>+${d.km} km</span></span>
       </button>`;
@@ -213,72 +341,189 @@ function menores(lista, desvios, color) {
   </div>`;
 }
 
-/** Debajo del árbol, la letra pequeña de lo que has elegido. */
-function detalles(sel, desvios) {
+// ── La letra pequeña, tramo a tramo ────────────────────────────────────────
+
+/** Los sitios de un tramo, cada uno con lo que es y lo que cuesta. Van plegados
+ *  porque son muchos: el árbol de arriba es para decidir y esto es para leer. */
+function hitos(lista) {
+  if (!lista || !lista.length) return '';
   return `
-  <h2 class="seccion">Lo que has elegido</h2>
-  ${bifurcaciones().map(tr => {
-    const o = tr.opciones.find(x => x.id === sel[tr.id]);
-    const otra = tr.opciones.find(x => x.id !== sel[tr.id]);
-    const r = datos.RUTA.get(o.ruta);
-    const dias = tr.dias.map(n => dia(o.ruta, n));
-    const mis = datos.ARBOL.desvios.filter(d => d.tramo === tr.id && d.opcion === o.id);
-    return `
-    <div class="tarjeta" style="--barra:${esc(r.color)}">
-      <div class="cab-tarjeta">
-        <h3>${esc(o.icono)} ${esc(o.nombre)}</h3>
-        <span class="etiq etiq-gris">en vez de «${esc(otra.corto)}»</span>
-      </div>
-      <div class="tarjeta-c">
-        <p class="peq">${esc(tr.desde)}. <b>${esc(tr.hasta)}.</b></p>
-        <p>${esc(o.resumen)}</p>
-        <ul class="tronco-dias">${dias.map(d => `
-          <li><b>D${d.n}</b> <span>${esc(fechaCorta(d.fecha))}</span> ${esc(d.etapa)}
-            <em>${d.km} km</em></li>`).join('')}</ul>
-        <div class="listas" style="margin-top:10px">
-          <div><ul class="gana">${o.gana.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ul></div>
-          <div><ul class="pierde">${o.pierde.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ul></div>
+  <details class="hitos">
+    <summary>Los ${lista.length} sitios de este tramo, uno a uno</summary>
+    <ul>${lista.map(h => {
+      const l = datos.lugar(h.lugar);
+      if (!l) return '';
+      const tp = datos.LUGARES.tipos[l.tipo];
+      return `<li style="--c:${esc(tp.color)}">
+        <i>${esc(tp.icono)}</i>
+        <div>
+          <b>${esc(l.nombre)}</b>
+          ${l.precio ? `<span class="hito-precio">${esc(l.precio)}</span>` : ''}
+          <p>${esc(h.que)}</p>
         </div>
-      </div>
-      ${mis.map(d => `<div class="plato">
-        <div class="plato-t">
-          <b>${esc(d.icono)} ${esc(d.nombre)}</b>
-          <span class="etiq ${desvios.has(d.id) ? 'etiq-azul' : 'etiq-gris'}">
-            ${desvios.has(d.id) ? 'añadido' : 'desvío'} · +${d.km} km · +${minutosAHoras(d.minutos)}${d.coste ? ' · +' + euros(d.coste) : ''}</span>
-        </div>
-        <p>${esc(d.que)}</p>
-        ${figura(d.lugar, { alto: 120, pie: false }) || ''}
-      </div>`).join('')}
-    </div>`;
-  }).join('')}`;
+      </li>`;
+    }).join('')}</ul>
+  </details>`;
 }
 
-/** Lo que la combinación deja fuera y lo que repite, calculado y no escrito. */
-function sobras(dias, cogidos) {
+/** El bloque de una variante dentro de la tarjeta del tramo: la pregunta, la
+ *  letra pequeña y todas las opciones con lo que cambia cada una. */
+function bloqueVariante(v, vsel) {
+  return `
+  <div class="plato plato-var">
+    <div class="plato-t">
+      <b>${esc(v.icono)} ${esc(v.titulo)}</b>
+      <span class="etiq etiq-gris">variante · no cambia el itinerario</span>
+    </div>
+    ${v.nota ? `<p class="peq">${esc(v.nota)}</p>` : ''}
+    <div class="var-ops">
+      ${v.opciones.map(o => {
+        const puesta = vsel[v.id] === o.id;
+        const c = coste(o);
+        return `<button type="button" class="var-op ${puesta ? 'var-on' : ''}"
+          data-variante="${esc(v.id)}" data-opcion="${esc(o.id)}" aria-pressed="${puesta}">
+          <span class="var-cab">
+            <b>${esc(o.icono)} ${esc(o.nombre)}</b>
+            <span class="etiq ${puesta ? 'etiq-azul' : 'etiq-gris'}">${puesta ? 'la que llevas' : 'cambiar a esta'}${c ? ' · ' + esc(c) : ''}</span>
+          </span>
+          <span class="var-que">${esc(o.que)}</span>
+        </button>`;
+      }).join('')}
+    </div>
+  </div>`;
+}
+
+/** El bloque de un desvío: qué es, cuándo cae y lo que cuesta meterlo. */
+function bloqueDesvio(d, pedidos) {
+  return `
+  <div class="plato">
+    <div class="plato-t">
+      <b>${esc(d.icono)} ${esc(d.nombre)}</b>
+      <span class="etiq ${pedidos.has(d.id) ? 'etiq-azul' : 'etiq-gris'}">
+        ${pedidos.has(d.id) ? 'añadido' : 'desvío'} · ${esc(costeCorto(d))}</span>
+    </div>
+    ${d.cuando ? `<p class="peq"><b>Cuándo cae ·</b> ${esc(d.cuando)}</p>` : ''}
+    <p>${esc(d.que)}</p>
+    ${d.requiere && d.requiere.tramo
+      ? `<p class="peq">Solo aparece si eliges «${esc(tramo(d.requiere.tramo).opciones.find(o => o.id === d.requiere.opcion).corto)}» más arriba.</p>`
+      : ''}
+    ${d.lugar ? figura(d.lugar, { alto: 120, pie: false }) || '' : ''}
+  </div>`;
+}
+
+/** Una tarjeta por tramo, en el orden del viaje: la fija dice por qué es fija y
+ *  la que se elige dice qué ganas y qué pierdes. Debajo, lo que se le puede colgar. */
+function detalles(sel, variantes, desvios, vsel, pedidos) {
+  return `
+  <h2 class="seccion">Tramo a tramo, qué llevas</h2>
+  ${datos.ARBOL.tramos.map(tr => tr.tipo === 'tronco'
+    ? tarjetaTronco(tr, variantes, desvios, vsel, pedidos)
+    : tarjetaRama(tr, sel, variantes, desvios, vsel, pedidos)).join('')}`;
+}
+
+function tarjetaTronco(tr, variantes, desvios, vsel, pedidos) {
+  const dias = tr.dias.map(n => dia(tr.ruta, n));
+  const mias = variantesDe(variantes, tr.id);
+  const misD = desviosDe(desvios, tr.id);
+  return `
+  <div class="tarjeta tarjeta-fija">
+    <div class="cab-tarjeta">
+      <h3>${esc(tr.icono)} ${esc(tr.titulo)}</h3>
+      <span class="etiq etiq-verde">igual en las dos rutas</span>
+    </div>
+    <div class="tarjeta-c">
+      <p>${esc(tr.porque)}</p>
+      <ul class="tronco-dias">${dias.map(d => `
+        <li><b>D${d.n}</b> <span>${esc(fechaCorta(d.fecha))}</span> ${esc(d.etapa)}
+          <em>${d.km} km</em></li>`).join('')}</ul>
+      ${tr.duermes ? `<p class="peq" style="margin-top:10px"><b>Duermes ·</b> ${esc(tr.duermes)}</p>` : ''}
+      ${hitos(tr.hitos)}
+      ${mias.length || misD.length
+        ? `<p class="peq" style="margin-top:10px">Aquí no se elige ruta, pero sí
+           ${mias.length ? `${mias.length} variante${mias.length > 1 ? 's' : ''}` : ''}${mias.length && misD.length ? ' y ' : ''}${misD.length ? `${misD.length} desvío${misD.length > 1 ? 's' : ''}` : ''}.</p>`
+        : ''}
+    </div>
+    ${mias.map(v => bloqueVariante(v, vsel)).join('')}
+    ${misD.map(d => bloqueDesvio(d, pedidos)).join('')}
+  </div>`;
+}
+
+function tarjetaRama(tr, sel, variantes, desvios, vsel, pedidos) {
+  const o = tr.opciones.find(x => x.id === sel[tr.id]);
+  const otra = tr.opciones.find(x => x.id !== sel[tr.id]);
+  const r = datos.RUTA.get(o.ruta);
+  const dias = tr.dias.map(n => dia(o.ruta, n));
+  const km = dias.reduce((a, d) => a + d.km, 0);
+  const mias = variantesDe(variantes, tr.id, o.id);
+  const misD = desviosDe(desvios, tr.id, o.id);
+
+  return `
+  <div class="tarjeta" style="--barra:${esc(r.color)}">
+    <div class="cab-tarjeta">
+      <h3>${esc(o.icono)} ${esc(o.nombre)}</h3>
+      <span class="etiq etiq-gris">en vez de «${esc(otra.corto)}»</span>
+      <p class="peq">${esc(tr.desde)}. <b>${esc(tr.hasta)}.</b></p>
+    </div>
+    <div class="tarjeta-c">
+      <p>${esc(o.resumen)}</p>
+      <ul class="tronco-dias">${dias.map(d => `
+        <li><b>D${d.n}</b> <span>${esc(fechaCorta(d.fecha))}</span> ${esc(d.etapa)}
+          <em>${d.km} km</em></li>`).join('')}</ul>
+      <div class="rama-datos">
+        <span><i>Ritmo</i>${esc(o.ritmo || '—')}</span>
+        <span><i>Duermes</i>${esc(o.duermes || '—')}</span>
+        <span><i>De esta rama</i>${km} km de los ${numero(r.km)} de la ruta ${r.numero}</span>
+      </div>
+      ${hitos(o.hitos)}
+      <div class="listas" style="margin-top:10px">
+        <div><ul class="gana">${o.gana.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ul></div>
+        <div><ul class="pierde">${o.pierde.map(x => `<li><span>${esc(x)}</span></li>`).join('')}</ul></div>
+      </div>
+    </div>
+    ${mias.map(v => bloqueVariante(v, vsel)).join('')}
+    ${misD.map(d => bloqueDesvio(d, pedidos)).join('')}
+  </div>`;
+}
+
+/** Lo que la combinación deja fuera y a dónde vuelves, calculado y no escrito.
+ *
+ *  Se separan dos cosas que no son la misma: lo que pierdes por la rama que has
+ *  elegido, que ya no lo ves salvo que lo rescates, y lo que tienes a mano en
+ *  desvíos y todavía no has cogido, que solo cuesta decidirlo. */
+function sobras(dias, cogidos, desvios) {
   const visitados = new Set(dias.flatMap(d => d.lugares || []));
-  cogidos.forEach(d => visitados.add(d.lugar));
+  cogidos.forEach(d => d.lugar && visitados.add(d.lugar));
 
-  const todo = new Set(datos.ARBOL.rutas.flatMap(id =>
-    datos.RUTA.get(id).dias.flatMap(d => d.lugares || [])));
-  datos.ARBOL.desvios.forEach(d => todo.add(d.lugar));
-
-  const fuera = [...todo].filter(id => !visitados.has(id))
+  // Solo cuentan como pérdida los sitios que están en alguna de las dos rutas:
+  // los que solo existen como desvío no se «pierden», se cogen o no se cogen.
+  const deRuta = [...new Set(datos.ARBOL.rutas.flatMap(id =>
+    datos.RUTA.get(id).dias.flatMap(d => d.lugares || [])))]
+    .filter(id => !visitados.has(id))
     .map(id => datos.lugar(id)).filter(l => l && l.tipo !== 'aparcar');
 
-  const cuenta = {};
-  dias.forEach(d => (d.lugares || []).forEach(id => { cuenta[id] = (cuenta[id] || 0) + 1; }));
-  cogidos.forEach(d => { cuenta[d.lugar] = (cuenta[d.lugar] || 0) + 1; });
-  const repes = Object.entries(cuenta).filter(([id, n]) => n > 1 && datos.lugar(id)).map(([id]) => datos.lugar(id))
-    .filter(l => !['bracciano', 'la-spezia', 'villa-costanza', 'civitavecchia', 'saturnia'].includes(l.id));
+  const sinCoger = desvios.filter(d => !cogidos.includes(d));
 
-  if (!fuera.length && !repes.length) return '';
+  // Repetir un sitio dos días seguidos es el plan (duermes ahí, o lo ves en dos
+  // tandas). Lo que merece contarse es volver después de haberte ido.
+  const cuando = {};
+  dias.forEach(d => (d.lugares || []).forEach(id => (cuando[id] = cuando[id] || []).push(d.n)));
+  cogidos.forEach(x => { if (x.lugar) (cuando[x.lugar] = cuando[x.lugar] || []).push(x.dia); });
+  const vuelves = Object.entries(cuando)
+    .filter(([, ns]) => [...ns].sort((a, b) => a - b).some((n, i, o) => i && n - o[i - 1] > 1))
+    .map(([id]) => datos.lugar(id))
+    .filter(l => l && l.id !== 'civitavecchia');
+
+  if (!deRuta.length && !sinCoger.length && !vuelves.length) return '';
   const corto = l => esc(l.nombre.split('·')[0].trim());
   return `
     <div class="caja caja-ojo" style="margin-top:14px">
       <b class="caja-t">Con esta combinación…</b>
-      ${fuera.length ? `<p><b>Te dejas fuera:</b> ${fuera.map(corto).join(', ')}.
-        Mira si alguno lo recuperas con un desvío.</p>` : ''}
-      ${repes.length ? `<p><b>Repites:</b> ${repes.map(corto).join(', ')} en más de un día.
+      ${deRuta.length ? `<p><b>Pierdes de la otra ruta:</b> ${deRuta.map(corto).join(', ')}.
+        Mira arriba si alguno lo recuperas con un desvío.</p>` : ''}
+      ${sinCoger.length ? `<p><b>Te dejas sin coger</b> ${sinCoger.length} desvío${sinCoger.length > 1 ? 's' : ''}
+        que cuelga${sinCoger.length > 1 ? 'n' : ''} de las ramas que llevas, empezando por
+        ${sinCoger.slice(0, 3).map(d => esc(d.nombre.split(' y ')[0])).join(', ')}. Están todos contados aquí arriba.</p>` : ''}
+      ${vuelves.length ? `<p><b>Vuelves a:</b> ${vuelves.map(corto).join(', ')}, después de haber estado y haberte ido.
         No es un error, pero cuéntalo.</p>` : ''}
     </div>`;
 }
@@ -299,23 +544,35 @@ function sitiosDelDia(d, extras) {
   return [...propios, ...puestos].filter(({ l }) => !vistos.has(l.id) && vistos.add(l.id));
 }
 
-function itinerario(dias, cogidos, t) {
+function itinerario(dias, cogidos, variantes, vsel, t) {
   const porDia = {};
   cogidos.forEach(d => (porDia[d.dia] = porDia[d.dia] || []).push(d));
+  const varDia = {};
+  variantes.forEach(v => (varDia[v.dia] = varDia[v.dia] || []).push(v));
   const noches = dias.filter(d => d.dormir).length;
+  // El rato que se van las paradas añadidas no es tiempo de volante, así que no
+  // entra en el total de arriba: se cuenta aparte al final, que es donde se ve
+  // si el día sigue cabiendo en un día.
+  const ratoTotal = [...cogidos, ...variantes.map(v => opcionDe(v, vsel))]
+    .reduce((a, x) => a + (x.rato || 0), 0);
 
   return `
   <div class="tarjeta">
     ${dias.map(d => {
       const cama = datos.camaDe(d);
       const extras = porDia[d.n] || [];
+      const vars = varDia[d.n] || [];
       const r = datos.RUTA.get(d._ruta);
-      const km = d.km + extras.reduce((a, x) => a + x.km, 0);
-      const min = d.minutos + extras.reduce((a, x) => a + x.minutos, 0);
+      const puestos = [...extras, ...vars.map(v => opcionDe(v, vsel))];
+      const sumar = campo => puestos.reduce((a, x) => a + (x[campo] || 0), 0);
+      const km = d.km + sumar('km');
+      const min = d.minutos + sumar('minutos');
+      const rato = sumar('rato');
       const h = horas(d);
       const sitios = sitiosDelDia(d, extras);
       const parkings = datos.parkingsDe(d);
       const tpt = datos.minutosTransporte(d);
+      const cambiada = vars.filter(v => vsel[v.id] !== v.opciones[0].id);
 
       return `<details class="jornada" style="--barra:${esc(r.color)}">
         <summary>
@@ -329,6 +586,7 @@ function itinerario(dias, cogidos, t) {
             <b>${km} km</b>
             <small>${minutosAHoras(min)}</small>
             ${extras.length ? `<small class="jor-extra">+${extras.reduce((a, x) => a + x.km, 0)} desvío</small>` : ''}
+            ${cambiada.length ? `<small class="jor-extra">${cambiada.length} variante${cambiada.length > 1 ? 's' : ''}</small>` : ''}
           </span>
         </summary>
 
@@ -338,6 +596,7 @@ function itinerario(dias, cogidos, t) {
                    <span><i>Fin del día</i><b>${esc(h.llegada)}</b></span>` : ''}
             <span><i>Al volante</i><b>${minutosAHoras(min)}</b></span>
             ${tpt ? `<span><i>Transporte</i><b>${minutosAHoras(tpt)}</b></span>` : ''}
+            ${rato ? `<span><i>Paradas de más</i><b>${minutosAHoras(rato)}</b></span>` : ''}
             <span><i>Duermes en</i><b>${cama ? esc(cama.nombre.split('·')[0].trim()) : 'el ferri'}</b></span>
           </div>
 
@@ -360,9 +619,18 @@ function itinerario(dias, cogidos, t) {
           <ul class="horas">${(d.plan || []).map(p =>
             `<li><time>${esc(p.hora)}</time><span>${esc(p.que)}</span></li>`).join('')}</ul>
 
+          ${vars.map(v => {
+            const o = opcionDe(v, vsel);
+            const c = coste(o);
+            return `<div class="caja caja-info">
+              <b class="caja-t">Variante · ${esc(v.titulo)}</b>
+              <b>${esc(o.icono)} ${esc(o.nombre)}${c ? ` (${esc(c)})` : ''}.</b> ${esc(o.que)}
+            </div>`;
+          }).join('')}
+
           ${extras.map(x => `<div class="caja caja-info">
             <b class="caja-t">Desvío · ${esc(x.nombre)}</b>${esc(x.que)}
-            <p class="peq" style="margin-top:6px">+${x.km} km · +${minutosAHoras(x.minutos)}${x.coste ? ' · +' + euros(x.coste) : ''}</p>
+            <p class="peq" style="margin-top:6px">${esc(costeCorto(x))}</p>
           </div>`).join('')}
 
           ${d.aviso ? `<div class="caja caja-ojo"><b class="caja-t">Ojo</b>${esc(d.aviso)}</div>` : ''}
@@ -373,7 +641,7 @@ function itinerario(dias, cogidos, t) {
     <div class="mez-total">
       <b>Total</b>
       <span>${numero(t.km)} km · ${minutosAHoras(t.min)} al volante · ${euros(t.eur)} estimados ·
-        ${dias.length} días y ${noches} noches</span>
+        ${dias.length} días y ${noches} noches${ratoTotal ? ` · ${minutosAHoras(ratoTotal)} de paradas añadidas` : ''}</span>
     </div>
   </div>`;
 }
