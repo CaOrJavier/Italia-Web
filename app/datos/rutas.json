@@ -641,7 +641,7 @@
         {
           "n": 8, "fecha": "2026-08-22", "dia_semana": "sábado",
           "titulo": "Bajar toda la costa hasta la Maremma",
-          "etapa": "La Spezia → Bolgheri → Castiglione della Pescaia",
+          "etapa": "La Spezia → Bolgheri → Marina di Alberese → Castiglione",
           "km": 235, "minutos": 195,
           "plan": [
             { "hora": "07:00", "que": "Salida temprano. Es el único día largo de la ruta: 235 km bajando la costa tirrena entera." },

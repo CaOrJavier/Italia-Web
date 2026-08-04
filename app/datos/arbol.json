@@ -239,6 +239,47 @@
           "pierde": ["Los pueblos de torres", "Es el día con más kilómetros de esta rama"]
         },
         {
+          "id": "orcia-siena",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "La Val d'Orcia por la mañana y Siena entera",
+          "corto": "Orcia y Siena",
+          "sale": "val-dorcia", "duerme": "villa-costanza",
+          "resumen": "Sales de Bagno Vignoni por San Quirico, cruzas la Val d'Orcia con la luz buena y le das a Siena el mediodía y la tarde, con Monteriggioni de propina si el reloj lo permite. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Siena entera sin haber dormido en ella: Campo, Duomo por dentro y Torre del Mangia", "La Val d'Orcia a primera hora, que es cuando la luz vale la pena", "Es la única forma de llevarte Siena yendo por las termas"],
+          "pierde": ["Petriolo, la tercera terma", "San Gimignano y sus torres", "Siena a última hora, con la piedra naranja: aquí la ves a pleno sol"],
+          "dia": {
+            "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+            "titulo": "La Val d'Orcia, Siena entera y a Florencia",
+            "etapa": "Bagno Vignoni → San Quirico → Siena → Monteriggioni → Florencia",
+            "km": 145, "minutos": 155,
+            "plan": [
+              { "hora": "07:30", "que": "Baño de buena mañana en las pozas del Parco dei Mulini, que a esa hora están solas. Es el último baño termal del viaje." },
+              { "hora": "09:00", "que": "San Quirico d'Orcia, a 3 km: los Horti Leonini, un jardín renacentista abierto y gratis, y bajando hacia Pienza la capilla de la Madonna di Vitaleta, sola en mitad de la colina. Es la Val d'Orcia de las postales y a esta hora la luz es rasante." },
+              { "hora": "10:15", "que": "60 km hasta Siena por la Cassia, cruzando las Crete Senesi. Carretera de curvas suaves y ni un pueblo: es de los tramos más bonitos del viaje." },
+              { "hora": "11:30", "que": "Aparcas en Due Ponti (2 € el día) y subes por las escaleras mecánicas soterradas hasta Porta Camollia. Veinte minutos puerta a puerta y sin una cuesta." },
+              { "hora": "12:00", "que": "Siena: Piazza del Campo, en forma de concha y con el suelo inclinado, y el Duomo por dentro, que en agosto tiene el suelo de mármol taraceado descubierto (solo pasa unas semanas al año). Si aguantas los 400 escalones, la Torre del Mangia." },
+              { "hora": "14:30", "que": "Comida a la sombra: pici all'aglione, que es la pasta gorda a mano de aquí con salsa de ajo y tomate. Las horas malas de calor se pasan dentro del Duomo o del Museo dell'Opera, no callejeando." },
+              { "hora": "16:30", "que": "15 km hasta Monteriggioni: un pueblo entero dentro de una muralla circular con catorce torres, y dentro no hay más que una plaza. Media hora larga y se ve todo." },
+              { "hora": "17:30", "que": "55 km hasta Villa Costanza, tu base los dos próximos días. Se entra directamente desde la A1 sin pisar una calle de Florencia." },
+              { "hora": "18:30", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y subir a Piazzale Michelangelo al atardecer." },
+              { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
+            ],
+            "paradas": [
+              {"hora":"07:30","dura":90,"nivel":2,"lugar":"bagno-vignoni","salta":"Sal a las 8:00 sin bañarte y le regalas media hora a Siena, que es donde hace falta"},
+              {"hora":"09:00","dura":60,"nivel":2,"lugar":"val-dorcia","salta":"La Cassia cruza la Val d'Orcia entera: si vas justo, se ve desde el coche"},
+              {"hora":"12:00","dura":270,"nivel":1,"lugar":"siena"},
+              {"hora":"16:30","dura":45,"nivel":3,"lugar":"monteriggioni","salta":"Se ve entero desde la carretera y por dentro no hay más que una plaza. Es el opcional del día, tal cual lo tenías apuntado"},
+              {"hora":"18:30","dura":210,"nivel":2,"lugar":"florencia-duomo","salta":"La primera tarde de Florencia es de propina: mañana tienes el día entero"}
+            ],
+            "lugares": ["bagno-vignoni", "val-dorcia", "siena", "siena-parking", "monteriggioni", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
+            "dormir": "villa-costanza", "aparcar": ["siena", "florencia"],
+            "comer": "Pici all'aglione en Siena, y de camino compra pecorino de Pienza curado en heno o en ceniza, que es la mejor despensa que te puedes meter en el coche. De postre, ricciarelli, los mazapanes de almendra de Siena.",
+            "aviso": "Siena a mediodía en agosto es un horno y todo son cuestas. Por eso el aparcamiento es Due Ponti y no otro: las escaleras mecánicas soterradas se saltan la peor subida. Y las horas de 14:00 a 16:30 pásalas dentro del Duomo.",
+            "coste_dia": 42, "apretado": null
+          }
+        },
+        {
           "id": "torres-orcia",
           "icono": "◈",
           "ruta": null,
