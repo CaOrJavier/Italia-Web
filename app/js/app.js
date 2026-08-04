@@ -47,17 +47,26 @@ async function pintar() {
 
   marcarNav(vista);
 
-  if (vista !== vistaActual) main.scrollTop = 0;
+  const mismaVista = vista === vistaActual;
   vistaActual = vista;
 
   // Las vistas pueden marcar el contenedor (el modo de tres columnas lo ensancha).
   // Se limpia aquí para que la marca no se le quede pegada a la siguiente.
   main.className = '';
-  main.innerHTML = '<p class="cargando">Un momento…</p>';
+  // El «un momento» solo si de verdad hay que esperar a bajarse el módulo: al
+  // repintar la misma vista ya está en memoria y el hueco en blanco solo sirve
+  // para que la página pegue un salto.
+  if (!mismaVista) main.innerHTML = '<p class="cargando">Un momento…</p>';
   try {
     const mod = await VISTAS[vista]();
     main.innerHTML = '';
     descartar = (await mod.pintar(main, params)) || null;
+    // Cambiar de pantalla empieza arriba; cambiar solo los parámetros, no, que
+    // ahí la vista te deja donde estabas. Va después de pintar a propósito: el
+    // navegador restaura la posición de la entrada del historial durante la
+    // espera del módulo, así que subir antes no sirve de nada. El que scrollea
+    // es el documento, no el <main>.
+    if (!mismaVista) scrollTo(0, 0);
   } catch (e) {
     console.error(e);
     main.innerHTML = `<div class="caja caja-mal">
@@ -110,6 +119,10 @@ async function arrancar() {
     return;
   }
   pintarCabecera();
+  // Aquí manda la aplicación, no el navegador. Cada clic del árbol de Mezclar es
+  // una entrada de historial, y la restauración automática de Chrome llega
+  // después de que hayamos pintado y deshace lo que acabábamos de colocar.
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   addEventListener('hashchange', pintar);
   await pintar();
 }

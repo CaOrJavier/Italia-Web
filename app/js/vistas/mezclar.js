@@ -23,6 +23,36 @@ import { esc, fechaCorta, fechaLarga, minutosAHoras, numero, euros, comoArray } 
 import { figura } from '../fotos.js';
 import { ir } from '../app.js';
 
+// ── Lo que sobrevive al repintado ──────────────────────────────────────────
+//
+// Cada clic cambia la URL y la vista se dibuja entera de nuevo, así que sin esto
+// se perdían dos cosas: los días que tenías abiertos y el sitio donde estabas
+// mirando. Lo segundo era lo gordo: al cerrarse las doce jornadas la página
+// pasaba de 25.000 píxeles a 6.000, el navegador no tenía adónde scrollar y te
+// devolvía arriba del todo.
+//
+// El ancla no es un número de scroll, que no serviría porque la página cambia de
+// alto: es «este día estaba a tantos píxeles del borde de la pantalla». Después
+// de repintar se vuelve a poner ahí, y el nodo que acabas de pulsar no se mueve.
+
+const abiertos = new Set();
+let ancla = null;
+
+/** Apunta dónde está ahora mismo el bloque que contiene lo que se acaba de pulsar. */
+function anclar(el) {
+  const caja = el.closest('[data-ancla]');
+  if (!caja) { ancla = null; return; }
+  ancla = { clave: caja.dataset.ancla, top: caja.getBoundingClientRect().top };
+}
+
+/** Y lo devuelve a su sitio, ya con el contenido nuevo puesto. */
+function desanclar(main) {
+  if (!ancla) return;
+  const caja = main.querySelector(`[data-ancla="${CSS.escape(ancla.clave)}"]`);
+  if (caja) scrollBy(0, Math.round(caja.getBoundingClientRect().top - ancla.top));
+  ancla = null;
+}
+
 const DIAS = () => datos.ARBOL.dias;
 const baseNombre = id => (datos.ARBOL.bases.find(b => b.id === id) || {}).nombre || null;
 
@@ -174,22 +204,41 @@ export function pintar(main, params) {
     ${itinerario(dias, est, cogidos, variantes, desvios, t)}
   `;
 
-  const abrir = main.querySelector('#abrir-todo');
-  abrir.addEventListener('click', () => {
-    const jornadas = [...main.querySelectorAll('.jornada')];
-    const cerrar = jornadas.every(j => j.open);
-    jornadas.forEach(j => { j.open = !cerrar; });
-    abrir.textContent = cerrar ? 'Abrir los 12 días' : 'Cerrar los 12 días';
+  // Se reabren antes de tocar el scroll: si no, se mediría la página encogida.
+  const jornadas = [...main.querySelectorAll('.jornada')];
+  jornadas.forEach(j => {
+    j.open = abiertos.has(j.dataset.n);
+    j.addEventListener('toggle', () => {
+      j.open ? abiertos.add(j.dataset.n) : abiertos.delete(j.dataset.n);
+      etiquetaAbrir();
+    });
   });
 
-  main.querySelectorAll('[data-dia]').forEach(b => b.addEventListener('click', () =>
-    ir('mezclar', nuevaURL(est, dias, { dia: b.dataset.dia, opcion: b.dataset.opcion }))));
-  main.querySelectorAll('[data-variante]').forEach(b => b.addEventListener('click', () =>
-    ir('mezclar', nuevaURL(est, dias, { variante: b.dataset.variante, opcion: b.dataset.opcion }))));
-  main.querySelectorAll('[data-desvio]').forEach(b => b.addEventListener('click', () =>
-    ir('mezclar', nuevaURL(est, dias, { desvio: b.dataset.desvio }))));
+  const abrir = main.querySelector('#abrir-todo');
+  const etiquetaAbrir = () => {
+    abrir.textContent = jornadas.every(j => j.open) ? 'Cerrar los 12 días' : 'Abrir los 12 días';
+  };
+  etiquetaAbrir();
+  abrir.addEventListener('click', () => {
+    const cerrar = jornadas.every(j => j.open);
+    jornadas.forEach(j => { j.open = !cerrar; });
+  });
+
+  const navegar = (b, cambio) => b.addEventListener('click', () => {
+    anclar(b);
+    ir('mezclar', nuevaURL(est, dias, cambio));
+  });
+  main.querySelectorAll('[data-dia]').forEach(b =>
+    navegar(b, { dia: b.dataset.dia, opcion: b.dataset.opcion }));
+  main.querySelectorAll('[data-variante]').forEach(b =>
+    navegar(b, { variante: b.dataset.variante, opcion: b.dataset.opcion }));
+  main.querySelectorAll('[data-desvio]').forEach(b =>
+    navegar(b, { desvio: b.dataset.desvio }));
+
   const reset = main.querySelector('#reiniciar');
-  if (reset) reset.addEventListener('click', () => ir('mezclar', new URLSearchParams()));
+  if (reset) reset.addEventListener('click', () => { ancla = null; ir('mezclar', new URLSearchParams()); });
+
+  desanclar(main);
 }
 
 /** La URL nueva después de tocar algo. Se parte de lo que había pedido el usuario,
@@ -293,7 +342,7 @@ function parada(d, est, variantes, desvios) {
   const desde = baseNombre(o.sale);
 
   return `
-  <section class="sk-parada${elige ? '' : ' sk-parada-fija'}">
+  <section class="sk-parada${elige ? '' : ' sk-parada-fija'}" data-ancla="parada-${d.n}">
     <header class="sk-parada-cab">
       <b>D${d.n}</b>
       <span>${esc(fechaCorta(dd.fecha))}</span>
@@ -515,7 +564,8 @@ function itinerario(dias, est, cogidos, variantes, desvios, t) {
       const otros = est.abanico[nodoDia.n].length - 1;
       const desviosDia = deDia(desvios, nodoDia.n, o.id);
 
-      return `<details class="jornada" style="--barra:${esc(d._color)}">
+      return `<details class="jornada" style="--barra:${esc(d._color)}"
+               data-n="${nodoDia.n}" data-ancla="jornada-${nodoDia.n}">
         <summary>
           <span class="jor-n"><b>D${nodoDia.n}</b><span>de 11</span></span>
           <span class="jor-t">
