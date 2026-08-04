@@ -119,6 +119,17 @@
       "nota": "Base para los tres días de Roma del final. Lago volcánico: es la ducha de la mañana antes de bajar a la ciudad."
     },
     {
+      "id": "anguillara",
+      "nombre": "Anguillara Sabazia",
+      "tipo": "playa",
+      "lat": 42.0847,
+      "lon": 12.2758,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Gratis",
+      "nota": "Pueblo medieval asomado al lago de Bracciano, a un paso de donde duermes. Playas de arena oscura, prohibida la navegación a motor, y se cena por la mitad de lo que cuesta en Roma."
+    },
+    {
       "id": "coliseo",
       "nombre": "Coliseo, Foro y Palatino",
       "tipo": "ver",
@@ -307,6 +318,18 @@
       "solo_desvio": true,
       "precio": "Funicular 2 €",
       "nota": "El pueblo de ladrillo rojo donde murió Boccaccio, sin coches dentro y con funicular desde la parte baja. Una sola calle, el palacio pretorio con escudos de mayólica y el valle delante. Entre San Gimignano y Florencia."
+    },
+    {
+      "id": "chianti",
+      "nombre": "El Chianti · Castellina y Greve",
+      "tipo": "ver",
+      "lat": 43.585,
+      "lon": 11.316,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Gratis",
+      "nota": "La SR222, la Chiantigiana: 40 km de curvas entre viñedos y castillos de Siena a Florencia. Castellina tiene una calle entera cubierta por bóvedas dentro de la muralla, y Greve una plaza triangular con soportales desiguales."
     },
     {
       "id": "volterra",
@@ -560,6 +583,18 @@
       ],
       "precio": "Gratis",
       "nota": "No es de las Cinque Terre y es el mejor de todos: San Pietro sobre el acantilado y el atardecer del golfo de los Poetas."
+    },
+    {
+      "id": "lerici",
+      "nombre": "Lerici, Tellaro y Fiascherino",
+      "tipo": "playa",
+      "lat": 44.077,
+      "lon": 9.911,
+      "aprox": true,
+      "rutas": [],
+      "solo_desvio": true,
+      "precio": "Gratis · castillo ≈ 6 €",
+      "nota": "El lado este del golfo de los Poetas, donde no va nadie: un castillo del XIII plantado sobre una roca en el mar, la casa de los Shelley en San Terenzo, las calas de Fiascherino y Tellaro colgado de la roca."
     },
     {
       "id": "bolgheri",

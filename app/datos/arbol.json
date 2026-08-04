@@ -1,218 +1,505 @@
 {
   "titulo": "Mezclar la 1 y la 2",
-  "intro": "Las rutas 1 y 2 no son dos viajes distintos: son el mismo viaje que se abre y se vuelve a cerrar tres veces. Salen juntas de Civitavecchia, duermen las dos en Tolfa y en Saturnia, se separan después de las termas, se reencuentran en Florencia, se vuelven a separar, y acaban juntas los tres días de Roma.",
-  "explica": "El árbol tiene cuatro tipos de nodo. Los de línea discontinua son tronco: días idénticos en las dos rutas, no hay nada que elegir. Los que se parten en dos son las bifurcaciones: eliges rama y cambian los días enteros. Debajo de cada nodo cuelgan las variantes, que son decisiones dentro de un mismo día y que casi siempre son de dinero, y los desvíos, que son sitios que se añaden pagando kilómetros. Las tres bifurcaciones dan 8 itinerarios base; con variantes y desvíos, todo lo que quieras.",
+  "intro": "Las rutas 1 y 2 no son dos viajes distintos: son el mismo viaje que se abre y se vuelve a cerrar varias veces. Salen juntas de Civitavecchia, duermen las dos en Tolfa y en Saturnia, se separan después de las termas, se reencuentran en Florencia, se vuelven a separar y acaban juntas los tres días de Roma. Aquí están partidas día a día para que puedas decidir cada jornada por separado.",
+  "explica": "Un nodo por día, los doce. Los días de un solo nodo son fijos: no hay alternativa razonable y se explica por qué. Los demás tienen dos, tres o cuatro caminos, y algunos no están en ninguna de las dos rutas: son días nuevos, escritos para esto. Lo único que ata un día con el siguiente es dónde duermes, así que al cambiar una noche solo se recalcula el día siguiente, no el viaje entero. Debajo de cada día cuelgan sus variantes (decisiones dentro de esa jornada) y sus desvíos (un sitio más, con sus kilómetros aparte).",
   "rutas": ["toscana", "agua"],
+  "color_propio": "#8A5A00",
 
   "leyenda": [
-    { "icono": "▦", "nombre": "Tronco", "que": "Días iguales en las dos rutas. No se elige, pero sí se le pueden colgar variantes y desvíos." },
-    { "icono": "⑂", "nombre": "Bifurcación", "que": "Las dos ramas salen del mismo sitio y acaban en el mismo sitio a la misma hora. Cualquier combinación cuadra." },
-    { "icono": "◍", "nombre": "Variante", "que": "Dentro de un día: cambia lo que pagas o lo que haces esas horas, no el itinerario." },
-    { "icono": "◇", "nombre": "Desvío", "que": "Un sitio de más, con sus kilómetros y su tiempo contados aparte." }
+    { "icono": "●", "nombre": "Día fijo", "que": "Un solo camino: no hay alternativa que cuadre con el ferri, con el calendario o con la geografía." },
+    { "icono": "⑂", "nombre": "Día con elección", "que": "Dos o más jornadas distintas que salen de donde dormiste y acaban durmiendo en algún sitio." },
+    { "icono": "◍", "nombre": "Variante", "que": "Dentro de un día: cambia lo que pagas o lo que haces esas horas, no adónde vas." },
+    { "icono": "◇", "nombre": "Desvío", "que": "Un sitio de más en ese día, con sus kilómetros y su rato contados aparte. Si el sitio ya lo ves por otro lado, el desvío desaparece solo." }
   ],
 
-  "tramos": [
+  "bases": [
+    { "id": "tolfa", "nombre": "Tolfa" },
+    { "id": "saturnia", "nombre": "Saturnia" },
+    { "id": "siena", "nombre": "Siena" },
+    { "id": "val-dorcia", "nombre": "Bagno Vignoni" },
+    { "id": "villa-costanza", "nombre": "Villa Costanza" },
+    { "id": "lucca", "nombre": "Lucca" },
+    { "id": "pisa", "nombre": "Pisa" },
+    { "id": "la-spezia", "nombre": "La Spezia" },
+    { "id": "castiglione", "nombre": "Castiglione" },
+    { "id": "bracciano", "nombre": "Lago de Bracciano" }
+  ],
+
+  "dias": [
     {
-      "tipo": "tronco",
-      "id": "salida",
+      "n": 0,
       "icono": "⚓",
-      "titulo": "Desembarco, Tolfa y el día entero de Saturnia",
-      "corto": "Desembarco",
-      "nota": "Los dos primeros días son idénticos en las dos rutas. No hay nada que elegir.",
-      "dias": [0, 1],
-      "ruta": "toscana",
-      "duermes": "Noche 1 en Tolfa, a 450 m. Noche 2 en Saturnia, al lado de las cascadas.",
-      "porque": "Las dos rutas hacen exactamente los mismos 142 km estos dos días porque no hay alternativa razonable: desembarcas de noche, la única decisión sensata es subir a dormir fresco, y el sábado es Ferragosto, el peor día del año para acercarse a la costa. Saturnia es tierra adentro y en dirección contraria al atasco.",
-      "hitos": [
-        { "lugar": "civitavecchia", "que": "Atracas el viernes 14 a las 20:30 y sales del puerto sobre las 21:00. El súper cierra entre las 21:00 y las 21:30: es la compra grande del viaje, desayunos de tres días, agua y la despensa del coche." },
-        { "lugar": "tolfa", "que": "22 km de subida por la SP3, media hora de curvas de noche. A 450 m se duerme entre 4 y 6 °C más fresco que en el puerto, y gratis." },
-        { "lugar": "saturnia", "que": "Las Cascate del Mulino son el sitio que justifica los dos primeros días: agua sulfurosa a 37,5 °C cayendo por escalones de travertino blanco, gratis, abiertas las 24 horas y con aparcamiento gratuito. Da para cuatro baños: al llegar a media mañana, con la luz cayendo, de noche sin nadie (linterna obligatoria, no hay ni una farola) y al amanecer del día siguiente, que es el mejor de los cuatro." },
-        { "lugar": "saturnia-pueblo", "que": "El pueblo está 3 km más arriba de las cascadas y se come un tercio más barato que abajo: acquacotta, la sopa de los pastores de la Maremma con un huevo escalfado encima, y tortelli maremmani. Es la zona más barata de todo el viaje." }
-      ]
-    },
-    {
-      "tipo": "bifurcacion",
-      "id": "interior",
-      "titulo": "Después de Saturnia, ¿por dónde subes a Florencia?",
-      "elige": "Piedra o agua",
-      "desde": "Sales de las termas de Saturnia la mañana del domingo 16",
-      "hasta": "Los dos caminos duermen el lunes 17 en Villa Costanza, en Florencia",
-      "dias": [2, 3],
+      "titulo": "Desembarco y subida a la montaña",
+      "porque": "Atracas a las 20:30 y para las 21:00 estás fuera del puerto con el súper a punto de cerrar. Lo único que cabe es comprar y subir a dormir fresco: Civitavecchia es puerto, es ruidoso y en agosto no baja de 26 °C por la noche.",
       "opciones": [
         {
-          "id": "pueblos",
-          "icono": "★",
-          "ruta": "toscana",
-          "nombre": "Por los pueblos de piedra",
-          "corto": "Pueblos",
-          "resumen": "Pitigliano colgado del risco de toba, Siena entera con calma, y luego Monteriggioni y San Gimignano camino de Florencia.",
-          "ritmo": "La rama con más ciudad y más reloj: cuatro pueblos en dos días, uno de ellos con parada de media hora justa. Se duerme dentro de Siena.",
-          "duermes": "Noche del domingo en Siena (Due Ponti, 2 € el día, escaleras mecánicas hasta Porta Camollia).",
-          "hitos": [
-            { "lugar": "pitigliano", "que": "Un pueblo entero encaramado a un risco de toba. Para en el mirador de la carretera antes de entrar, que de ahí sale la foto. Dentro: el barrio judío que le vale el apodo de Pequeña Jerusalén, la sinagoga del XVI y las vie cave, caminos etruscos excavados en la roca con paredes de veinte metros." },
-            { "lugar": "siena", "que": "Se ve en dos tandas: la tarde de la llegada, que es cuando la piedra se pone naranja, y la mañana siguiente entera. El Duomo tiene el suelo de mármol taraceado descubierto solo unas semanas al año, y agosto es una de ellas." },
-            { "lugar": "monteriggioni", "que": "Un pueblo entero dentro de una muralla circular con catorce torres, y dentro no hay más que una plaza. Media hora larga y se ve todo: si te enredas aquí, San Gimignano se queda en nada." },
-            { "lugar": "san-gimignano", "que": "Catorce torres medievales en pie de las setenta y dos que hubo. Aparca en los de abajo (P3 o P4), que valen la mitad que los pegados a la muralla, y sube andando." }
-          ],
-          "gana": ["Siena con su plaza y el Duomo del suelo taraceado", "Pitigliano y las vie cave etruscas", "Monteriggioni y San Gimignano, las torres"],
-          "pierde": ["Las termas de Bagni San Filippo", "La Val d'Orcia de las postales", "Petriolo y Bagno Vignoni"]
-        },
-        {
-          "id": "termas",
-          "icono": "≈",
-          "ruta": "agua",
-          "nombre": "Por las termas y la Val d'Orcia",
-          "corto": "Termas",
-          "resumen": "La cascada blanca de Bagni San Filippo, la plaza-piscina de Bagno Vignoni, las colinas de la Val d'Orcia y las pozas de Petriolo metidas en el río.",
-          "ritmo": "La rama tranquila: dos días sin una sola entrada de pago, sin ZTL, sin aparcamiento caro y sin hora a la que estar en ningún sitio.",
-          "duermes": "Noche del domingo en Bagno Vignoni, en plena Val d'Orcia.",
-          "hitos": [
-            { "lugar": "bagni-san-filippo", "que": "La Balena Bianca: una cascada de calcáreo blanco puro con forma de ballena y pozas calientes metidas en el bosque. Gratis y mucho menos conocida que Saturnia. Baja por el sendero hasta las pozas de arriba, que están más calientes y más vacías. El aparcamiento es pequeño y a las 13:00 ya está lleno." },
-            { "lugar": "bagno-vignoni", "que": "Un pueblo cuya plaza mayor es una piscina termal humeante del siglo XVI. Ahí no te bañas, pero en el Parco dei Mulini, justo debajo, hay pozas libres y gratuitas con el valle delante." },
-            { "lugar": "val-dorcia", "que": "Colinas peladas, cipreses en fila y granjas solas: es Patrimonio de la Humanidad por el paisaje, no por los edificios. Se ve conduciendo, y el atardecer desde el borde de Bagno Vignoni es gratis." },
-            { "lugar": "petriolo", "que": "Pozas a 43 °C pegadas al río Farma, debajo del puente de la carretera, con el agua fría al lado para alternar. Libres y gratuitas. El desvío desde la SS223 está mal señalizado: busca el aparcamiento del puente, no el balneario de pago, que es otra cosa." }
-          ],
-          "gana": ["Tres termas naturales más, todas gratis y abiertas 24 h", "La Val d'Orcia, que es el paisaje toscano de las fotos", "Es la rama más tranquila: menos ciudad y menos reloj", "Dos días sin pagar una sola entrada"],
-          "pierde": ["Siena entera", "Los pueblos de torres", "Pitigliano"]
+          "id": "tolfa",
+          "icono": "⚓",
+          "ruta": "toscana", "usa": 0,
+          "nombre": "Compra y subida a Tolfa",
+          "corto": "Tolfa",
+          "sale": null, "duerme": "tolfa",
+          "resumen": "22 km de curvas de noche por la SP3 hasta los 450 m. Se duerme entre 4 y 6 °C más fresco que en el puerto, y gratis."
         }
       ]
     },
     {
-      "tipo": "tronco",
-      "id": "florencia",
+      "n": 1,
+      "icono": "≈",
+      "titulo": "Ferragosto en las termas de Saturnia",
+      "porque": "Es 15 de agosto: medio comercio cierra y las carreteras a la costa se colapsan. Saturnia está tierra adentro y en dirección contraria al atasco, y son termas gratis abiertas 24 horas. No hay un sitio mejor en toda Italia para pasar ese día concreto.",
+      "opciones": [
+        {
+          "id": "saturnia",
+          "icono": "≈",
+          "ruta": "toscana", "usa": 1,
+          "nombre": "El día entero en las Cascate del Mulino",
+          "corto": "Saturnia",
+          "sale": "tolfa", "duerme": "saturnia",
+          "resumen": "120 km por la Maremma y el resto del día en el agua: escalones de travertino, 37,5 °C, gratis y sin horario. Da para cuatro baños contando el de noche y el del amanecer."
+        }
+      ]
+    },
+    {
+      "n": 2,
+      "icono": "⑂",
+      "titulo": "Sales de las termas, ¿y dónde acabas durmiendo?",
+      "pregunta": "Es la decisión más grande del viaje: marca si esta noche duermes en una ciudad o en el campo, y con eso condiciona el día siguiente.",
+      "opciones": [
+        {
+          "id": "pitigliano-siena",
+          "icono": "★",
+          "ruta": "toscana", "usa": 2,
+          "nombre": "Pitigliano y subida a Siena",
+          "corto": "Pitigliano",
+          "sale": "saturnia", "duerme": "siena",
+          "resumen": "El pueblo colgado del risco de toba por la mañana y Siena entera a última hora, cuando la piedra se pone naranja.",
+          "gana": ["Pitigliano, el barrio judío y las vie cave", "Siena en dos tandas: esta tarde y mañana por la mañana", "Duermes en ciudad, con cena de verdad al lado"],
+          "pierde": ["Las termas de Bagni San Filippo", "La Val d'Orcia, que la cruzas pero de paso"]
+        },
+        {
+          "id": "filippo-siena",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "La cascada blanca y luego Siena",
+          "corto": "San Filippo",
+          "sale": "saturnia", "duerme": "siena",
+          "resumen": "Bagni San Filippo por la mañana y Siena por la tarde: te llevas la mejor terma de la ruta 2 sin renunciar a la ciudad de la ruta 1. Este día no está en ninguna de las dos.",
+          "gana": ["La Balena Bianca, la cascada de calcáreo blanco, gratis", "Siena igual que en la ruta 1, en dos tandas", "Dos termas gratis en dos días seguidos"],
+          "pierde": ["Pitigliano y la Maremma de la toba", "Bagno Vignoni y dormir en el campo"],
+          "dia": {
+            "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
+            "titulo": "La cascada blanca y Siena",
+            "etapa": "Saturnia → Bagni San Filippo → Siena",
+            "km": 150, "minutos": 145,
+            "plan": [
+              { "hora": "07:00", "que": "Baño al amanecer en las Cascate del Mulino, que es cuando están vacías y con vapor. El mejor de los cuatro." },
+              { "hora": "09:00", "que": "70 km subiendo por el monte Amiata hasta Bagni San Filippo. Carretera de montaña, con bosque a los dos lados." },
+              { "hora": "10:30", "que": "La Balena Bianca: una cascada de calcáreo blanco puro con forma de ballena y pozas calientes metidas en el bosque. Gratis y bastante menos conocida que Saturnia. Baja por el sendero hasta las pozas de arriba, que están más calientes y más vacías." },
+              { "hora": "13:00", "que": "Comes en el pueblo de Bagni San Filippo, que son cuatro casas y un par de sitios." },
+              { "hora": "14:30", "que": "80 km hasta Siena por la Val d'Orcia y la Cassia. Es de los tramos más bonitos del viaje y se hace sin prisa." },
+              { "hora": "17:00", "que": "Aparcas en Due Ponti (2 €) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
+              { "hora": "17:45", "que": "Siena a última hora, que es cuando la piedra se pone naranja: Piazza del Campo, la fachada del Duomo y las callejas de las contradas." },
+              { "hora": "21:00", "que": "Cena de pici all'aglione y vuelta al coche por las escaleras." }
+            ],
+            "lugares": ["saturnia", "bagni-san-filippo", "siena", "siena-parking"],
+            "dormir": "siena", "aparcar": "siena",
+            "comer": "Pici y pecorino por el camino, y por la noche pici all'aglione en Siena. Compra una cuña de queso en San Filippo o en la Cassia: es zona de pecorino.",
+            "aviso": "El aparcamiento de Bagni San Filippo es pequeño y en agosto se llena a media mañana. Llegando a las 10:30 vas bien; a las 13:00, ya no.",
+            "coste_dia": 34, "apretado": null
+          }
+        },
+        {
+          "id": "filippo-vignoni",
+          "icono": "≈",
+          "ruta": "agua", "usa": 2,
+          "nombre": "Las dos termas y la Val d'Orcia",
+          "corto": "Termas",
+          "sale": "saturnia", "duerme": "val-dorcia",
+          "resumen": "Bagni San Filippo por la mañana y Bagno Vignoni por la tarde, durmiendo en plena Val d'Orcia. El día más tranquilo de las dos rutas.",
+          "gana": ["Dos termas gratis más en el mismo día", "Bagno Vignoni y su plaza-piscina del siglo XVI", "Duermes en la Val d'Orcia, con el atardecer sobre las colinas", "Ni una entrada de pago en todo el día"],
+          "pierde": ["Siena entera", "Pitigliano y los pueblos de toba"]
+        },
+        {
+          "id": "toba-vignoni",
+          "icono": "❖",
+          "ruta": null,
+          "nombre": "La Maremma de la toba entera",
+          "corto": "Toba",
+          "sale": "saturnia", "duerme": "val-dorcia",
+          "resumen": "Pitigliano, Sovana y Sorano, los tres pueblos de toba en un día, y luego subir el Amiata a dormir a la Val d'Orcia. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Los tres pueblos de toba, no solo Pitigliano", "La necrópolis etrusca de Sovana y la Tomba Ildebranda", "Duermes igual en la Val d'Orcia"],
+          "pierde": ["Bagni San Filippo", "Siena", "Es el día con más pueblo y menos agua de los cuatro"],
+          "dia": {
+            "n": 2, "fecha": "2026-08-16", "dia_semana": "domingo",
+            "titulo": "Los tres pueblos de toba y subida a la Val d'Orcia",
+            "etapa": "Saturnia → Pitigliano → Sovana → Sorano → Bagno Vignoni",
+            "km": 145, "minutos": 160,
+            "plan": [
+              { "hora": "07:00", "que": "Baño al amanecer en las cascadas, vacías y con vapor." },
+              { "hora": "09:00", "que": "25 km hasta Pitigliano. Para en el mirador de la carretera antes de entrar: la foto del pueblo colgado del risco se hace desde ahí." },
+              { "hora": "09:45", "que": "Pitigliano por dentro: el barrio judío que le vale el apodo de Pequeña Jerusalén, la sinagoga del siglo XVI y las vie cave, caminos etruscos excavados en la roca con paredes de veinte metros." },
+              { "hora": "12:00", "que": "10 km hasta Sovana: una sola calle medieval, una catedral románica desproporcionada para el pueblo que es, y la necrópolis etrusca con la Tomba Ildebranda excavada en la roca." },
+              { "hora": "13:30", "que": "Comes en Sovana o en Sorano, que es donde está más barato." },
+              { "hora": "15:00", "que": "Sorano, el tercero: colgado del risco, con el Masso Leopoldino, una plataforma de roca desde la que se ve el barranco entero." },
+              { "hora": "16:30", "que": "90 km subiendo por el monte Amiata hasta Bagno Vignoni. Es una carretera larga de montaña: cuenta hora y media larga." },
+              { "hora": "18:30", "que": "Bagno Vignoni: la plaza mayor del pueblo es una piscina termal humeante del siglo XVI. Ahí no te bañas, pero en el Parco dei Mulini, justo debajo, hay pozas libres y gratuitas con vista al valle." },
+              { "hora": "20:30", "que": "Atardecer sobre la Val d'Orcia desde el borde del pueblo: colinas peladas, cipreses en fila y ni un ruido." }
+            ],
+            "lugares": ["saturnia", "pitigliano", "sovana", "bagno-vignoni", "val-dorcia"],
+            "dormir": "val-dorcia", "aparcar": "pitigliano",
+            "comer": "Cinghiale en Pitigliano y el sfratto dei goym del horno judío, que es el dulce de nuez y miel que solo se hace ahí. Por la noche, pecorino de Pienza, que está a 12 km.",
+            "aviso": "Tres pueblos y una subida de montaña en el mismo día. Es el día más largo de reloj de los cuatro posibles: si te enredas en Pitigliano, quita Sorano antes que Sovana.",
+            "coste_dia": 30, "apretado": "Tres pueblos por la mañana y 90 km de montaña por la tarde. Sale, pero sin pararse a mirar el móvil."
+          }
+        }
+      ]
+    },
+    {
+      "n": 3,
+      "icono": "⑂",
+      "titulo": "Hacia Florencia, ¿por dónde?",
+      "pregunta": "Todos los caminos acaban durmiendo en Villa Costanza. Lo que cambia es qué ves por el camino, y lo que puedes elegir depende de dónde dormiste anoche.",
+      "opciones": [
+        {
+          "id": "torres",
+          "icono": "★",
+          "ruta": "toscana", "usa": 3,
+          "nombre": "Siena entera y dos pueblos de torres",
+          "corto": "Torres",
+          "sale": "siena", "duerme": "villa-costanza",
+          "resumen": "El Duomo de Siena por dentro por la mañana, Monteriggioni de paso y San Gimignano al mediodía, y a Florencia por la tarde.",
+          "gana": ["El Duomo de Siena con el suelo de mármol taraceado descubierto", "Monteriggioni, catorce torres en una muralla circular", "San Gimignano y sus torres medievales"],
+          "pierde": ["El Chianti, que se queda al otro lado", "Es el día con más paradas y menos margen"]
+        },
+        {
+          "id": "chianti",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "Siena y subir por la Chiantigiana",
+          "corto": "Chianti",
+          "sale": "siena", "duerme": "villa-costanza",
+          "resumen": "La mañana entera en Siena y luego subir a Florencia por la SR222, la carretera del Chianti, parando en Castellina y en Greve. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Siena sin reloj: Duomo por dentro, Torre del Mangia y mercado", "La Chiantigiana, que es de las carreteras más bonitas de Italia", "Greve y Castellina, y el día con menos kilómetros del interior"],
+          "pierde": ["Monteriggioni y San Gimignano, las torres", "Es carretera de curvas: se va despacio aunque haya menos km"],
+          "dia": {
+            "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+            "titulo": "Siena por la mañana y el Chianti por la tarde",
+            "etapa": "Siena → Castellina → Greve in Chianti → Florencia",
+            "km": 95, "minutos": 140,
+            "plan": [
+              { "hora": "08:00", "que": "Siena por la mañana con calma: el Duomo por dentro, con el suelo de mármol taraceado descubierto (solo pasa unas semanas al año, y agosto es una de ellas), y subir a la Torre del Mangia si aguantas los 400 escalones." },
+              { "hora": "11:00", "que": "Vuelta a Piazza del Campo sin la gente de ayer, y el mercado si toca. Sales de Siena por la Porta Camollia." },
+              { "hora": "11:45", "que": "La SR222, la Chiantigiana: 40 km de curvas entre viñedos, cipreses y castillos, con el valle abriéndose a los lados. Es carretera lenta a propósito." },
+              { "hora": "12:30", "que": "Castellina in Chianti: la Via delle Volte, una calle entera cubierta por bóvedas medievales excavada dentro de la muralla, con ventanas al campo." },
+              { "hora": "14:00", "que": "Comes en Panzano o en Greve. Panzano es el pueblo de la carnicería más famosa de la Toscana y en Greve se come en la plaza." },
+              { "hora": "16:00", "que": "Greve in Chianti: la plaza triangular con soportales desiguales, porque cada familia se construyó el suyo, y las tiendas de vino de debajo." },
+              { "hora": "17:30", "que": "35 km hasta Villa Costanza, tu base los dos próximos días. Se entra directamente desde la superstrada." },
+              { "hora": "18:30", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y subir a Piazzale Michelangelo al atardecer." },
+              { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
+            ],
+            "lugares": ["siena", "chianti", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
+            "dormir": "villa-costanza", "aparcar": ["siena", "florencia"],
+            "comer": "Bistecca no, que es cara: en Panzano se come el resto de la vaca y sale la mitad. Y una copa de Chianti Classico en la propia Greve, que es el pueblo donde se inventó la denominación.",
+            "aviso": "La SR222 tiene curvas cerradas y en agosto va llena de motos y de ciclistas. Son 40 km que se hacen en más de una hora: si vas con prisa, esta no es tu opción.",
+            "coste_dia": 40, "apretado": null
+          }
+        },
+        {
+          "id": "petriolo",
+          "icono": "≈",
+          "ruta": "agua", "usa": 3,
+          "nombre": "Pozas en el río y llegada a Florencia",
+          "corto": "Petriolo",
+          "sale": "val-dorcia", "duerme": "villa-costanza",
+          "resumen": "Baño temprano en el Parco dei Mulini, las pozas de Petriolo metidas en el río Farma a media mañana, y a Florencia por la tarde.",
+          "gana": ["Petriolo: 43 °C pegado a un río frío, gratis", "Tercera terma libre en tres días", "Media jornada sin gastar un euro"],
+          "pierde": ["Los pueblos de torres", "Es el día con más kilómetros de esta rama"]
+        },
+        {
+          "id": "torres-orcia",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "Las torres, saliendo de la Val d'Orcia",
+          "corto": "Torres",
+          "sale": "val-dorcia", "duerme": "villa-costanza",
+          "resumen": "Recuperas Monteriggioni y San Gimignano aunque hayas dormido en el campo: baño temprano y para arriba. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Monteriggioni y San Gimignano sin haber dormido en Siena", "Un último baño en el Parco dei Mulini antes de salir", "Es la forma de no renunciar a las torres yendo por las termas"],
+          "pierde": ["Petriolo", "175 km: es el día más largo del interior"],
+          "dia": {
+            "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+            "titulo": "De la Val d'Orcia a las torres, y a Florencia",
+            "etapa": "Bagno Vignoni → Monteriggioni → San Gimignano → Florencia",
+            "km": 175, "minutos": 175,
+            "plan": [
+              { "hora": "07:30", "que": "Baño de buena mañana en las pozas del Parco dei Mulini, que a esa hora están solas." },
+              { "hora": "09:00", "que": "85 km hasta Monteriggioni, rodeando Siena por la Siena-Grosseto. Es autovía gratuita y se va rápido." },
+              { "hora": "10:45", "que": "Monteriggioni: un pueblo entero dentro de una muralla circular con catorce torres, y dentro no hay más que una plaza. Media hora larga y se ve todo." },
+              { "hora": "11:45", "que": "30 km hasta San Gimignano. Aparca en los de abajo (P3 o P4), que valen la mitad que los pegados a la muralla, y sube andando." },
+              { "hora": "12:15", "que": "San Gimignano: catorce torres medievales en pie de las setenta y dos que hubo. Piazza della Cisterna, la Collegiata y la Torre Grossa. Y el helado de la plaza, que tiene fama merecida." },
+              { "hora": "15:30", "que": "55 km hasta Villa Costanza, que es tu base los dos próximos días. Se entra directamente desde la A1." },
+              { "hora": "17:00", "que": "Tranvía T1 al centro, 23 minutos. Primera tarde de Florencia sin plan: Duomo por fuera, Ponte Vecchio y Piazzale Michelangelo al atardecer." },
+              { "hora": "21:30", "que": "Cena en el Oltrarno y tranvía de vuelta al coche." }
+            ],
+            "lugares": ["bagno-vignoni", "monteriggioni", "san-gimignano", "villa-costanza", "florencia-duomo", "piazzale-michelangelo"],
+            "dormir": "villa-costanza", "aparcar": ["san-gimignano", "florencia"],
+            "comer": "Schiacciata con embutido en San Gimignano, de pie. Por la noche, Oltrarno florentino (Santo Spirito, San Frediano), que es donde se come a precio de barrio.",
+            "aviso": "175 km y dos pueblos. Sale porque Monteriggioni es diminuto y la Siena-Grosseto se hace sola, pero es el día más largo de todos los caminos posibles hasta Florencia.",
+            "coste_dia": 45, "apretado": "Dos pueblos y 175 km. Si te entretienes en San Gimignano, la primera tarde de Florencia se queda en un paseo corto."
+          }
+        }
+      ]
+    },
+    {
+      "n": 4,
       "icono": "✦",
       "titulo": "Florencia entera a pie",
-      "corto": "Florencia",
-      "nota": "Vengas por donde vengas, el martes 18 es Florencia y el coche no se mueve.",
-      "dias": [4],
-      "ruta": "toscana",
-      "duermes": "Las dos noches en Villa Costanza, dentro del parking del tranvía.",
-      "porque": "No hay nada que elegir porque el coche se queda quieto: duermes en Villa Costanza, que es un aparcamiento con la parada del T1 dentro, y entras y sales en tranvía. Meter el coche en Florencia no es una opción cara, es una multa.",
-      "hitos": [
-        { "lugar": "villa-costanza", "que": "Se entra directamente desde la A1 sin pisar una calle de Florencia. 7 € el día, y el tranvía T1 sale de dentro: 23 minutos hasta Santa Maria Novella. Es también donde duermes las dos noches." },
-        { "lugar": "florencia-duomo", "que": "A las 8:00 la plaza está vacía: la cúpula de Brunelleschi, el campanile de Giotto y el baptisterio con las puertas del Paraíso. Por fuera ya es medio museo y no cuesta nada." },
-        { "lugar": "mercato-centrale", "que": "Abajo el mercado y arriba los puestos de comida. A un paso están los carritos de lampredotto: 5 € el bocadillo de callos florentino, de pie, y lleva ahí desde el siglo XV." },
-        { "lugar": "santambrogio", "que": "El otro mercado, el que no tiene un turista dentro. Si te da tiempo, es donde mejor se compra la comida del coche." },
-        { "lugar": "piazzale-michelangelo", "que": "El atardecer sobre Florencia. Justo debajo está el Giardino delle Rose, gratis y con sombra, y subiendo un poco más San Miniato al Monte: si llegas sobre las 17:30 pillas el canto gregoriano de los monjes, que es diario." }
+      "porque": "El coche se queda quieto en Villa Costanza y se entra en tranvía. No hay decisión de ruta que tomar: meter el coche en Florencia no es una opción cara, es una multa. Lo que sí hay que decidir es en qué te gastas la entrada, que va aquí abajo.",
+      "opciones": [
+        {
+          "id": "florencia",
+          "icono": "✦",
+          "ruta": "toscana", "usa": 4,
+          "nombre": "Florencia a pie, de las 8:00 a las 22:00",
+          "corto": "Florencia",
+          "sale": "villa-costanza", "duerme": "villa-costanza",
+          "resumen": "Duomo vacío a las ocho, Signoria, lampredotto de carrito, los dos mercados, Santa Croce en las horas de calor, San Miniato con el canto gregoriano y el Piazzale al atardecer."
+        }
       ]
     },
     {
-      "tipo": "bifurcacion",
-      "id": "costa",
-      "titulo": "De Florencia al golfo, ¿parando dónde?",
-      "elige": "Lucca o Portovenere",
-      "desde": "Sales de Florencia la mañana del miércoles 19",
-      "hasta": "Los dos caminos duermen el jueves 20 en La Spezia, listos para Cinque Terre",
-      "dias": [5, 6],
+      "n": 5,
+      "icono": "⑂",
+      "titulo": "Sales de Florencia, ¿duermes en Lucca o en Pisa?",
+      "pregunta": "Las dos acaban mañana en La Spezia. La diferencia es si le das a Lucca un día entero o la partes con Pisa.",
       "opciones": [
         {
-          "id": "lucca",
+          "id": "lucca-noche",
           "icono": "◎",
-          "ruta": "toscana",
+          "ruta": "toscana", "usa": 5,
           "nombre": "Lucca con noche propia",
-          "corto": "Lucca de noche",
-          "resumen": "Un día entero para Lucca, durmiendo dentro, y Pisa al día siguiente de camino al golfo.",
-          "ritmo": "Un día de una sola ciudad, que es el único del viaje. Aquí no hay que correr para nada.",
-          "duermes": "Noche del miércoles en Lucca, fuera de la muralla y gratis.",
-          "hitos": [
-            { "lugar": "lucca", "que": "La muralla renacentista es un parque público arbolado de 4,2 km por encima de la ciudad: bici por 4 € y vuelta entera, que es lo mejor de Lucca y casi nadie lo hace. Con noche propia da para repetirla a pie con la luz baja. Y además: Piazza dell'Anfiteatro, ovalada porque está levantada sobre el anfiteatro romano, y la Torre Guinigi con siete robles creciendo en la azotea." },
-            { "lugar": "pisa", "que": "Piazza dei Miracoli a primera hora, con el césped vacío: torre, Duomo, baptisterio y Camposanto en la misma explanada. Aparcas gratis en Via Pietrasantina y coges la lanzadera de 1 €, que solo pasa de 8:30 a 17:30." }
-          ],
-          "gana": ["Lucca sin reloj: da para la vuelta entera a la muralla en bici y volver a pie al atardecer", "Se duerme en una ciudad pequeña y tranquila", "15 km menos que la otra rama"],
-          "pierde": ["Portovenere, que en esta rama solo cae si lo coges como desvío el sábado", "Pisa se ve con más prisa y sin la plaza de noche"]
+          "corto": "Lucca",
+          "sale": "villa-costanza", "duerme": "lucca",
+          "resumen": "Una sola ciudad en todo el día, y duermes dentro. Vuelta a la muralla en bici por la mañana y otra a pie con la luz baja.",
+          "gana": ["Lucca sin reloj: es el único día de una sola ciudad del viaje", "La muralla dos veces, en bici y andando", "Se duerme en una ciudad pequeña y tranquila"],
+          "pierde": ["Pisa se queda para mañana y con más prisa", "Es el día con menos sitios de todo el viaje"]
         },
         {
-          "id": "pisa",
+          "id": "lucca-pisa",
           "icono": "❖",
-          "ruta": "agua",
-          "nombre": "Lucca y Pisa el mismo día, y Portovenere",
-          "corto": "Pisa y Portovenere",
-          "resumen": "Lucca por la mañana, Pisa por la tarde durmiendo junto a la torre, y al día siguiente el golfo de los Poetas con Portovenere entero.",
-          "ritmo": "El miércoles va apretado (dos ciudades) para que el jueves sea de playa y acantilado sin mirar el reloj.",
-          "duermes": "Noche del miércoles en Pisa, en la zona de autocaravanas de Via Pietrasantina, gratis.",
-          "hitos": [
-            { "lugar": "lucca", "que": "Media jornada: bici, muralla y Piazza dell'Anfiteatro. Se ve lo importante, pero se sale a las dos." },
-            { "lugar": "pisa", "que": "La Piazza dei Miracoli a última hora, cuando los autobuses ya se han ido, y otra vez de noche iluminada, porque duermes a veinte minutos andando. La cena, en el mercado de las Vettovaglie, que es donde come Pisa de verdad." },
-            { "lugar": "portovenere", "que": "No es de las Cinque Terre y para mucha gente es el mejor de todos: San Pietro sobre el acantilado, la gruta de Byron (el poeta cruzó a nado el golfo desde ahí) y la fila de casas-torre de colores. Con una tarde entera da para bañarse desde las rocas y quedarse al atardecer." }
-          ],
-          "gana": ["Portovenere con una tarde entera y su atardecer", "Piazza dei Miracoli de noche, iluminada y vacía", "Se duerme gratis en Pisa, en la zona de autocaravanas"],
-          "pierde": ["Lucca se queda en media jornada", "15 km y 15 minutos más"]
+          "ruta": "agua", "usa": 5,
+          "nombre": "Lucca y Pisa el mismo día",
+          "corto": "Lucca y Pisa",
+          "sale": "villa-costanza", "duerme": "pisa",
+          "resumen": "Lucca por la mañana en bici, Pisa por la tarde cuando los autobuses ya se han ido, y a dormir a veinte minutos de la torre.",
+          "gana": ["Piazza dei Miracoli a última hora y otra vez de noche, iluminada y vacía", "Se duerme gratis en la zona de autocaravanas de Pisa", "Mañana te queda el día entero para el golfo"],
+          "pierde": ["Lucca se queda en media jornada", "Es un día de dos ciudades, con el reloj puesto"]
         }
       ]
     },
     {
-      "tipo": "bifurcacion",
-      "id": "mar",
-      "titulo": "Cinque Terre, ¿en dos días o en uno y bajas con calma?",
-      "elige": "Pueblos o playa",
-      "desde": "Sales de La Spezia el viernes 21 con la Cinque Terre Card en el bolsillo",
-      "hasta": "Los dos caminos duermen el sábado 22 en la playa de Castiglione della Pescaia",
-      "dias": [7, 8],
+      "n": 6,
+      "icono": "⑂",
+      "titulo": "Bajada al golfo de los Poetas",
+      "pregunta": "Todos los caminos duermen esta noche en La Spezia, listos para coger el tren de Cinque Terre mañana a las siete. Lo que cambia es qué haces con el día.",
       "opciones": [
         {
-          "id": "ct-dos-dias",
-          "icono": "▲",
-          "ruta": "toscana",
-          "nombre": "Cinque Terre en dos días",
-          "corto": "CT en 2 días",
-          "resumen": "Los tres del sur un día y los dos del norte al siguiente, con Portovenere al atardecer, y luego 200 km de tirón hasta la Maremma.",
-          "ritmo": "Dos mañanas de tren y pueblos, y una tarde de 200 km. Cuenta con dos días de Cinque Terre Card, no uno.",
-          "duermes": "Viernes en La Spezia otra vez, sábado en el pinar de Castiglione.",
-          "hitos": [
-            { "lugar": "riomaggiore", "que": "El primero viniendo de La Spezia, a 8 minutos de tren. Antes de las 9:00 el pueblo es tuyo." },
-            { "lugar": "manarola", "que": "El mirador de Punta Bonfiglio es la postal de las Cinque Terre. Baño desde las rocas del puertecillo." },
-            { "lugar": "corniglia", "que": "El único de los cinco que no está a nivel del mar: 382 escalones desde la estación o un bus de 1,50 €. Por eso es el más tranquilo, y aquí sí da tiempo a comer con calma." },
-            { "lugar": "vernazza", "que": "El más bonito de los cinco: un puerto natural diminuto con un castillo encima. Sube los primeros diez minutos del sendero hacia Monterosso, que de ahí sale la foto." },
-            { "lugar": "monterosso", "que": "El único con playa de arena de verdad, y con dos días da tiempo a bañarse sin mirar el reloj. Sus anchoas tienen denominación propia." },
-            { "lugar": "portovenere", "que": "El sábado por la tarde, en coche desde La Spezia: una hora larga antes de coger carretera hacia el sur." },
-            { "lugar": "bolgheri", "que": "Ya va incluido en la bajada del sábado: cinco kilómetros rectos de cipreses para estirar las piernas." }
-          ],
-          "gana": ["Los cinco pueblos sin correr, con tiempo de bañarte en cada uno", "Portovenere al atardecer sin gastar un desvío", "Es la rama con menos kilómetros"],
-          "pierde": ["La bajada por la costa se hace de una sentada, casi sin parar", "La playa salvaje del parque de la Maremma", "Un segundo día de Cinque Terre Card"]
+          "id": "pisa-golfo",
+          "icono": "◎",
+          "ruta": "toscana", "usa": 6,
+          "nombre": "Pisa por la mañana y al golfo",
+          "corto": "Pisa",
+          "sale": "lucca", "duerme": "la-spezia",
+          "resumen": "Piazza dei Miracoli con el césped todavía vacío, el mercado de las Vettovaglie, y por la tarde los 80 km de costa hasta La Spezia.",
+          "gana": ["Pisa a primera hora, que es la única forma de verla sin multitud", "El mercado de las Vettovaglie, donde come Pisa de verdad", "Llegas con luz a La Spezia y compras la focaccia de mañana"],
+          "pierde": ["Portovenere, que se queda para el sábado o para nunca"]
         },
         {
-          "id": "ct-un-dia",
-          "icono": "◡",
-          "ruta": "agua",
-          "nombre": "Cinque Terre de una tacada y bajar parando",
-          "corto": "CT en 1 día",
-          "resumen": "Los cinco pueblos en una sola jornada, y al día siguiente la bajada larga parando en la avenida de cipreses de Bolgheri y en la playa salvaje del parque de la Maremma.",
-          "ritmo": "Un día de carrera entre trenes y otro de 235 km con dos paradas largas. Es el día más largo de las dos rutas.",
-          "duermes": "Viernes en La Spezia otra vez, sábado en el pinar de Castiglione.",
-          "hitos": [
-            { "lugar": "riomaggiore", "que": "Media hora larga a las 7:15, con el pueblo vacío." },
-            { "lugar": "manarola", "que": "Punta Bonfiglio y baño rápido desde las rocas." },
-            { "lugar": "vernazza", "que": "El más bonito, y donde toca comer las trofie al pesto." },
-            { "lugar": "monterosso", "que": "Aquí sí se para: tarde entera de arena en la zona libre." },
-            { "lugar": "corniglia", "que": "El último y el primero que se cae si vas justo: 382 escalones o bus de 1,50 €." },
-            { "lugar": "bolgheri", "que": "Cinco kilómetros rectos de cipreses, café y estirar las piernas a media mañana del sábado." },
-            { "lugar": "alberese", "que": "Playa salvaje con troncos varados y pinar detrás, dentro del parque natural. Se entra en bus desde el centro de visitantes: mira el horario del último de vuelta antes de tumbarte." }
-          ],
-          "gana": ["Marina di Alberese, playa salvaje dentro del parque natural", "Bolgheri con parada de verdad, no de paso", "Una tarde de playa larga, no una parada", "Un día menos de Cinque Terre Card"],
-          "pierde": ["Los cinco pueblos en un día es una carrera", "Portovenere, si no vienes ya de la rama de Pisa", "35 km más y el día más largo de las dos rutas"]
+          "id": "golfo-directo",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "Directo al golfo, y Portovenere entero",
+          "corto": "Portovenere",
+          "sale": "lucca", "duerme": "la-spezia",
+          "resumen": "Te saltas Pisa y te plantas en el golfo a media mañana: Portovenere con el día entero, baño desde las rocas y el atardecer desde San Pietro. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Portovenere con una tarde entera, sin haber renunciado a la noche en Lucca", "Baño largo en el golfo y el atardecer desde el acantilado", "Es el día más tranquilo de la costa"],
+          "pierde": ["Pisa entera: ni torre, ni Miracoli, ni mercado"],
+          "dia": {
+            "n": 6, "fecha": "2026-08-20", "dia_semana": "jueves",
+            "titulo": "Del muro de Lucca al acantilado de Portovenere",
+            "etapa": "Lucca → La Spezia → Portovenere",
+            "km": 110, "minutos": 110,
+            "plan": [
+              { "hora": "08:00", "que": "Última vuelta a la muralla de Lucca con el fresco de la mañana, andando y sin nadie. Media hora bien gastada." },
+              { "hora": "09:00", "que": "90 km hasta La Spezia por la A11 y la A12. Dejas el coche donde vas a dormir las dos próximas noches." },
+              { "hora": "11:00", "que": "15 km hasta Portovenere. No es de las Cinque Terre y para mucha gente es el mejor de todos." },
+              { "hora": "11:45", "que": "Portovenere: la iglesia de San Pietro sobre el acantilado, con el mar rompiendo debajo, la gruta de Byron (que se llama así porque el poeta cruzó a nado el golfo desde ahí) y la fila de casas-torre de colores frente al puerto. Sube al castillo Doria, que es la vista de arriba." },
+              { "hora": "14:00", "que": "Cono de fritto misto en el muelle, o pescado si te apetece sentarte." },
+              { "hora": "16:00", "que": "Baño largo desde las rocas de la punta, o el barco a la isla Palmaria si te apetece gastar. El agua del golfo está más caliente que la de las Cinque Terre." },
+              { "hora": "19:00", "que": "Atardecer desde San Pietro con el golfo entero delante. Es la mejor hora del sitio y la mayoría de la gente ya se ha ido." },
+              { "hora": "21:00", "que": "Vuelta a La Spezia y cena por Via del Prione, que tiene precios de ciudad y no de postal. Compra ya la focaccia y la farinata de mañana: en los cinco pueblos cuestan el triple." }
+            ],
+            "lugares": ["lucca", "la-spezia", "portovenere"],
+            "dormir": "la-spezia", "aparcar": "cinque-terre",
+            "comer": "Focaccia genovese recién hecha y farinata (torta de harina de garbanzo cocida en horno de leña) a 2 € el trozo, y fritto misto en el muelle de Portovenere.",
+            "aviso": "El aparcamiento del pueblo de Portovenere se llena y es de pago. Deja el coche en la subida y baja andando, que son cinco minutos.",
+            "coste_dia": 28, "apretado": null
+          }
+        },
+        {
+          "id": "golfo-portovenere",
+          "icono": "❖",
+          "ruta": "agua", "usa": 6,
+          "nombre": "Al golfo y Portovenere",
+          "corto": "Portovenere",
+          "sale": "pisa", "duerme": "la-spezia",
+          "resumen": "80 km por la costa a primera hora y el resto del día en Portovenere: San Pietro, la gruta de Byron y baño desde las rocas.",
+          "gana": ["Portovenere con el día entero", "Baño en el golfo, más caliente que en las Cinque Terre", "El atardecer desde el acantilado"],
+          "pierde": ["Lerici y el lado este del golfo"]
+        },
+        {
+          "id": "lerici",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "El otro lado del golfo: Lerici",
+          "corto": "Lerici",
+          "sale": "pisa", "duerme": "la-spezia",
+          "resumen": "En vez de cruzar a Portovenere, quedarte en la orilla de enfrente: el castillo de Lerici sobre el mar, San Terenzo y las calas de Fiascherino y Tellaro. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Lerici y Tellaro, dos pueblos que no salen en ninguna guía de Cinque Terre", "Las calas de Fiascherino, que son de las mejores playas de toda Liguria", "Es la mitad del golfo donde no va nadie"],
+          "pierde": ["Portovenere, que se queda para el sábado o para nunca"],
+          "dia": {
+            "n": 6, "fecha": "2026-08-20", "dia_semana": "jueves",
+            "titulo": "El golfo por el lado que no mira nadie",
+            "etapa": "Pisa → Lerici → Tellaro → La Spezia",
+            "km": 100, "minutos": 105,
+            "plan": [
+              { "hora": "08:00", "que": "Piazza dei Miracoli otra vez con el césped vacío, que duermes a veinte minutos andando y sería tonto no asomarse. Media hora." },
+              { "hora": "09:30", "que": "80 km por la costa hasta el golfo de los Poetas, dejando Carrara y los Alpes Apuanos a la derecha, blancos de mármol." },
+              { "hora": "11:00", "que": "Lerici: un castillo del siglo XIII plantado sobre una roca en mitad del mar, con el pueblo de colores alrededor de la bahía. Se sube al castillo por unos euros y desde arriba se ve el golfo entero." },
+              { "hora": "13:00", "que": "San Terenzo, a un paseo por el borde del agua: la casa donde vivieron Shelley y Mary Shelley, con la playa delante. Comes ahí, que es más barato que Lerici." },
+              { "hora": "15:00", "que": "Las calas de Fiascherino, entre pinos y rocas, con el agua transparente. Tarde de baño de verdad, no de parada." },
+              { "hora": "17:30", "que": "Tellaro: un pueblo diminuto colgado literalmente de la roca sobre el mar, todo de casas rosas y naranjas, con la iglesia asomada al agua. Media hora y se ve entero." },
+              { "hora": "19:00", "que": "12 km hasta La Spezia. Dejas el coche donde duermes las dos próximas noches." },
+              { "hora": "20:00", "que": "Cena por Via del Prione y compra de focaccia y farinata para mañana, que en los cinco pueblos cuestan el triple." }
+            ],
+            "lugares": ["pisa", "lerici", "la-spezia"],
+            "dormir": "la-spezia", "aparcar": "cinque-terre",
+            "comer": "Mejillones de Lerici, que se crían en el propio golfo, y focaccia. La farinata de La Spezia, a 2 € el trozo, es media cena.",
+            "aviso": "El aparcamiento de Lerici es de pago y en agosto se llena a media mañana. Hay un par de bolsas en la subida del pueblo desde las que se baja andando.",
+            "coste_dia": 30, "apretado": null
+          }
         }
       ]
     },
     {
-      "tipo": "tronco",
-      "id": "roma",
+      "n": 7,
+      "icono": "⑂",
+      "titulo": "Cinque Terre: ¿tres pueblos o los cinco?",
+      "pregunta": "El coche no se mueve: hoy es día de tren y de Cinque Terre Card. Lo que se decide es si los cinco pueblos caben hoy o se parten en dos días.",
+      "opciones": [
+        {
+          "id": "ct-sur",
+          "icono": "▲",
+          "ruta": "toscana", "usa": 7,
+          "nombre": "Los tres del sur, con calma",
+          "corto": "Tres del sur",
+          "sale": "la-spezia", "duerme": "la-spezia",
+          "resumen": "Riomaggiore a las 7:30 con el pueblo vacío, Manarola y su mirador, y Corniglia, el único que no está a nivel del mar. Con tiempo de bañarse en cada uno.",
+          "gana": ["Tres pueblos sin correr y con baño en cada uno", "Corniglia con comida tranquila y toda la costa debajo", "Mañana te quedan los dos del norte"],
+          "pierde": ["Vernazza y Monterosso se van a mañana, y mañana hay 200 km", "Dos días de tarjeta en vez de uno"]
+        },
+        {
+          "id": "ct-cinco",
+          "icono": "◡",
+          "ruta": "agua", "usa": 7,
+          "nombre": "Los cinco de una tacada",
+          "corto": "Los cinco",
+          "sale": "la-spezia", "duerme": "la-spezia",
+          "resumen": "De Riomaggiore a Monterosso en un día, saltando de tren en tren, con la tarde entera de playa en Monterosso.",
+          "gana": ["Los cinco pueblos en el bolsillo y mañana libre para bajar parando", "Tarde larga de arena en Monterosso", "Un solo día de tarjeta"],
+          "pierde": ["Es una carrera: cinco pueblos y siete trenes", "Corniglia es el primero que se cae si vas justo"]
+        }
+      ]
+    },
+    {
+      "n": 8,
+      "icono": "⑂",
+      "titulo": "Bajar a la Maremma, ¿parando dónde?",
+      "pregunta": "Los dos caminos salen de La Spezia y duermen en la playa de Castiglione. Es el día largo del viaje: la costa tirrena entera de una sentada.",
+      "opciones": [
+        {
+          "id": "ct-norte-bajada",
+          "icono": "▲",
+          "ruta": "toscana", "usa": 8,
+          "nombre": "Los dos del norte, Portovenere y bajada",
+          "corto": "Norte y bajada",
+          "sale": "la-spezia", "duerme": "castiglione",
+          "resumen": "Vernazza y Monterosso por la mañana en tren, Portovenere en coche a media tarde y 185 km bajando la costa, con parada en Bolgheri.",
+          "gana": ["Vernazza y Monterosso con tiempo", "Portovenere al atardecer sin gastar un desvío", "Bolgheri de camino"],
+          "pierde": ["Marina di Alberese y la playa salvaje", "Media jornada de trenes y media de carretera: se llega de noche"]
+        },
+        {
+          "id": "bolgheri-alberese",
+          "icono": "◡",
+          "ruta": "agua", "usa": 8,
+          "nombre": "Bolgheri y la playa salvaje de la Maremma",
+          "corto": "Alberese",
+          "sale": "la-spezia", "duerme": "castiglione",
+          "resumen": "Salida temprano, la avenida de cipreses de Bolgheri a media mañana y la tarde entera en Marina di Alberese, dentro del parque natural.",
+          "gana": ["Marina di Alberese: troncos varados, pinar y ni un chiringuito", "Bolgheri con parada de verdad, no de paso", "Tarde de playa larga"],
+          "pierde": ["Vernazza y Monterosso, si no los viste ayer", "235 km: es el día más largo del viaje"]
+        }
+      ]
+    },
+    {
+      "n": 9,
       "icono": "◆",
-      "titulo": "Roma, los tres últimos días",
-      "corto": "Roma",
-      "nota": "Idéntico en las dos: llegas el domingo 23, la Capilla Sixtina el lunes 24 y el Coliseo el martes 25 antes del ferri.",
-      "dias": [9, 10, 11],
-      "ruta": "toscana",
-      "duermes": "Las dos últimas noches en el lago de Bracciano. La del martes, en el ferri.",
-      "porque": "El orden de estos tres días no es una preferencia, es un calendario: los Museos Vaticanos cierran los domingos y el 15 de agosto, así que la Sixtina solo cabe el lunes 24, y el martes 25 tiene que quedar de reserva porque a las 20:30 hay que estar en el puerto. El domingo, con el Vaticano cerrado, es el día del centro histórico, que es gratis y no necesita reserva.",
-      "hitos": [
-        { "lugar": "bracciano", "que": "Lago volcánico a 45 km de Roma, gratis y fresco: es la base de los tres días y la ducha de la mañana antes de bajar a la ciudad." },
-        { "lugar": "appia", "que": "Los domingos la Via Appia Antica está cortada al tráfico, y llegas justo en domingo: ocho kilómetros de calzada romana original entre pinos, tumbas y acueductos. En bici se hace entera." },
-        { "lugar": "panteon", "que": "El circuito del centro histórico con la luz cayendo: Panteón, Piazza Navona, Fontana di Trevi y la Escalinata. Todo seguido, todo a pie y todo gratis." },
-        { "lugar": "vaticano", "que": "Lunes 24 con la primera franja reservada: cuatro kilómetros de galerías que acaban en la Capilla Sixtina. Si solo quieres la Sixtina y las Estancias de Rafael, hay un atajo señalizado." },
-        { "lugar": "san-pedro", "que": "Entrar es gratis; lo que cuesta es la cola del control. La cúpula son 10 € y 551 escalones, y es la mejor vista de Roma." },
-        { "lugar": "coliseo", "que": "Martes 25 a primera hora. La entrada es nominativa y con franja horaria, sale a la venta 30 días antes exactos y vale 24 h para el Foro y el Palatino: encadena los tres." },
-        { "lugar": "testaccio", "que": "El barrio del antiguo matadero, donde nació la cocina romana. Es donde se come los tres días sin pagar precios de centro." },
-        { "lugar": "cornelia", "que": "Aparcamiento en el lado oeste, dos paradas de metro del Vaticano y sin pisar el centro con el coche. El martes se sale de ahí directo a la A12." }
+      "titulo": "Playa por la mañana, Roma por la tarde",
+      "porque": "Llegas en domingo y los Museos Vaticanos cierran los domingos, así que hoy toca el centro histórico, que es gratis y no necesita reserva. Y la Via Appia Antica se corta al tráfico justo los domingos: coincide de casualidad y sería tonto no aprovecharlo.",
+      "opciones": [
+        {
+          "id": "roma-centro",
+          "icono": "◆",
+          "ruta": "toscana", "usa": 9,
+          "nombre": "La Appia en bici y el centro a pie",
+          "corto": "Centro",
+          "sale": "castiglione", "duerme": "bracciano",
+          "resumen": "Baño temprano, 200 km hasta el lago de Bracciano, comida en Testaccio y la tarde entre la calzada romana y el Panteón."
+        }
+      ]
+    },
+    {
+      "n": 10,
+      "icono": "✝",
+      "titulo": "Capilla Sixtina y San Pedro",
+      "porque": "Los Museos Vaticanos cierran los domingos y el 15 de agosto. De los tres días de Roma, la Sixtina solo cabe hoy: por eso Roma va al final del viaje y no al principio.",
+      "opciones": [
+        {
+          "id": "vaticano",
+          "icono": "✝",
+          "ruta": "toscana", "usa": 10,
+          "nombre": "Museos Vaticanos con la primera franja",
+          "corto": "Vaticano",
+          "sale": "bracciano", "duerme": "bracciano",
+          "resumen": "Cuatro kilómetros de galerías hasta la Sixtina, San Pedro gratis, pizza al taglio en Prati y el Gianicolo al atardecer."
+        }
+      ]
+    },
+    {
+      "n": 11,
+      "icono": "⚑",
+      "titulo": "Coliseo y al puerto",
+      "porque": "Es día de ferri y la hora de embarque no se negocia: a las 20:30 en el puerto. Todo lo que se meta hoy tiene que caber antes de las 15:30, así que no hay margen para una ruta alternativa. Lo que sí se decide es si entras al Coliseo, aquí abajo.",
+      "opciones": [
+        {
+          "id": "coliseo",
+          "icono": "⚑",
+          "ruta": "toscana", "usa": 11,
+          "nombre": "Coliseo, Foro y Palatino, y a Civitavecchia",
+          "corto": "Coliseo",
+          "sale": "bracciano", "duerme": null,
+          "resumen": "Coliseo con franja reservada a primera hora, Foro y Palatino toda la mañana, última comida en Testaccio y 70 km hasta el puerto."
+        }
       ]
     }
   ],
@@ -220,7 +507,6 @@
   "variantes": [
     {
       "id": "saturnia-como",
-      "tramo": "salida",
       "dia": 1,
       "icono": "≈",
       "titulo": "Saturnia: ¿las cascadas libres o el balneario?",
@@ -245,34 +531,7 @@
       ]
     },
     {
-      "id": "ct-card",
-      "tramo": "mar",
-      "dia": 7,
-      "icono": "▤",
-      "titulo": "Cinque Terre: ¿qué tarjeta compras?",
-      "nota": "Los senderos del parque son de pago aunque vayas andando, y a veces están cerrados por desprendimientos: pregunta en la estación qué tramos están abiertos antes de contar con ellos.",
-      "opciones": [
-        {
-          "id": "treno",
-          "icono": "▤",
-          "nombre": "Cinque Terre Treno MS Card",
-          "corto": "Card de tren",
-          "km": 0, "minutos": 0, "coste": 0,
-          "que": "17,30 € el día con trenes ilimitados entre La Spezia y Levanto, más los senderos. Es lo que ya va contado en el presupuesto y lo que tiene sentido si vas a saltar de pueblo en pueblo: con cuatro trayectos ya sale a cuenta. En agosto los trenes van llenos y hay que validar antes de subir."
-        },
-        {
-          "id": "trekking",
-          "icono": "◮",
-          "nombre": "Trekking Card y andar",
-          "corto": "Andando",
-          "km": 0, "minutos": 0, "rato": 0, "coste": -8,
-          "que": "La tarjeta solo de senderos cuesta bastante menos y te deja el Sentiero Azzurro, que es el camino que une los pueblos por el acantilado. Te ahorras unos ocho euros por día de tarjeta, pero hablamos de dos o tres horas de subir y bajar escalones en agosto y a pleno sol, y de que el tramo Riomaggiore-Manarola (la Via dell'Amore) y algunos otros abren y cierran según el año. Compra algún billete suelto de tren para los tramos que no quieras andar."
-        }
-      ]
-    },
-    {
       "id": "florencia-entrada",
-      "tramo": "florencia",
       "dia": 4,
       "icono": "◍",
       "titulo": "Florencia: solo vas a poder reservar una cosa. ¿Cuál?",
@@ -313,8 +572,32 @@
       ]
     },
     {
+      "id": "ct-card",
+      "dia": 7,
+      "icono": "▤",
+      "titulo": "Cinque Terre: ¿qué tarjeta compras?",
+      "nota": "Los senderos del parque son de pago aunque vayas andando, y a veces están cerrados por desprendimientos: pregunta en la estación qué tramos están abiertos antes de contar con ellos.",
+      "opciones": [
+        {
+          "id": "treno",
+          "icono": "▤",
+          "nombre": "Cinque Terre Treno MS Card",
+          "corto": "Card de tren",
+          "km": 0, "minutos": 0, "rato": 0, "coste": 0,
+          "que": "17,30 € el día con trenes ilimitados entre La Spezia y Levanto, más los senderos. Es lo que ya va contado en el presupuesto y lo que tiene sentido si vas a saltar de pueblo en pueblo: con cuatro trayectos ya sale a cuenta. En agosto los trenes van llenos y hay que validar antes de subir."
+        },
+        {
+          "id": "trekking",
+          "icono": "◮",
+          "nombre": "Trekking Card y andar",
+          "corto": "Andando",
+          "km": 0, "minutos": 0, "rato": 0, "coste": -8,
+          "que": "La tarjeta solo de senderos cuesta bastante menos y te deja el Sentiero Azzurro, que es el camino que une los pueblos por el acantilado. Te ahorras unos ocho euros por día de tarjeta, pero hablamos de dos o tres horas de subir y bajar escalones en agosto y a pleno sol, y de que el tramo Riomaggiore-Manarola (la Via dell'Amore) y algunos otros abren y cierran según el año. Compra algún billete suelto de tren para los tramos que no quieras andar."
+        }
+      ]
+    },
+    {
       "id": "coliseo-entrada",
-      "tramo": "roma",
       "dia": 11,
       "icono": "◆",
       "titulo": "El último día: ¿entras al Coliseo?",
@@ -344,7 +627,7 @@
     {
       "id": "tarquinia",
       "icono": "★",
-      "tramo": "salida", "dia": 1,
+      "dia": 1,
       "nombre": "Tarquinia",
       "lugar": "tarquinia",
       "km": 25, "minutos": 30, "rato": 90, "coste": 10,
@@ -354,7 +637,7 @@
     {
       "id": "vulci",
       "icono": "≈",
-      "tramo": "salida", "dia": 1,
+      "dia": 1,
       "nombre": "Vulci y la Cascata del Pellicone",
       "lugar": "vulci",
       "km": 20, "minutos": 30, "rato": 90, "coste": 10,
@@ -364,142 +647,97 @@
     {
       "id": "montemerano",
       "icono": "◎",
-      "tramo": "salida", "dia": 1,
+      "dia": 1,
       "nombre": "Montemerano",
       "lugar": "montemerano",
       "km": 12, "minutos": 20, "rato": 60, "coste": 0,
       "cuando": "A la caída de la tarde, entre baño y baño: está a 8 km de las cascadas.",
       "que": "Uno de los borghi più belli d'Italia y el pueblo de al lado de Saturnia: tres círculos de murallas, callejas de piedra y una iglesia con la Madonna della Gattaiola, una tabla pintada que en su día se usó de puerta y a la que le abrieron un agujero para el gato. No cuesta nada y se ve en una hora."
     },
-
     {
       "id": "san-filippo",
       "icono": "≈",
-      "tramo": "interior", "opcion": "pueblos", "dia": 2,
+      "dia": 2, "opcion": "pitigliano-siena",
       "nombre": "Bagni San Filippo",
       "lugar": "bagni-san-filippo",
       "km": 40, "minutos": 45, "rato": 90, "coste": 0,
-      "cuando": "A media mañana del domingo, subiendo por el monte Amiata en vez de por Pitigliano.",
-      "que": "Le robas a la otra rama su mejor sitio: la cascada de calcáreo blanco puro con forma de ballena, gratis y abierta 24 h. Ojo, el aparcamiento es pequeño y a partir de media mañana se llena: si lo coges, ve antes de las 11:00."
+      "cuando": "A media mañana, subiendo por el monte Amiata en vez de por Pitigliano.",
+      "que": "La cascada de calcáreo blanco puro con forma de ballena, gratis y abierta 24 h. Es el mejor sitio de la otra rama y aquí te lo llevas de todas formas. Ojo, el aparcamiento es pequeño y a partir de media mañana se llena: si lo coges, ve antes de las 11:00."
     },
     {
       "id": "sovana-desvio",
       "icono": "❖",
-      "tramo": "interior", "opcion": "pueblos", "dia": 2,
+      "dia": 2, "opcion": "pitigliano-siena",
       "nombre": "Sovana y Sorano",
       "lugar": "sovana",
       "km": 35, "minutos": 50, "rato": 90, "coste": 5,
       "cuando": "Justo después de Pitigliano, que está a diez minutos.",
-      "que": "Los otros dos pueblos de toba: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco con el Masso Leopoldino, una plataforma de roca desde la que se ve el barranco entero. Es meterse en la Maremma de la toba sin dedicarle un día."
+      "que": "Los otros dos pueblos de toba: Sovana con su necrópolis etrusca y la Tomba Ildebranda, y Sorano colgado del risco con el Masso Leopoldino, una plataforma de roca desde la que se ve el barranco entero."
+    },
+    {
+      "id": "pitigliano-desvio",
+      "icono": "★",
+      "dia": 2, "opcion": ["filippo-siena", "filippo-vignoni"],
+      "nombre": "Pitigliano",
+      "lugar": "pitigliano",
+      "km": 50, "minutos": 60, "rato": 120, "coste": 2,
+      "cuando": "A primera hora, saliendo de Saturnia hacia el este antes de subir al Amiata.",
+      "que": "El pueblo colgado del risco de toba, con su barrio judío, la sinagoga del XVI y las vie cave excavadas en la roca. Sumado a las termas hace un domingo largo, pero es el desvío que más cambia el día."
+    },
+    {
+      "id": "montalcino-desvio",
+      "icono": "◈",
+      "dia": 2, "opcion": ["filippo-vignoni", "toba-vignoni"],
+      "nombre": "Montalcino y Sant'Antimo",
+      "lugar": "montalcino",
+      "km": 40, "minutos": 60, "rato": 120, "coste": 0,
+      "cuando": "Al final de la tarde, si duermes en Bagno Vignoni: Montalcino está a 20 km y la abadía a 10 más.",
+      "que": "Montalcino es el pueblo del Brunello, con una fortaleza del XIV en la que se puede subir a las murallas y toda la Val d'Orcia debajo. Y a diez kilómetros, sola en un valle de olivos, la Abbazia di Sant'Antimo: una iglesia románica del XII construida en piedra de alabastro que a ciertas horas se pone traslúcida. Entrar es gratis."
     },
     {
       "id": "volterra",
       "icono": "★",
-      "tramo": "interior", "opcion": "pueblos", "dia": 3,
+      "dia": 3, "opcion": ["torres", "torres-orcia"],
       "nombre": "Volterra",
       "lugar": "volterra",
       "km": 55, "minutos": 60, "rato": 120, "coste": 3,
-      "cuando": "El lunes, entre San Gimignano y Florencia: está a media hora de San Gimignano.",
+      "cuando": "Entre San Gimignano y Florencia: está a media hora de San Gimignano.",
       "que": "Ciudad etrusca amurallada sobre un balcón de piedra, con un teatro romano entero abajo que se ve gratis desde la muralla y las Balze, unos barrancos que se están comiendo el pueblo por un lado. Mucho menos visitada que San Gimignano, y con talleres de alabastro que llevan trabajando la misma piedra desde los etruscos."
     },
     {
       "id": "certaldo",
       "icono": "◈",
-      "tramo": "interior", "opcion": "pueblos", "dia": 3,
+      "dia": 3, "opcion": ["torres", "torres-orcia"],
       "nombre": "Certaldo Alto",
       "lugar": "certaldo",
       "km": 12, "minutos": 25, "rato": 90, "coste": 4,
-      "cuando": "El lunes por la tarde, entre San Gimignano y Florencia: te pilla de camino sin salirte.",
-      "que": "El pueblo de ladrillo rojo donde murió Boccaccio, subido a una loma y sin coches dentro. Se sube en un funicular de 2 € desde la parte baja y arriba hay una sola calle, un palacio pretorio con los escudos de mayólica y la vista del valle. Es la parada barata que casi nadie mete entre las torres y Florencia."
-    },
-
-    {
-      "id": "pitigliano-desvio",
-      "icono": "★",
-      "tramo": "interior", "opcion": "termas", "dia": 2,
-      "nombre": "Pitigliano",
-      "lugar": "pitigliano",
-      "km": 50, "minutos": 60, "rato": 120, "coste": 2,
-      "cuando": "A primera hora del domingo, saliendo de Saturnia hacia el este antes de subir al Amiata.",
-      "que": "Le robas a la otra rama el pueblo colgado del risco de toba, con su barrio judío, la sinagoga del XVI y las vie cave excavadas en la roca. Sumado a Bagni San Filippo hace un domingo largo, pero es el desvío que más cambia esta rama."
-    },
-    {
-      "id": "montalcino-desvio",
-      "icono": "◈",
-      "tramo": "interior", "opcion": "termas", "dia": 2,
-      "nombre": "Montalcino y Sant'Antimo",
-      "lugar": "montalcino",
-      "km": 40, "minutos": 60, "rato": 120, "coste": 0,
-      "cuando": "Al final de la tarde del domingo, desde Bagno Vignoni: Montalcino está a 20 km y la abadía a 10 más.",
-      "que": "Montalcino es el pueblo del Brunello, con una fortaleza del XIV en la que se puede subir a las murallas y toda la Val d'Orcia debajo. Y a diez kilómetros, sola en un valle de olivos, la Abbazia di Sant'Antimo: una iglesia románica del XII construida en piedra de alabastro que a ciertas horas se pone traslúcida. Entrar es gratis."
+      "cuando": "Por la tarde, entre San Gimignano y Florencia: te pilla de camino sin salirte.",
+      "que": "El pueblo de ladrillo rojo donde murió Boccaccio, subido a una loma y sin coches dentro. Se sube en un funicular de 2 € desde la parte baja y arriba hay una sola calle, un palacio pretorio con los escudos de mayólica y la vista del valle."
     },
     {
       "id": "pienza-desvio",
       "icono": "▲",
-      "tramo": "interior", "opcion": "termas", "dia": 3,
+      "dia": 3, "opcion": ["petriolo", "torres-orcia"],
       "nombre": "Pienza y Montepulciano",
       "lugar": "pienza",
       "km": 45, "minutos": 60, "rato": 150, "coste": 4,
-      "cuando": "A primera hora del lunes, antes de bajar hacia Petriolo.",
-      "que": "Están a diez y a veinticinco kilómetros de donde duermes, así que salen casi de balde. Pienza es un pueblo que un papa mandó rehacer entero en cinco años como ciudad ideal del Renacimiento, y es la capital del pecorino: cómpralo ahí, curado en heno o en ceniza. Montepulciano está encaramado en una loma con toda la Val d'Orcia debajo y bodegas excavadas bajo las casas."
+      "cuando": "A primera hora, saliendo de Bagno Vignoni: están a diez y a veinticinco kilómetros.",
+      "que": "Pienza es un pueblo que un papa mandó rehacer entero en cinco años como ciudad ideal del Renacimiento, y es la capital del pecorino: cómpralo ahí, curado en heno o en ceniza. Montepulciano está encaramado en una loma con toda la Val d'Orcia debajo y bodegas excavadas bajo las casas."
     },
     {
       "id": "san-galgano",
       "icono": "◇",
-      "tramo": "interior", "opcion": "termas", "dia": 3,
+      "dia": 3, "opcion": "petriolo",
       "nombre": "Abadía de San Galgano",
       "lugar": "san-galgano",
       "km": 25, "minutos": 30, "rato": 90, "coste": 5,
-      "cuando": "El lunes, justo después del baño en Petriolo: está a 20 km por la misma carretera.",
+      "cuando": "Justo después del baño en Petriolo: está a 20 km por la misma carretera.",
       "que": "Una abadía cisterciense gótica sin tejado: se le cayó en el siglo XVIII y lo que queda son las paredes, los ventanales y el suelo de hierba con el cielo encima. En la colina de al lado, la ermita de Montesiepi guarda clavada en una roca la espada de San Galgano, que es una espada en la piedra de verdad y anterior a las novelas del rey Arturo."
     },
-
-    {
-      "id": "carrara",
-      "icono": "◈",
-      "tramo": "costa", "dia": 6,
-      "nombre": "Canteras de Carrara y Colonnata",
-      "lugar": "carrara",
-      "km": 30, "minutos": 45, "rato": 120, "coste": 12,
-      "cuando": "El jueves, entre Pisa (o Lucca) y La Spezia: se sale de la A12 un cuarto de hora y se vuelve.",
-      "que": "Los Alpes Apuanos abiertos en canal: paredes blancas de mármol de cientos de metros, la misma piedra de la que salieron el David y la Piedad. Hay visitas guiadas que meten en una cantera activa o en las galerías subterráneas, sobre 10-15 €, aunque solo con subir por la carretera hasta el mirador de Fantiscritti ya se ve el disparate. Arriba está Colonnata, donde curan el lardo en pilas de mármol: un bocadillo ahí es una parada de comida de las que se recuerdan."
-    },
-    {
-      "id": "portovenere-desvio",
-      "icono": "◡",
-      "tramo": "mar", "opcion": "ct-un-dia", "dia": 8,
-      "requiere": { "tramo": "costa", "opcion": "lucca" },
-      "nombre": "Portovenere",
-      "lugar": "portovenere",
-      "km": 30, "minutos": 45, "rato": 150, "coste": 0,
-      "cuando": "El sábado a primera hora, antes de empezar la bajada larga.",
-      "que": "Con la rama de Lucca y las Cinque Terre en un día, Portovenere se queda fuera del viaje, y sería una pena: San Pietro sobre el acantilado y la gruta de Byron. Media mañana desde La Spezia, pero recorta la parada de Alberese o te da la noche en la carretera."
-    },
-    {
-      "id": "alberese-desvio",
-      "icono": "◡",
-      "tramo": "mar", "opcion": "ct-dos-dias", "dia": 8,
-      "nombre": "Marina di Alberese",
-      "lugar": "alberese",
-      "km": 35, "minutos": 50, "rato": 150, "coste": 5,
-      "cuando": "El sábado al final de la bajada: está a 20 km antes de Castiglione.",
-      "que": "Le robas a la otra rama la playa salvaje del parque de la Maremma, con troncos varados y pinar detrás. Se entra en bus desde el centro de visitantes, así que mira el horario del último de vuelta. Llegando de un tirón desde La Spezia te plantas ahí sobre las seis: es baño de última hora, no tarde de playa."
-    },
-    {
-      "id": "populonia",
-      "icono": "★",
-      "tramo": "mar", "dia": 8,
-      "nombre": "Populonia y el golfo de Baratti",
-      "lugar": "populonia",
-      "km": 20, "minutos": 30, "rato": 120, "coste": 8,
-      "cuando": "El sábado bajando la costa, a la altura de Piombino: es un desvío corto desde la Aurelia.",
-      "que": "La única ciudad etrusca construida a pie de mar, con la necrópolis metida entre pinos y la playa del golfo de Baratti justo debajo. Se puede ver el parque arqueológico entero (unos 8 €) o simplemente bajar a la playa, bañarse en una bahía en forma de media luna y subir andando a la acrópolis. La arena tiene brillos negros: son las escorias de hierro que los etruscos fundían aquí hace dos mil quinientos años."
-    },
-
     {
       "id": "certosa",
       "icono": "◇",
-      "tramo": "florencia", "dia": 4,
+      "dia": 4,
       "nombre": "Certosa del Galluzzo",
       "lugar": "certosa-galluzzo",
       "km": 5, "minutos": 15, "rato": 75, "coste": 5,
@@ -509,37 +747,76 @@
     {
       "id": "fiesole",
       "icono": "◎",
-      "tramo": "florencia", "dia": 4,
+      "dia": 4,
       "nombre": "Fiesole",
       "lugar": "fiesole",
       "km": 0, "minutos": 0, "rato": 180, "coste": 9,
       "cuando": "A media tarde, cuando Florencia está a 38 °C y no se puede andar por la calle.",
       "que": "El pueblo etrusco de la colina de enfrente, y la escapada de toda la vida de los florentinos cuando aprieta el calor: 20 minutos en el autobús 7 desde Piazza San Marco por 1,70 €. Arriba hay una zona arqueológica con un teatro romano que todavía se usa en verano (unos 7 €), y la subida a San Francesco, que es gratis y tiene la mejor vista de Florencia que existe, mejor que la del Piazzale y sin la mitad de gente. Baja al atardecer."
     },
-
+    {
+      "id": "carrara",
+      "icono": "◈",
+      "dia": 6,
+      "nombre": "Canteras de Carrara y Colonnata",
+      "lugar": "carrara",
+      "km": 30, "minutos": 45, "rato": 120, "coste": 12,
+      "cuando": "Camino de La Spezia: se sale de la A12 un cuarto de hora y se vuelve.",
+      "que": "Los Alpes Apuanos abiertos en canal: paredes blancas de mármol de cientos de metros, la misma piedra de la que salieron el David y la Piedad. Hay visitas guiadas que meten en una cantera activa o en las galerías subterráneas, sobre 10-15 €, aunque solo con subir por la carretera hasta el mirador de Fantiscritti ya se ve el disparate. Arriba está Colonnata, donde curan el lardo en pilas de mármol: un bocadillo ahí es una parada de comida de las que se recuerdan."
+    },
+    {
+      "id": "portovenere-desvio",
+      "icono": "◡",
+      "dia": 8,
+      "nombre": "Portovenere",
+      "lugar": "portovenere",
+      "km": 30, "minutos": 45, "rato": 150, "coste": 0,
+      "cuando": "A primera hora del sábado, antes de empezar la bajada larga.",
+      "que": "Si con los días que llevas elegidos Portovenere se queda fuera del viaje, sería una pena: San Pietro sobre el acantilado y la gruta de Byron. Media mañana desde La Spezia, pero recorta la parada del final del día o te da la noche en la carretera."
+    },
+    {
+      "id": "alberese-desvio",
+      "icono": "◡",
+      "dia": 8,
+      "nombre": "Marina di Alberese",
+      "lugar": "alberese",
+      "km": 35, "minutos": 50, "rato": 150, "coste": 5,
+      "cuando": "Al final de la bajada: está a 20 km antes de Castiglione.",
+      "que": "La playa salvaje del parque de la Maremma, con troncos varados y pinar detrás. Se entra en bus desde el centro de visitantes, así que mira el horario del último de vuelta. Llegando de un tirón desde La Spezia te plantas ahí sobre las seis: es baño de última hora, no tarde de playa."
+    },
+    {
+      "id": "populonia",
+      "icono": "★",
+      "dia": 8,
+      "nombre": "Populonia y el golfo de Baratti",
+      "lugar": "populonia",
+      "km": 20, "minutos": 30, "rato": 120, "coste": 8,
+      "cuando": "Bajando la costa, a la altura de Piombino: es un desvío corto desde la Aurelia.",
+      "que": "La única ciudad etrusca construida a pie de mar, con la necrópolis metida entre pinos y la playa del golfo de Baratti justo debajo. Se puede ver el parque arqueológico entero (unos 8 €) o simplemente bajar a la playa, bañarse en una bahía en forma de media luna y subir andando a la acrópolis. La arena tiene brillos negros: son las escorias de hierro que los etruscos fundían aquí hace dos mil quinientos años."
+    },
     {
       "id": "catacumbas",
       "icono": "◇",
-      "tramo": "roma", "dia": 9,
+      "dia": 9,
       "nombre": "Catacumbas de la Appia",
       "km": 0, "minutos": 0, "rato": 60, "coste": 10,
-      "cuando": "El domingo por la tarde, en mitad del paseo en bici por la Appia: están en el mismo camino.",
+      "cuando": "Por la tarde, en mitad del paseo en bici por la Appia: están en el mismo camino.",
       "que": "San Calixto o San Sebastián, las dos en la propia Via Appia Antica. Son kilómetros de galerías excavadas en la toba a varios pisos de profundidad, con las tumbas todavía abiertas en las paredes, y solo se entra con guía en grupos de media hora. Unos 10 € y agradecen los 15 °C constantes de ahí abajo, que en agosto no es poco."
     },
     {
       "id": "bracciano-lago",
       "icono": "◡",
-      "tramo": "roma", "dia": 10,
+      "dia": 10,
       "nombre": "Baño en el lago y Anguillara",
-      "lugar": "bracciano",
+      "lugar": "anguillara",
       "km": 10, "minutos": 20, "rato": 120, "coste": 0,
       "cuando": "Al volver de Roma, antes de cenar: duermes justo ahí.",
-      "que": "El lago de Bracciano es un cráter volcánico con playas de arena oscura y agua limpia, y está prohibida la navegación a motor, así que se baña bien. Es la ducha de verdad de estos tres días. Anguillara Sabazia, en la orilla, es un pueblo medieval que se asoma al agua y donde se cena por la mitad de lo que cuesta en Roma. El castillo Orsini-Odescalchi de Bracciano se visita por unos 12 € si un día vuelves pronto."
+      "que": "El lago de Bracciano es un cráter volcánico con playas de arena oscura y agua limpia, y está prohibida la navegación a motor, así que se baña bien. Es la ducha de verdad de estos tres días. Anguillara Sabazia, en la orilla, es un pueblo medieval que se asoma al agua y donde se cena por la mitad de lo que cuesta en Roma."
     },
     {
       "id": "ostia-antica",
       "icono": "★",
-      "tramo": "roma", "dia": 11,
+      "dia": 11,
       "requiere": { "variante": "coliseo-entrada", "opcion": "fuera" },
       "nombre": "Ostia Antica",
       "lugar": "ostia-antica",

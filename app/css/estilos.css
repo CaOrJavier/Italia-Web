@@ -193,6 +193,10 @@ h2.seccion {
 }
 h2.seccion:first-child { margin-top: 4px; }
 
+/* Un título de sección con un botón a la derecha. */
+.cab-seccion { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.cab-seccion .seccion { flex: 1; }
+
 /* ── Piezas ──────────────────────────────────────────────────────────────── */
 
 .tarjeta {
@@ -577,13 +581,37 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .sk-viva { opacity: 1; }
 .sk-muerta { stroke: var(--linea-2); opacity: .5; stroke-dasharray: 4 5; }
 
-.sk-fila { display: grid; gap: 10px; justify-items: center; }
-.sk-fila-1 { grid-template-columns: 1fr; }
+/* Una parada por día: la cabecera dice qué día es y de dónde sales, y debajo van
+   los caminos posibles. Los días de un solo camino se pintan apagados para que el
+   ojo caiga en los días donde de verdad hay que decidir. */
+.sk-parada { display: grid; gap: 8px; justify-items: center; }
+.sk-parada-cab {
+  display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: baseline; justify-content: center;
+  font-size: 11.5px; color: var(--tinta-2);
+}
+.sk-parada-cab b { font-size: 13px; color: var(--tinta); font-variant-numeric: tabular-nums; }
+.sk-parada-cab i { font-style: normal; }
+.sk-parada-cab em {
+  font-style: normal; font-size: 10px; font-weight: 650;
+  text-transform: uppercase; letter-spacing: .05em;
+  color: var(--ambar-txt); background: var(--ambar-suave);
+  border: 1px solid color-mix(in srgb, var(--ambar-txt) 25%, transparent);
+  padding: 2px 6px; border-radius: 999px;
+}
+.sk-parada-cab .sk-fijo-et {
+  color: var(--tinta-2); background: var(--papel-3); border-color: var(--linea);
+}
+.sk-parada-fija .sk-parada-cab { opacity: .75; }
+
+.sk-fila { display: grid; gap: 10px; justify-items: center; width: 100%; }
+.sk-fila-n1 { grid-template-columns: 1fr; }
 /* Sin hueco entre columnas a propósito: así el centro de cada nodo cae exactamente
-   en el 25 % y el 75 % del ancho, que es adonde apuntan las ramas de la Y. Con
+   en el medio de su columna, que es adonde apuntan las ramas del abanico. Con
    hueco el centro se desplaza y la línea deja de tocar el nodo. La separación la
    pone el max-width del nodo. */
-.sk-fila-2 { grid-template-columns: 1fr 1fr; column-gap: 0; align-items: start; }
+.sk-fila-n2 { grid-template-columns: repeat(2, 1fr); column-gap: 0; align-items: start; }
+.sk-fila-n3 { grid-template-columns: repeat(3, 1fr); column-gap: 0; align-items: start; }
+.sk-fila-n4 { grid-template-columns: repeat(4, 1fr); column-gap: 0; align-items: start; }
 .sk-col { display: grid; justify-items: center; width: 100%; }
 
 /* El nodo: icono en redondo, nombre debajo y la cifra del tramo. */
@@ -606,6 +634,13 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   font-size: 10px; text-transform: uppercase; letter-spacing: .06em;
   color: var(--tinta-2);
 }
+/* Dónde acabas durmiendo: es lo que encadena un día con el siguiente, así que va
+   escrito en el propio nodo y no en la letra pequeña de abajo. */
+.sk-cama {
+  font-size: 10.5px; color: var(--tinta-2);
+  border-top: 1px dashed var(--linea); padding-top: 3px; margin-top: 1px;
+  width: 100%;
+}
 
 .sk-ico {
   display: grid; place-items: center;
@@ -616,8 +651,10 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   margin-bottom: 2px;
 }
 
-.sk-tronco { border-style: dashed; background: var(--papel-2); }
+/* El día de un solo camino: se pinta y no se pulsa, porque no hay nada que elegir. */
+.sk-tronco { border-style: dashed; background: var(--papel-2); cursor: default; }
 .sk-tronco .sk-ico { border-style: dashed; }
+.sk-tronco.sk-on { box-shadow: none; }
 
 .sk-elige { cursor: pointer; }
 .sk-elige:hover { border-color: var(--linea-2); }
@@ -751,47 +788,10 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   color: var(--tinta-2); font-size: 12px; white-space: nowrap;
 }
 
-/* La tarjeta de un tramo fijo no lleva franja de color de ruta, porque no es de
-   ninguna de las dos: es de las dos a la vez. */
-.tarjeta-fija { border-left: 4px dashed var(--linea-2); }
-
-/* Los tres datos de cabecera de una rama: ritmo, dónde duermes y cuánto pesa. */
-.rama-datos {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px;
-  background: var(--linea); border: 1px solid var(--linea); border-radius: var(--r-peq);
-  overflow: hidden; margin-top: 10px;
-}
-.rama-datos span { background: var(--papel); padding: 8px 10px; font-size: 13px; }
-.rama-datos i {
-  display: block; font-style: normal;
-  font-size: 10.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-2);
-}
-
-/* Los sitios de un tramo, uno a uno. Van plegados: el árbol es para decidir y
-   esto es para leer despacio, así que no debe estorbar al que ya lo tiene claro. */
-.hitos { margin-top: 10px; border-top: 1px solid var(--linea); padding-top: 8px; }
-.hitos > summary {
-  cursor: pointer; font-size: 12.5px; font-weight: 650; color: var(--azul-txt);
-  padding: 2px 0;
-}
-.hitos > summary:hover { text-decoration: underline; }
-.hitos ul { list-style: none; padding: 0; margin: 8px 0 0; display: grid; gap: 8px; }
-.hitos li {
-  display: grid; grid-template-columns: 20px 1fr; gap: 8px;
-  padding: 8px 10px; margin: 0;
-  background: var(--papel-2); border: 1px solid var(--linea);
-  border-left: 3px solid var(--c); border-radius: var(--r-peq);
-}
-.hitos i { font-style: normal; color: var(--c); text-align: center; }
-.hitos b { font-size: 13.5px; }
-.hitos p { font-size: 13px; color: var(--tinta-2); margin: 3px 0 0; }
-.hito-precio {
-  font-size: 11px; color: var(--tinta-2); margin-left: 6px;
-  font-variant-numeric: tabular-nums;
-}
-
-/* Las opciones de una variante, con su letra pequeña: se elige leyendo, no a ciegas. */
-.plato-var { background: var(--papel-2); }
+/* Las opciones de un día o de una variante, con su letra pequeña: se elige
+   leyendo, no a ciegas. Todo va dentro de un botón, así que nada de listas ni de
+   párrafos aquí dentro: solo contenido en línea. */
+.caja-var { background: var(--papel-2); margin-top: 14px; }
 .var-ops { display: grid; gap: 8px; margin-top: 8px; }
 .var-op {
   display: grid; gap: 4px; width: 100%;
@@ -805,10 +805,26 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
 .var-cab { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
 .var-cab b { font-size: 14px; color: var(--tinta); }
 .var-que { font-size: 13.5px; color: var(--tinta-2); }
-.var-on {
-  border-left-color: var(--azul); background: var(--azul-suave);
-}
+.var-on { background: var(--azul-suave); border-color: color-mix(in srgb, var(--azul) 25%, transparent); }
 .var-on .var-que { color: var(--tinta); }
+
+/* El «ganas / pierdes» de cada camino, en línea porque va dentro del botón. */
+.op-listas { display: grid; gap: 3px; margin-top: 4px; }
+.op-mas, .op-menos { display: block; font-size: 13px; padding-left: 15px; text-indent: -15px; }
+.op-mas::before { content: '+ '; font-weight: 700; color: var(--verde-txt); }
+.op-menos::before { content: '− '; font-weight: 700; color: var(--rojo-txt); }
+
+/* Por qué un día no se puede cambiar. Va donde iría el selector de caminos. */
+.jor-porque {
+  background: var(--papel-2); border: 1px dashed var(--linea-2);
+  border-radius: var(--r-peq); padding: 9px 11px; margin: 12px 0 0;
+}
+
+/* Los desvíos de un día, dentro de la propia jornada. */
+.jor-desvios {
+  border: 1px solid var(--linea); border-radius: var(--r-peq); overflow: hidden;
+  background: var(--papel-2);
+}
 
 /* El itinerario compuesto, al final: una jornada por día que se abre entera. */
 .jornada { border-top: 1px solid var(--linea); border-left: 4px solid var(--barra); }
@@ -867,6 +883,11 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   padding: 2px 6px; border-radius: 999px; margin-left: 4px;
 }
 .jor-sitios small { font-size: 11px; color: var(--tinta-2); text-align: right; }
+/* La descripción del sitio sale de lugares.json y no se escribe dos veces. */
+.jor-sitios li p {
+  grid-column: 2 / -1; margin: 3px 0 0;
+  font-size: 12.5px; color: var(--tinta-2);
+}
 
 @media (max-width: 400px) {
   .jor-sitios li { grid-template-columns: 18px 1fr; }
@@ -896,6 +917,18 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   font-size: 14px;
 }
 .mez-total b { font-size: 12px; text-transform: uppercase; letter-spacing: .05em; color: var(--tinta-2); }
+
+/* Con tres o cuatro caminos en un móvil las columnas se quedan en 80 px y el nodo
+   deja de leerse. Ahí se apilan en dos columnas y el abanico del SVG se cambia por
+   una recta: la ramificación ya se entiende por el grupo y por la cabecera. */
+.sk-linea-recta { display: none; }
+
+@media (max-width: 560px) {
+  .sk-fila-n3, .sk-fila-n4 { grid-template-columns: repeat(2, 1fr); column-gap: 6px; }
+  .sk-fila-n3 + .sk-menores, .sk-fila-n4 + .sk-menores { margin-top: 20px; }
+  .sk-linea-abanico { display: none; }
+  .sk-linea-recta { display: block; }
+}
 
 @media (min-width: 620px) {
   .arbol { padding: 20px 40px; }
