@@ -280,6 +280,49 @@
           }
         },
         {
+          "id": "siena-gimignano",
+          "icono": "◈",
+          "ruta": null,
+          "nombre": "Siena y San Gimignano el mismo día",
+          "corto": "Siena y torres",
+          "sale": "val-dorcia", "duerme": "villa-costanza",
+          "resumen": "Los cuatro sitios caen en línea recta —Siena, Monteriggioni, San Gimignano y Florencia—, así que en un día entran todos. Es el día más lleno del viaje y se paga con la primera tarde de Florencia. Este día no está en ninguna de las dos rutas.",
+          "gana": ["Siena y San Gimignano el mismo día, que es lo que no cabe en ninguna de las dos rutas", "Monteriggioni de propina, porque está justo en medio", "Llegas a Florencia con los tres pueblos de la Toscana ya vistos"],
+          "pierde": ["La primera tarde de Florencia: llegas para cenar y poco más", "El Piazzale Michelangelo al atardecer se va al día siguiente", "165 km y cuatro paradas: es el día que más de pie se pasa"],
+          "dia": {
+            "n": 3, "fecha": "2026-08-17", "dia_semana": "lunes",
+            "titulo": "Siena, San Gimignano y llegada de noche a Florencia",
+            "etapa": "Bagno Vignoni → Siena → Monteriggioni → San Gimignano → Florencia",
+            "km": 165, "minutos": 185,
+            "plan": [
+              { "hora": "07:15", "que": "Salida temprano de Bagno Vignoni. Hoy no hay baño largo: el día es de piedra, no de agua, y cada media hora de más aquí es media hora menos de San Gimignano." },
+              { "hora": "07:45", "que": "San Quirico d'Orcia, a 3 km: los Horti Leonini, un jardín renacentista abierto y gratis, y la capilla de la Madonna di Vitaleta con la luz rasante de primera hora. Media hora justa." },
+              { "hora": "08:30", "que": "60 km hasta Siena por la Cassia, cruzando las Crete Senesi." },
+              { "hora": "09:30", "que": "Aparcas en Due Ponti (2 € el día) y subes por las escaleras mecánicas soterradas hasta Porta Camollia." },
+              { "hora": "10:00", "que": "Siena con la mañana entera: Piazza del Campo, el Duomo por dentro con el suelo de mármol taraceado descubierto (solo pasa unas semanas al año y agosto es una de ellas) y la Torre del Mangia si aguantas los 400 escalones." },
+              { "hora": "13:30", "que": "Comes en Siena: pici all'aglione, que es la pasta gorda de aquí con salsa de ajo." },
+              { "hora": "14:45", "que": "15 km hasta Monteriggioni, que cae justo en la carretera: un pueblo entero dentro de una muralla circular con catorce torres. Media hora larga y se ve todo." },
+              { "hora": "16:00", "que": "30 km hasta San Gimignano. Aparca en los de abajo (P3 o P4), que valen la mitad que los pegados a la muralla, y sube andando los diez minutos de cuesta." },
+              { "hora": "16:45", "que": "San Gimignano con la tarde entera: catorce torres medievales en pie de las setenta y dos que hubo, Piazza della Cisterna, la Collegiata y la Torre Grossa. A partir de las seis los autobuses se han ido y el pueblo cambia por completo." },
+              { "hora": "19:15", "que": "55 km hasta Villa Costanza, tu base los dos próximos días. Se entra directamente desde la superstrada." },
+              { "hora": "20:30", "que": "Tranvía T1 al centro, 23 minutos. Hoy Florencia es solo cenar en el Oltrarno y ver el Duomo iluminado de vuelta: lo demás es mañana." }
+            ],
+            "paradas": [
+              {"hora":"07:45","dura":30,"nivel":3,"lugar":"val-dorcia","salta":"Sales media hora más tarde y desayunas con calma: la Val d'Orcia la cruzas igual por la Cassia"},
+              {"hora":"10:00","dura":210,"nivel":1,"lugar":"siena"},
+              {"hora":"14:45","dura":45,"nivel":3,"lugar":"monteriggioni","salta":"Se ve entero desde la carretera. Suéltalo y llegas a San Gimignano a las 15:45, con tiempo para la Torre Grossa"},
+              {"hora":"16:45","dura":150,"nivel":1,"lugar":"san-gimignano"},
+              {"hora":"20:30","dura":90,"nivel":2,"lugar":"florencia-duomo","salta":"Si llegas fundido, cena en Scandicci y duerme: mañana Florencia es tuya desde las ocho"}
+            ],
+            "lugares": ["bagno-vignoni", "val-dorcia", "siena", "siena-parking", "monteriggioni", "san-gimignano", "villa-costanza", "florencia-duomo"],
+            "dormir": "villa-costanza", "aparcar": ["siena", "san-gimignano", "florencia"],
+            "comer": "Pici all'aglione en Siena a mediodía y schiacciata con embutido en San Gimignano por la tarde, de pie y por 5 €. El helado de Piazza della Cisterna tiene fama merecida. Por la noche, Oltrarno florentino, que es donde se cena a precio de barrio.",
+            "aviso": "Es el día más lleno del viaje: dos ciudades, un pueblo y 165 km. Sale porque los cuatro sitios están en línea recta, pero no hay margen para entretenerse. Si a las 14:45 sigues en Siena, suelta Monteriggioni sin pensarlo. Y el aparcamiento de San Gimignano pegado a la muralla es de los más caros de la Toscana.",
+            "coste_dia": 52,
+            "apretado": "Siena por la mañana y San Gimignano por la tarde es lo que en las dos rutas ocupa dos días. Cabe, pero llegas a Florencia de noche y la primera tarde de la ciudad se pierde."
+          }
+        },
+        {
           "id": "torres-orcia",
           "icono": "◈",
           "ruta": null,
