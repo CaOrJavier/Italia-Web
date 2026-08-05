@@ -1381,9 +1381,133 @@ td.gana { color: var(--verde-txt); font-weight: 650; }
   * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
+/* ── La hoja de ruta ──────────────────────────────────────────────────────── */
+
+/* Se ve en pantalla igual que va a salir por la impresora, para que no haya
+   sorpresas: fondo blanco, tinta negra y ancho de folio. Lo único que cambia al
+   imprimir es que desaparece el marco de la web. */
+.btn-imprimir {
+  display: block; width: 100%; max-width: 340px; margin: 0 auto 18px;
+  padding: 13px 16px; font: inherit; font-weight: 650; font-size: 15px;
+  color: #fff; background: var(--verde);
+  border: 0; border-radius: var(--r); cursor: pointer;
+}
+.btn-imprimir:hover { filter: brightness(1.08); }
+
+.opcion-papel {
+  display: grid; grid-template-columns: 20px 1fr; gap: 10px; align-items: start;
+  max-width: 340px; margin: 0 auto 12px; padding: 11px 13px;
+  background: var(--papel-2); border: 1px solid var(--linea); border-radius: var(--r);
+  cursor: pointer; font-size: 13.5px;
+}
+.opcion-papel input { width: 18px; height: 18px; margin-top: 1px; }
+.opcion-papel small { display: block; color: var(--tinta-2); font-size: 12.5px; margin-top: 2px; }
+
+.papel {
+  background: #fff; color: #1a1a1a;
+  max-width: 780px; margin: 0 auto;
+  padding: 26px 30px;
+  border: 1px solid var(--linea); border-radius: var(--r);
+  font-size: 13px; line-height: 1.45;
+}
+.papel b { color: inherit; }
+
+.pl-cab { border-bottom: 2px solid #1a1a1a; padding-bottom: 12px; margin-bottom: 4px; }
+.pl-cab h1 { font-size: 22px; line-height: 1.15; margin-bottom: 4px; }
+.pl-sub { font-size: 12.5px; margin-bottom: 10px; }
+.pl-fijo { margin: 0 0 8px; padding-left: 17px; font-size: 12px; }
+.pl-fijo li { margin-bottom: 3px; }
+.pl-clave { font-size: 12px; margin: 0; }
+
+.pl-dia { break-inside: avoid; padding: 14px 0 4px; border-top: 1px solid #bbb; }
+.pl-dia:first-of-type { border-top: 0; }
+.pl-dia h2 {
+  font-size: 15.5px; line-height: 1.25; margin-bottom: 2px;
+  display: grid; grid-template-columns: 40px 1fr; gap: 8px; align-items: baseline;
+}
+.pl-dia h2 small { grid-column: 2; font-size: 11.5px; font-weight: 400; color: #555; }
+.pl-n {
+  grid-row: span 2; align-self: start;
+  font-size: 17px; text-align: center;
+  border: 2px solid #1a1a1a; border-radius: 4px; padding: 2px 0;
+}
+.pl-etapa { font-size: 12.5px; font-weight: 650; margin: 0 0 8px 48px; }
+
+/* La cadena de paradas: es lo que se mira de un vistazo al arrancar el día. */
+.pl-paradas { list-style: none; padding: 0; margin: 0 0 9px 48px; }
+.pl-paradas li {
+  display: grid; grid-template-columns: 42px 16px 1fr; gap: 6px;
+  margin: 0 0 3px; font-size: 12.5px;
+}
+.pl-hora { font-variant-numeric: tabular-nums; }
+.pl-marca { text-align: center; }
+.pl-paradas em { font-style: normal; color: #555; font-size: 11.5px; }
+.pl-salta { color: #555; font-size: 11.5px; }
+
+/* El hora a hora es el detalle largo: la cadena de arriba ya lleva las horas de
+   cada parada, así que en papel va apagado y son cinco hojas menos. */
+.papel .pl-horas { display: none; }
+.papel.con-horas .pl-horas { display: block; }
+.pl-horas { list-style: none; padding: 0; margin: 0 0 9px 48px; font-size: 12px; }
+.pl-horas li {
+  margin: 0 0 2px; padding-left: 46px; text-indent: -46px;
+}
+.pl-horas span { display: inline-block; width: 40px; font-weight: 650; font-variant-numeric: tabular-nums; }
+
+.pl-ficha {
+  margin: 0 0 0 48px; display: grid; grid-template-columns: 62px 1fr; gap: 2px 8px;
+  font-size: 12px; border-top: 1px dotted #bbb; padding-top: 6px;
+}
+.pl-ficha dt { font-weight: 650; text-transform: uppercase; font-size: 10px; letter-spacing: .04em; padding-top: 2px; }
+.pl-ficha dd { margin: 0; }
+
+/* Comida y reservas: van al final y cada bloque empieza en hoja nueva. */
+.pl-corte { break-before: page; }
+.pl-region { break-inside: avoid; margin-top: 10px; }
+.pl-region h3 { font-size: 13.5px; margin-bottom: 4px; }
+.pl-region h3 small { font-weight: 400; font-size: 11.5px; color: #555; }
+.pl-platos, .pl-lista { list-style: none; padding: 0; margin: 0; font-size: 12px; }
+.pl-platos li, .pl-lista li {
+  margin: 0 0 5px; padding-left: 10px; border-left: 2px solid #ddd;
+}
+.pl-platos li.pl-must { border-left-color: #1a1a1a; }
+.pl-precio { font-variant-numeric: tabular-nums; color: #555; }
+.pl-lista li { display: grid; grid-template-columns: 15px 1fr; gap: 6px; border-left: 0; padding-left: 0; }
+.pl-casilla {
+  width: 11px; height: 11px; border: 1.5px solid #1a1a1a; border-radius: 2px;
+  margin-top: 3px;
+}
+
+@media (max-width: 620px) {
+  .papel { padding: 16px 14px; font-size: 12.5px; }
+  .pl-etapa, .pl-paradas, .pl-horas, .pl-ficha { margin-left: 0; }
+  .pl-dia h2 { grid-template-columns: 34px 1fr; }
+}
+
 @media print {
-  .nav, .cuenta, .filtros, .selector { display: none; }
-  body { padding: 0; background: #fff; }
-  .dia-c { display: block !important; }
-  .tarjeta { break-inside: avoid; box-shadow: none; }
+  /* Fuera todo el marco de la web: cabecera, menú y lo que solo sirve en pantalla. */
+  .cabecera, .nav, .cuenta, .filtros, .selector, .no-papel, .pie { display: none !important; }
+  body { padding: 0; background: #fff; color: #000; }
+  main { padding: 0 !important; max-width: none !important; }
+
+  .papel { border: 0; border-radius: 0; padding: 0; max-width: none; font-size: 10.5pt; }
+  .pl-cab h1 { font-size: 17pt; }
+  .pl-dia h2 { font-size: 12.5pt; }
+  .pl-paradas li, .pl-etapa { font-size: 10pt; }
+  .pl-horas, .pl-ficha, .pl-platos, .pl-lista { font-size: 9.5pt; }
+
+  /* En papel un desplegable cerrado no es que ocupe menos: es que no sale. */
+  details { display: block !important; }
+  details > summary { display: block !important; list-style: none; }
+  .dia-c, .tarjeta-c { display: block !important; }
+  .tarjeta, .jornada, .dia { break-inside: avoid; box-shadow: none; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* Los platos y las reglas de comer son entradas cortas: en un folio a una sola
+     columna se queda medio ancho en blanco y sobra una hoja. */
+  .pl-platos, .pl-lista { column-count: 2; column-gap: 8mm; }
+  .pl-platos li, .pl-lista li { break-inside: avoid; }
+
+  @page { margin: 14mm 12mm; }
 }

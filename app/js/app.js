@@ -9,7 +9,8 @@ const VISTAS = {
   mapa: () => import('./vistas/mapa.js'),
   reservar: () => import('./vistas/reservar.js'),
   comer: () => import('./vistas/comer.js'),
-  aparcar: () => import('./vistas/aparcar.js')
+  aparcar: () => import('./vistas/aparcar.js'),
+  imprimir: () => import('./vistas/imprimir.js')
 };
 
 const POR_DEFECTO = 'rutas';
